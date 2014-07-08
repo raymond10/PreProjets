@@ -1,1 +1,66 @@
-#
+#######################################################
+#Ne pas supprimer ce fichier, ni commenter les lignes
+#######################################################
+# WoLips configuration
+wolips.password=CEDRE
+wolips.host=server.univ.fr
+wolips.port=9485
+
+# OGNL
+ognl.helperFunctions=true
+ognl.inlineBindings=true
+
+er.component.clickToOpen=true
+er.extensions.ERXApplication.responseCompressionEnabled=true
+er.extensions.ERXSharedEOLoader.PatchSharedEOLoading=true
+er.extensions.ERXResponseRewriter.javascriptTypeAttribute=true
+er.extensions.ERXEC.safeLocking=true
+er.extensions.maxPageReplacementCacheSize=5000
+
+# Utilisation de ERXDatabaseContext
+er.extensions.ERXDatabaseContext.className = er.extensions.eof.ERXDatabaseContext
+er.extensions.ERXDatabaseContext.activate = true
+er.extensions.ERXJDBCAdaptor.className=er.extensions.jdbc.ERXJDBCAdaptor
+
+er.extensions.ERXFileNotificationCenter.CheckFilesPeriod=10
+
+#ERXThreadStorage memory leak Bug
+er.extensions.ERXThreadStorage.useInheritableThreadLocal=false
+
+# Log4j Configuration
+log4j.loggerFactory=er.extensions.logging.ERXLogger$Factory
+log4j.rootCategory=INFO,A1
+log4j.appender.A1=er.extensions.logging.ERXConsoleAppender
+log4j.appender.A1.layout=er.extensions.logging.ERXPatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d{MMM dd HH:mm:ss} %$[%#] %-5p %c %x - %m%n
+
+# Logger jasper
+log4j.logger.net.sf.jasperreports=INFO
+#log4j.logger.er.transaction.adaptor.EOAdaptorDebugEnabled=DEBUG
+
+# Fixes - Turning this on will show all the models that are loaded
+log4j.logger.er.extensions.fixes.ERSharedEOLoader=INFO
+
+er.extensions.ERXNSLogLog4jBridge=INFO
+log4j.logger.er.eo.ERXGenericRecord=DEBUG
+log4j.logger.er.validation.ERXEntityClassDescription=DEBUG
+log4j.logger.er.default.ERXEntityClassDescription=DEBUG
+log4j.logger.er.extensions.ERXDatabaseContextDelegate=WARN
+log4j.logger.er.extensions.ERXConfigurationManager=INFO
+
+#visaProject?projetId=83&directVisa=O
+#validateProject?projetId=84&directValidate=O
+
+#Formulaire
+org.cocktail.global.formulaires.miseenformeautomatique = true
+WOAllowsConcurrentRequestHandling = true
+
+WOFrameworksBaseURL=/WebObjects/PreProjets.woa/Contents/Frameworks
+
+dbEOPrototypesEntityGLOBAL=EOJDBCOraclePrototypes
+
+# Paramètres de connexion à la base, à changer selon configuration
+dbConnectURLGLOBAL = jdbc:oracle:thin:@db.univ.fr:1500:DATABASE
+dbConnectUserGLOBAL = dbUser
+dbConnectPasswordGLOBAL.encrypted = true
+dbConnectPasswordGLOBAL = 02acfd14d4961c
