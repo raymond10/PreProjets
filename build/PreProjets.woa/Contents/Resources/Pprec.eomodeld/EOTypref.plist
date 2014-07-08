@@ -1,0 +1,67 @@
+{
+    attributes = (
+        {
+            columnName = TYPREFDOM; 
+            externalType = VARCHAR2; 
+            name = typrefdom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPREFLIB; 
+            externalType = VARCHAR2; 
+            name = typreflib; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 50; 
+        }, 
+        {
+            columnName = TYPREFNAT; 
+            externalType = VARCHAR2; 
+            name = typrefnat; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }
+    ); 
+    attributesUsedForLocking = (typrefdom, typreflib, typrefnat); 
+    className = "utt.rec.projet.server.metier.admrec.EOTypref"; 
+    classProperties = (toCommentaires, toHistorique, toProjets, typrefdom, typreflib, typrefnat); 
+    externalName = "ADMREC.TYPREF"; 
+    name = EOTypref; 
+    primaryKeyAttributes = (typrefdom, typrefnat); 
+    relationships = (
+        {
+            destination = EOCommentaires; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = typrefdom; sourceAttribute = typrefdom; }, 
+                {destinationAttribute = typrefnat; sourceAttribute = typrefnat; }
+            ); 
+            name = toCommentaires; 
+        }, 
+        {
+            destination = EOHistorique; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = typrefdom; sourceAttribute = typrefdom; }, 
+                {destinationAttribute = typrefnat; sourceAttribute = typrefnat; }
+            ); 
+            name = toHistorique; 
+        }, 
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = typrefdom; sourceAttribute = typrefdom; }, 
+                {destinationAttribute = typrefnat; sourceAttribute = typrefnat; }
+            ); 
+            name = toProjets; 
+        }
+    ); 
+}

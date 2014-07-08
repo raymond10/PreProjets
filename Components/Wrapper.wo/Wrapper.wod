@@ -1,0 +1,137 @@
+//icon
+shortcut_icon : WOGenericElement {
+	elementName = "link";
+	href = icon;
+	type = "image/x-icon";
+	rel = "shortcut icon";
+}
+
+icon : WOGenericElement {
+	elementName = "link";
+	href = icon;
+	type = "image/x-icon";
+	rel = "icon";
+}
+
+Body : WOBody {
+	id = "Pprec";
+	onload = onloadJS;
+}
+
+TestNavigateur : WOConditional {
+	condition = mySession.browser.iE;
+}
+
+Elses : WOConditional {
+	condition = mySession.browser.iE;
+	negate = true;
+}
+
+
+ContainerPrincipal : AjaxUpdateContainer {
+	id = "ContainerPrincipal";
+	//class = "cktl_container_principal";	
+}
+
+//<wo name = "tinyMCE" />
+//<wo name = "tinyMCEInit" />
+tinyMCE : ERXJavaScript {
+	filename = "tiny_mce/tiny_mce.js";
+}
+
+tinyMCEInit : ERXJavaScript {
+	filename = "tiny_mce/tinyMCEInit.js";
+}
+
+ErreursNotify : CktlAjaxUiMessageContainer {
+    id = myApp.messageContainerID;
+}
+
+CanUseApp : WOConditional {
+	condition = accesPprec;
+}
+
+Else : WOConditional {
+	condition = accesPprec;
+	negate = true;
+}
+
+listPprec : WOHyperlink {
+	action = redirectToAccueil;
+}
+
+disableCreate : WOConditional {
+	condition = peutCreerProjet;
+}
+
+content : WOComponentContent {
+	
+}
+
+Message : WOString {
+	value = mySession.alertMessage;
+	escapeHTML = true;
+}
+FermerMessage : AjaxHyperlink {
+	action = fermerMessage;
+	onComplete = "function(oc){Windows.closeAll();}";
+}
+
+Busy: AjaxBusyIndicator {
+	divID = "busy";
+}
+
+BusyImage : WOImage {
+  	border = 0;
+	filename = "newImages/indicator_big.gif";
+}
+
+//              <wo name = "disableViser">
+//                <dt>
+//                  <wo name = "viserProj">
+//                    <b>Viser un Projet</b>
+//                  </wo>
+//                </dt>
+//              </wo>
+
+//disableViser : WOConditional {
+//	condition = ctrl.viserProjectDisabled;
+//}
+
+//viserProj : WOHyperlink {
+//	action = ctrl.viserProjet;
+//}
+
+//              <wo name = "disableValider">
+//                <dt>
+//                  <wo name = "validerProj">
+//                    <b>Valider un Projet</b>
+//                  </wo>
+//                </dt>
+//              </wo>
+
+//disableValider : WOConditional {
+//	condition = ctrl.validProjectDisabled;
+//}
+
+//validerProj : WOHyperlink {
+//	action = ctrl.validerProjet;
+//}
+
+
+
+//&nbsp;&nbsp;&nbsp;&nbsp;INTENTION DE PROJET&nbsp;
+//            <dt>
+//              <wo:hyperlink pageName = "Teams">
+//                <b>Equipes</b>
+//              </wo:hyperlink>
+//            </dt>
+//            <dt>
+//              <wo:hyperlink pageName = "Poles">
+//                <b>P&ocirc;les</b>
+//              </wo:hyperlink>
+//            </dt>
+
+AjaxIndicator : AjaxBusyIndicator {
+	divID = "busy";
+}

@@ -1,0 +1,49 @@
+<div style = "clear: both"></div>
+<div style = "clear: both"></div>
+<div id = "tableMain">
+<div style = "clear: both"></div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Partenaires du projet &nbsp;</div>
+  <wo name = "partenaireFetch">
+    <div id = "col_mid" class = "texte">
+      <webobject name = "partenaireObserve"> <webobject name = "partenaireView" />&nbsp;&nbsp; </webobject>
+    </div>
+     <div id = "col_mid" class = "texte">
+      <webobject name = "NouveauPartenaire" />&nbsp;&nbsp;&nbsp;&nbsp; 
+      <webobject name = "DialogNouveauPartenaire" />
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp; 
+  </wo>
+  <div style = "clear: both"></div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div id = "col_mid">
+    <wo name = "selectedPartenaireAUC">
+      <wo:if condition = "$ctrl.partenaireDg.allObjects.count">
+        <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7">
+          <tr>
+            <table border = "0" style = "border-collapse: collapse">
+              <tr>
+                <th style = "border:1px solid #3D4B5F">
+                  &nbsp;<font color = "#3D4B5F">Liste partenaires&nbsp;</font>
+                </th>
+              </tr>
+              <wo name = "selectedPart">
+                <tr>
+                  <td style = "border:1px solid #3D4B5F">&nbsp;<wo name = "newPart" />&nbsp;</td>
+                  <td style = "border:1px solid #3D4B5F" align = "center">
+                    &nbsp;<wo name = "linkPartAction"><wo name = "imgAction" /></wo>&nbsp; 
+                  </td>
+                </tr>
+              </wo>
+            </table>
+          </tr>
+        </table>
+        &nbsp;&nbsp; 
+      </wo:if>
+    </wo>
+  </div>
+</div>

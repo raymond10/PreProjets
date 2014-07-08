@@ -1,0 +1,55 @@
+{
+    attributes = (
+        {
+            className = "java.lang.Number"; 
+            columnName = "CPT_ORDRE"; 
+            externalType = NUMBER; 
+            name = cptOrdre; 
+            valueType = d; 
+        }, 
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (cptOrdre, dCreation, dModification, persId); 
+    className = "utt.rec.projet.server.metier.grhum.EORepartCompte"; 
+    classProperties = (dCreation, dModification, toComptes, toPersonnes); 
+    externalName = "GRHUM.REPART_COMPTE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EORepartCompte; 
+    primaryKeyAttributes = (cptOrdre, persId); 
+    relationships = (
+        {
+            destination = EOCompte; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cptOrdre; sourceAttribute = cptOrdre; }); 
+            name = toComptes; 
+        }, 
+        {
+            destination = EOPersonne; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toPersonnes; 
+        }
+    ); 
+}

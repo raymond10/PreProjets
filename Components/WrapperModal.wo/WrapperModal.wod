@@ -1,0 +1,20 @@
+Body : WOBody {
+    onload = onloadJS;
+}
+
+Contenu : WOComponentContent {
+    
+}
+
+Notifs : CktlAjaxUiMessageContainer {
+    id = myApp.messageContainerID;
+}
+
+TestNavigateur : WOConditional {
+	condition = mySession.browser.iE;
+}
+
+Elses : WOConditional {
+	condition = mySession.browser.iE;
+	negate = true;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailObjectifs" pageWidth="793" pageHeight="535" orientation="Landscape" columnWidth="793" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b81c2629-0629-4fd9-b0eb-b1c58cce7139">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="1849"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="objectifProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[objectifProjet]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="749105a8-1b83-4418-9343-70cb32a5ccd3" x="0" y="2" width="50" height="18">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Objectifs]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-4" positionType="Float" x="38" y="18" width="532" height="1">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="fb894ddb-956d-4b23-af8f-eb34c2596b12" mode="Opaque" x="0" y="0" width="570" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" backcolor="#F0F0F0"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{objectifProjet}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

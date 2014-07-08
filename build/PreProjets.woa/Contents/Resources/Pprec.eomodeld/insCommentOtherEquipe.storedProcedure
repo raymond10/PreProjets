@@ -1,0 +1,85 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_commentId"; 
+            externalType = NUMBER; 
+            name = "010_commentId"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_projet"; 
+            externalType = NUMBER; 
+            name = "020_projet"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_cStructure"; 
+            externalType = VARCHAR2; 
+            name = "040_cStructure"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_comments"; 
+            externalType = VARCHAR2; 
+            name = "050_comments"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 500; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "060_comCreate"; 
+            externalType = DATE; 
+            name = "060_comCreate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "070_comMajdate"; 
+            externalType = DATE; 
+            name = "070_comMajdate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "080_comAuteur"; 
+            externalType = VARCHAR2; 
+            name = "080_comAuteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "090_avis_a"; 
+            externalType = VARCHAR2; 
+            name = "090_avis_a"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 9; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "099_avis_b"; 
+            externalType = VARCHAR2; 
+            name = "099_avis_b"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 9; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.INS_COMMENTOTHEREQUIPE"; 
+    name = insCommentOtherEquipe; 
+}

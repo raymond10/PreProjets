@@ -1,0 +1,58 @@
+{
+    materielProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOResmat; 
+        prefetchingRelationshipKeyPaths = (toGrandEquipement, toPlateauTech); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toProjet.projetId"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = matexist; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+    }; 
+    nouceauMaterielProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOResmat; 
+        prefetchingRelationshipKeyPaths = (toGrandEquipement, toPlateauTech); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toProjet.projetId"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = matexist; 
+                    selectorName = "isEqualTo:"; 
+                    value = N; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+    }; 
+}

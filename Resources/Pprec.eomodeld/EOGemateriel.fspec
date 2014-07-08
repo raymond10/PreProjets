@@ -1,0 +1,86 @@
+{
+    LeGEduPF = {
+        class = EOFetchSpecification; 
+        entityName = EOGemateriel; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toMateriels, toPfmateriel); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = pfmatId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = pfmatId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = gematTem; 
+                    selectorName = "isEqualTo:"; 
+                    value = AC; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = gematLib; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+    existant = {
+        class = EOFetchSpecification; 
+        entityName = EOGemateriel; 
+        prefetchingRelationshipKeyPaths = (toMateriels, toPfmateriel); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = gematLib; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = gematLib; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = toPfmateriel; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = pfmateriel; class = EOQualifierVariable; }; 
+                }
+            ); 
+        }; 
+    }; 
+    leNgeDuPT = {
+        class = EOFetchSpecification; 
+        entityName = EOGemateriel; 
+        prefetchingRelationshipKeyPaths = (toMateriels, toPfmateriel); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = pfmatId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = pfmatId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = gematTem; 
+                    selectorName = "isEqualTo:"; 
+                    value = NAC; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = gematLib; selectorName = compareAscending; }); 
+    }; 
+    renvoieLastGE = {
+        class = EOFetchSpecification; 
+        entityName = EOGemateriel; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toMateriels, toPfmateriel); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = gematId; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = gematId; class = EOQualifierVariable; }; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = gematLib; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+}

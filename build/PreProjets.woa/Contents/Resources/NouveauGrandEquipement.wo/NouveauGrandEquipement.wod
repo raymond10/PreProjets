@@ -1,0 +1,74 @@
+Wrapper : WrapperModal {
+	bodyId = "nouvel-Equipement";
+	onloadJS = onloadJS;
+	id = "WrapperModal";
+}
+
+nouveauEquipementContainer : AjaxUpdateContainer {
+	id = nouveauEquipementUpdateContainerId;
+}
+
+Form : ERXWOForm {
+	embedded = true;
+    name = "equipement";
+}
+
+FinanceMatosAO : AjaxObserveField {
+	id="poleSpan1";
+	elementName = "span";
+	action = refreshPF0;
+	fullSubmit = true;
+	updateContainerID = "categRMAauc0";
+	
+}
+
+poleEquipement : WOPopUpButton {
+	list = mySession.poleList;
+	item = mySession.poleNewMatRepetition;
+	displayString = mySession.poleNewMatRepetition.lcStructure;
+	selection = mySession.selectNewMatPole;
+	noSelectionString = " " 
+}
+
+categRMAau : AjaxUpdateContainer {
+	id = "categRMAauc0";
+}
+
+categoriesRMA : WOPopUpButton {
+	list = mySession.listCategMteriels0;
+	item = mySession.categMatItem0;
+	displayString = mySession.categMatItem0.pfmatLib;
+	selection = mySession.categMatSelect0;
+	noSelectionString = " ";
+}
+
+libCout : WOTextField {
+	size = "15";
+	value = cout;
+	maxlength = "10";
+}
+
+Annuler : CktlAjaxButton {
+    //name = "cancel";
+    action = annulerAjout;
+    text = "Annuler";
+    type = "cancel";
+    title = "Annuler tout";
+    updateContainerID = nouveauEquipementUpdateContainerId;
+}
+
+AjouterEquipement : CktlAjaxSubmitButton {
+    name = "addNewEquipment";
+    action = ajouterEquipement;
+    text = "Enregistrer";
+    type = "validate";
+    title = "Créer et enregistrer le grand équipement dans le référentiel";
+    formName = "equipement";
+    //updateContainerID = nouveauEquipementUpdateContainerId;
+}
+
+infos : WOString {
+	value = "* - les champs sont obligatoires";
+	class = "aide";
+	escapeHTML = false;
+}

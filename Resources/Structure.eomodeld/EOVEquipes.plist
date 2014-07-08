@@ -1,0 +1,77 @@
+{
+    attributes = (
+        {
+            columnName = "CODE_EQUIPES"; 
+            externalType = VARCHAR2; 
+            name = codeEquipes; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = EQUIPES; 
+            externalType = VARCHAR2; 
+            name = equipes; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 30; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = FULLNAME; 
+            externalType = VARCHAR2; 
+            name = fullname; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 127; 
+        }, 
+        {
+            columnName = ID; 
+            externalType = NUMBER; 
+            name = id; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "N0_INDIVIDU"; 
+            externalType = NUMBER; 
+            name = n0Individu; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = NATIONALITE; 
+            externalType = VARCHAR2; 
+            name = nationalite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = NOM; 
+            externalType = VARCHAR2; 
+            name = nom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PAYS; 
+            externalType = VARCHAR2; 
+            name = pays; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }
+    ); 
+    attributesUsedForLocking = (codeEquipes, equipes, fullname, id, n0Individu, nationalite, nom, pays); 
+    className = "utt.rec.projet.server.metier.grhum.EOVEquipes"; 
+    classProperties = (codeEquipes, equipes, fullname, n0Individu, nationalite, nom, pays); 
+    externalName = "GRHUM.V_EQUIPES"; 
+    name = EOVEquipes; 
+    primaryKeyAttributes = (id); 
+}

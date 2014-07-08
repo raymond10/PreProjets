@@ -1,0 +1,14 @@
+Wrappers : Wrappers {
+	bodyId = "acceuil";
+	onloadJS = onloadJS;
+}
+
+number : WOString {
+	value = numero;
+	escapeHTML = false;
+}
+
+number1 : WOString {
+	value = numero;
+	escapeHTML = false;
+}

@@ -1,0 +1,266 @@
+<wo name = "wrap">
+  <wo:form multipleSubmit = "$true" name = "declaration1">
+    <center>
+      <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7" width = "100%">
+        <tr background = "#F2F4F7">
+          <td>&nbsp;&nbsp;</td>
+          <td class = "soustitre">&nbsp;&nbsp;Estimation des ressources du projet (1&egrave;re &eacute;bauche)&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <br />
+    </center>
+    <wo name = "rhExist">
+      <table cellpadding = "0" cellspacing = "0">
+        <tr>
+          <td>
+            <div class = "exampleAjaxGridTitle">&nbsp;III.1. Estimation des ressources humaines</div>
+          </td>
+        </tr>
+        <tr class = "texte">
+          <td>&nbsp;Liste des personnels impliqu&eacute;s dans le projet (pr&eacute;ciser le % d'implication)</td>
+        </tr>
+      </table>
+      <br />
+      <wo name = "tableRH">
+        <table cellspacing = "0" cellpadding = "0">
+        <webobject name = "batchView">
+          <tr>
+            <th>
+              <wo name = "PrevBatch"><webobject name = "LeftArrow" /></wo>
+            </th>
+            <th>
+              <wo name = "NextBatch"><webobject name = "RightArrow" /></wo>
+            </th>
+          </tr>
+          </webobject>
+          <tr>
+            <th colspan = "2" class = "exampleAjaxGridTitles">Personnels impliqu&eacute;s: 
+              <span id = "value"><wo name = "CurrentBatchIndex" /></span>
+              sur 
+              <wo name = "BatchCount" />
+            </th>
+          </tr>
+        </table>
+        <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#3D4B5F" id = "rowView">
+          <tr>
+            <th style = "border:2px solid rgb(97, 110, 129)"> &nbsp;P&ocirc;le </th>
+            <th style = "border:2px solid rgb(97, 110, 129)"> &nbsp;Nom - Pr&eacute;nom </th>
+            <th style = "border:2px solid rgb(97, 110, 129)"> &nbsp;Taux d'implication &nbsp;(%)</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp; Co&ucirc;t estim&eacute; &nbsp;(&euro;)</th>
+          </tr>
+          <wo name = "tableRow">
+            <tr>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "pole" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "nompre" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "implication" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "cout" /></td>
+            </tr>
+          </wo>
+        </table>
+      </wo>
+      <br />
+    </wo>
+    <wo name = "recruExist">
+      <table cellpadding = "0" cellspacing = "0">
+        <tr>
+          <td>
+            <div class = "exampleAjaxGridTitles">&nbsp;Estimation des personnes &agrave; recruter</div>
+          </td>
+        </tr>
+        <tr class = "info">
+          <td>
+            <i>&nbsp;Taux de financement du personnel recrut&eacute; par le projet</i>
+          </td>
+        </tr>
+      </table>
+      <br />
+      <wo name = "tableRH1">
+        <table cellspacing = "0" cellpadding = "0">
+        <webobject name = "batchView1">
+          <tr>
+            <th>
+              <wo name = "PrevBatch1"><webobject name = "LeftArrow1" /></wo>
+            </th>
+            <th>
+              <wo name = "NextBatch1"><webobject name = "RightArrow1" /></wo>
+            </th>
+          </tr>
+          </webobject>
+          <tr>
+            <th colspan = "2" class = "exampleAjaxGridTitles">Profils &agrave; recruter: 
+              <span id = "value"><wo name = "CurrentBatchIndex1" /></span>
+              sur 
+              <wo name = "BatchCount1" />
+            </th>
+          </tr>
+        </table>
+        <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#3D4B5F" id = "rowView1">
+          <tr>
+            <th style = "border:2px solid rgb(97, 110, 129)"> P&ocirc;le </th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Statut </th>
+            <th style = "border:2px solid rgb(97, 110, 129)"> Profil </th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Taux de financement &nbsp;(%)</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Dur&eacute;e &nbsp;(mois)</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Co&ucirc;t estim&eacute; &nbsp;(&euro;)</th>
+          </tr>
+          <wo name = "tableRow1">
+            <tr>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "pole1" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "categorie" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "profil" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "txFinance" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "duree" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "cout1" /></td>
+            </tr>
+          </wo>
+        </table>
+      </wo>
+      <br />
+    </wo>
+    <wo name = "matExist">
+      <table cellpadding = "0" cellspacing = "0">
+        <tr>
+          <td>
+            <div class = "exampleAjaxGridTitle">&nbsp;III.2. Estimation des ressources mat&eacute;riels</div>
+          </td>
+        </tr>
+        <tr class = "texte">
+          <td> &nbsp;Pr&eacute;ciser le p&ocirc;le de comp&eacute;tences gestionnaire de ce mat&eacute;riel </td>
+        </tr>
+      </table>
+      <br />
+      <wo name = "tableExistMat">
+        <table cellspacing = "0" cellpadding = "0">
+        <webobject name = "batchView2">
+          <tr>
+            <th>
+              <wo name = "PrevBatch2"><webobject name = "LeftArrow2" /></wo>
+            </th>
+            <th>
+              <wo name = "NextBatch2"><webobject name = "RightArrow2" /></wo>
+            </th>
+          </tr>
+          </webobject>
+          <tr>
+            <th colspan = "2" class = "exampleAjaxGridTitles">Besoins mat&eacute;riels existants: 
+              <span id = "value"><wo name = "CurrentBatchIndex2" /></span>
+              sur 
+              <wo name = "BatchCount2" />
+            </th>
+          </tr>
+        </table>
+        <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#00AE14" id = "rowView2">
+          <tr>
+            <th style = "border:2px solid rgb(97, 110, 129)"> &nbsp;P&ocirc;le </th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Plateau&nbsp; Technique </th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Grand &eacute;quipement &nbsp;</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Taux d'utilisation &nbsp;(%)</th>
+          </tr>
+          <wo name = "tableRow2">
+            <tr>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "pole2" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "categorie2" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "materiel" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "tauUtil" /></td>
+            </tr>
+          </wo>
+        </table>
+      </wo>
+      <br />
+    </wo>
+    <wo name = "newMatExist">
+      <table cellpadding = "0" cellspacing = "0">
+        <tr>
+          <td>
+            <div class = "exampleAjaxGridTitles">&nbsp;Estimation des principaux mat&eacute;riels &agrave; acquerir</div>
+          </td>
+        </tr>
+        <tr class = "info">
+          <td>
+            <i>&nbsp;Taux de financement du mat&eacute;riel par le projet </i>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <wo name = "tableNewMat">
+        <table cellspacing = "0" cellpadding = "0">
+        <webobject name = "batchView3">
+          <tr>
+            <th>
+              <wo name = "PrevBatch3"><webobject name = "LeftArrow3" /></wo>
+            </th>
+            <th>
+              <wo name = "NextBatch3"><webobject name = "RightArrow3" /></wo>
+            </th>
+          </tr>
+          </webobject>
+          <tr>
+            <th colspan = "2" class = "exampleAjaxGridTitles">Acquisition nouveaux mat&eacute;riels: 
+              <span id = "value"><wo name = "CurrentBatchIndex3" /></span>
+              sur 
+              <wo name = "BatchCount3" />
+            </th>
+          </tr>
+        </table>
+        <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#00AE14" id = "rowView3">
+          <tr>
+            <th style = "border:2px solid rgb(97, 110, 129)"> &nbsp;P&ocirc;le </th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Plateau Technique &nbsp;</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Grand &eacute;quipement &nbsp;</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Taux de financement &nbsp;(%)</th>
+            <th style = "border:2px solid rgb(97, 110, 129)">&nbsp;Co&ucirc;t estim&eacute; &nbsp;(&euro;)</th>
+          </tr>
+          <wo name = "tableRow3">
+            <tr>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "pole3" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "categorie3" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "materiel3" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "tauFinan" /></td>
+              <td style = "border:2px solid rgb(97, 110, 129)"><wo name = "cout3" /></td>
+            </tr>
+          </wo>
+        </table>
+      </wo>
+      <br />
+      <table cellspacing = "0" cellpadding = "0" class = "hide">
+        <tr>
+          <td>
+            <div class = "exampleAjaxGridTitles">&nbsp;Voir le commentaire sur le projet&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class = "exampleAjaxGridTitle">
+            <webobject name = "NouveauCommentaire" />&nbsp;&nbsp;&nbsp;&nbsp; 
+            <webobject name = "DialogNouveauCommentaire" />
+          </td>
+        </tr>
+      </table>
+      <br />
+    </wo>
+    <center>
+      <table>
+        <tr class = "texte">
+          <td> <webobject name = "previous" /></td>
+          <td><webobject name = "annuler" /></td>
+          <wo:if condition = "$ctrl.voirVisaDisabled">
+            <td> <webobject name = "voir" /></td>
+          </wo:if>
+          <wo:if condition = "$ctrl.viserProjectDisabled">
+            <td> <webobject name = "viser" /></td>
+          </wo:if>
+          <wo:if condition = "$ctrl.validerProjectDisabled">
+            <td> <webobject name = "validation" /></td>
+          </wo:if>
+          <wo:if condition = "$ctrl.traiterProjectDisabled">
+            <td> <webobject name = "traiter" /></td>
+          </wo:if>
+        </tr>
+      </table>
+    </center>
+    <br />
+    <div class = "aide aide-champ">Etat : <wo:str name = "etat" value = "$ctrl.projet.toEtat.typreflib" /></div>
+  </wo:form>
+</wo>

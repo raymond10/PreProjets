@@ -1,0 +1,817 @@
+wrap : Wrappers {
+	bodyId = "formTwo";
+	onloadJS = onloadJS;
+}
+
+pageContain : AjaxUpdateContainer {
+	id = updateNextContainerId;
+	elementName = "div";
+	class = "tableBody";
+	onComplete = myApp.onMessageUpdate;
+}
+
+declaration : ERXWOForm {
+	id = "declarationId";
+	name = "declarationName";
+	action = submit;
+	multipleSubmit = true;
+    onsubmit = "return true;";
+}
+
+//pageContainer : AjaxUpdateContainer {
+//	id = updateNextContainerId;
+//  "pageContainer"; <webobject name = "pageContainer"></webobject>
+//}
+
+DependentListForm : WOForm {
+	multipleSubmit = true;
+}
+
+etat : WOString {
+	value = mySession.etatRepetition1.typreflib;
+}
+
+PoleField : WOPopUpButton {
+	id = "PoleFieldID";
+	list = mySession.poleList;
+	item = mySession.poleRhRepetition;
+	selection = mySession.selectRhPole;
+	displayString = mySession.poleRhRepetition.lcStructure;
+	noSelectionString = " ";
+}
+
+//Maj des pop si le pole change
+PoleFieldObserver : AjaxObserveField {
+	observeFieldID = "PoleFieldID";
+	updateContainerID = "PersonDiv";
+	action = ctrl.refreshPerson;
+	fullSubmit = false;
+}
+
+PersonUpdateComponent : AjaxUpdateContainer {
+	id = "PersonDiv";
+}
+
+PersonField : WOPopUpButton {
+	id = "PersonFieldID";
+	list = mySession.listInPerson.displayedObjects;
+	item = mySession.personRhRepetition;
+	selection = mySession.selectRhPerson;
+	displayString = mySession.personRhRepetition.nomPrenom;
+	noSelectionString = " ";
+}
+
+//(<webobject name = "link"><font color = "red"><webobject name = "info"/></font></webobject>)
+
+info : WOImage {
+	filename = "image/help.png";
+	title = "Penser à renseigner au moins une des informations de l'estimation des ressources humaines pour activer le bouton 'Demande visa'";
+}
+
+FinancePerson : WOPopUpButton {
+	list = mySession.poleList;
+	item = mySession.poleRecrueRepetition;
+	displayString = mySession.poleRecrueRepetition.lcStructure;
+	selection = mySession.selectRecruePole;
+	noSelectionString = " ";
+}
+
+PoleField1AOF : AjaxObserveField {
+	id="poleSpan";
+	elementName = "span";
+	action = ctrl.refreshPF;
+	fullSubmit = true;
+	updateContainerID = "matCateg0";
+}
+
+PoleField1 : WOPopUpButton {
+	id = "poleID1";
+	list = mySession.poleList;
+	item = mySession.poleMatRepetition;
+	displayString = mySession.poleMatRepetition.lcStructure;
+	selection = mySession.selectMatPole;
+	noSelectionString = " ";
+}
+
+categAUC : AjaxUpdateContainer {
+	id = "matCateg0";
+}
+
+categoriesAOF : AjaxObserveField {
+	id="MatSpan";
+	elementName = "span";
+	action = ctrl.refreshGE;
+	fullSubmit = true;
+	updateContainerID = "gemList0";
+}
+
+categoriesRME : WOPopUpButton {
+	list = mySession.listCategMteriels;
+	item = mySession.categMatItem;
+	displayString = mySession.categMatItem.pfmatLib;
+	selection = mySession.categMatSelect;
+	noSelectionString = " ";
+}
+
+gematAUC : AjaxUpdateContainer {
+	id = "gemList0";
+}
+
+MatosField : WOPopUpButton {
+	list = mySession.listLibMateriels;
+	item = mySession.libMaterielItem;
+	displayString = mySession.libMaterielItem.gematLib;
+	selection = mySession.libMaterielSelect;
+	noSelectionString = " ";
+}
+
+addPerson : CktlAjaxSubmitButton {
+    id = "addPersonID";
+    type = "add";
+	action = ctrl.updatePers;
+	title = "Ajouter une ressource au projet";
+	value = "Ajouter";
+	updateContainerID = updateNextContainerId;
+	//onSuccess = "function(request) {updateNextContainerUpdate();tableBodyUpdate()}";
+	preventMultipleClick = true;
+}
+
+batchView : WOConditional {
+	condition = batchView;
+}
+
+PrevBatch : AjaxUpdateLink {
+	action = previousBatch;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView') }";
+	title = "liste précédente";
+}
+
+LeftArrow: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch : AjaxUpdateLink {
+	action = nextBatch;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView') }";
+	title = "liste suivante";
+}
+
+RightArrow: WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex : WOString {
+	value = mySession.personneDg.currentBatchIndex;
+	//value = mySession.poleDg.currentBatchIndex;
+}
+
+BatchCount: WOString {
+	value = mySession.personneDg.batchCount;
+	//value = mySession.poleDg.batchCount;
+}
+
+SortByPoles : AjaxUpdateLink {
+	action = sortByPole;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView') }";
+}
+
+SortByNoms : AjaxUpdateLink {
+	action = sortByNom;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView') }";
+}
+
+tableRH : AjaxUpdateContainer {
+	id = "tableBody";
+	//"tableBody";<wo name = "tableRH"></wo>
+	elementName = "div";
+	class = "tableBody";
+}
+
+tableRow : WORepetition {
+	list = mySession.personneDg.displayedObjects;
+	item = mySession.personRhRep;
+}
+
+pole : WOString {
+	value = mySession.personRhRep.nomStructure;
+}
+
+nompre : WOString {
+	//value =mySession.personRhRep.toVrhcmval.nomPrenom;
+	value = ctrl.nomPrenom;
+}
+
+implication : AjaxInPlaceEditor {
+	cancelText = "Annuler";
+    clickToEditText = "Editer";
+	value = mySession.personRhRep.tempsuitl;
+	action = ctrl.saveOnImplication;
+	onComplete = "function (oC) {tableBodyUpdate();}";
+}
+
+cout : WOString {
+	value = mySession.personRhRep.coutestime;
+	formatter = mySession.getMonnaieFormatter;
+}
+
+linkRhAction : AjaxUpdateLink {
+	action = ctrl.removePersonne;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+}
+
+imgRhAction : WOImage {
+	filename = "newImages/table_row_delete.png";
+	width="14";
+	height="14";
+	title = "Retirer l'enseignant chercheur";
+	border = "0";
+}
+
+categoriesRH : WOPopUpButton {
+	list = mySession.listCategories;
+	item = mySession.categItem;
+	displayString = mySession.categItem.typrhcmLib;
+	selection = mySession.categSelect;
+	noSelectionString = " ";
+}
+
+posteFiled : WOTextField {
+	value = mySession.nouvoPostes;
+	class = "texto";
+}
+
+nouvoPoste : CktlAjaxSubmitButton {
+    id = "addPoste";
+    type = "add";
+	action = ctrl.updatePost;
+	value = "Nouvelle recrue";
+	title = "Nouvelle recrue";
+	updateContainerID = updateNextContainerId;
+	//onComplete = "function() {UIMessageContainerUpdate();}";
+	preventMultipleClick = true;
+}
+
+tableRH1 : AjaxUpdateContainer {
+	id = "tableBody1";
+	//"tableBody1";<wo name = "tableRH1"></wo>
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView1 : WOConditional {
+	condition = batchView1;
+}
+
+PrevBatch1 : AjaxUpdateLink {
+	action = previousBatch1;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView1') }";
+	title = "liste précédente";
+}
+
+LeftArrow1: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch1 : AjaxUpdateLink {
+	action = nextBatch1;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView1') }";
+	title = "liste suivante";
+}
+
+
+
+RightArrow1 : WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex1 : WOString {
+	value = mySession.postesDg.currentBatchIndex;
+}
+
+BatchCount1: WOString {
+	value = mySession.postesDg.batchCount;
+}
+
+sortByRecruePole : AjaxUpdateLink {
+	action = sortByRecruePole;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView1') }";
+}
+
+sortByProfil : AjaxUpdateLink {
+	action = sortByProfil;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView1') }";
+}
+
+tableRow1 : WORepetition {
+	list = mySession.postesDg.displayedObjects;
+	item = mySession.poleRecruRepetition;
+}
+
+pole1 : WOString {
+	value = mySession.poleRecruRepetition.nomStructure;
+}
+
+categorie : WOString {
+	value = mySession.poleRecruRepetition.toCategorieRh.typrhcmLib.toUpperCase;
+}
+
+profil : WOString {
+	value = mySession.poleRecruRepetition.postelib;
+}
+
+txFinance : AjaxInPlaceEditor {
+	//id = "idPoleRecru";
+	cancelText = "Annuler";
+    clickToEditText = "Editer";
+    savingText = "Enregistrement";
+	value = mySession.poleRecruRepetition.txfinancement;
+	action = ctrl.saveOnTxFinance;
+	onComplete = "function (oC) {tableBody1Update();}";
+}
+
+duree : AjaxInPlaceEditor {
+	//id = "idPoleRecru1";
+	cancelText = "Annuler";
+    clickToEditText = "Editer";
+    savingText = "Enregistrement";
+	value = mySession.poleRecruRepetition.dureeRecrue;
+	action = ctrl.saveOnDuree;
+	onComplete = "function (oC) {tableBody1Update();}";
+}
+
+cout1 : WOString {
+	value = mySession.poleRecruRepetition.coutestime;
+	formatter = mySession.getMonnaieFormatter;
+}
+
+linkPosteAction : AjaxUpdateLink {
+	action = ctrl.removePoste;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	//onComplete = "function(request) { Effect.Shake('rowView') }";
+}
+
+imgPosteAction : WOImage {
+	filename = "newImages/table_row_delete.png";
+	width="14";
+	height="14";
+	title = "Supprimer le poste proposé";
+	border = "0";
+}
+
+matosExistant : CktlAjaxSubmitButton {
+	//formName = "DependentListForm";
+    id = "addMatos";
+	action = ctrl.updateMat;
+	value = "Materiel existant";
+    title = "Ajouter un matériel existant au projet";
+	updateContainerID = updateNextContainerId;
+	type = "add";
+	//onComplete = "function() {UIMessageContainerUpdate();}";
+	preventMultipleClick = true;
+}
+
+tableExistMat : AjaxUpdateContainer {
+	id = "tableExistMatBody";
+	//"tableExistMatBody";<wo name = "tableExistMat"></wo>
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView2 : WOConditional {
+	condition = batchView2;
+}
+
+PrevBatch2 : AjaxUpdateLink {
+	action = previousBatch2;
+	updateContainerID = "tableExistMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView2') }";
+	title = "liste précédente";
+}
+
+LeftArrow2: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch2 : AjaxUpdateLink {
+	action = nextBatch2;
+	updateContainerID = "tableExistMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView2') }";
+	title = "liste suivante";
+}
+
+RightArrow2 : WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex2 : WOString {
+	value = mySession.poleMaterielsDg.currentBatchIndex;
+}
+
+BatchCount2: WOString {
+	value = mySession.poleMaterielsDg.batchCount;
+}
+
+sortByMatPole: AjaxUpdateLink {
+	action = sortByMatPole;
+	updateContainerID = "tableExistMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView2') }";
+}
+
+sortByMatLib : AjaxUpdateLink {
+	action = sortByMatLib;
+	updateContainerID = "tableExistMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView2') }";
+}
+
+tableRow2 : WORepetition {
+	list = mySession.poleMaterielsDg.displayedObjects;
+	item = mySession.materielRep;
+}
+
+pole2 : WOString {
+	value = mySession.materielRep.nomStructure;
+}
+
+categorie2 : WOString {
+	value = mySession.materielRep.toPlateauTech.pfmatLib;
+}
+
+materiel : WOString {
+	value = mySession.materielRep.toGrandEquipement.gematLib;
+}
+
+tauUtil : AjaxInPlaceEditor {
+	//id = "idMaterielRep";
+	cancelText = "Annuler";
+    clickToEditText = "Editer";
+    savingText = "Enregistrement";
+	value = mySession.materielRep.matutil;
+	action = ctrl.saveOnUtilisation;
+	//onComplete = "function (oC) {tableExistMatBodyUpdate();}";
+}
+
+linkMatExtAction : AjaxUpdateLink {
+	action = ctrl.removeMatExt;
+	updateContainerID = "tableExistMatBody";
+	//evalScripts = true;
+	//onComplete = "function(request) { Effect.Shake('rowView') }";
+}
+
+imgMatExtAction : WOImage {
+	filename = "newImages/table_row_delete.png";
+	width="14";
+	height="14";
+	title = "Retirer le materiel existant";
+	border = "0";
+}
+
+FinanceMatosAOF : AjaxObserveField {
+	id="poleSpan1";
+	elementName = "span";
+	action = ctrl.refreshPF0;
+	fullSubmit = true;
+	updateContainerID = "categRMAauc";
+	
+}
+
+FinanceMatos : WOPopUpButton {
+	list = mySession.poleList;
+	item = mySession.poleNewMatRepetition;
+	displayString = mySession.poleNewMatRepetition.lcStructure;
+	selection = mySession.selectNewMatPole;
+	noSelectionString = " " 
+}
+
+categRMAauc : AjaxUpdateContainer {
+	id = "categRMAauc";
+}
+
+categoriesrmaAOF : AjaxObserveField {
+	id="nMatSpan";
+	elementName = "span";
+	action = ctrl.refreshGE0;
+	fullSubmit = true;
+	updateContainerID = "gemList1";
+}
+
+categoriesRMA : WOPopUpButton {
+	list = mySession.listCategMteriels0;
+	item = mySession.categMatItem0;
+	displayString = mySession.categMatItem0.pfmatLib;
+	selection = mySession.categMatSelect0;
+	noSelectionString = " ";
+}
+
+NouveauPlateau : CktlAjaxButton {
+	dialogIDForOpen = plateauDialogId;
+    text = "Créer un plateau";
+    title = "Nouveau Plateau technique";
+    type = "new";
+    enabled = ctrl.peutCreer;
+    //showBusyImage = true;
+}
+
+DialogNouveauPlateau : CktlAjaxWindow {
+	id = plateauDialogId;
+    action = ctrl.openAjouterPlateau;
+    width = 550;
+    height = 280;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    onClose = ctrl.refreshPlateau;
+    resizable = false;
+    closable = false;
+    closeUpdateContainerID = updateNextContainerId;
+    //"categRMAauc";
+}
+
+genMatAUC : AjaxUpdateContainer {
+	id = "gemList1";
+}
+
+NmatosField : WOPopUpButton {
+	list = mySession.listLibNewMat;
+	item = mySession.libNewMatItem;
+	displayString = mySession.libNewMatItem.gematLib;
+	selection = mySession.libNewMatSelect;
+	noSelectionString = " ";
+}
+
+NouvelEquipement : CktlAjaxButton {
+	dialogIDForOpen = equipementDialogId;
+    text = "Créer un équipement";
+    title = "Nouveau grand équipement";
+    type = "new";
+    enabled = ctrl.peutCreer;
+    //showBusyImage = true;
+}
+
+DialogNouveauEquipement : CktlAjaxWindow {
+	id = equipementDialogId;
+    action = ctrl.openAjouterEquipement;
+    width = 500;
+    height = 280;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    onClose = ctrl.refreshEquipement;
+    resizable = false;
+    closable = false;
+    closeUpdateContainerID = updateNextContainerId;
+    //"categRMAauc";
+}
+
+nouvoMatos : CktlAjaxSubmitButton {
+    id = "addNouvoMatos";
+	action = ctrl.updateNewMat;
+	value = "Nouveau matériel";
+	type = "add";
+    title = "Ajouter un nouveau matériel au projet";
+	updateContainerID = updateNextContainerId;
+	//onComplete = "function() {UIMessageContainerUpdate();}";
+	preventMultipleClick = true;
+}
+
+tableNewMat : AjaxUpdateContainer {
+	id = "tableNewMatBody";
+	//"tableNewMatBody";  <wo name = "tableNewMat"></wo>
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView3 : WOConditional {
+	condition = batchView3;
+}
+
+PrevBatch3 : AjaxUpdateLink {
+	action = previousBatch3;
+	updateContainerID = "tableNewMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView3') }";
+	title = "liste précédente";
+}
+
+LeftArrow3: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch3 : AjaxUpdateLink {
+	action = nextBatch3;
+	updateContainerID = "tableNewMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView3') }";
+	title = "liste suivante";
+}
+
+RightArrow3 : WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex3 : WOString {
+	value = mySession.materielsDg.currentBatchIndex;
+}
+
+BatchCount3: WOString {
+	value = mySession.materielsDg.batchCount;
+}
+
+sortByNewMatPoles: AjaxUpdateLink {
+	action = sortByNewMatPole;
+	updateContainerID = "tableNewMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView3') }";
+}
+
+sortByNewMatNoms : AjaxUpdateLink {
+	action = sortByNewMatLib;
+	updateContainerID = "tableNewMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView3') }";
+}
+
+tableRow3 : WORepetition {
+	list = mySession.materielsDg.displayedObjects;
+	item = mySession.poleNewMatRep;
+}
+
+pole3 : WOString {
+	value = mySession.poleNewMatRep.nomStructure;
+}
+
+categorie3 : WOString {
+	value = mySession.poleNewMatRep.toPlateauTech.pfmatLib;
+}
+
+materiel3 : WOString {
+	value = mySession.poleNewMatRep.toGrandEquipement.gematLib;
+}
+
+tauFinan : AjaxInPlaceEditor {
+	//id = "idPoleNewMatRep";
+	cancelText = "Annuler";
+    clickToEditText = "Editer";
+    savingText = "Enregistrement";
+	value = mySession.poleNewMatRep.txfinancement;
+	action = ctrl.saveOnFinance;
+	onComplete = "function (oC) {tableNewMatBodyUpdate();}";
+}
+
+cout3 : WOString {
+	value = mySession.poleNewMatRep.coutestime;
+}
+
+linkMatNewAction : AjaxUpdateLink {
+	action = ctrl.removeNewMat;
+	updateContainerID = "tableNewMatBody";
+	//evalScripts = true;
+	//onComplete = "function(request) { Effect.Shake('rowView') }";
+}
+
+imgMatNewAction : WOImage {
+	filename = "newImages/table_row_delete.png";
+	width="14";
+	height="14";
+	title = "Retirer le nouveau materiel";
+	border = "0";
+}
+
+NouveauCommentaire : CktlAjaxButton {
+	dialogIDForOpen = commentDialodId;
+    text = "Commentaire";
+    title = "Un commentaire sur le projet";
+    type = "new";
+    enabled = ctrl.peutCreer;
+    //showBusyImage = true;
+}
+
+DialogNouveauCommentaire : CktlAjaxWindow {
+	id = commentDialodId;
+    action = ctrl.openCommentaire;
+    width = 500;
+    height = 300;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    resizable = false;
+    closable = false;
+    closeUpdateContainerID = updateNextContainerId;
+}
+
+enregistrer : CktlAjaxSubmitButton {
+	formName = "declarationName";
+	name = "Enregistrer";
+	id = "Enregistrer";
+	action = terminer;
+	text = "Enregistrer";
+	type = "etoile";
+	title = "Enregistrer le projet en état de 'Rédaction'";
+    //disabled = ctrl.isSauvegarderUnProjetDisabled;
+    onClickBefore = "confirm('Souhaitez-vous réellement sauvegarder ce projet en cours de rédaction ?')";
+    onClick = "submitForm();";
+}
+
+precedent : CktlAjaxSubmitButton {
+	//onClickBefore = "declaration1.submit()";
+	formName = "declarationName";
+	id = "BtnPrecedent";
+	name = "precedent";
+	action = ctrl.backProject;
+    title = "Retour à la page précédente";
+	text = "Precedent";
+	type = "previous";
+    onClick = "submitForm();";
+}
+
+terminer : CktlAjaxSubmitButton {
+	formName = "declarationName";
+	name = "Terminer";
+	id = "Terminer";
+	action = terminer;
+	text = "Demande visa";
+	type = "validate";
+    title = "Envoyer le projet pour visa ou validation";
+    showBusyImage = true;
+	evalScripts = true;
+	disabled = ctrl.isTerminerUnProjetDisabled;
+    onClick = "submitForm();";
+}
+
+fermer : CktlButton {
+	action = ctrl.fermer;
+	name = "confirm";
+	//onFailure = myApp.onFailureMessage;
+	id = "confirm";
+	title = "Fermer le projet en cours";
+	text = "Fermer";
+	type = "accueil";
+}
+
+Annuler : CktlButton {
+    onClick = "return confirm('Les données déjà saisies non enregistrées seront définitivement perdues ?')";
+    //formName = "declarationName";
+    action = ctrl.annuler;
+    title = "Tout annuler";
+    text = "Tout annuler";
+    type = "cancel";
+}

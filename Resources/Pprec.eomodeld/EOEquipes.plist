@@ -1,0 +1,59 @@
+{
+    attributes = (
+        {
+            columnName = "STRUCTURE_EQ"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "EQUIPES_ID"; 
+            externalType = NUMBER; 
+            name = equipesId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PRINCIPALE; 
+            externalType = CHAR; 
+            name = principale; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = PROJET; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = CHAR; 
+            name = temvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    attributesUsedForLocking = (cStructure, equipesId, principale, projetId, temvalide); 
+    className = "utt.rec.projet.server.metier.admrec.EOEquipes"; 
+    classProperties = (cStructure, principale, projetId, temvalide, toProjet); 
+    externalName = "ADMREC.EQUIPES"; 
+    name = EOEquipes; 
+    primaryKeyAttributes = (equipesId); 
+    relationships = (
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }
+    ); 
+}

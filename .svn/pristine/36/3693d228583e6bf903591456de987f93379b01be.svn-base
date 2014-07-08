@@ -1,0 +1,379 @@
+{
+    attributes = (
+        {
+            columnName = "CPT_AUTO_MODIF"; 
+            externalType = CHAR; 
+            name = cptAutoModif; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "CPT_CHARTE"; 
+            externalType = CHAR; 
+            name = cptCharte; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_COMMENTAIRE"; 
+            externalType = VARCHAR2; 
+            name = cptCommentaire; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 200; 
+        }, 
+        {
+            columnName = "CPT_CONNEXION"; 
+            externalType = CHAR; 
+            name = cptConnexion; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "CPT_CREATEUR"; 
+            externalType = NUMBER; 
+            name = cptCreateur; 
+            valueType = d; 
+        }, 
+        {
+            columnName = "CPT_CRYPTE"; 
+            externalType = CHAR; 
+            name = cptCrypte; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_DATE_CHARTE"; 
+            externalType = DATE; 
+            name = cptDateCharte; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_DEBUT_VALIDE"; 
+            externalType = DATE; 
+            name = cptDebutValide; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_DOMAINE"; 
+            externalType = VARCHAR2; 
+            name = cptDomaine; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_EMAIL"; 
+            externalType = VARCHAR2; 
+            name = cptEmail; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 60; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_FIN_VALIDE"; 
+            externalType = DATE; 
+            name = cptFinValide; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "CPT_GID"; 
+            externalType = NUMBER; 
+            name = cptGid; 
+            valueType = d; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_HOME"; 
+            externalType = VARCHAR2; 
+            name = cptHome; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 50; 
+        }, 
+        {
+            columnName = "CPT_LISTE_ROUGE"; 
+            externalType = CHAR; 
+            name = cptListeRouge; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "CPT_LOGIN"; 
+            externalType = VARCHAR2; 
+            name = cptLogin; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "CPT_MODIFICATEUR"; 
+            externalType = NUMBER; 
+            name = cptModificateur; 
+            valueType = d; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = "CPT_ORDRE"; 
+            externalType = NUMBER; 
+            name = cptOrdre; 
+            valueType = d; 
+        }, 
+        {
+            columnName = "CPT_PASSWD"; 
+            externalType = VARCHAR2; 
+            name = cptPasswd; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 100; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_PASSWD_CLAIR"; 
+            externalType = VARCHAR2; 
+            name = cptPasswdClair; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 100; 
+        }, 
+        {
+            columnName = "CPT_PRINCIPAL"; 
+            externalType = CHAR; 
+            name = cptPrincipal; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_QUESTION"; 
+            externalType = VARCHAR2; 
+            name = cptQuestion; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_REPONSE"; 
+            externalType = VARCHAR2; 
+            name = cptReponse; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_SHELL"; 
+            externalType = VARCHAR2; 
+            name = cptShell; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_TYPE"; 
+            externalType = VARCHAR2; 
+            name = cptType; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CPT_TYPE_CONNEXION"; 
+            externalType = VARCHAR2; 
+            name = cptTypeConnexion; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "CPT_UID"; 
+            externalType = NUMBER; 
+            name = cptUid; 
+            valueType = d; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "CPT_UID_GID"; 
+            externalType = NUMBER; 
+            name = cptUidGid; 
+            valueType = d; 
+        }, 
+        {
+            columnName = "CPT_VALIDE"; 
+            externalType = CHAR; 
+            name = cptValide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "CPT_VLAN"; 
+            externalType = VARCHAR2; 
+            name = cptVlan; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 5; 
+        }, 
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "TCRY_ORDRE"; 
+            externalType = NUMBER; 
+            name = tcryOrdre; 
+            precision = 2; 
+            valueType = l; 
+        }, 
+        {
+            columnName = "TVPN_CODE"; 
+            externalType = VARCHAR2; 
+            name = tvpnCode; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 5; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cptAutoModif, 
+        cptCharte, 
+        cptCommentaire, 
+        cptConnexion, 
+        cptCreateur, 
+        cptCrypte, 
+        cptDateCharte, 
+        cptDebutValide, 
+        cptDomaine, 
+        cptEmail, 
+        cptFinValide, 
+        cptGid, 
+        cptHome, 
+        cptListeRouge, 
+        cptLogin, 
+        cptModificateur, 
+        cptOrdre, 
+        cptPasswd, 
+        cptPasswdClair, 
+        cptPrincipal, 
+        cptQuestion, 
+        cptReponse, 
+        cptShell, 
+        cptType, 
+        cptTypeConnexion, 
+        cptUid, 
+        cptUidGid, 
+        cptValide, 
+        cptVlan, 
+        dCreation, 
+        dModification, 
+        persId, 
+        tcryOrdre, 
+        tvpnCode
+    ); 
+    className = "utt.rec.projet.server.metier.grhum.EOCompte"; 
+    classProperties = (
+        cptAutoModif, 
+        cptCharte, 
+        cptCommentaire, 
+        cptConnexion, 
+        cptCreateur, 
+        cptCrypte, 
+        cptDateCharte, 
+        cptDebutValide, 
+        cptDomaine, 
+        cptEmail, 
+        cptFinValide, 
+        cptGid, 
+        cptHome, 
+        cptListeRouge, 
+        cptLogin, 
+        cptModificateur, 
+        cptPasswd, 
+        cptPasswdClair, 
+        cptPrincipal, 
+        cptQuestion, 
+        cptReponse, 
+        cptShell, 
+        cptType, 
+        cptTypeConnexion, 
+        cptUid, 
+        cptUidGid, 
+        cptValide, 
+        cptVlan, 
+        dCreation, 
+        dModification, 
+        persId, 
+        tcryOrdre, 
+        toPersonne, 
+        toRepartCompte, 
+        tvpnCode
+    ); 
+    externalName = "GRHUM.COMPTE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOCompte; 
+    primaryKeyAttributes = (cptOrdre); 
+    relationships = (
+        {
+            destination = EOPersonne; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toPersonne; 
+        }, 
+        {
+            destination = EORepartCompte; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cptOrdre; sourceAttribute = cptOrdre; }); 
+            name = toRepartCompte; 
+        }
+    ); 
+}

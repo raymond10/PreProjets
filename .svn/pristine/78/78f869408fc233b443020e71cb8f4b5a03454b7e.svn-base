@@ -1,0 +1,294 @@
+<wo name = "wrap">
+  <webobject name = "Container">
+    <webobject name = "declaration">
+      <wo:projectState />
+      <center>
+        <div id = "container" style = "width:95%">
+          <div id = "entete" style = "background-color:#F2F4F7;" class = "soustitre"> &nbsp;&nbsp;Identit&eacute; du projet&nbsp;&nbsp; </div>
+        </div>
+        <br />
+      </center>
+      <div id = "tableMain">
+        <div id = "col_left" class = "texte obligatoire" style = "width:auto;">&nbsp;Nom court du projet&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;<webobject name = "projCourt" />
+          <webobject name = "projCourtObserve" />
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte obligatoire" style = "width:auto;">&nbsp;Nom long du projet&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;&nbsp;<webobject name = "projLong" />
+          <webobject name = "projLongObserve" />
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte obligatoire" style = "width:auto;">&nbsp;Nom du porteur&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<wo name = "porteurs" />
+          <wo name = "porteurObserve" />
+        </div>
+        <div id = "col_left" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;P&ocirc;le de comp&eacute;tences&nbsp;</div>
+        <div id = "col_mid" class = "texte">
+          <webobject name = "infoAUC"><wo name = "infoPorteur" />&nbsp;&nbsp;</webobject>
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte">&nbsp;Etablissement porteur du projet?&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<wo name = "etabPorteurY" />
+          <webobject name = "etabPorteurYObserve" />&nbsp;Oui&nbsp; 
+          <wo name = "etabPorteurN" />
+          <webobject name = "etabPorteurNObserve" />&nbsp;Non&nbsp; 
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte obligatoire" style = "width:auto;">&nbsp;Dur&eacute;e du projet (mois)&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;<webobject name = "dureeProjet" />
+          <webobject name = "dureeProjetObserve" />
+        </div>
+        <div id = "col_left" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte obligatoire">&nbsp;&nbsp;&nbsp;&nbsp;Date de d&eacute;but&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;<webobject name = "dateInputWithFormatter" />
+          <webobject name = "dateInputWithFormatterObserve" />
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Type de contrat vis&eacute; &nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<wo name = "contrats" />
+          <webobject name = "contratObserve" />
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Sous-type de contrat vis&eacute; &nbsp;</div>
+        <div id = "col_mid" class = "texte">
+          <webobject name = "sousTypeContratAUC">
+            <wo name = "infoContrat" />
+            <webobject name = "infoContratObserve" />&nbsp;&nbsp; 
+          </webobject>
+        </div>
+        <div style = "clear: both"></div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Source de Cofinancement envisag&eacute; &nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;<webobject name = "finance" />
+          <webobject name = "financeObserve" />
+        </div>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "hide" style = "width:auto;">&nbsp;Partenaire du projet &nbsp;</div>
+        <div id = "col_mid" class = "hide">&nbsp;&nbsp;<wo:textField name = "partProj" value = "$mySession.partAdd" /></div>
+        <div style = "clear: both"></div>
+      </div>
+      <div id = "tableMain">
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Partenaires du projet &nbsp;</div>
+        <wo:AjaxUpdateContainer id = "partenaireFetchId">
+          <div id = "col_mid" class = "texte">
+            &nbsp;&nbsp;<wo name = "partenaires" />&nbsp;&nbsp; 
+            <webobject name = "partenairesObserve" />
+            <webobject name = "NouveauPartenaire" />&nbsp;&nbsp;&nbsp;&nbsp; 
+            <webobject name = "DialogNouveauPartenaire" />
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp; 
+        </wo:AjaxUpdateContainer>
+        <div style = "clear: both"></div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id = "col_mid">
+          <wo name = "selectedPartenaireAUC">
+            <wo:if condition = "$ctrl.partenaireDg.allObjects.count">
+              <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7">
+                <tr>
+                  <table border = "0" style = "border-collapse: collapse">
+                    <tr>
+                      <th style = "border:1px solid #3D4B5F">
+                        &nbsp;<font color = "#3D4B5F">Liste partenaires&nbsp;</font>
+                      </th>
+                    </tr>
+                    <wo name = "selectedPart">
+                      <tr>
+                        <td style = "border:1px solid green">&nbsp;<wo name = "newPart" />&nbsp;</td>
+                        <td style = "border:1px solid green" align = "center">
+                          &nbsp;<wo name = "linkPartAction"><wo name = "imgAction" /></wo>&nbsp; 
+                        </td>
+                      </tr>
+                    </wo>
+                  </table>
+                </tr>
+              </table>
+              &nbsp;&nbsp; 
+            </wo:if>
+          </wo>
+        </div>
+      </div>
+      <br />
+      <center>
+        <div id = "container" style = "width:95%">
+          <div id = "entete" style = "background-color:#F2F4F7;" class = "soustitre">&nbsp;&nbsp;Positionnement du projet dans l'ICD&nbsp;&nbsp;</div>
+        </div>
+        <br />
+      </center>
+      <div id = "tableMain">
+        <div id = "col_left" class = "texte obligatoire" style = "width:auto;">&nbsp;Programme Principal d'accueil du projet&nbsp;</div>
+        <div id = "col_mid" class = "texte">&nbsp;&nbsp;<wo name = "equipes" />
+          <wo name = "equipesObserve" />
+        </div>
+        <wo name = "equipeSecondairesAUC">
+          <wo name = "selectEquipeNormale">
+            <div id = "col_left" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;&nbsp;&nbsp;Programmes de recherche associ&eacute;s&nbsp;</div>
+            <div id = "col_mid" class = "texte">
+              &nbsp;&nbsp;<wo name = "equipeSecondaires" />
+              <wo name = "selectedEquipeSecondaireObserve" />&nbsp;&nbsp; 
+            </div>
+          </wo>
+          <div id = "col_left">
+            <wo name = "selectedEquipeSecondaireAUC">
+              <wo:if condition = "$ctrl.autreEquipeDg.allObjects.count">
+                <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7">
+                  <tr>
+                    <table border = "0" style = "border-collapse: collapse">
+                      <tr>
+                        <th style = "border:1px solid #3D4B5F">
+                          &nbsp;<font color = "#3D4B5F">Programmes associ&eacute;s&nbsp;</font>
+                        </th>
+                      </tr>
+                      <wo name = "selectionEquipeSecondaires">
+                        <tr>
+                          <td style = "border:1px solid green">&nbsp;<wo name = "equipeSecondaire" />&nbsp;</td>
+                          <td style = "border:1px solid green" align = "center">
+                            &nbsp;<wo name = "linkAction"><wo name = "imgAction" /></wo>&nbsp; 
+                          </td>
+                        </tr>
+                      </wo>
+                    </table>
+                  </tr>
+                </table>
+                &nbsp;&nbsp; 
+              </wo:if>
+            </wo>
+          </div>
+        </wo>
+        <br />
+        <div style = "clear: both"></div>
+        <wo name = "axesAUC">
+          <table class = "texte">
+            <tr>
+              <wo name = "selectEquipeNormale">
+                <td class = "texte">&nbsp;<font class = "texte obligatoire">Axe de l'&eacute;quipe projet&nbsp;</font>
+                </td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td class = "texte">&nbsp;&nbsp; 
+                  <wo name = "Axes" />
+                  <webobject name = "axesObserve" />
+                </td>
+              </wo>
+            </tr>
+          </table>
+        </wo>
+        <wo name = "pstAUC">
+          <table>
+            <tr>
+              <wo name = "selectEquipeSTMR">
+                <td class = "texte">&nbsp;<font class = "texte obligatoire">Programme Scientifique et Technologique (PST)&nbsp;</font>
+                </td>
+                <td>&nbsp;&nbsp;</td>
+                <td class = "texte">&nbsp;&nbsp; 
+                  <wo name = "Pst" />
+                  <webobject name = "pstObserve" />
+                </td>
+              </wo>
+            </tr>
+          </table>
+        </wo>
+        <div style = "clear: both"></div>
+        <br />
+        <wo name = "tHtVAUC">
+          <wo:AjaxUpdateContainer id = "theContId" onLoading = "function() {Element.hide('busy')}" onSuccess = "function() {Element.hide('busy')}">
+            <div id = "col_left" class = "texte" style = "width:auto%;">&nbsp;Th&eacute;matique transverse&nbsp;:&nbsp;</div>
+            <div id = "col_mid" class = "texte">&nbsp;&nbsp;<wo name = "selectEquipeSTMR"><webobject name = "thematiqueSTMR" /></wo>
+            </div>
+            <div id = "col_mid" class = "texte">
+              <wo name = "YesNo">
+                <webobject name = "thematiqueY" />
+                <wo name = "thematiqueYObserve" />
+                &nbsp;Oui&nbsp; 
+                <webobject name = "thematiqueN" />
+                <wo name = "thematiqueNObserve" />
+                &nbsp;Non&nbsp; 
+              </wo>
+            </div>
+            <div id = "col_mid" class = "texte" style = "width:10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <wo name = "pstAxeStmrAUC">
+              <table>
+                <tr>
+                  <wo name = "selectEquipeSTMR">
+                    <td class = "texte">&nbsp;<font class = "texte obligatoire">Axe de l'&eacute;quipe projet&nbsp;</font>
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td class = "texte">&nbsp;&nbsp; 
+                      <wo name = "AxesStmr" />
+                      <webobject name = "axesStmrObserve" />
+                    </td>
+                  </wo>
+                </tr>
+              </table>
+            </wo>
+            <wo:conditional condition = "$mySession.haveThmtk">
+              <wo name = "YesNo">
+                <table>
+                  <tr>
+                    <td class = "texte">&nbsp;<font class = "texte obligatoire">Axe th&eacute;matique&nbsp;</font>
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td class = "texte">&nbsp;&nbsp; 
+                      <webobject name = "AxesStmr" />
+                      <webobject name = "axesStmrObserve" />
+                    </td>
+                  </tr>
+                </table>
+              </wo>
+              <div style = "clear: both"></div>
+            </wo:conditional>
+          </wo:AjaxUpdateContainer>
+        </wo>
+        <br />
+        <div class = "keyword">
+          <webobject name = "keywordContainer">
+            <wo name = "KeywordsCompletion" />
+            <wo name = "key" />
+          </webobject>
+          <br />
+        </div>
+        <br />
+        <webobject name = "resumeContainer">
+          <script type = "text/javascript" language = "javascript">
+            Element.hide('busy');
+          </script>
+          <center>
+            <div id = "container" style = "width:95%">
+              <div id = "entete" style = "background-color:#F2F4F7;" class = "soustitre">&nbsp;&nbsp;R&eacute;sum&eacute; du projet (1500 mots maximum)&nbsp;&nbsp;<webobject name = "info"/></div>
+            </div>
+            <br />
+          </center>
+          <wo name = "resumeProjet" />
+        </webobject>
+        <webobject name = "saveContainer">
+          <script type = "text/javascript" language = "javascript">
+            Element.hide('busy');
+          </script>
+          <center>
+            <div class = "buttons">
+              <table cellspacing = "0">
+                <tr valign = "middle">
+                  <webobject name = "sauvegarderDisabled">
+                    <td><webobject name = "sauvegarder" />&nbsp; </td>
+                  </webobject>
+                  <td> <webobject name = "suivant" /> </td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp; </td>
+                  <td> <webobject name = "fermer" /> </td>
+                  <td><webobject name = "annuler" /></td>
+                </tr>
+              </table>
+            </div>
+            <br />
+          </center>
+        </webobject>
+      </div>
+    </webobject>
+  </webobject>
+</wo>

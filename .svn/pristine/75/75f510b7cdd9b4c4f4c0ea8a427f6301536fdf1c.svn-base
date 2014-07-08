@@ -1,0 +1,314 @@
+wrap : Wrappers {
+	bodyId = "acceuil";
+	onloadJS = onloadJS;
+}
+
+filterForm : WOForm {
+	name = "filterForm";
+	multipleSubmit = true;
+	onsubmit = "return false;";
+}
+
+updateNavBar : AjaxUpdateContainer {
+	id = navBarContainerId;
+}
+
+barDeNavigation : NavBatchBar {
+	displayGroup = projetDg;
+	objectName = "projet";
+}
+
+repeteProjet : WORepetition {
+	list = projetDg.displayedObjects;
+	item = mySession.bigTmpProject;
+}
+
+projetNom : WOString {
+	value = mySession.bigTmpProject.projet.projnomcourt;
+}
+
+projEtat : WOString {
+	value = mySession.bigTmpProject.etat.typreflib;
+}
+
+projPorteur : WOString {
+	value = mySession.bigTmpProject.porteur.fullname;
+}
+
+projContrat : WOString {
+	value = mySession.bigTmpProject.contrat.typcontNomAbr;
+}
+
+projEquipe : WOString {
+	value = mySession.bigTmpProject.equipe.lcStructure;
+}
+
+disableConsult : WOConditional {
+	condition = ctrl.consulterProjectDisabled;
+}
+
+consultLink : WOHyperlink {
+	action = ctrl.selectConsult;
+}
+
+consultIcon : WOImage {
+	filename = mySession.bigTmpProject.consulter;
+	width = "16";
+	height = "16";
+	title = "consulter un projet";
+	border = "0";
+}
+
+disableUpdate : WOConditional {
+	condition = ctrl.updateProjectDisabled;
+}
+
+updateLink : WOHyperlink {
+	action = ctrl.selectUpdate;
+}
+
+updateIcon : WOImage {
+	filename = mySession.bigTmpProject.modifier;
+	width = "16";
+	height = "16";
+	title = "modifier un projet";
+	border = "0";
+}
+
+disableDelete : WOConditional {
+	condition = ctrl.deleteProjectDisabled;
+}
+
+deleteLink : WOHyperlink {
+	action = ctrl.selectDelete;
+}
+
+deleteIcon : WOImage {
+	filename = mySession.bigTmpProject.supprimer;
+	width = "16";
+	height = "16";
+	title = "abandonner un projet";
+	border = "0";
+}
+
+disableChecked : WOConditional {
+	condition = ctrl.viserProjectDisabled;
+}
+
+checkedLink : WOHyperlink {
+	action = ctrl.selectCheck;
+}
+
+checkedIcon : WOImage {
+	filename = mySession.bigTmpProject.viser;
+	width = "16";
+	height = "16";
+	title = "viser un projet";
+	border = "0";
+}
+
+disableValidate : WOConditional {
+	condition = ctrl.validerProjectDisabled;
+}
+
+validateLink : WOHyperlink {
+	action = ctrl.selectValidate;
+}
+
+validateIcon : WOImage {
+	filename = mySession.bigTmpProject.valider;
+	width = "16";
+	height = "16";
+	title = "valider un projet";
+	border = "0";
+}
+
+handleIncon : WOImage {
+	filename = mySession.bigTmpProject.traiter;
+	width = "16";
+	height = "16";
+	title = "projet traité";
+	border = "0";
+}
+
+disableHandle : WOConditional {
+	condition = ctrl.validerTraiterDisabled;
+}
+
+notHandleIncon : WOImage {
+	filename = mySession.bigTmpProject.nonTraiter;
+	width = "16";
+	height = "16";
+	title = "traiter le projet";
+	border = "0";
+}
+
+disableNotHandle : WOConditional {
+	condition = ctrl.validerNonTraiterDisabled;
+}
+
+notHandleLink : WOHyperlink {
+	action = ctrl.selectNotHandle;
+}
+
+ListEtatsObserveField : AjaxObserveField {
+	observeFieldID = "listEtatId";
+	fullSubmit = true;
+	action = submit;
+}
+
+ListEtats : WOPopUpButton {
+    id = "listEtatId";
+	list = mySession.filtreEtat.allObjects;
+	item = mySession.etatRepetition;
+	displayString = mySession.etatRepetition.typreflib;
+	selection = mySession.selectedState;
+	noSelectionString = "--Etat--";
+	style = "width: 100%;";
+}
+
+ListProjetObserveField : AjaxObserveField {
+	observeFieldID = "listProjetId";
+	fullSubmit = true;
+	action = submit;
+}
+
+ListProjet : WOPopUpButton {
+    id = "listProjetId";
+	list = mySession.filtreProjet.allObjects;
+	item = mySession.projetRepetition;
+	displayString = mySession.projetRepetition.projnomcourt;
+	selection = mySession.selectedProjet;
+	noSelectionString = "--Projet--";
+	style = "width: 100%;";
+}
+
+ListPorteursObserveField : AjaxObserveField {
+	observeFieldID = "listPorteurId";
+	fullSubmit = true;
+	action = submit;
+}
+
+ListPorteurs : WOPopUpButton {
+     id = "listPorteurId";
+	 list = mySession.filtrePorteur.allObjects;
+	 item = mySession.porteurRepetition1;
+	 displayString = mySession.porteurRepetition1.fullname;
+	 selection = mySession.selectedPorteur1;
+	 noSelectionString = "--Porteur--";
+	style = "width: 100%;";
+}
+
+ListContratsObserveField : AjaxObserveField {
+	observeFieldID = "listContratId";
+	fullSubmit = true;
+	action = submit;
+}
+
+ListContrats : WOPopUpButton {
+    id = "listContratId";
+	list = mySession.filtreContrat.allObjects;
+	 item = mySession.contratRepetition1;
+	  displayString = mySession.contratRepetition1.typcontNomAbr;
+	   selection = mySession.selectedContrat1;
+	    noSelectionString = "--Contrat--";
+	style = "width: 100%;";
+}
+
+ListEquipesObserveField : AjaxObserveField {
+	observeFieldID = "listEquipeId";
+	fullSubmit = true;
+	action = submit;
+}
+
+ListEquipes : WOPopUpButton {
+    id = "listEquipeId";
+	list = mySession.filtreEquipe.allObjects;
+	item = mySession.equipeRepetition1;
+	displayString = mySession.equipeRepetition1.lcStructure;
+	selection = mySession.selectedRechUnit1;
+	noSelectionString = "--Equipe--";
+	style = "width: 100%;";
+}
+
+Filtrer : CktlAjaxSubmitButton {
+	action = ctrl.filtrer;
+	text = "Filtrer";
+	type = "find";
+	formName = "filterForm";
+    title = "Filtre sur les projets";
+    //updateContainerID = ListidContainerId;  
+	//onComplete = "function () {listIdUpdate();}";
+	onComplete = "function () {projetListContainerUpdate(); navBarContainerUpdate();}";
+	onClick = "submitForm();";
+}
+
+ResetButton : CktlAjaxSubmitButton {
+    action = ctrl.resetFilters;
+    //updateContainerID = ListidContainerId;
+    onComplete = "function () {projetListContainerUpdate(); navBarContainerUpdate();}";
+    type = "reset";
+    title = "Recharger tous les projets (annule le filtre)";
+}
+
+disablePrint : WOConditional {
+	condition = ctrl.printProjetDisabled;
+}
+
+SimpleMenu : CktlAjaxSimpleMenu {
+	buttonText = "Imprimer";
+}
+//<td style = "font-weight:bold">&nbsp;Export CSV&nbsp;<webobject name = "BTImprimerExport" ><webobject name = "print"/></webobject>&nbsp;</td>
+//BTImprimerExport : WOHyperlink {
+//	action = ctrl.printCsv;
+//	target = "_blank";
+//}
+
+//print : WOImage {
+//	filename = "image/printer.png";
+//	width = "16";
+//	height = "16";
+//	title = "Export CSV";
+//	border = "0";
+//}
+
+listAUC : AjaxUpdateContainer {
+	id = ListidContainerId;
+}
+
+ReportingMonitorExcel : CktlReportingExecButton {
+	id = "ReportingMonitor1";
+	text = "simple";
+	action = ctrl.simpleProjet;
+    reporter = reporterSimple;
+    reporterProgress = simpleProgress;
+    reportFilename = simpleFilename;
+    resultMimeType =  "application/excel";
+    refreshTime = 1000;
+    onComplete = "function() { menu.hideMenu(); }";
+}
+
+ReportingMonitorPdf: CktlReportingExecButton {
+	id = "ReportingMonitor2";
+	action = ctrl.detailProjet;
+	text = "détaillée";
+    reporter = reporterDetail;
+    reporterProgress = detailProgress;
+    reportFilename = detailFilename;
+    resultMimeType = "application/pdf";  
+    refreshTime = 1000;
+    onComplete = "function() { menu.hideMenu(); }";
+}
+
+disableXmlPrint : WOConditional {
+	condition = ctrl.printProjetXmlDisabled;
+}
+
+ReportingMonitorXml : CktlButton{
+	action = ctrl.detailProjetXML;
+	text = "Export XML";
+	type ="print";
+	//target = "_blank";
+	//evalScripts = "true";
+	//onComplete = "function() {listIdUpdate();menu.hideMenu();}";
+}

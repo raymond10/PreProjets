@@ -1,0 +1,23 @@
+<wo:WrapperModal onloadJS = "$onloadJS" bodyId = "commentaire">
+  <webobject name = "body">
+  <br/>
+    <webobject name = "commentaireContainer">
+      <webobject name = "Form">
+        <table width = "400px" align = "center">
+          <tr>
+            <td class = "texte">&nbsp;&nbsp;&nbsp;Commentaire&nbsp;ici&nbsp;</td>
+          </tr>
+          <tr>
+            <td> &nbsp;<webobject name = "comm" /> </td>
+          </tr>
+        </table>
+        <table class = "texte" align = "center">
+          <tr>
+            <td><webobject name = "Annuler" /></td>
+            <td><webobject name = "AjouterCom" /></td>
+          </tr>
+        </table>
+      </webobject>
+    </webobject>
+  </webobject>
+</wo:WrapperModal>

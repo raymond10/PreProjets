@@ -1,0 +1,69 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_h_id"; 
+            externalType = NUMBER; 
+            name = "010_h_id"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "011_h_projid"; 
+            externalType = NUMBER; 
+            name = "011_h_projid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "012_h_create"; 
+            externalType = DATE; 
+            name = "012_h_create"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "013_h_majdate"; 
+            externalType = NUMBER; 
+            name = "013_h_majdate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "014_h_majauteur"; 
+            externalType = VARCHAR2; 
+            name = "014_h_majauteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "015_h_etat"; 
+            externalType = CHAR; 
+            name = "015_h_etat"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "016_h_date"; 
+            externalType = DATE; 
+            name = "016_h_date"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.INS_HISTORIQUE"; 
+    name = insHistorique; 
+}

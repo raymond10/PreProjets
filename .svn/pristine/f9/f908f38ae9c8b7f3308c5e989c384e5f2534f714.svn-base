@@ -1,0 +1,13 @@
+{
+    LesChercheurs = {
+        class = EOFetchSpecification; 
+        entityName = EOVrhcmval; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = cStructure; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = cStructure; class = EOQualifierVariable; }; 
+        }; 
+    }; 
+}

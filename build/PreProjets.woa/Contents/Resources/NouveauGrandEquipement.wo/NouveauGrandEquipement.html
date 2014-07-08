@@ -1,0 +1,55 @@
+<webobject name = "Wrapper">
+  <br />
+  <br />
+  <br />
+  <br />
+  <webobject name = "nouveauEquipementContainer">
+    <webobject name = "Form">
+      <center>
+        <table cellpadding = "0" cellspacing = "0">
+          <tr>
+            <td class = "texte obligatoire">&nbsp;&nbsp;&nbsp;P&ocirc;le&nbsp;</td>
+            <td>
+              <div class = "exampleAjaxGridTitle">
+                <wo name = "FinanceMatosAO"><wo name = "poleEquipement" /></wo>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "texte obligatoire">&nbsp;&nbsp;&nbsp;Plateau&nbsp;Technique&nbsp;&nbsp;</td>
+            <td>
+              <div class = "exampleAjaxGridTitle">
+                <webobject name = "categRMAau"> <wo name = "categoriesRMA" /> </webobject>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "texte obligatoire">&nbsp;&nbsp;&nbsp;Nouvel&nbsp;&eacute;quipement&nbsp;</td>
+            <td class = "texte">
+              <div class = "exampleAjaxGridTitle"> <wo:textField value = "$nomGrandEquipement" class = "texto" size = "40" maxlength = "100" /> </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "texte obligatoire">&nbsp;&nbsp;&nbsp;Co&ucirc;t&nbsp;estim&eacute;&nbsp;</td>
+            <td class = "texte">
+              <div class = "exampleAjaxGridTitle"> <webobject name = "libCout" /> </div>
+            </td>
+          </tr>
+        </table>
+        <br />
+        <table class = "texte" align = "center">
+          <tr>
+            <td><webobject name = "Annuler" /></td>
+            <td><webobject name = "AjouterEquipement" /></td>
+          </tr>
+        </table>
+      </center>
+      <br />
+    </webobject>
+    <table>
+      <tr>
+        <td class = "aide aide-champ"> <webobject name = "infos" /></td>
+      </tr>
+    </table>
+  </webobject>
+</webobject>

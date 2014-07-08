@@ -1,0 +1,14 @@
+{
+    themqatiqueList = {
+        class = EOFetchSpecification; 
+        entityName = EOTypthe; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typthenat; 
+            selectorName = "isNotEqualTo:"; 
+            value = ED; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = typthelib; selectorName = compareAscending; }); 
+    }; 
+}

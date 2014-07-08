@@ -1,0 +1,115 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "COUT_ESTIME"; 
+            externalType = FLOAT; 
+            name = coutEstime; 
+            precision = 2; 
+            scale = 2; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            columnName = "GEMAT_AMORTISSEMENT"; 
+            externalType = NUMBER2; 
+            name = gematAmortissement; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "GEMAT_BRUTE"; 
+            externalType = NUMBER; 
+            name = gematBrute; 
+            precision = 2; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "GEMAT_ID"; 
+            externalType = NUMBER; 
+            name = gematId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "GEMAT_LIB"; 
+            externalType = VARCHAR2; 
+            name = gematLib; 
+            valueClassName = NSString; 
+            width = 100; 
+        }, 
+        {
+            columnName = "GEMAT_MISE_SERVICE"; 
+            externalType = DATE; 
+            name = gematMiseService; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "GEMAT_TEM"; 
+            externalType = CHAR; 
+            name = gematTem; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 3; 
+        }, 
+        {
+            columnName = "GEMAT_UB"; 
+            externalType = NUMBER; 
+            name = gematUb; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "PFMAT_ID"; 
+            externalType = VARCHAR2; 
+            name = pfmatId; 
+            valueClassName = NSString; 
+            width = 10; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        coutEstime, 
+        gematAmortissement, 
+        gematBrute, 
+        gematId, 
+        gematLib, 
+        gematMiseService, 
+        gematTem, 
+        gematUb, 
+        pfmatId
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOGemateriel"; 
+    classProperties = (
+        coutEstime, 
+        gematAmortissement, 
+        gematBrute, 
+        gematLib, 
+        gematMiseService, 
+        gematTem, 
+        gematUb, 
+        toMateriels, 
+        toPfmateriel
+    ); 
+    externalName = "ADMREC.GEMATERIEL"; 
+    name = EOGemateriel; 
+    primaryKeyAttributes = (gematId); 
+    relationships = (
+        {
+            destination = EOResmat; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = gematId; sourceAttribute = gematId; }); 
+            name = toMateriels; 
+        }, 
+        {
+            destination = EOPfmateriel; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = pfmatId; sourceAttribute = pfmatId; }); 
+            name = toPfmateriel; 
+        }
+    ); 
+}

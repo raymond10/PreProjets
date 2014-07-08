@@ -1,0 +1,147 @@
+<wo name = "wrap">
+  <center>
+    <wo name = "filterForm">
+      <div id = "loop">
+        <webobject name = "listAUC">
+          <center>
+            <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7" width = "100%" align = "center">
+              <tr background = "#F2F4F7">
+                <td>&nbsp;&nbsp;</td>
+                <td class = "soustitre">&nbsp;&nbsp;Ci-dessous la liste des projets&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+              </tr>
+            </table>
+            <br />
+          </center>
+          <div>
+            <span><webobject name = "updateNavBar"> <webobject name = "barDeNavigation" /> </webobject></span>
+          </div>
+          <div class = "CSSTableGenerator" align = "center">
+            <table>
+              <tr>
+                <td>
+                  <webobject name = "ListEtats" />
+                  <webobject name = "ListEtatsObserveField" />
+                </td>
+                <td>
+                  <webobject name = "ListProjet" />
+                  <webobject name = "ListProjetObserveField" />
+                </td>
+                <td>
+                  <webobject name = "ListPorteurs" />
+                  <webobject name = "ListPorteursObserveField" />
+                </td>
+                <td>
+                  <webobject name = "ListContrats" />
+                  <webobject name = "ListContratsObserveField" />
+                </td>
+                <td>
+                  <webobject name = "ListEquipes" />
+                  <webobject name = "ListEquipesObserveField" />
+                </td>
+                <td>
+                  <webobject name = "Filtrer" />&nbsp;<webobject name = "ResetButton" />
+                </td>
+                <webobject name = "disablePrint">
+                  <td>
+                    <div class = "menuEdtion">
+                      <webobject name = "SimpleMenu">
+                        <div class = "menuitem">
+                          <webobject name = "ReportingMonitorExcel">Simple</webobject>
+                        </div>
+                        <div class = "menuitem">
+                          <webobject name = "ReportingMonitorPdf">D&eacute;taill&eacute;e</webobject>
+                        </div>
+                      </webobject>
+                    </div>
+                  </td>
+                  <td>
+                    <webobject name = "disableXmlPrint"> <webobject name = "ReportingMonitorXml" /> </webobject>
+                  </td>
+                </webobject>
+              </tr>
+            </table>
+          </div>
+          <br />
+          <table cellpadding = "0" cellspacing = "0" align = "center" width = "100%">
+            <table cellpadding = "0" cellspacing = "0">
+              <tr>
+                <th align = "center">
+                  &nbsp;<b>ETAT</b>
+                  &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp; &nbsp;</th>
+                <th align = "center">
+                  &nbsp;<b>PROJET</b>&nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp;&nbsp;</th>
+                <th align = "center">
+                  &nbsp;<b>PORTEUR</b>&nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp; &nbsp;</th>
+                <th align = "center">
+                  &nbsp;<b>CONTRAT VISE</b>&nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp;&nbsp;</th>
+                <th align = "center">
+                  &nbsp;<b>EQUIPE</b>&nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp; &nbsp;</th>
+                <th align = "center">
+                  &nbsp;<b>ACTION</b>&nbsp; &nbsp;</th>
+                <th>&nbsp; &nbsp; &nbsp; &nbsp;</th>
+              </tr>
+              <tr>
+                <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+              </tr>
+              <webobject name = "repeteProjet">
+                <tr class = "tr" valign = "middle">
+                  <td> &nbsp;<wo name = "projEtat" /></td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <td class = "table-inline-block">
+                    &nbsp;<wo name = "projetNom" />&nbsp; &nbsp;</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <td>
+                    &nbsp;<wo name = "projPorteur" />&nbsp; &nbsp;</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <wo:if condition = "$mySession.bigTmpProject.contrat">
+                    <td>
+                      &nbsp;<wo name = "projContrat" />&nbsp; &nbsp;</td>
+                  </wo:if>
+                  <wo:else>
+                    <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  </wo:else>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <td>&nbsp;<wo name = "projEquipe" />&nbsp; &nbsp;</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                  <td>
+                    <wo name = "disableConsult">
+                      <webobject name = "consultLink"><webobject name = "consultIcon" /> </webobject>
+                    </wo>
+                    <wo name = "disableUpdate">
+                      <webobject name = "updateLink"><webobject name = "updateIcon" /> </webobject>
+                    </wo>
+                    <wo name = "disableDelete">
+                      <webobject name = "deleteLink"><webobject name = "deleteIcon" /> </webobject>
+                    </wo>
+                    <wo name = "disableChecked">
+                      <webobject name = "checkedLink"><webobject name = "checkedIcon" /> </webobject>
+                    </wo>
+                    <wo name = "disableValidate">
+                      <webobject name = "validateLink"><webobject name = "validateIcon" /> </webobject>
+                    </wo>
+                    <wo name = "disableHandle"> <webobject name = "handleIncon" /> </wo>
+                    <wo name = "disableNotHandle">
+                      <webobject name = "notHandleLink"><webobject name = "notHandleIncon" /> </webobject>
+                    </wo>
+                  </td>
+                </tr>
+              </webobject>
+            </table>
+          </table>
+          <span> <webobject name = "barDeNavigation" /> </span>
+        </webobject>
+      </div>
+    </wo>
+  </center>
+  <br />
+</wo>

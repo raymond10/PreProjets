@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailProjetsEditionsSubSubReport" pageWidth="535" pageHeight="535" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="b00b037e-a169-438e-83d8-b90b44a4666c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<queryString language="XPath">
+		<![CDATA[/Projet/Visa]]>
+	</queryString>
+	<field name="comEpp" class="java.lang.String">
+		<fieldDescription><![CDATA[comEpp]]></fieldDescription>
+	</field>
+	<field name="avisEpp" class="java.lang.String">
+		<fieldDescription><![CDATA[avisEpp]]></fieldDescription>
+	</field>
+	<field name="equipeSd" class="java.lang.String">
+		<fieldDescription><![CDATA[equipeSd]]></fieldDescription>
+	</field>
+	<field name="comSd" class="java.lang.String">
+		<fieldDescription><![CDATA[comSd]]></fieldDescription>
+	</field>
+	<field name="avisSd" class="java.lang.String">
+		<fieldDescription><![CDATA[avisSd]]></fieldDescription>
+	</field>
+	<field name="poleDrt" class="java.lang.String">
+		<fieldDescription><![CDATA[poleDrt]]></fieldDescription>
+	</field>
+	<field name="comDrt" class="java.lang.String">
+		<fieldDescription><![CDATA[comDrt]]></fieldDescription>
+	</field>
+	<field name="avisDrt" class="java.lang.String">
+		<fieldDescription><![CDATA[avisDrt]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="385" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b4707fd6-7a1b-4185-9ec4-cbe4b869ea48" stretchType="RelativeToTallestObject" x="0" y="0" width="535" height="127" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{avisEpp}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="e5173b73-312d-422d-83c7-773ac7d7abed" x="0" y="2" width="535" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Commentaire du responsable d'équipe projet d'accueil principal]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="8126a50a-6204-42fe-864f-25b016db00b8" key="textField-1" x="0" y="28" width="535" height="69" isRemoveLineWhenBlank="true"/>
+					<box>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{comEpp}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4cbcc6e2-8cb6-4d6f-a914-d021a8b16179" x="0" y="97" width="40" height="24"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Avis :]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="6500c370-bf96-4c8b-9589-b2c845d5f494" key="textField-2" x="40" y="97" width="495" height="24"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{avisEpp}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement uuid="47056db2-34fd-4bb7-bfc0-d5fcde3e556b" stretchType="RelativeToTallestObject" x="0" y="127" width="535" height="127" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{equipeSd}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="a2585b01-996c-4c20-906c-c6827883789a" x="0" y="6" width="535" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Avis et commentaires du responsable d'équipe projet sécondaire]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="4d4d3a90-180f-441b-8255-6354a85c4a71" x="0" y="43" width="62" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Equipe]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="e9786e37-5c1d-4327-ae75-20b753d0feab" key="textField-3" x="0" y="63" width="62" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{equipeSd}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4d4d3a90-180f-441b-8255-6354a85c4a71" x="62" y="43" width="373" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Commentaire]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="7f757a07-4e58-4f19-91e6-f743e6488d27" key="textField-4" stretchType="RelativeToTallestObject" x="62" y="63" width="373" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{comSd}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4d4d3a90-180f-441b-8255-6354a85c4a71" x="435" y="43" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Avis]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="9b7f0d69-2881-4a4c-a574-cd7c082ef952" key="textField-5" x="435" y="63" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{avisSd}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement uuid="03195212-98e9-4680-9a97-75237008145b" stretchType="RelativeToTallestObject" x="0" y="254" width="535" height="127" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{poleDrt}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="8608953c-52e9-4daa-8520-e5aa97bd58b3" x="0" y="8" width="535" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Avis et commentaires du Directeur de pôle de compétences
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cf808aec-45a8-44b2-ab2d-8e0124d76ff4" x="0" y="47" width="62" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pôle]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="1291714e-ab7a-45ae-8d2f-b409afe6d648" key="textField-6" x="0" y="67" width="62" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{poleDrt}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="cf808aec-45a8-44b2-ab2d-8e0124d76ff4" x="62" y="47" width="373" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Commentaire]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="a945f015-0f92-4c53-b401-78b0d015f239" key="textField-7" stretchType="RelativeToTallestObject" x="62" y="67" width="373" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{comDrt}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="cf808aec-45a8-44b2-ab2d-8e0124d76ff4" x="435" y="47" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Avis]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="e6254993-7160-41f5-9992-4bffdaa5211a" key="textField-7" x="435" y="67" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25"/>
+						<topPen lineWidth="1.25"/>
+						<leftPen lineWidth="1.25"/>
+						<bottomPen lineWidth="1.25"/>
+						<rightPen lineWidth="1.25"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{avisDrt}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,48 @@
+{
+    uneEquipePP = {
+        class = EOFetchSpecification; 
+        entityName = EOEquipes; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = principale; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = projetId; selectorName = compareAscending; }); 
+    }; 
+    uneEquipeSS = {
+        class = EOFetchSpecification; 
+        entityName = EOEquipes; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = principale; 
+                    selectorName = "isEqualTo:"; 
+                    value = N; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = projetId; selectorName = compareAscending; }); 
+    }; 
+}

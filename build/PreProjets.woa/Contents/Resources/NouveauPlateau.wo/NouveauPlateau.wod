@@ -1,0 +1,87 @@
+Wrapper : WrapperModal {
+	bodyId = "nouvelau-plateau";
+	onloadJS = onloadJS;
+	id = "WrapperModal";
+}
+
+nouveauPlateauContainer : AjaxUpdateContainer {
+	id = nouveauPlateaufUpdateContainerId;
+}
+
+Form : ERXWOForm {
+    id = "plateauId";
+    name = "plateauName";
+    embedded = true;
+	action = submit;
+    onsubmit = "return false;";
+}
+
+polePlateau : WOPopUpButton {
+    id = "polePlateauId";
+	list = mySession.poleList;
+	item = mySession.poleNewMatRepetition;
+	displayString = mySession.poleNewMatRepetition.lcStructure;
+	selection = mySession.selectNewMatPole;
+	noSelectionString = " " 
+}
+
+polePlateauObserve : AjaxObserveField {
+	observeFieldID = "polePlateauId";
+	action = submit;
+	fullSubmit = true;
+	onFailure = myApp.onFailureMessage;
+}
+
+nomAbrPlateau : WOTextField {
+    id = "nomAbrPlateauId";
+	size = "20";
+	value = nomAbrPlateau;
+	maxlength = "10";
+}
+
+nomAbrPlateauObserve : AjaxObserveField {
+	observeFieldID = "nomAbrPlateauId";
+	fullSubmit = true;
+	action = submit;
+}
+
+nomPlateau : WOTextField {
+    id = "nomPlateauId";
+	size = "50";
+	value = nomPlateau;
+	maxlength = "50";
+}
+
+nomPlateauObserve : AjaxObserveField {
+	observeFieldID = "nomPlateauId";
+	fullSubmit = true;
+	action = submit;
+}
+
+Annuler : CktlAjaxButton {
+    //name = "cancel";
+    action = annulerAjout;
+    text = "Annuler";
+    type = "cancel";
+    title = "Annuler tout";
+    updateContainerID = nouveauPlateaufUpdateContainerId;
+}
+
+AjouterPlateau : CktlAjaxSubmitButton {
+    formName = "plateauName";
+    name = "addPlateau";
+    action = ajouterPlat;
+    text = "Enregistrer";
+    type = "validate";
+    title = "Créer et enregistrer le plateau technique dans le référentiel";
+    //showBusyImage = true;
+	//evalScripts = true;
+    //updateContainerID = nouveauPlateaufUpdateContainerId;
+	onClick = "submitForm();";
+}
+
+infos : WOString {
+	value = "* - les champs sont obligatoires";
+	class = "aide";
+	escapeHTML = false;
+}

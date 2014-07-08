@@ -1,0 +1,441 @@
+{
+    EditionProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOPprec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (
+            toAlertes, 
+            toAxe, 
+            toCommentaires, 
+            toContrat, 
+            toEquipeSecondaires, 
+            toEtat, 
+            toHistoriques, 
+            toMateriels, 
+            toMotCles, 
+            toPersonnelExistants, 
+            toPosteRhs, 
+            toPrincipal, 
+            toProjetPartenaires, 
+            toProjetRepartaxes, 
+            toSousThemes, 
+            toStructure, 
+            toThematique, 
+            toTheme
+        ); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toEtat.typrefdom"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typrefdom; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toEtat.typrefnat"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typrefnat; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = porteur; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = porteur; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toContrat.typcontId"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typcontId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toPrincipal.cStructure"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = equipePrincipal; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = projetId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = projvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = ({class = EOSortOrdering; key = creadate; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+    EditionProjetEC = {
+        class = EOFetchSpecification; 
+        entityName = EOPprec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOOrQualifier; 
+            qualifiers = (
+                {
+                    class = EOAndQualifier; 
+                    qualifiers = (
+                        {
+                            class = EOOrQualifier; 
+                            qualifiers = (
+                                {
+                                    class = EOKeyValueQualifier; 
+                                    key = creAuteur; 
+                                    selectorName = "isEqualTo:"; 
+                                    value = {"_key" = "perId_CreAuteur"; class = EOQualifierVariable; }; 
+                                }, 
+                                {
+                                    class = EOKeyValueQualifier; 
+                                    key = porteur; 
+                                    selectorName = "isEqualTo:"; 
+                                    value = {"_key" = "noIndiv_Porteur"; class = EOQualifierVariable; }; 
+                                }, 
+                                {
+                                    class = EOKeyValueQualifier; 
+                                    key = "toPersonnelExistants.noIndividu"; 
+                                    selectorName = "isEqualTo:"; 
+                                    value = {"_key" = "noIndiv_Implique"; class = EOQualifierVariable; }; 
+                                }
+                            ); 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toEtat.typrefdom"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = typrefdom; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toEtat.typrefnat"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = typrefnat; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = porteur; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = porteur; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toContrat.typcontId"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = typcontId; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toPrincipal.cStructure"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = equipePrincipale; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = projetId; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = projvalide; 
+                            selectorName = "isEqualTo:"; 
+                            value = O; 
+                        }
+                    ); 
+                }, 
+                {
+                    class = EOAndQualifier; 
+                    qualifiers = (
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = creAuteur; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = "perId_CreAuteur"; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyComparisonQualifier; 
+                            leftKey = "toPersonnelExistants.projetId"; 
+                            rightKey = projetId; 
+                            selectorName = "isNotEqualTo:"; 
+                        }
+                    ); 
+                }
+            ); 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = ({class = EOSortOrdering; key = creadate; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+    FiltreProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOPprec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (
+            toAlertes, 
+            toAxe, 
+            toCommentaires, 
+            toContrat, 
+            toEquipeSecondaires, 
+            toEtat, 
+            toHistoriques, 
+            toMateriels, 
+            toMotCles, 
+            toPersonnelExistants, 
+            toPosteRhs, 
+            toPrincipal, 
+            toProjetPartenaires, 
+            toProjetRepartaxes, 
+            toSousThemes, 
+            toStructure, 
+            toThematique, 
+            toTheme
+        ); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toEtat.typrefdom"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typrefdom; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toEtat.typrefnat"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typrefnat; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = porteur; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = porteur; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toContrat.typcontId"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typcontId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toPrincipal.cStructure"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = equipePrincipale; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = projetId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = projvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = ({class = EOSortOrdering; key = majdate; selectorName = compareDescending; }); 
+        usesDistinct = YES; 
+    }; 
+    FiltreProjetEC = {
+        class = EOFetchSpecification; 
+        entityName = EOPprec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (
+            toAlertes, 
+            toAxe, 
+            toCommentaires, 
+            toContrat, 
+            toEquipeSecondaires, 
+            toEtat, 
+            toHistoriques, 
+            toMateriels, 
+            toMotCles, 
+            toPersonnelExistants, 
+            toPosteRhs, 
+            toPrincipal, 
+            toProjetPartenaires, 
+            toProjetRepartaxes, 
+            toSousThemes, 
+            toStructure, 
+            toThematique, 
+            toTheme
+        ); 
+        qualifier = {
+            class = EOOrQualifier; 
+            qualifiers = (
+                {
+                    class = EOAndQualifier; 
+                    qualifiers = (
+                        {
+                            class = EOOrQualifier; 
+                            qualifiers = (
+                                {
+                                    class = EOKeyValueQualifier; 
+                                    key = creAuteur; 
+                                    selectorName = "isEqualTo:"; 
+                                    value = {"_key" = "perId_CreAuteur"; class = EOQualifierVariable; }; 
+                                }, 
+                                {
+                                    class = EOKeyValueQualifier; 
+                                    key = porteur; 
+                                    selectorName = "isEqualTo:"; 
+                                    value = {"_key" = "noIndiv_Porteur"; class = EOQualifierVariable; }; 
+                                }, 
+                                {
+                                    class = EOKeyValueQualifier; 
+                                    key = "toPersonnelExistants.noIndividu"; 
+                                    selectorName = "isEqualTo:"; 
+                                    value = {"_key" = "noIndiv_Implique"; class = EOQualifierVariable; }; 
+                                }
+                            ); 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toEtat.typrefdom"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = typrefdom; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toEtat.typrefnat"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = typrefnat; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = porteur; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = porteur; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toContrat.typcontId"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = typcontId; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toPrincipal.cStructure"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = equipePrincipale; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = projetId; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = projvalide; 
+                            selectorName = "isEqualTo:"; 
+                            value = O; 
+                        }
+                    ); 
+                }, 
+                {
+                    class = EOAndQualifier; 
+                    qualifiers = (
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = creAuteur; 
+                            selectorName = "isEqualTo:"; 
+                            value = {"_key" = "perId_CreAuteur"; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyComparisonQualifier; 
+                            leftKey = "toPersonnelExistants.projetId"; 
+                            rightKey = projetId; 
+                            selectorName = "isNotEqualTo:"; 
+                        }
+                    ); 
+                }
+            ); 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = ({class = EOSortOrdering; key = majdate; selectorName = compareDescending; }); 
+        usesDistinct = YES; 
+    }; 
+    projetValide = {
+        class = EOFetchSpecification; 
+        entityName = EOPprec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (
+            toAlertes, 
+            toAxe, 
+            toCommentaires, 
+            toContrat, 
+            toEquipeSecondaires, 
+            toEtat, 
+            toHistoriques, 
+            toMateriels, 
+            toMotCles, 
+            toPersonnelExistants, 
+            toPosteRhs, 
+            toPrincipal, 
+            toProjetPartenaires, 
+            toProjetRepartaxes, 
+            toSousThemes, 
+            toStructure, 
+            toThematique, 
+            toTheme
+        ); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = projvalide; 
+            selectorName = "isEqualTo:"; 
+            value = O; 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = ({class = EOSortOrdering; key = majdate; selectorName = compareDescending; }); 
+        usesDistinct = YES; 
+    }; 
+    renvoiLeProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOPprec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (
+            toAlertes, 
+            toAxe, 
+            toCommentaires, 
+            toContrat, 
+            toEquipeSecondaires, 
+            toEtat, 
+            toHistoriques, 
+            toMateriels, 
+            toMotCles, 
+            toPersonnelExistants, 
+            toPosteRhs, 
+            toPrincipal, 
+            toProjetPartenaires, 
+            toProjetRepartaxes, 
+            toSousThemes, 
+            toStructure, 
+            toThematique, 
+            toTheme
+        ); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = projetId; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = projetId; class = EOQualifierVariable; }; 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = ({class = EOSortOrdering; key = majdate; selectorName = compareDescending; }); 
+        usesDistinct = YES; 
+    }; 
+}

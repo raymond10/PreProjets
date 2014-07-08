@@ -1,0 +1,68 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "C_CL_CONTRAT"; 
+            externalType = CHAR; 
+            name = cClcontrat; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            columnName = "TYPCONT_ID"; 
+            externalType = NUMBER; 
+            name = typcontId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPCONT_ID_SUP"; 
+            externalType = NUMBER; 
+            name = typcontIdSup; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPCONT_NOM"; 
+            externalType = VARCHAR2; 
+            name = typcontNom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 255; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPCONT_NOM_ABR"; 
+            externalType = VARCHAR2; 
+            name = typcontNomAbr; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }
+    ); 
+    attributesUsedForLocking = (cClcontrat, typcontId, typcontIdSup, typcontNom, typcontNomAbr); 
+    className = "utt.rec.projet.server.metier.admrec.EOTypcontrat"; 
+    classProperties = (cClcontrat, toContratFils, toProjets, typcontIdSup, typcontNom, typcontNomAbr); 
+    externalName = "ADMREC.TYPCONTRAT"; 
+    name = EOTypcontrat; 
+    primaryKeyAttributes = (typcontId); 
+    relationships = (
+        {
+            destination = EOTypcontrat; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typcontId; sourceAttribute = typcontIdSup; }); 
+            name = toContratFils; 
+        }, 
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typcontId; sourceAttribute = typcontId; }); 
+            name = toProjets; 
+        }
+    ); 
+}

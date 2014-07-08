@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            className = "java.lang.Number"; 
+            columnName = "CATEG_COUT"; 
+            externalType = FLOAT; 
+            name = categCout; 
+            precision = 126; 
+            valueType = f; 
+        }, 
+        {
+            columnName = "CATEG_ID"; 
+            externalType = NUMBER; 
+            name = categId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "CATEG_LIB"; 
+            externalType = VARCHAR2; 
+            name = categLib; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 50; 
+        }
+    ); 
+    attributesUsedForLocking = (categCout, categId, categLib); 
+    className = "utt.rec.projet.server.metier.admrec.EOCategorie"; 
+    classProperties = (categCout, categLib); 
+    externalName = "ADMREC.CATEGORIE"; 
+    name = EOCategorie; 
+    primaryKeyAttributes = (categId); 
+}

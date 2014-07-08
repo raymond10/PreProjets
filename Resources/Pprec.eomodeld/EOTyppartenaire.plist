@@ -1,0 +1,110 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "C_ST_PARTENAIRE"; 
+            externalType = CHAR; 
+            name = cStPartenaire; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_T_PARTENAIRE"; 
+            externalType = CHAR; 
+            name = ctPartenaire; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            columnName = "DENOM_USUELLE"; 
+            externalType = VARCHAR2; 
+            name = denomUsuelle; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 100; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NOM_PARTENAIRE"; 
+            externalType = VARCHAR2; 
+            name = nomPartenaire; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 255; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PART_CLEUNIK"; 
+            externalType = CHAR; 
+            name = partCleunik; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            columnName = PROVENANCE; 
+            externalType = CHAR; 
+            name = provenance; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TYPPART_ID"; 
+            externalType = NUMBER; 
+            name = typpartId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cStPartenaire, 
+        ctPartenaire, 
+        denomUsuelle, 
+        nomPartenaire, 
+        partCleunik, 
+        provenance, 
+        typpartId
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOTyppartenaire"; 
+    classProperties = (
+        cStPartenaire, 
+        ctPartenaire, 
+        denomUsuelle, 
+        nomPartenaire, 
+        partCleunik, 
+        provenance, 
+        toPartenaires, 
+        toStpart, 
+        toTpartenaire
+    ); 
+    externalName = "ADMREC.TYPPARTENAIRE"; 
+    name = EOTyppartenaire; 
+    primaryKeyAttributes = (typpartId); 
+    relationships = (
+        {
+            destination = EOPartenaireProjet; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typpartId; sourceAttribute = typpartId; }); 
+            name = toPartenaires; 
+        }, 
+        {
+            destination = EOStpart; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStPartenaire; sourceAttribute = cStPartenaire; }); 
+            name = toStpart; 
+        }, 
+        {
+            destination = EOTpartenaire; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = ctPartenaire; sourceAttribute = ctPartenaire; }); 
+            name = toTpartenaire; 
+        }
+    ); 
+}

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TestGroupData" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efa8b6b8-811c-4e56-ae85-98a890c2b78e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="xml" uuid="bb960d1c-f781-440f-83ee-8435672eb427"/>
+	<queryString language="xPath">
+		<![CDATA[/Detail/Projet]]>
+	</queryString>
+	<field name="Titre" class="java.lang.String">
+		<fieldDescription><![CDATA[Titre]]></fieldDescription>
+	</field>
+	<field name="Porteur" class="java.lang.String">
+		<fieldDescription><![CDATA[Porteur]]></fieldDescription>
+	</field>
+	<field name="Id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Id]]></fieldDescription>
+	</field>
+	<field name="Pole" class="java.lang.String">
+		<fieldDescription><![CDATA[Pole]]></fieldDescription>
+	</field>
+	<field name="Duree" class="java.lang.String">
+		<fieldDescription><![CDATA[Duree]]></fieldDescription>
+	</field>
+	<field name="DateProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[DateProjet]]></fieldDescription>
+	</field>
+	<field name="ContexteProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ContexteProjet]]></fieldDescription>
+	</field>
+	<field name="ProblmProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ProblmProjet]]></fieldDescription>
+	</field>
+	<field name="objectifProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[objectifProjet]]></fieldDescription>
+	</field>
+	<field name="methodoProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[methodoProjet]]></fieldDescription>
+	</field>
+	<field name="etatProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[etatProjet]]></fieldDescription>
+	</field>
+	<sortField name="Id"/>
+	<group name="essai" isStartNewPage="true" isResetPageNumber="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{Id}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="97cc87b4-fea3-4f5e-ad67-a6c05c0bfab3" stretchType="RelativeToTallestObject" x="33" y="18" width="522" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Titre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c53a3646-a11d-4b43-98d2-31711527574b" x="0" y="18" width="33" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Id}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8a2213b2-f427-4f6e-b210-b48d751721bc" x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Porteur]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="531746f7-e82a-423a-9590-844902c6bd34" x="100" y="0" width="285" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Porteur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="61f8a8c8-eb05-4109-b527-d172afe3853d" x="0" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Pole]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="83a86204-bcfe-470a-b4a6-edacc339e7c7" x="100" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Pole}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b4f993ef-e1cc-4eb5-a086-adf19ab36961" x="0" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Duree]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="cb5b64b0-b937-4803-840b-7f7e24ebd928" x="100" y="40" width="164" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Duree}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="112b4da7-9dc6-4f57-b239-01379208a63f" x="264" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[DateProjet]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6c88b943-3daf-4d95-bf1c-33e8b3679f9b" x="364" y="40" width="191" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{DateProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d907f229-ed05-4e04-83dd-f0a88d46546d" x="0" y="76" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[ContexteProjet]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5838dc76-9c85-4f51-b5c5-488e7bb02549" x="100" y="76" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ContexteProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bcab8b4b-e5be-4e44-ac89-93a0c551923a" x="0" y="118" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[ProblmProjet]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="84dff677-b5d2-4103-9ea6-afbc7c52cedc" x="100" y="118" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ProblmProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7d0ba41f-73cf-4d69-a170-ae5cc143c9cb" x="0" y="159" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[objectifProjet]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9d5397bd-b9ea-425e-9619-d12a659fec58" x="100" y="159" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{objectifProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4181ba8b-aadf-4bdd-bd24-9359ba85c6ac" x="0" y="201" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[methodoProjet]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="56fd685a-fc87-466e-81a8-a96fce6082b0" x="100" y="201" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{methodoProjet}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="588ad237-0869-4e8c-a3b9-7c88954fc91f" x="0" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{etatProjet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c4946aa4-0f2c-447b-9396-10032af1aacc" x="435" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="a4c06781-2268-4a48-b59c-8bad508a4f3d" x="515" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

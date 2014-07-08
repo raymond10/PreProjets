@@ -1,0 +1,25 @@
+{
+    lesPartenaires = {
+        class = EOFetchSpecification; 
+        entityName = EOPartenaireProjet; 
+        prefetchingRelationshipKeyPaths = (toPartenaire, toProjet); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyComparisonQualifier; 
+                    leftKey = "toProjet.projetId"; 
+                    rightKey = projetId; 
+                    selectorName = "isEqualTo:"; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = partprojid; selectorName = compareAscending; }); 
+    }; 
+}

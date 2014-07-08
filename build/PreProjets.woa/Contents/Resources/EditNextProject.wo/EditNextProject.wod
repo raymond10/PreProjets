@@ -1,0 +1,421 @@
+wrap : Wrappers {
+	bodyId = "acceuil";
+	onloadJS = onloadJS;
+}
+
+rhExist : WOConditional {
+	condition = ctrl.personnelDg.displayedObjects.count;
+}
+
+tableRH : AjaxUpdateContainer {
+	id = "tableBody";
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView : WOConditional {
+	condition = ctrl.batchView;
+}
+
+PrevBatch : AjaxUpdateLink {
+	action = ctrl.previousBatch;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView') }";
+	title = "liste précédente";
+}
+
+LeftArrow: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch : AjaxUpdateLink {
+	action = ctrl.nextBatch;
+	updateContainerID = "tableBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView') }";
+	title = "liste suivante";
+}
+
+RightArrow: WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex : WOString {
+	value = ctrl.personnelDg.currentBatchIndex;
+}
+
+BatchCount: WOString {
+	value = ctrl.personnelDg.batchCount;
+}
+
+tableRow : WORepetition {
+	list = ctrl.personnelDg.displayedObjects;
+	item = ctrl.personnel;
+}
+
+pole : WOString {
+	value = ctrl.personnel.nomStructure;
+}
+
+nompre : WOString {
+	value = ctrl.nomPrenom;
+}
+
+implication : WOString {
+	value = ctrl.personnel.tempsuitl;
+}
+
+cout : WOString {
+	value = ctrl.personnel.coutestime;
+}
+
+recruExist : WOConditional {
+	condition = ctrl.postesDg.displayedObjects.count;
+}
+
+tableRH1 : AjaxUpdateContainer {
+	id = "tableBody1";
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView1 : WOConditional {
+	condition = ctrl.batchView1;
+}
+
+PrevBatch1 : AjaxUpdateLink {
+	action = ctrl.previousBatch1;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView1') }";
+	title = "liste précédente";
+}
+
+LeftArrow1: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch1 : AjaxUpdateLink {
+	action = ctrl.nextBatch1;
+	updateContainerID = "tableBody1";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView1') }";
+	title = "liste suivante";
+}
+
+RightArrow1: WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex1 : WOString {
+	value = ctrl.postesDg.currentBatchIndex;
+}
+
+BatchCount1: WOString {
+	value = ctrl.postesDg.batchCount;
+}
+
+tableRow1 : WORepetition {
+	list = ctrl.postesDg.displayedObjects;
+	item = ctrl.poste;
+}
+
+pole1 : WOString {
+	value = ctrl.poste.nomStructure;
+}
+
+categorie : WOString {
+	value = ctrl.poste.toCategorieRh.typrhcmLib.toUpperCase;
+}
+
+profil : WOString {
+	value = ctrl.poste.postelib.toUpperCase;
+}
+
+txFinance : WOString {
+	value = ctrl.poste.txfinancement;
+}
+
+duree : WOString {
+	value = ctrl.poste.dureeRecrue;
+}
+
+cout1 : WOString {
+	value = ctrl.poste.coutestime;
+}
+
+matExist : WOConditional {
+	condition = ctrl.materielsDg.displayedObjects.count;
+}
+
+tableExistMat : AjaxUpdateContainer {
+	id = "tableExistMatBody";
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView2 : WOConditional {
+	condition = ctrl.batchView2;
+}
+
+PrevBatch2 : AjaxUpdateLink {
+	action = ctrl.previousBatch2;
+	updateContainerID = "tableExistMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView2') }";
+	title = "liste précédente";
+}
+
+LeftArrow2: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch2 : AjaxUpdateLink {
+	action = ctrl.nextBatch2;
+	updateContainerID = "tableExistMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView2') }";
+	title = "liste suivante";
+}
+
+RightArrow2: WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex2 : WOString {
+	value = ctrl.materielsDg.currentBatchIndex;
+}
+
+BatchCount2: WOString {
+	value = ctrl.materielsDg.batchCount;
+}
+
+tableRow2 : WORepetition {
+	list = ctrl.materielsDg.displayedObjects;
+	item = ctrl.materiel;
+}
+
+pole2 : WOString {
+	value = ctrl.materiel.nomStructure;
+	escapeHTML = false;
+}
+
+categorie2 : WOString {
+	value = ctrl.materiel.toPlateauTech.pfmatLib;
+	escapeHTML = false;
+}
+
+materiel : WOString {
+	value = ctrl.materiel.toGrandEquipement.gematLib;
+	escapeHTML = false;
+}
+
+tauUtil : WOString {
+	value = ctrl.materiel.matutil;
+	escapeHTML = false;
+}
+
+newMatExist : WOConditional {
+	condition = ctrl.nouveauMaterielDg.displayedObjects.count;
+}
+
+tableNewMat : AjaxUpdateContainer {
+	id = "tableNewMatBody";
+	elementName = "div";
+	class = "tableBody";
+}
+
+batchView3 : WOConditional {
+	condition = ctrl.batchView3;
+}
+
+PrevBatch3 : AjaxUpdateLink {
+	action = ctrl.previousBatch3;
+	updateContainerID = "tableNewMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView3') }";
+	title = "liste précédente";
+}
+
+LeftArrow3: WOImage {
+	alt = "Left Arrow";
+	border = "0";
+	filename = "image/lft-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Left Arrow";
+	width = "7";
+}
+
+NextBatch3 : AjaxUpdateLink {
+	action = ctrl.nextBatch3;
+	updateContainerID = "tableNewMatBody";
+	evalScripts = true;
+	onComplete = "function(request) { Effect.Shake('rowView3') }";
+	title = "liste suivante";
+}
+
+RightArrow3: WOImage {
+	alt = "Right Arrow";
+	border = "0";
+	filename = "image/rt-OSarw1.gif";
+	//framework = "JavaWOExtensions";
+	height = "9";
+	name = "Right Arrow";
+	width = "7";
+}
+
+CurrentBatchIndex3 : WOString {
+	value = ctrl.nouveauMaterielDg.currentBatchIndex;
+}
+
+BatchCount3: WOString {
+	value = ctrl.nouveauMaterielDg.batchCount;
+}
+
+tableRow3 : WORepetition {
+	list = ctrl.nouveauMaterielDg.displayedObjects;
+	item = ctrl.nouveauMateriel;
+}
+
+pole3 : WOString {
+	value = ctrl.nouveauMateriel.nomStructure;
+	escapeHTML = false;
+}
+
+categorie3 : WOString {
+	value = ctrl.nouveauMateriel.toPlateauTech.pfmatLib;
+	escapeHTML = false;
+}
+
+materiel3 : WOString {
+	value = ctrl.nouveauMateriel.toGrandEquipement.gematLib;
+	escapeHTML = false;
+}
+
+tauFinan : WOString {
+	value = ctrl.nouveauMateriel.txfinancement;
+	escapeHTML = false;
+}
+
+cout3 : WOString {
+	value = ctrl.nouveauMateriel.coutestime;
+	escapeHTML = false;
+}
+
+NouveauCommentaire : CktlAjaxButton {
+	dialogIDForOpen = commentDialodId;
+    text = "Commentaire";
+    title = "Commentaire sur le projet";
+    type = "edit";
+    enabled = true;
+    //showBusyImage = true;
+}
+
+DialogNouveauCommentaire : CktlAjaxWindow {
+	id = commentDialodId;
+    action = ctrl.openCommentaire;
+    width = 500;
+    height = 300;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    resizable = false;
+    closable = false;
+}
+
+previous : CktlButton {
+	action = ctrl.previousProject;
+	name = "precedent";
+	id = "BtnPrecedent";
+	text = "Précédent";
+	type = "previous";
+	//formName = "declaration1";
+    title = "Passer à la page précédente";
+}
+
+//<wo:submitButton action = "$ctrl.viserProjet" value = "Viser le projet" />
+voir : CktlButton {
+	action = ctrl.viserProjet;
+	name = "Avis";
+	id = "BtnAvis";
+	text = "Avis";
+	type = "next";
+	//formName = "declaration1";
+    title = "Voir les avis et commentaires";
+}
+
+viser : CktlButton {
+	action = ctrl.viserProjet;
+	name = "viser";
+	id = "BtnViser";
+	text = "Viser";
+	type = "etoile";
+	//formName = "declaration1";
+    title = "Viser le projet";
+}
+
+//<wo:submitButton action = "$ctrl.validerProjet" value = "Validation ICD" />
+validation : CktlButton {
+	action = ctrl.validerProjet;
+	name = "valider";
+	id = "BtnValider";
+	text = "Validation";
+	type = "etoile";
+	//formName = "declaration1";
+    title = "Validation ICD";
+}
+
+traiter : CktlButton {
+	action = ctrl.traiterProjet;
+	name = "traiter";
+	id = "BtnTraiter";
+	text = "Traiter";
+	type = "validate";
+	//formName = "declaration1";
+    title = "Marquer le projet comme traité";
+}
+
+annuler : CktlButton {
+	onClick = "return confirm('Retour à l''acceuil ?');";
+    action = annuler;
+	title = "Fermer le projet";
+	text = "Fermer";
+	type = "accueil";
+}

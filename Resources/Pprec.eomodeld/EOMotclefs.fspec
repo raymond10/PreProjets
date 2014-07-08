@@ -1,0 +1,25 @@
+{
+    MotClefsProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOMotclefs; 
+        prefetchingRelationshipKeyPaths = (toProjet, toRefidx); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = projetId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = motclefId; selectorName = compareAscending; }); 
+    }; 
+}

@@ -1,0 +1,65 @@
+{
+    attributes = (
+        {
+            columnName = "C_CL_CONTRAT"; 
+            externalType = CHAR; 
+            name = cClcontrat; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            columnName = "C_ST_CONT"; 
+            externalType = VARCHAR2; 
+            name = cStcont; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            columnName = "LIB_A_IMPRIMER"; 
+            externalType = VARCHAR2; 
+            name = libAimprimer; 
+            valueClassName = NSString; 
+            width = 255; 
+        }, 
+        {
+            columnName = "LIB_ST_CONTRAT"; 
+            externalType = VARCHAR2; 
+            name = libStcontrat; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            columnName = "TYPCONT_NOM_ABR"; 
+            externalType = VARCHAR2; 
+            name = typcontNomAbr; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }
+    ); 
+    attributesUsedForLocking = (cClcontrat, cStcont, libAimprimer, libStcontrat, typcontNomAbr); 
+    className = "utt.rec.projet.server.metier.admrec.EOStypcontrat"; 
+    classProperties = (cClcontrat, eoPprecs, eoTypcontrat, libAimprimer, libStcontrat, typcontNomAbr); 
+    externalName = "ADMREC.STYPCONTRAT"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOStypcontrat; 
+    primaryKeyAttributes = (cStcont); 
+    relationships = (
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStcont; sourceAttribute = cStcont; }); 
+            name = eoPprecs; 
+        }, 
+        {
+            destination = EOTypcontrat; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typcontNomAbr; sourceAttribute = typcontNomAbr; }); 
+            name = eoTypcontrat; 
+        }
+    ); 
+}

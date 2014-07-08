@@ -1,0 +1,111 @@
+{
+    attributes = (
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_CREATION"; 
+            externalType = NUMBER; 
+            name = persIdCreation; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_MODIFICATION"; 
+            externalType = NUMBER; 
+            name = persIdModification; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cStructure, 
+        dCreation, 
+        dModification, 
+        persId, 
+        persIdCreation, 
+        persIdModification
+    ); 
+    className = "utt.rec.projet.server.metier.grhum.EORepartStructure"; 
+    classProperties = (
+        cStructure, 
+        dCreation, 
+        dModification, 
+        persId, 
+        persIdCreation, 
+        persIdModification, 
+        toIndividu, 
+        toPersonne, 
+        toRepartAssociations, 
+        toStructure
+    ); 
+    externalName = "GRHUM.REPART_STRUCTURE"; 
+    name = EORepartStructure; 
+    primaryKeyAttributes = (cStructure, persId); 
+    relationships = (
+        {
+            destination = EOIndividuUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toIndividu; 
+        }, 
+        {
+            destination = EOPersonne; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toPersonne; 
+        }, 
+        {
+            destination = EORepartAssociation; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = cStructure; sourceAttribute = cStructure; }, 
+                {destinationAttribute = persId; sourceAttribute = persId; }
+            ); 
+            name = toRepartAssociations; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toStructure; 
+        }
+    ); 
+}

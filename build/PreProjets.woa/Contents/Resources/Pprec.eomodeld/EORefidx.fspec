@@ -1,0 +1,39 @@
+{
+    getMotClefs = {
+        class = EOFetchSpecification; 
+        entityName = EORefidx; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = refidxSup; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = id; class = EOQualifierVariable; }; 
+        }; 
+    }; 
+    getMotsClefsParents = {
+        class = EOFetchSpecification; 
+        entityName = EORefidx; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = refidxSup; 
+            selectorName = "isEqualTo:"; 
+            value = {class = EONull; }; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = refidxId; selectorName = compareAscending; }); 
+    }; 
+    lastMotClef = {
+        class = EOFetchSpecification; 
+        entityName = EORefidx; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toMotclefs); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = refidxId; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = id; class = EOQualifierVariable; }; 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        usesDistinct = YES; 
+    }; 
+}

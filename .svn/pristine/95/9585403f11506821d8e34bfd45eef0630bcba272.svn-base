@@ -1,0 +1,9 @@
+{
+    lesCategories = {
+        class = EOFetchSpecification; 
+        entityName = EOCategorie; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        sortOrderings = ({class = EOSortOrdering; key = categLib; selectorName = compareAscending; }); 
+    }; 
+}

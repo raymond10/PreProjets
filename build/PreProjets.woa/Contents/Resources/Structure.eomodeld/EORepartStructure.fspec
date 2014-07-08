@@ -1,0 +1,32 @@
+{
+    UneRepartStructure = {
+        class = EOFetchSpecification; 
+        entityName = EORepartStructure; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toIndividu, toPersonne, toRepartAssociations, toStructure); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = persId; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = persId; class = EOQualifierVariable; }; 
+        }; 
+        sortOrderings = (
+            {class = EOSortOrdering; key = cStructure; selectorName = compareAscending; }, 
+            {class = EOSortOrdering; key = persId; selectorName = compareAscending; }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    lesER = {
+        class = EOFetchSpecification; 
+        entityName = EORepartStructure; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toIndividu, toPersonne, toRepartAssociations, toStructure); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = "structure.repartTypeGroupes.tgrpCode"; 
+            selectorName = "isEqualTo:"; 
+            value = ER; 
+        }; 
+        usesDistinct = YES; 
+    }; 
+}

@@ -1,0 +1,16 @@
+{
+    lePFduPole = {
+        class = EOFetchSpecification; 
+        entityName = EOPfmateriel; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toGemateriels, toMateriels, toStructure); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = cStrcuture; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = cStrcuture; class = EOQualifierVariable; }; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = pfmatLib; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+}

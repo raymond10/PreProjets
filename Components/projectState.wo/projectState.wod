@@ -1,0 +1,4 @@
+etat : WOString {
+	value = myProjet.toEtat.typreflib;
+	class ="aide";
+}

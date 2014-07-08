@@ -1,0 +1,225 @@
+mOF1 : AjaxObserveField {
+	id="mOF1";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+    //updateContainerID = "mo2UC";
+    updateContainerID = ^updateContainerID;
+    action = resetFields;
+}
+
+motclef1 : WOTextField {
+	id = "motclef1";
+	name = "motclef1";
+	value = mySession.motClef.refidxval;
+}
+
+mo2UC : AjaxUpdateContainer {
+	id="mo2UC";
+}
+
+moc1Cond : WOConditional {
+	condition = mySession.motClef;
+}
+
+mOF2 : AjaxObserveField {
+	id="mOF2";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo3UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+motclef2 : WOTextField {
+	id = "motclef2";
+	name = "motclef2";
+	 value = mySession.motClef1.refidxval;
+	 disabled = disabled1;
+}
+
+mo3UC : AjaxUpdateContainer {
+	id="mo3UC";
+}
+
+moc2Cond : WOConditional {
+	condition = mySession.motClef1;
+}
+
+mOF3 : AjaxObserveField {
+	id="mOF3";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo4UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+motclef3 : WOTextField {
+	id = "motclef3";
+	name = "motclef3";
+	 value = mySession.motClef2.refidxval;
+	 disabled = disabled2;
+}
+
+mo4UC : AjaxUpdateContainer {
+	id="mo4UC";
+}
+
+moc3Cond : WOConditional {
+	condition = mySession.motClef2;
+}
+
+mOF4 : AjaxObserveField {
+	id="mOF4";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo5UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+motclef4 : WOTextField {
+	id = "motclef4";
+	name = "motclef4";
+	value = mySession.motClef3.refidxval;
+	disabled = disabled3;
+} 
+
+mo5UC : AjaxUpdateContainer {
+	id="mo5UC";
+}
+
+moc4Cond : WOConditional {
+	condition = mySession.motClef3;
+}
+
+mOF5 : AjaxObserveField {
+	id="mOF5";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo6UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+motclef5 : WOTextField {
+	id = "motclef5";
+	name = "motclef5";
+	 value = mySession.motClef4.refidxval;
+	 disabled = disabled4;
+} 
+
+mo6UC : AjaxUpdateContainer {
+	id="mo6UC";
+}
+
+moc5Cond : WOConditional {
+	condition = mySession.motClef4;
+}
+
+mOF6 : AjaxObserveField {
+	id="mOF6";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo7UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+motclef6 : WOTextField {
+	id = "motclef6";
+	name = "motclef6";
+	 value = mySession.motClef5.refidxval;
+	 disabled = disabled5;
+}
+
+mo7UC : AjaxUpdateContainer {
+	id="mo7UC";
+}
+
+mOF7 : AjaxObserveField {
+	id="mOF7";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo8UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+mo8UC : AjaxUpdateContainer {
+	id="mo8UC";
+}
+
+mOF8 : AjaxObserveField {
+	id="mOF8";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo9UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+mo9UC : AjaxUpdateContainer {
+	id="mo9UC";
+}
+
+mOF9 : AjaxObserveField {
+	id="mOF9";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo10UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+mo10UC : AjaxUpdateContainer {
+	id="mo10UC";
+}
+
+mOF10 : AjaxObserveField {
+	id="mOF10";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo11UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+mo11UC : AjaxUpdateContainer {
+	id="mo11UC";
+}
+
+mOF11 : AjaxObserveField {
+	id="mOF11";
+	fullSubmit = true;
+	observeFieldFrequency = "0.5";
+	observeDelay = "0.5";
+	elementName = "span";
+	//updateContainerID = "mo12UC";
+    updateContainerID = ^updateContainerID;
+	action = resetFields;
+}
+
+mo12UC : AjaxUpdateContainer {
+	id="mo12UC";
+}

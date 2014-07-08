@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MainReport" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" whenResourceMissingType="Empty" uuid="fe1c97da-69ee-4f73-9807-0b21eafd28e7">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="SubReportPartenairePath" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["DetailReportPartenaire.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportPgmAssosPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailPrgmAssocie.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportKeywordPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailKeyword.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportContextePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailContexte.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportProblemPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProblematique.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportObjectifPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailObjectifs.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportMethodoPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailMethodologie.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportFilePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProjetsEditionsSubReport.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubSubReportFilePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProjetsEditionsSubSubReport.jasper"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/Detail/Projet]]>
+	</queryString>
+	<field name="Titre" class="java.lang.String">
+		<fieldDescription><![CDATA[Titre]]></fieldDescription>
+	</field>
+	<field name="Porteur" class="java.lang.String">
+		<fieldDescription><![CDATA[Porteur]]></fieldDescription>
+	</field>
+	<field name="Pole" class="java.lang.String">
+		<fieldDescription><![CDATA[Pole]]></fieldDescription>
+	</field>
+	<field name="Duree" class="java.lang.String">
+		<fieldDescription><![CDATA[Duree]]></fieldDescription>
+	</field>
+	<field name="DateProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[DateProjet]]></fieldDescription>
+	</field>
+	<field name="Contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[Contrat]]></fieldDescription>
+	</field>
+	<field name="SousContrat" class="java.lang.String">
+		<fieldDescription><![CDATA[SousContrat]]></fieldDescription>
+	</field>
+	<field name="Partenaires" class="java.lang.String">
+		<fieldDescription><![CDATA[Partenaires]]></fieldDescription>
+	</field>
+	<field name="prgmPrincipal" class="java.lang.String">
+		<fieldDescription><![CDATA[prgmPrincipal]]></fieldDescription>
+	</field>
+	<field name="prgmAssocie" class="java.lang.String">
+		<fieldDescription><![CDATA[prgmAssocie]]></fieldDescription>
+	</field>
+	<field name="Pst" class="java.lang.String">
+		<fieldDescription><![CDATA[Pst]]></fieldDescription>
+	</field>
+	<field name="Axe" class="java.lang.String">
+		<fieldDescription><![CDATA[Axe]]></fieldDescription>
+	</field>
+	<field name="Thmk" class="java.lang.String">
+		<fieldDescription><![CDATA[Thmk]]></fieldDescription>
+	</field>
+	<field name="AxeStmr" class="java.lang.String">
+		<fieldDescription><![CDATA[AxeStmr]]></fieldDescription>
+	</field>
+	<field name="Keyword" class="java.lang.String">
+		<fieldDescription><![CDATA[Keyword]]></fieldDescription>
+	</field>
+	<field name="ContexteProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ContexteProjet]]></fieldDescription>
+	</field>
+	<field name="ProblmProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ProblmProjet]]></fieldDescription>
+	</field>
+	<field name="objectifProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[objectifProjet]]></fieldDescription>
+	</field>
+	<field name="methodoProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[methodoProjet]]></fieldDescription>
+	</field>
+	<field name="etatProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[etatProjet]]></fieldDescription>
+	</field>
+	<field name="Id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Id]]></fieldDescription>
+	</field>
+	<field name="etabPorteur" class="java.lang.String">
+		<fieldDescription><![CDATA[etabPorteur]]></fieldDescription>
+	</field>
+	<group name="Group" isStartNewPage="true" isResetPageNumber="true">
+		<groupExpression><![CDATA[$F{Id}]]></groupExpression>
+		<groupHeader>
+			<band height="34">
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f63d0129-54ac-4643-8550-55145abec4f1" key="id-1" stretchType="RelativeToTallestObject" x="0" y="0" width="35" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Id}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement uuid="802ed000-5053-4641-9b2b-d79c34d23ae7" key="date-1" x="475" y="0" width="100" height="14"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="390126c5-1a47-427e-b2e9-8fb3ef5261c2" key="textField-1" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="15" width="575" height="18" backcolor="#F0F0F0"/>
+					<box>
+						<topPen lineWidth="1.5"/>
+						<bottomPen lineWidth="1.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Titre}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<detail>
+		<band height="309" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e4d910bf-e36a-43ec-a910-e8b8e0b30c1f" x="0" y="6" width="48" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Porteur :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a6492b99-9251-4205-8007-0493440efdc6" key="textField-2" x="48" y="6" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Porteur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1b33750e-e22d-4079-b84e-ae09c272079e" x="211" y="6" width="30" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pôle :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="be84244c-8b41-4081-ae18-3e76f582a2ea" key="textField-3" x="241" y="6" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Pole}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e94a48e3-55ed-4438-a41d-11e95753582e" x="0" y="30" width="153" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement porteur du projet :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="16bc5511-73f6-4b0f-a9c4-4ad513a67db6" x="153" y="30" width="34" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{etabPorteur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0cca2b3c-018f-468e-98aa-b19fc43f7b27" x="0" y="54" width="43" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Durée :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7ef80927-2be8-4dc8-a38c-4e689729cacd" key="textField-4" isPrintRepeatedValues="false" x="43" y="54" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Duree}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="78d1e831-b4e0-4e76-bf27-40aa40e367ef" x="143" y="54" width="84" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date de début :]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="bc542bed-ad0b-42c5-b9fc-8e9b0295d894" key="textField-5" isPrintRepeatedValues="false" x="227" y="54" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DateProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4d0c7626-9984-4795-a8fa-eb4b793678db" x="0" y="79" width="72" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contrat visé :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="af187b53-79ca-414d-83ad-1e1bad619433" key="textField-6" x="72" y="79" width="235" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Contrat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="507f4680-dd8a-47c3-89e3-01b3de3b60ea" x="307" y="79" width="120" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sous-type de contrat :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="deb522b5-1c64-4cdd-b8c7-a781267bbaff" key="textField-7" x="427" y="79" width="148" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SousContrat}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="6380d436-f32d-427e-965a-8bdf9fa1efbe" key="partenaire" mode="Opaque" x="0" y="101" width="575" height="10"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportPartenairePath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="ac48ad68-63a3-4298-8c08-1b49b680e56a" positionType="Float" x="0" y="113" width="218" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programme Principal d'accueil du projet :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b4d744d6-131f-495f-ac1e-89511fef257f" key="textField-8" positionType="Float" x="218" y="113" width="357" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prgmPrincipal}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="667d68b7-aa21-4ddb-ac01-65cfca3b6646" key="programmes" positionType="Float" mode="Opaque" x="0" y="133" width="575" height="10"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportPgmAssosPath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="53277681-d1de-4549-a62c-7dc0cf9010d2" positionType="Float" x="0" y="145" width="258" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programme Scientifique et Technologique (PST) :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f06795a4-a8a5-4e75-a7f9-874183a8373c" key="textField-10" positionType="Float" x="258" y="145" width="317" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Pst}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9885c2c0-3996-4182-8750-5d2d3b91629d" positionType="Float" x="0" y="165" width="127" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Axe de l'équipe projet :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c8042029-ca13-41a9-bda8-757dd36a3a62" key="textField-11" positionType="Float" x="127" y="165" width="448" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Axe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f492a539-3804-4efd-9cf6-0db247eac1f3" positionType="Float" x="0" y="185" width="135" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thématique transverse :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="0ca9fbad-4900-4464-abc4-649305f31afd" key="textField-12" positionType="Float" x="135" y="185" width="440" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Thmk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f4b694d0-6ab5-45c1-b88f-053ddfcfcd06" positionType="Float" x="0" y="205" width="100" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Axe thématique :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6023085d-aebd-4e09-8416-f07ff2ecd54b" key="textField-13" positionType="Float" x="100" y="205" width="475" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AxeStmr}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="de2f7c08-c4b3-4901-a05d-ec247ff97f73" key="keyword" positionType="Float" mode="Opaque" x="0" y="225" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportKeywordPath}]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="16bbf9b8-9a28-47ae-b6a3-1c3fa749f7cb" key="contexte" positionType="Float" mode="Opaque" x="0" y="238" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportContextePath}]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="82154cb3-4a6f-48bc-9c02-c5a93dc90ecf" key="problematique" positionType="Float" mode="Opaque" x="0" y="251" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportProblemPath}]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="208b3788-a58a-49f7-9d6d-e1dc69344b7d" key="objectif" positionType="Float" mode="Opaque" x="0" y="266" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportObjectifPath}]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="6275f0e6-d509-40e8-a721-c840efd5db08" key="methodologie" positionType="Float" mode="Opaque" x="0" y="280" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportMethodoPath}]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement uuid="d2b08b79-72b7-4c15-ab53-722254c155f8" x="0" y="301" width="575" height="1"/>
+			</break>
+		</band>
+		<band height="33" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="ba862569-e5af-4ab4-9664-eab6b0d5da33" key="resources" positionType="Float" mode="Opaque" x="0" y="0" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet/Resources")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportFilePath}]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement uuid="4f12b9b2-ca52-4ddf-8673-cc8721d9d88c" x="0" y="29" width="575" height="1"/>
+			</break>
+		</band>
+		<band height="22" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="225e1bc1-5084-4932-864e-84b7e98d0ad9" key="visa" positionType="Float" mode="Opaque" x="0" y="0" width="575" height="10" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet/Visa")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubSubReportFilePath}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement uuid="7bd5fae7-460a-4f52-8337-bb6c083cba52" x="529" y="0" width="18" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0ef946b2-dfd7-4c15-8084-d468ad64ae1c" x="557" y="0" width="18" height="13"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c3b13167-4882-4230-9590-d47e1b161b6e" x="0" y="0" width="27" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Etat :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a411b28a-5a17-4379-a90f-955bd88cfba7" key="textField-19" x="27" y="0" width="73" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{etatProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ff88ac7d-8241-43d6-899f-cc3abb464e0e" x="547" y="0" width="10" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

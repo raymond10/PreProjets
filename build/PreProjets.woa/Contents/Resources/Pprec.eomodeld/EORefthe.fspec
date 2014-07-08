@@ -1,0 +1,72 @@
+{
+    refreshSousTheme = {
+        class = EOFetchSpecification; 
+        entityName = EORefthe; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = reftheSup; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = reftheId; class = EOQualifierVariable; }; 
+        }; 
+        sortOrderings = (
+            {class = EOSortOrdering; key = refthelib; selectorName = compareAscending; }, 
+            {class = EOSortOrdering; key = reftheId; selectorName = compareAscending; }
+        ); 
+    }; 
+    refreshTheme = {
+        class = EOFetchSpecification; 
+        entityName = EORefthe; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = reftheSup; 
+                    selectorName = "isEqualTo:"; 
+                    value = {class = EONull; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typtheId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = typtheId; class = EOQualifierVariable; }; 
+                }
+            ); 
+        }; 
+        sortOrderings = (
+            {class = EOSortOrdering; key = refthelib; selectorName = compareAscending; }, 
+            {class = EOSortOrdering; key = reftheId; selectorName = compareAscending; }
+        ); 
+    }; 
+    sousThemeList = {
+        class = EOFetchSpecification; 
+        entityName = EORefthe; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = reftheSup; 
+            selectorName = "isNotEqualTo:"; 
+            value = {class = EONull; }; 
+        }; 
+        sortOrderings = (
+            {class = EOSortOrdering; key = refthelib; selectorName = compareAscending; }, 
+            {class = EOSortOrdering; key = typtheId; selectorName = compareAscending; }
+        ); 
+    }; 
+    themeList = {
+        class = EOFetchSpecification; 
+        entityName = EORefthe; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = reftheSup; 
+            selectorName = "isEqualTo:"; 
+            value = {class = EONull; }; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = refthelib; selectorName = compareAscending; }); 
+    }; 
+}

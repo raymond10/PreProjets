@@ -1,0 +1,44 @@
+{
+    attributes = (
+        {
+            columnName = "C_ST_PARTENAIRE"; 
+            externalType = CHAR; 
+            name = cStPartenaire; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "LIB_STATUT_PARTENAIRE"; 
+            externalType = VARCHAR2; 
+            name = libStatutPartenaire; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PUBLIC_PRIVE"; 
+            externalType = NUMBER; 
+            name = publicPrive; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (cStPartenaire, libStatutPartenaire, publicPrive); 
+    className = "utt.rec.projet.server.metier.admrec.EOStpart"; 
+    classProperties = (libStatutPartenaire, publicPrive, toTypePartenaires); 
+    externalName = "ADMREC.ST_PART"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOStpart; 
+    primaryKeyAttributes = (cStPartenaire); 
+    relationships = (
+        {
+            destination = EOTyppartenaire; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStPartenaire; sourceAttribute = cStPartenaire; }); 
+            name = toTypePartenaires; 
+        }
+    ); 
+}

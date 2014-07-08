@@ -1,0 +1,43 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "20_projetId"; 
+            externalType = NUMBER; 
+            name = "20_projetId"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "30_refidxId"; 
+            externalType = NUMBER; 
+            name = "30_refidxId"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "10_motclefid"; 
+            externalType = NUMBER; 
+            name = "10_motclefid"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "40_temvalide"; 
+            externalType = CHAR; 
+            name = "40_temvalide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.ADD_REPARTIDX"; 
+    name = addRepartIdx; 
+}

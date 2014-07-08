@@ -1,0 +1,24 @@
+{
+    LesChercheurs = {
+        class = EOFetchSpecification; 
+        entityName = EOVrhcmval; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = cStructure; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = cStructure; class = EOQualifierVariable; }; 
+        }; 
+    }; 
+    RealChercheurs = {
+        class = EOFetchSpecification; 
+        entityName = EOVrhcmval; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = chercheur; 
+            selectorName = "isEqualTo:"; 
+            value = O; 
+        }; 
+    }; 
+}

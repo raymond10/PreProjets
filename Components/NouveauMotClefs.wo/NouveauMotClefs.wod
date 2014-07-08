@@ -1,0 +1,98 @@
+Wrapper : WrapperModal {
+	bodyId = "NewKeyword";
+	onloadJS = onloadJS;
+	id = "WrapperModal";
+}
+
+nouveauMotClefContainer : AjaxUpdateContainer {
+	id = nouveauMotClefUpdateContainerId;
+}
+
+Form : ERXWOForm {
+    embedded = true;
+    name = "keyword";
+}
+
+completionAof : AjaxObserveField {
+    id="span1";
+    fullSubmit = true;
+    elementName = "span";
+    action = submitted;
+    observeDelay = "0.3";
+}
+
+newMotClef1 : CktlAjaxAutoComplete {
+	id = "newMotClef1";
+	name ="newMotClef1";
+	//autoSelect = true;
+	list = currentsKeywords;
+	value = newKeyword1;
+	displayString = currentKeyword.refidxval;
+	item = currentKeyword;
+	class = "autocompletefield";
+	selection = selectKeyword;	
+	minChars = 2;
+	//disabled = disabled;
+}
+
+completionAof1 : AjaxObserveField {
+    id="span2";
+    fullSubmit = true;
+    elementName = "span";
+    action = submitted1;
+    observeDelay = "0.2";
+}
+
+newMotClef2 : CktlAjaxAutoComplete {
+	id = "newMotClef2";
+	name ="newMotClef2";
+	//autoSelect = true;
+	list = currentsKeywords1;
+	value = newKeyword2;
+	displayString = currentKeyword1.refidxval;
+	item = currentKeyword1;
+	class = "autocompletefield";
+	selection = selectKeyword1;	
+	minChars = 2;
+	disabled = disabled;
+}
+
+newMotClef3 : WOTextField {
+	id = "newMotClef3";
+	name = "newMotClef3";
+	value = newKeyword3;
+	size = "30";
+	disabled = disabled;
+}
+
+newMotClef3Observe : AjaxObserveField {
+    fullSubmit = true;
+    elementName = "span";
+	action = submit;
+}
+
+Annuler : CktlAjaxButton {
+    //name = "cancel";
+    action = annulerAjout;
+    text = "Annuler";
+    type = "cancel";
+    title = "Annuler tout";
+    updateContainerID = nouveauMotClefUpdateContainerId;
+}
+
+AjouterMotClef : CktlAjaxSubmitButton {
+    id = "addKeywordId";
+    name = "addKeyword";
+    action = ajouterMotClef;
+    text = "Enregistrer";
+    type = "validate";
+    title = "Créer et enregistrer le mot clef dans le référentiel";
+    formName = "keyword";
+	onClick = "submitForm();";
+}
+
+infos : WOString {
+	value = "* - les champs sont obligatoires";
+	class = "aide";
+	escapeHTML = false;
+}

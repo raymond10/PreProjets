@@ -1,0 +1,44 @@
+{
+    attributes = (
+        {
+            columnName = "TYPTHE_ID"; 
+            externalType = NUMBER; 
+            name = typtheId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPTHELIB; 
+            externalType = VARCHAR2; 
+            name = typthelib; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 30; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPTHENAT; 
+            externalType = CHAR; 
+            name = typthenat; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 3; 
+        }
+    ); 
+    attributesUsedForLocking = (typtheId, typthelib, typthenat); 
+    className = "utt.rec.projet.server.metier.admrec.EOTypthe"; 
+    classProperties = (toProjets, typthelib, typthenat); 
+    externalName = "ADMREC.TYPTHE"; 
+    name = EOTypthe; 
+    primaryKeyAttributes = (typtheId); 
+    relationships = (
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typtheId; sourceAttribute = typtheId; }); 
+            name = toProjets; 
+        }
+    ); 
+}

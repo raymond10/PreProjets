@@ -1,0 +1,33 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "01_ufOrdre"; 
+            externalType = NUMBER; 
+            name = "01_ufOrdre"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "02_exeOrdre"; 
+            externalType = NUMBER; 
+            name = "02_exeOrdre"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "03_ufeId"; 
+            externalType = NUMBER; 
+            name = "03_ufeId"; 
+            parameterDirection = 2; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "JEFY_ADMIN.API_UTILISATEUR.PRC_CREERUTILISATEURFONCTEX"; 
+    name = creerUtilisateurFonctEx; 
+}

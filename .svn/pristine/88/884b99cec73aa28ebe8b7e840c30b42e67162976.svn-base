@@ -1,0 +1,59 @@
+//icon
+shortcut_icon : WOGenericElement {
+	elementName = "link";
+	href = icon;
+	type = "image/x-icon";
+	rel = "shortcut icon";
+}
+
+icon : WOGenericElement {
+	elementName = "link";
+	href = icon;
+	type = "image/x-icon";
+	rel = "icon";
+}
+
+Body : WOBody {
+}
+
+//imgLogo: WOImage {
+//<!-- <webobject name = "imgLogo" /> -->
+	//alt = "Logo Universite";
+	//src = application.mainLogoURL;
+//}
+
+IsAfficherErreur : WOConditional {
+	condition = isAfficherMessageErreur;
+}
+MessageErreur : WOString {
+	value = messageErreur;
+	escapeHTML = false;
+}
+
+imgClefs: WOImage {
+	border = "0";
+	src = imageClefsSrc;
+}
+
+FormLogin : WOForm {
+	id = "FormLogin"; 
+	directActionName = "validerLogin";
+	multipleSubmit = true;
+}
+
+Login : WOTextField {
+	id = "LoginId";
+	name = "identifiant";
+	value = login;
+	tabindex = "1";
+}
+MotDePasse : WOPasswordField {
+	name = "mot_de_passe";
+	value = password;
+	class = "alignToLeft";
+	tabindex = "2";
+}
+Valider : WOSubmitButton {
+	value = "Se connecter";
+	directActionName = "validerLogin";
+}

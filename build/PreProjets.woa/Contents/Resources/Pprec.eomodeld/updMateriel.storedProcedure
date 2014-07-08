@@ -1,0 +1,132 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_m_id"; 
+            externalType = NUMBER; 
+            name = "010_m_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_m_projid"; 
+            externalType = NUMBER; 
+            name = "020_m_projid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_m_pole"; 
+            externalType = VARCHAR2; 
+            name = "030_m_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_m_create"; 
+            externalType = DATE; 
+            name = "040_m_create"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_m_majdate"; 
+            externalType = DATE; 
+            name = "050_m_majdate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "060_m_majauteur"; 
+            externalType = VARCHAR2; 
+            name = "060_m_majauteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "070_m_gematid"; 
+            externalType = NUMBER; 
+            name = "070_m_gematid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "080_m_finance"; 
+            externalType = VARCHAR2; 
+            name = "080_m_finance"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "090_m_matexist"; 
+            externalType = CHAR; 
+            name = "090_m_matexist"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "091_m_matutil"; 
+            externalType = VARCHAR2; 
+            name = "091_m_matutil"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "092_m_categ"; 
+            externalType = VARCHAR2; 
+            name = "092_m_categ"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "094_m_coustestime"; 
+            externalType = FLOAT; 
+            name = "094_m_coustestime"; 
+            parameterDirection = 1; 
+            precision = 2; 
+            scale = 10; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "095_m_nom_pole"; 
+            externalType = VARCHAR2; 
+            name = "095_m_nom_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "096_m_tem_valide"; 
+            externalType = CHAR; 
+            name = "096_m_tem_valide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.UPD_MATERIEL"; 
+    name = updMateriel; 
+}

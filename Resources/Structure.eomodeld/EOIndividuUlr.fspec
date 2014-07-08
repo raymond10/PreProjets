@@ -1,0 +1,99 @@
+{
+    Porteurs = {
+        class = EOFetchSpecification; 
+        entityName = EOIndividuUlr; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toPersonne.toRepartAssociations.toStructure.repartTypeGroupes.tgrpCode"; 
+                    selectorName = "isEqualTo:"; 
+                    value = SR; 
+                }, 
+                {
+                    class = EOOrQualifier; 
+                    qualifiers = (
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toPersonne.toRepartAssociations.rasDFermeture"; 
+                            selectorName = "isGreaterThanOrEqualTo:"; 
+                            value = {"_key" = rasDFermeture; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toPersonne.toRepartAssociations.rasDFermeture"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {class = EONull; }; 
+                        }
+                    ); 
+                }
+            ); 
+        }; 
+        sortOrderings = (
+            {
+                class = EOSortOrdering; 
+                key = nomPatronymique; 
+                selectorName = compareAscending; 
+            }, 
+            {class = EOSortOrdering; key = prenom; selectorName = compareAscending; }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    fetchEquipe = {
+        class = EOFetchSpecification; 
+        entityName = EOIndividuUlr; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toPersonne.toRepartAssociations.toStructure.repartTypeGroupes.tgrpCode"; 
+                    selectorName = "isEqualTo:"; 
+                    value = ER; 
+                }, 
+                {
+                    class = EOOrQualifier; 
+                    qualifiers = (
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toPersonne.toRepartAssociations.rasDFermeture"; 
+                            selectorName = "isGreaterThanOrEqualTo:"; 
+                            value = {"_key" = rasDFermeture; class = EOQualifierVariable; }; 
+                        }, 
+                        {
+                            class = EOKeyValueQualifier; 
+                            key = "toPersonne.toRepartAssociations.rasDFermeture"; 
+                            selectorName = "isEqualTo:"; 
+                            value = {class = EONull; }; 
+                        }
+                    ); 
+                }
+            ); 
+        }; 
+        sortOrderings = (
+            {
+                class = EOSortOrdering; 
+                key = nomPatronymique; 
+                selectorName = compareAscending; 
+            }, 
+            {class = EOSortOrdering; key = prenom; selectorName = compareAscending; }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    unIndividu = {
+        class = EOFetchSpecification; 
+        entityName = EOIndividuUlr; 
+        prefetchingRelationshipKeyPaths = ("toPersonne.toRepartStructures", "toPersonne.toStructures"); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = noIndividu; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = noIndividu; class = EOQualifierVariable; }; 
+        }; 
+    }; 
+}

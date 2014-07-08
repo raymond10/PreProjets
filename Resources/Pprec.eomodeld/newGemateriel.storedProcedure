@@ -1,0 +1,54 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "10_ge_matid"; 
+            externalType = NUMBER; 
+            name = "10_ge_matid"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "20_ge_pfmatid"; 
+            externalType = VARCHAR2; 
+            name = "20_ge_pfmatid"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "30_ge_matlib"; 
+            externalType = VARCHAR2; 
+            name = "30_ge_matlib"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 100; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "40_ge_matbrute"; 
+            externalType = NUMBER; 
+            name = "40_ge_matbrute"; 
+            parameterDirection = 1; 
+            precision = 2; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "50_ge_cout"; 
+            externalType = FLOAT; 
+            name = "50_ge_cout"; 
+            parameterDirection = 1; 
+            precision = 2; 
+            scale = 10; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.NEW_GEMATERIEL"; 
+    name = newGemateriel; 
+}

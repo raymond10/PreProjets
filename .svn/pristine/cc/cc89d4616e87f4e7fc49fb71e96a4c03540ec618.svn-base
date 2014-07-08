@@ -1,0 +1,122 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_pos_id"; 
+            externalType = NUMBER; 
+            name = "010_pos_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_pos_pole"; 
+            externalType = VARCHAR2; 
+            name = "020_pos_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_pos_projid"; 
+            externalType = NUMBER; 
+            name = "030_pos_projid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_pos_create"; 
+            externalType = DATE; 
+            name = "040_pos_create"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_pos_majdate"; 
+            externalType = DATE; 
+            name = "050_pos_majdate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "060_pos_majauteur"; 
+            externalType = VARCHAR2; 
+            name = "060_pos_majauteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "070_pos_postelib"; 
+            externalType = VARCHAR2; 
+            name = "070_pos_postelib"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "080_pos_finance"; 
+            externalType = VARCHAR2; 
+            name = "080_pos_finance"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "090_pos_categ"; 
+            externalType = NUMBER; 
+            name = "090_pos_categ"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "091_pos_coutestime"; 
+            externalType = DOUBLE; 
+            name = "091_pos_coutestime"; 
+            parameterDirection = 1; 
+            precision = 2; 
+            scale = 10; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "092_pos_duree"; 
+            externalType = VARCHAR2; 
+            name = "092_pos_duree"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "093_pos_nom_pole"; 
+            externalType = VARCHAR2; 
+            name = "093_pos_nom_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "094_post_tem_valide"; 
+            externalType = CHAR; 
+            name = "094_post_tem_valide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.UPD_POSTERH"; 
+    name = updPosteRh; 
+}

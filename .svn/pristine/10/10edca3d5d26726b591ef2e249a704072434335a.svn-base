@@ -1,0 +1,418 @@
+package utt.rec.projet.server.components;
+
+import org.cocktail.fwkcktlajaxwebext.serveur.component.CktlAjaxWindow;
+
+import utt.rec.projet.server.PprecHelpers;
+import utt.rec.projet.server.components.assistant.MAssistant;
+import utt.rec.projet.server.exception.FactoryException;
+import utt.rec.projet.server.metier.admrec.EOStpart;
+import utt.rec.projet.server.metier.admrec.EOTpartenaire;
+import utt.rec.projet.server.metier.admrec.EOTyppartenaire;
+import utt.rec.projet.server.process.ProcessPartenaire;
+
+import com.webobjects.appserver.WOActionResults;
+import com.webobjects.appserver.WOContext;
+import com.webobjects.appserver.WOResponse;
+import com.webobjects.eoaccess.EOGeneralAdaptorException;
+import com.webobjects.eocontrol.EOEditingContext;
+import com.webobjects.foundation.NSArray;
+import com.webobjects.foundation.NSForwardException;
+import com.webobjects.foundation.NSLog;
+import com.webobjects.foundation.NSValidation;
+import com.webobjects.foundation.NSValidation.ValidationException;
+
+import er.ajax.AjaxUpdateContainer;
+
+/**
+ * @author Raymond NANEON <raymond.naneon at utt.fr>
+ * 
+ */
+@SuppressWarnings("all")
+public class NouveauPartenaire extends MAssistant {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6353976877636186856L;
+	private boolean resetAjoutPartenaireDialog;
+	private Integer idGlobal;
+	private EOEditingContext editingContext = edc();
+	String onloadJS = null;
+
+	// Nouveau mot clef
+	private String partCleunik;
+	private String nomPartenaire;
+	private NSArray<EOTpartenaire> ctPartenaireList;
+	private EOTpartenaire ctPartenaire;
+	private EOTpartenaire ctPartenaireSelected;
+	private NSArray<EOStpart> cstPartenaireList;
+	private EOStpart itemCstPartenaire;
+	private EOStpart selectedCstPartenaire;
+	private String denomUsuelle;
+	protected String errorMessages;
+
+	public NouveauPartenaire(WOContext context) {
+		super(context);
+		NSLog.out.appendln("NouveauPartenaire");
+		partCleunik = "0000000000";
+		//autoPartCleunik();
+		ctPartenaireList = EOTpartenaire.fetchAllEOTpartenaires(
+				getEditingContext(), new NSArray(
+						EOTpartenaire.LIB_TYPE_PARTENAIRE.asc()));
+		cstPartenaireList = EOStpart.fetchAllEOStparts(getEditingContext(),
+				new NSArray(EOStpart.LIB_STATUT_PARTENAIRE.asc()));
+	}
+
+	public boolean synchronizesVariablesWithBindings() {
+		return false;
+	}
+
+	@Override
+	public void appendToResponse(WOResponse response, WOContext context) {
+		super.appendToResponse(response, context);
+		PprecHelpers.insertStylesSheet(context, response);
+	}
+
+	/**
+	 * @return the resetAjoutPartenaireDialog
+	 */
+	public boolean isResetAjoutPartenaireDialog() {
+		return resetAjoutPartenaireDialog;
+	}
+
+	/**
+	 * @param resetAjoutPartenaireDialog
+	 *            the resetAjoutPartenaireDialog to set
+	 */
+	public void setResetAjoutPartenaireDialog(boolean resetAjoutPartenaireDialog) {
+		this.resetAjoutPartenaireDialog = resetAjoutPartenaireDialog;
+	}
+
+	/**
+	 * @return the idGlobal
+	 */
+	public Integer getIdGlobal() {
+		return idGlobal;
+	}
+
+	/**
+	 * @param idGlobal
+	 *            the idGlobal to set
+	 */
+	public void setIdGlobal(Integer idGlobal) {
+		this.idGlobal = idGlobal;
+	}
+
+	/**
+	 * @return the partCleunik
+	 */
+	public String getPartCleunik() {
+		return partCleunik;
+	}
+
+	/**
+	 * @param partCleunik
+	 *            the partCleunik to set
+	 */
+	public void setPartCleunik(String partCleunik) {
+		this.partCleunik = partCleunik;
+	}
+
+	/**
+	 * @return the nomPartenaire
+	 */
+	public String getNomPartenaire() {
+		return nomPartenaire;
+	}
+
+	/**
+	 * @param nomPartenaire
+	 *            the nomPartenaire to set
+	 */
+	public void setNomPartenaire(String nomPartenaire) {
+		this.nomPartenaire = nomPartenaire;
+	}
+
+	/**
+	 * @return the ctPartenaireList
+	 */
+	public NSArray<EOTpartenaire> getCtPartenaireList() {
+		return ctPartenaireList;
+	}
+
+	/**
+	 * @param ctPartenaireList
+	 *            the ctPartenaireList to set
+	 */
+	public void setCtPartenaireList(NSArray<EOTpartenaire> ctPartenaireList) {
+		this.ctPartenaireList = ctPartenaireList;
+	}
+
+	/**
+	 * @return the ctPartenaire
+	 */
+	public EOTpartenaire getCtPartenaire() {
+		return ctPartenaire;
+	}
+
+	/**
+	 * @param ctPartenaire
+	 *            the ctPartenaire to set
+	 */
+	public void setCtPartenaire(EOTpartenaire ctPartenaire) {
+		this.ctPartenaire = ctPartenaire;
+	}
+
+	/**
+	 * @return the ctPartenaireSelected
+	 */
+	public EOTpartenaire getCtPartenaireSelected() {
+		EOTyppartenaire partenaire = partenaire();
+		if (ctPartenaireSelected == null)
+			ctPartenaireSelected = partenaire.toTpartenaire();
+		return ctPartenaireSelected;
+	}
+
+	/**
+	 * @param ctPartenaireSelected
+	 *            the ctPartenaireSelected to set
+	 */
+	public void setCtPartenaireSelected(EOTpartenaire ctPartenaireSelected) {
+		if (ctPartenaireSelected != null) {
+			EOTyppartenaire partenaire = partenaire();
+			partenaire.setToTpartenaireRelationship(ctPartenaireSelected
+					.localInstanceIn(partenaire.editingContext()));
+		}
+		this.ctPartenaireSelected = ctPartenaireSelected;
+	}
+
+	/**
+	 * @return the cstPartenaireList
+	 */
+	public NSArray<EOStpart> getCstPartenaireList() {
+		return cstPartenaireList;
+	}
+
+	/**
+	 * @param cstPartenaireList
+	 *            the cstPartenaireList to set
+	 */
+	public void setCstPartenaireList(NSArray<EOStpart> cstPartenaireList) {
+		this.cstPartenaireList = cstPartenaireList;
+	}
+
+	/**
+	 * @return the itemCstPartenaire
+	 */
+	public EOStpart getItemCstPartenaire() {
+		return itemCstPartenaire;
+	}
+
+	/**
+	 * @param itemCstPartenaire
+	 *            the itemCstPartenaire to set
+	 */
+	public void setItemCstPartenaire(EOStpart itemCstPartenaire) {
+		this.itemCstPartenaire = itemCstPartenaire;
+	}
+
+	/**
+	 * @return the selectedCstPartenaire
+	 */
+	public EOStpart getSelectedCstPartenaire() {
+		EOTyppartenaire partenaire = partenaire();
+		if (selectedCstPartenaire == null)
+			selectedCstPartenaire = partenaire.toStpart();
+		return selectedCstPartenaire;
+	}
+
+	/**
+	 * @param selectedCstPartenaire
+	 *            the selectedCstPartenaire to set
+	 */
+	public void setSelectedCstPartenaire(EOStpart selectedCstPartenaire) {
+		if (selectedCstPartenaire != null) {
+			EOTyppartenaire partenaire = partenaire();
+			EOEditingContext ec = partenaire.editingContext();
+			if (partenaire != null) {
+				partenaire.setToStpartRelationship(selectedCstPartenaire
+						.localInstanceIn(ec));
+				partenaire.setToStpart(selectedCstPartenaire.localInstanceIn(ec));
+				partenaire.setCStPartenaire(selectedCstPartenaire.primaryKey());
+			}
+		}
+		this.selectedCstPartenaire = selectedCstPartenaire;
+	}
+
+	/**
+	 * @return the denomUsuelle
+	 */
+	public String getDenomUsuelle() {
+		return denomUsuelle;
+	}
+
+	/**
+	 * @param denomUsuelle
+	 *            the denomUsuelle to set
+	 */
+	public void setDenomUsuelle(String denomUsuelle) {
+		this.denomUsuelle = denomUsuelle;
+	}
+
+	/**
+	 * @return the editingContext
+	 */
+	public EOEditingContext getEditingContext() {
+		return editingContext;
+	}
+
+	/**
+	 * @param editingContext
+	 *            the editingContext to set
+	 */
+	public void setEditingContext(EOEditingContext editingContext) {
+		this.editingContext = editingContext;
+	}
+
+	public String nouveauPartenairefUpdateContainerId() {
+		// TODO
+		return getComponentId() + "_" + this.getClass().getName();
+	}
+
+	public WOActionResults annulerAjout() {
+		CktlAjaxWindow.close(context());
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see utt.rec.projet.server.components.assistant.MAssistant#valider()
+	 */
+	@Override
+	public boolean valider() {
+		// TODO Auto-generated method stub
+		boolean validate = false;
+		EOTyppartenaire partenaire = partenaire();
+		NSArray<String> failureMessages = new NSArray<String>();
+		if (partenaire != null) {
+			if (partenaire.nomPartenaire() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le nom du partenaire");
+			if (partenaire.toTpartenaire() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le code type du partenaire");
+			if (partenaire.toStpart() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le code statut du partenaire");
+			if (partenaire.denomUsuelle() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le nom usuel du partenaire");
+			if (failureMessages.count() == 0) {
+				validate = true;
+				setFailureMessage(null);
+			} else {
+				setFailureMessage("Veuillez renseigner "
+						+ failureMessages.componentsJoinedByString(", ") + ".");
+			}
+
+		} else {
+			setFailureMessage("Veuillez renseigner les champs obligatoires (en rouge).");
+		}
+		if (validate)
+			mySession().getUiMessages().removeAllObjects();
+		return validate;
+	}
+
+	public WOActionResults Enregistrer() {
+		try {
+			EOTyppartenaire partenaire = partenaire();
+			EOEditingContext ec = partenaire.editingContext();
+			if (valider()) {
+				if (getCtPartenaireList().count() == 1) {
+					partenaire.setToTpartenaireRelationship(getCtPartenaire().localInstanceIn(ec));
+					partenaire.setToTpartenaire(getCtPartenaire()
+							.localInstanceIn(ec));
+					partenaire.setCtPartenaire(getCtPartenaire().primaryKey());
+				}
+				if (ec.hasChanges()) {
+					ec.updatedObjects();
+					ec.saveChanges();
+					//Ajout automatique dans la liste des partenaires
+					mySession().setLastCreatedPartenaire(partenaire);
+					CktlAjaxWindow.close(context());
+				}
+			}
+		} catch (Exception e) {
+			mySession().addSimpleErrorMessage("Nouveau partenaire",
+					e.getLocalizedMessage());
+			e.printStackTrace();
+		}
+		context().response().setStatus(500);
+		AjaxUpdateContainer.updateContainerWithID(myApp().messageContainerID(),
+				context());
+		return null;
+	}
+
+	public WOActionResults ajouterPart() {
+		EOTyppartenaire partenaire = null;
+		if (nomPartenaire == null) {
+			mySession().addSimpleErrorMessage("Nouveau Partenaire",
+					"Merci de renseigner le nom de partenaire");
+		} else if (denomUsuelle == null) {
+			mySession().addSimpleErrorMessage("Nouveau Partenaire",
+					"Merci de renseigner le nom usuel du partenaire");
+		} else {
+			try {
+				partenaire = EOTyppartenaire
+						.createEOTyppartenaire(getEditingContext());
+				partenaire.setPartCleunik(partCleunik);
+				partenaire.setNomPartenaire(nomPartenaire);
+				partenaire.setToTpartenaire(ctPartenaireSelected);
+				partenaire.setToStpart(selectedCstPartenaire);
+				partenaire.setDenomUsuelle(denomUsuelle);
+				EOEditingContext edc = partenaire.editingContext();
+				ProcessPartenaire.enregistrer(mySession().dataBus(), edc,
+						partenaire);
+				setIdGlobal((Integer) partenaire.getTypIdProc());
+				mySession().addSimpleInfoMessage(
+						mySession().localizer().localizedStringForKey(
+								"confirmation"), null);
+			} catch (FactoryException e) {
+				// TODO: handle exception
+				logger().info(e.getMessage(), e);
+				String alertMessage = e.getLocalizedMessage();
+				mySession().setAlertMessage(alertMessage);
+				context().response().setStatus(500);
+			} catch (NSValidation.ValidationException e) {
+				// TODO: handle exception
+				logger().info(e.getMessage(), e);
+				String alertMessage = e.getLocalizedMessage();
+				mySession().setAlertMessage(alertMessage);
+				context().response().setStatus(500);
+			} catch (EOGeneralAdaptorException e) {
+				// TODO: handle exception
+				getEditingContext().revert();
+				logger().warn(e.getMessage(), e);
+				mySession().setAlertMessage(e.getLocalizedMessage());
+				context().response().setStatus(500);
+			}
+		}
+		if (idGlobal != null) {
+			CktlAjaxWindow.close(context());
+		}
+		return doNothing();
+	}
+
+	// Calcul autoMatique Clé unik partenaire
+	protected String autoPartCleunik() {
+		NSArray<EOTyppartenaire> tmp = EOTyppartenaire
+				.fetchAllEOTyppartenaires(getEditingContext(), new NSArray(
+						EOTyppartenaire.PART_CLEUNIK.desc()));
+		EOTyppartenaire tmpz = tmp.objectAtIndex(0);
+		Long calc = Long.parseLong(tmpz.partCleunik()) + 1;
+		String cal = calc.toString();
+		String cleunik = tmpz.partCleunik().substring(0,
+				tmpz.partCleunik().length() - cal.length());
+		return cleunik + cal;
+	}
+}

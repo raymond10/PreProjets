@@ -1,0 +1,240 @@
+<wo name = "wrap">
+  <wo:form multipleSubmit = "$true" name = "declaration">
+    <center>
+      <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7" width = "100%">
+        <tr background = "#F2F4F7">
+          <td>&nbsp;&nbsp;</td>
+          <td class = "soustitre">&nbsp;&nbsp;Identit&eacute; du projet&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <br />
+    </center>
+    <table cellpadding = "0" cellspacing = "0">
+      <tr>
+        <td class = "texte">&nbsp;Nom court du projet&nbsp;:</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texto">&nbsp;&nbsp;<wo:str name = "projCourt" value = "$ctrl.projet.projnomcourt" escapeHTML = "$false" /></td>
+      </tr>
+      <tr>
+        <td class = "texte">&nbsp;Nom long du projet&nbsp;:</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texto">&nbsp;&nbsp;<wo:str name = "projLong" value = "$ctrl.projet.projnomlong" escapeHTML = "$false" /></td>
+      </tr>
+    </table>
+    <table cellpadding = "0" cellspacing = "0">
+      <tr>
+        <td class = "texte">&nbsp;Nom du porteur&nbsp;:</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texto">&nbsp;&nbsp;<wo:str name = "Porteurs" value = "$mySession.porteur.nomPrenom" escapeHTML = "$false" />&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texte">&nbsp;P&ocirc;le de comp&eacute;tences&nbsp;:</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texto"> <wo:str name = "infoPorteur" value = "$mySession.porteur.pole" escapeHTML = "$false" />&nbsp;&nbsp; </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+        <td class = "texte">&nbsp;Etablissement porteur du projet?&nbsp;&nbsp;&nbsp;:</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texto"> <wo:str name = "etabPorteur" value = "$ctrl.projet.etabPorteur" escapeHTML = "$false" />&nbsp;&nbsp; </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class = "texte">Dur&eacute;e du projet (mois):&nbsp;</td>
+        <td class = "texto">&nbsp;&nbsp;<wo:str name = "durProj" value = "$ctrl.projet.projduree" /></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class = "texte">&nbsp;Date de d&eacute;but&nbsp;:</td>
+        <td class = "texto">&nbsp;&nbsp;<wo:str name = "date" value = "$ctrl.projet.projdatdebut" dateformat = "%d/%m/%Y" /></td>
+      </tr>
+    </table>
+    <wo:condition condition = "$ctrl.contrat">
+      <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Type de contrat vis&eacute;&nbsp;:</div>
+      <div id = "col_mid">&nbsp;&nbsp;&nbsp;<wo:string name = "Contrats" value = "$ctrl.contrat.typcontNom.toUpperCase" escapeHTML = "$false" /> </div>
+      <div id = "col_left" class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </wo:condition>
+    <webobject name = "stCont">
+      <div id = "col_left" class = "texte" style = "width:auto;">&nbsp;Sous-type de contrat vis&eacute;&nbsp;:</div>
+      <div id = "col_mid" class = "texto">&nbsp;<wo name = "stContrats" /></div>
+    </webobject>
+    <div style = "clear: both"></div>
+    <wo:condition condition = "$ctrl.projet.srcefinance">
+      <table cellpadding = "0" cellspacing = "0">
+        <tr>
+          <td class = "texte">&nbsp;Source de Cofinancement envisag&eacute;&nbsp;:</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class = "texto">&nbsp;&nbsp;<wo:str id = "finance" value = "$ctrl.projet.srcefinance" class = "texto" escapeHTML = "$false" /></td>
+        </tr>
+      </table>
+    </wo:condition>
+    <br />
+    <wo:if condition = "$ctrl.partenaires.count">
+      <table border = "0" style = "border-collapse: collapse">
+        <tr>
+          <td class = "texte"> &nbsp;Partenaires du projet&nbsp;&nbsp;:</td>
+          <td>
+            <table border = "0" style = "border-collapse: collapse">
+              <tr>
+                <th style = "border:1px solid #3D4B5F">
+                  &nbsp;<font color = "#3D4B5F" style = "text-shadow: 1px 1px rgba(255, 255, 255, 0.95)" font-weight = "bold">Liste partenaires&nbsp;</font>
+                </th>
+              </tr>
+              <wo name = "partenaires">
+                <tr>
+                  <td style = "border:1px solid #3D4B5F" class = "texto">&nbsp;&nbsp;<wo name = "partenaire" />&nbsp;</td>
+                </tr>
+              </wo>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </wo:if>
+    <br />
+    <center>
+      <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7" width = "100%">
+        <tr background = "#F2F4F7">
+          <td>&nbsp;&nbsp;</td>
+          <td class = "soustitre">&nbsp;&nbsp;Positionnement du projet dans l'ICD&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <br />
+    </center>
+    <table cellpadding = "0" cellspacing = "0">
+      <tr>
+        <td class = "texte">&nbsp;Programme Principal d'accueil du projet&nbsp;:</td>
+        <td class = "texto">&nbsp;&nbsp;<wo:str name = "Equipes" value = "$mySession.equipePrincipale.lcStructure" escapeHTML = "$false" />&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>&nbsp;</td>
+        <wo:if condition = "$ctrl.otherList.count">
+          <td class = "texte">&nbsp;Programmes de recherche associ&eacute;s&nbsp;:&nbsp;&nbsp;</td>
+          <td class = "texto"> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+          <td class = "texto">
+            &nbsp; 
+            <table cellpadding = "0" cellspacing = "0">
+              <tr>
+                <table border = "0" style = "border-collapse: collapse">
+                  <tr>
+                    <th style = "border:1px solid #3D4B5F">
+                      &nbsp;<font color = "#3D4B5F">Programmes associ&eacute;s&nbsp;</font>
+                    </th>
+                  </tr>
+                  <wo name = "selectedOther">
+                    <tr>
+                      <td style = "border:1px solid #3D4B5F">&nbsp;<wo name = "newEquipes" />&nbsp;</td>
+                    </tr>
+                  </wo>
+                </table>
+              </tr>
+            </table>
+            &nbsp;&nbsp; 
+          </td>
+        </wo:if>
+      </tr>
+    </table>
+    <table>
+      <wo:if condition = "$ctrl.repartAxeList.count">
+        <tr>
+          <td class = "texte">Programme Scientifique et Technologique (PST)&nbsp;:</td>
+          <td class = "texto">&nbsp;&nbsp;<wo:str name = "Pst" value = "$ctrl.ppst.axereclib" escapeHTML = "$false" /> </td>
+        </tr>
+      </wo:if>
+      <wo:else>
+        <tr>
+          <td class = "texte">Axe de l'&eacute;quipe projet&nbsp;:</td>
+          <td class = "texto">&nbsp;&nbsp;<wo:str name = "Axes" value = "$ctrl.projet.toAxe.axereclib" escapeHTML = "$false" /> </td>
+        </tr>
+      </wo:else>
+    </table>
+    <table cellpadding = "0" cellspacing = "0">
+      <tr>
+        <wo:if condition = "$ctrl.projet.projthetv">
+          <td class = "texte">&nbsp;Th&eacute;matique transverse&nbsp;:</td>
+          <wo:if condition = "$ctrl.projet.toThematique.typthelib">
+            <td class = "texto">&nbsp;&nbsp; <wo:str name = "thematiqueSTMR" value = "$ctrl.projet.toThematique.typthelib" escapeHTML = "$false" /> </td>
+          </wo:if>
+          <wo:else>
+            <td class = "texto">&nbsp;&nbsp; <wo:str name = "thematiqueS" value = "$ctrl.projet.projthetv" escapeHTML = "$false" /> </td>
+          </wo:else>
+        </wo:if>
+      </tr>
+      <wo:if condition = "$ctrl.repartAxeList.count">
+        <tr>
+          <td class = "texte">&nbsp;Axe de l'&eacute;quipe projet&nbsp;:</td>
+          <td class = "texto">&nbsp;&nbsp;<wo:str name = "Axes" value = "$ctrl.axe.axereclib" escapeHTML = "$false" /> </td>
+        </tr>
+      </wo:if>
+      <wo:else>
+        <tr>
+          <wo:if condition = "$ctrl.projet.toTheme.refthelib">
+            <td class = "texte">&nbsp;Th&egrave;me&nbsp;:</td>
+            <td class = "texto">&nbsp;&nbsp; <wo:str name = "Themes" value = "$ctrl.projet.toTheme.refthelib" /> </td>
+          </wo:if>
+        </tr>
+        <tr>
+          <wo:if condition = "$ctrl.projet.toSousThemes.refthelib">
+            <td class = "texte">&nbsp;sous th&egrave;me&nbsp;:</td>
+            <td class = "texto">&nbsp;&nbsp; <wo:str name = "SouThemes" value = "$ctrl.projet.toSousThemes.refthelib" /> </td>
+          </wo:if>
+        </tr>
+        <tr>
+          <wo:if condition = "$ctrl.ppstStmr.axereclib">
+            <td class = "texte">&nbsp;Axe th&eacute;matique&nbsp;:</td>
+            <td class = "texto">&nbsp;&nbsp; <wo:str name = "AxeTmk" value = "$ctrl.ppstStmr.axereclib" /> </td>
+          </wo:if>
+        </tr>
+        <br />
+      </wo:else>
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+    </table>
+    <br />
+    <webobject name = "haveKeyword">
+      <div class = "keyword">
+        <div id = "tableMain">
+          <div id = "col_left" class = "texte" style = "width:8%;">&nbsp;Mots clefs&nbsp;:</div>
+          <webobject name = "keywordList">
+            &nbsp;<div id = "col_mid" class = "texto">&nbsp;<webobject name = "keyword" />&nbsp;&nbsp;</div>&nbsp; 
+          </webobject>
+        </div>
+      </div>
+    </webobject>
+    <br />
+    <center>
+      <table cellpadding = "0" cellspacing = "0" background = "#F2F4F7" width = "100%">
+        <tr background = "#F2F4F7">
+          <td>&nbsp;&nbsp;</td>
+          <td class = "soustitre">&nbsp;&nbsp;R&eacute;sum&eacute; du projet (1500 mots maximum)&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <br />
+    </center>
+    <div id = "tableResume">
+      <wo:AjaxTabbedPanel id = "resumeTab">
+        <wo:AjaxTabbedPanelTab name = "Contexte" isSelected = "$true"><wo:string name = "ctx" value = "$ctrl.projet.projctx" escapeHTML = "false" width = "80" style = "border:1px solid #3D4B5F;" /> </wo:AjaxTabbedPanelTab>
+        <wo:AjaxTabbedPanelTab name = "Problematique"> <wo:string name = "problematik" value = "$ctrl.projet.projpblm" escapeHTML = "false" width = "80" /> </wo:AjaxTabbedPanelTab>
+        <wo:AjaxTabbedPanelTab name = "Objectifs"> <wo:str name = "objectifs" value = "$ctrl.projet.projobf" escapeHTML = "false" /> </wo:AjaxTabbedPanelTab>
+        <wo:AjaxTabbedPanelTab name = "Methodologie"> <wo:string name = "metho" value = "$ctrl.projet.projmtdg" escapeHTML = "false" width = "80" /> </wo:AjaxTabbedPanelTab>
+      </wo:AjaxTabbedPanel>
+      <div style = "clear: both"></div>
+    </div>
+    <br />
+    <br />
+    <center>
+      <div class = "buttons">
+        <table cellspacing = "0">
+          <tr valign = "middle">
+            <td class = "texte"> &nbsp;&nbsp;<webobject name = "suivant" /> </td>
+          </tr>
+        </table>
+      </div>
+    </center>
+    <br />
+    <br />
+    <div class = "aide aide-champ">Etat : <wo:str name = "etat" value = "$ctrl.projet.toEtat.typreflib" /></div>
+  </wo:form>
+</wo>

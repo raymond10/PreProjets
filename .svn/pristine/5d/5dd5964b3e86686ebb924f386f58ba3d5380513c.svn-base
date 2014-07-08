@@ -1,0 +1,116 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {URL = ""; driver = ""; password = ""; username = ""; }; 
+    entities = (
+        {className = "utt.rec.projet.server.metier.admrec.EOAlerte"; name = EOAlerte; }, 
+        {className = "utt.rec.projet.server.metier.admrec.EOAxerec"; name = EOAxerec; }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOCategorie"; 
+            name = EOCategorie; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOCommentaires"; 
+            name = EOCommentaires; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOEquipes"; 
+            name = EOEquipes; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOGemateriel"; 
+            name = EOGemateriel; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOHistorique"; 
+            name = EOHistorique; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOMotclefs"; 
+            name = EOMotclefs; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOPartenaireProjet"; 
+            name = EOPartenaireProjet; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOPersonnel"; 
+            name = EOPersonnel; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOPfmateriel"; 
+            name = EOPfmateriel; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOPosterh"; 
+            name = EOPosterh; 
+        }, 
+        {className = "utt.rec.projet.server.metier.admrec.EOPprec"; name = EOPprec; }, 
+        {className = "utt.rec.projet.server.metier.admrec.EORefidx"; name = EORefidx; }, 
+        {className = "utt.rec.projet.server.metier.admrec.EORefthe"; name = EORefthe; }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EORepartaxe"; 
+            name = EORepartaxe; 
+        }, 
+        {className = "utt.rec.projet.server.metier.admrec.EOResmat"; name = EOResmat; }, 
+        {className = "utt.rec.projet.server.metier.admrec.EOStpart"; name = EOStpart; }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOStructure"; 
+            name = EOStructure; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOTpartenaire"; 
+            name = EOTpartenaire; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOTypcontrat"; 
+            name = EOTypcontrat; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOTyppartenaire"; 
+            name = EOTyppartenaire; 
+        }, 
+        {className = "utt.rec.projet.server.metier.admrec.EOTypref"; name = EOTypref; }, 
+        {className = "utt.rec.projet.server.metier.admrec.EOTypthe"; name = EOTypthe; }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOVrhcmval"; 
+            name = EOVrhcmval; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.admrec.EOVtyprhcm"; 
+            name = EOVtyprhcm; 
+        }
+    ); 
+    storedProcedures = (
+        addAlerte, 
+        addPlateau, 
+        addRepartIdx, 
+        addRepartPst, 
+        delCommentOtherEquipe, 
+        delError, 
+        delProjet, 
+        deverserPredossier, 
+        insCommentOtherEquipe, 
+        insHistorique, 
+        insMateriel, 
+        insOtherEquipe, 
+        insPartenaire, 
+        insPersonnel, 
+        insPosteRh, 
+        insProjet, 
+        insRefidx, 
+        insRepartPart, 
+        newGemateriel, 
+        updCommentOtherEquipe, 
+        updMateriel, 
+        updOtherEquipe, 
+        updPartenaire, 
+        updPersonnel, 
+        updPosteRh, 
+        updProjet, 
+        updRepartIdx, 
+        updRepartPart, 
+        updRepartPst
+    ); 
+    userInfo = {modelId = GRHUM; }; 
+}

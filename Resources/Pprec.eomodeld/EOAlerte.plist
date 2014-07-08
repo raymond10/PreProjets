@@ -1,0 +1,111 @@
+{
+    attributes = (
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "ID_ALERTE"; 
+            externalType = NUMBER; 
+            name = idAlerte; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ID_COMMENTAIRE"; 
+            externalType = NUMBER; 
+            name = idCommentaire; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "ID_PROJET"; 
+            externalType = NUMBER; 
+            name = idProjet; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = LIBELLE; 
+            externalType = VARCHAR2; 
+            name = libelle; 
+            valueClassName = NSString; 
+            width = 300; 
+        }, 
+        {
+            columnName = "PRJ_HASHCODE_VAL"; 
+            externalType = VARCHAR2; 
+            name = prjHashcodeVal; 
+            valueClassName = NSString; 
+            width = 32; 
+        }, 
+        {
+            columnName = "PRJ_HASHCODE_VIS"; 
+            externalType = VARCHAR2; 
+            name = prjHashcodeVis; 
+            valueClassName = NSString; 
+            width = 32; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cStructure, 
+        dModification, 
+        idAlerte, 
+        idCommentaire, 
+        idProjet, 
+        libelle, 
+        prjHashcodeVal, 
+        prjHashcodeVis
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOAlerte"; 
+    classProperties = (
+        cStructure, 
+        dCreation, 
+        dModification, 
+        libelle, 
+        prjHashcodeVal, 
+        prjHashcodeVis, 
+        toCommentaire, 
+        toProjet
+    ); 
+    externalName = "ADMREC.ALERTE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOAlerte; 
+    primaryKeyAttributes = (idAlerte); 
+    relationships = (
+        {
+            destination = EOCommentaires; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = commentId; sourceAttribute = idCommentaire; }); 
+            name = toCommentaire; 
+        }, 
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = idProjet; }); 
+            name = toProjet; 
+        }
+    ); 
+}

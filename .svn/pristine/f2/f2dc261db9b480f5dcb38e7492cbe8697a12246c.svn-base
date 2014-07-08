@@ -1,0 +1,49 @@
+{
+    attributes = (
+        {
+            columnName = "TYPRHCM_COD"; 
+            externalType = VARCHAR2; 
+            name = typrhcmCod; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            columnName = "TYPRHCM_ID"; 
+            externalType = NUMBER; 
+            name = typrhcmId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TYPRHCM_LIB"; 
+            externalType = VARCHAR2; 
+            name = typrhcmLib; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            columnName = "TYPRHCM_VAL"; 
+            externalType = NUMBER; 
+            name = typrhcmVal; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (typrhcmCod, typrhcmId, typrhcmLib, typrhcmVal); 
+    className = "utt.rec.projet.server.metier.admrec.EOVtyprhcm"; 
+    classProperties = (toProfils, typrhcmCod, typrhcmId, typrhcmLib, typrhcmVal); 
+    externalName = "ADMREC.TYPRHCM"; 
+    fetchSpecificationDictionary = {}; 
+    internalInfo = {"_javaClientClassName" = EOVtyprhcm; }; 
+    name = EOVtyprhcm; 
+    primaryKeyAttributes = (typrhcmId); 
+    relationships = (
+        {
+            destination = EOPosterh; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typrhcmId; sourceAttribute = typrhcmId; }); 
+            name = toProfils; 
+        }
+    ); 
+}

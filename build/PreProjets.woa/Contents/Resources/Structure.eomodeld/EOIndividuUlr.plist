@@ -1,0 +1,495 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "CATEGORIE_PRINC"; 
+            externalType = NUMBER; 
+            name = categoriePrinc; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "C_CIVILITE"; 
+            externalType = VARCHAR2; 
+            name = cCivilite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 5; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_DEPT_NAISSANCE"; 
+            externalType = VARCHAR2; 
+            name = cDeptNaissance; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_PAYS_NAISSANCE"; 
+            externalType = VARCHAR2; 
+            name = cPaysNaissance; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_PAYS_NATIONALITE"; 
+            externalType = VARCHAR2; 
+            name = cPaysNationalite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_DECES"; 
+            externalType = DATE; 
+            name = dDeces; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_NAISSANCE"; 
+            externalType = DATE; 
+            name = dNaissance; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_NATURALISATION"; 
+            externalType = DATE; 
+            name = dNaturalisation; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_ACTIVITE"; 
+            externalType = VARCHAR2; 
+            name = indActivite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 100; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_AGENDA"; 
+            externalType = VARCHAR2; 
+            name = indAgenda; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_CLE_INSEE"; 
+            externalType = NUMBER; 
+            name = indCleInsee; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_CLE_INSEE_PROV"; 
+            externalType = NUMBER; 
+            name = indCleInseeProv; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_C_SIT_MILITAIRE"; 
+            externalType = VARCHAR2; 
+            name = indCSitMilitaire; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_C_SITUATION_FAMILLE"; 
+            externalType = VARCHAR2; 
+            name = indCSituationFamille; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_NO_INSEE"; 
+            externalType = VARCHAR2; 
+            name = indNoInsee; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_NO_INSEE_PROV"; 
+            externalType = VARCHAR2; 
+            name = indNoInseeProv; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_ORIGINE"; 
+            externalType = VARCHAR2; 
+            name = indOrigine; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_PHOTO"; 
+            externalType = VARCHAR2; 
+            name = indPhoto; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "IND_QUALITE"; 
+            externalType = VARCHAR2; 
+            name = indQualite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 120; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "LANGUE_PREF"; 
+            externalType = VARCHAR2; 
+            name = languePref; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "LIEU_DECES"; 
+            externalType = VARCHAR2; 
+            name = lieuDeces; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 100; 
+        }, 
+        {
+            columnName = "LISTE_ROUGE"; 
+            externalType = CHAR; 
+            name = listeRouge; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "NO_INDIVIDU"; 
+            externalType = NUMBER; 
+            name = noIndividu; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NO_INDIVIDU_CREATEUR"; 
+            externalType = NUMBER; 
+            name = noIndividuCreateur; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NOM_AFFICHAGE"; 
+            externalType = VARCHAR2; 
+            name = nomAffichage; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NOM_PATRONYMIQUE"; 
+            externalType = VARCHAR2; 
+            name = nomPatronymique; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NOM_PATRONYMIQUE_AFFICHAGE"; 
+            externalType = VARCHAR2; 
+            name = nomPatronymiqueAffichage; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            columnName = "NOM_USUEL"; 
+            externalType = VARCHAR2; 
+            name = nomUsuel; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ORGA_CODE"; 
+            externalType = VARCHAR2; 
+            name = orgaCode; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ORGA_LIBELLE"; 
+            externalType = VARCHAR2; 
+            name = orgaLibelle; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 120; 
+        }, 
+        {
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_CREATION"; 
+            externalType = NUMBER; 
+            name = persIdCreation; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_MODIFICATION"; 
+            externalType = NUMBER; 
+            name = persIdModification; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = PRENOM; 
+            externalType = VARCHAR2; 
+            name = prenom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PRENOM2; 
+            externalType = VARCHAR2; 
+            name = prenom2; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PRENOM_AFFICHAGE"; 
+            externalType = VARCHAR2; 
+            name = prenomAffichage; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PRISE_CPT_INSEE"; 
+            externalType = CHAR; 
+            name = priseCptInsee; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_SS_DIPLOME"; 
+            externalType = VARCHAR2; 
+            name = temSsDiplome; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = VARCHAR2; 
+            name = temValide; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "VILLE_DE_NAISSANCE"; 
+            externalType = VARCHAR2; 
+            name = villeDeNaissance; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 30; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        categoriePrinc, 
+        cCivilite, 
+        cDeptNaissance, 
+        cPaysNaissance, 
+        cPaysNationalite, 
+        dCreation, 
+        dDeces, 
+        dModification, 
+        dNaissance, 
+        dNaturalisation, 
+        indActivite, 
+        indAgenda, 
+        indCleInsee, 
+        indCleInseeProv, 
+        indCSitMilitaire, 
+        indCSituationFamille, 
+        indNoInsee, 
+        indNoInseeProv, 
+        indOrigine, 
+        indPhoto, 
+        indQualite, 
+        languePref, 
+        lieuDeces, 
+        listeRouge, 
+        noIndividu, 
+        noIndividuCreateur, 
+        nomAffichage, 
+        nomPatronymique, 
+        nomPatronymiqueAffichage, 
+        nomUsuel, 
+        orgaCode, 
+        orgaLibelle, 
+        persId, 
+        persIdCreation, 
+        persIdModification, 
+        prenom, 
+        prenom2, 
+        prenomAffichage, 
+        priseCptInsee, 
+        temSsDiplome, 
+        temValide, 
+        villeDeNaissance
+    ); 
+    className = "utt.rec.projet.server.metier.grhum.EOIndividuUlr"; 
+    classProperties = (
+        categoriePrinc, 
+        cCivilite, 
+        cDeptNaissance, 
+        cPaysNaissance, 
+        cPaysNationalite, 
+        dCreation, 
+        dDeces, 
+        dModification, 
+        dNaissance, 
+        dNaturalisation, 
+        indActivite, 
+        indAgenda, 
+        indCleInsee, 
+        indCleInseeProv, 
+        indCSitMilitaire, 
+        indCSituationFamille, 
+        indNoInsee, 
+        indNoInseeProv, 
+        indOrigine, 
+        indPhoto, 
+        indQualite, 
+        languePref, 
+        lieuDeces, 
+        listeRouge, 
+        noIndividu, 
+        noIndividuCreateur, 
+        nomAffichage, 
+        nomPatronymique, 
+        nomPatronymiqueAffichage, 
+        nomUsuel, 
+        orgaCode, 
+        orgaLibelle, 
+        persId, 
+        persIdCreation, 
+        persIdModification, 
+        prenom, 
+        prenom2, 
+        prenomAffichage, 
+        priseCptInsee, 
+        temSsDiplome, 
+        temValide, 
+        toGrpResponsable, 
+        toPersonne, 
+        toPersonnel, 
+        toRepartStructures, 
+        toVresponsableEquipeRecherche, 
+        villeDeNaissance
+    ); 
+    externalName = "GRHUM.INDIVIDU_ULR"; 
+    name = EOIndividuUlr; 
+    primaryKeyAttributes = (noIndividu); 
+    relationships = (
+        {
+            destination = EOStructureUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = grpResponsable; sourceAttribute = noIndividu; }); 
+            name = toGrpResponsable; 
+        }, 
+        {
+            destination = EOPersonne; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toPersonne; 
+        }, 
+        {
+            destination = EOPersonnelUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noDossierPers; sourceAttribute = noIndividu; }); 
+            name = toPersonnel; 
+        }, 
+        {
+            destination = EORepartStructure; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toRepartStructures; 
+        }, 
+        {
+            destination = EOVresponsableEquipeRecherche; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noIndividu; sourceAttribute = noIndividu; }); 
+            name = toVresponsableEquipeRecherche; 
+        }
+    ); 
+}

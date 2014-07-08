@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            columnName = "C_T_PARTENAIRE"; 
+            externalType = CHAR; 
+            name = ctPartenaire; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            columnName = "LIB_TYPE_PARTENAIRE"; 
+            externalType = VARCHAR2; 
+            name = libTypePartenaire; 
+            valueClassName = NSString; 
+            width = 255; 
+        }
+    ); 
+    attributesUsedForLocking = (ctPartenaire, libTypePartenaire); 
+    className = "utt.rec.projet.server.metier.admrec.EOTpartenaire"; 
+    classProperties = (libTypePartenaire, toTypPartenaires); 
+    externalName = "ADMREC.T_PARTENAIRE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOTpartenaire; 
+    primaryKeyAttributes = (ctPartenaire); 
+    relationships = (
+        {
+            destination = EOTyppartenaire; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStPartenaire; sourceAttribute = ctPartenaire; }); 
+            name = toTypPartenaires; 
+        }
+    ); 
+}

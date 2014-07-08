@@ -1,0 +1,270 @@
+wrap : Wrappers {
+	bodyId = "Viser";
+	onloadJS = onloadJS;
+}
+
+avis : ERXWOForm {
+	id = "avisId";
+	name = "avisName";
+	action = submit;
+	multipleSubmit = true;
+    //onsubmit = "function() {tinyMCE.triggerSave();}";
+}
+
+respPF : WORadioButton {
+	class="texte";
+	name = "avisPP";
+	id = "avisPPId";
+	value = "FA";
+	selection = commentairePrincipal.typrefnat;
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+ppAPF : AjaxObserveField {
+	observeFieldID = "avisPPId";
+	//elementName = "span";
+	//updateContainerID = saveContainerId;
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+respPD : WORadioButton {
+	class="texte";
+	name = "avisPP";
+	id = "avisPDId";
+	value = "DF";
+	selection = commentairePrincipal.typrefnat;
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+ppAPD : AjaxObserveField {
+	observeFieldID = "avisPDId";
+	//elementName = "span";
+	//updateContainerID = saveContainerId;
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+avisPrincipal : WOText {
+	id = "respPPId";
+	name="respPP";
+	value = commentairePrincipal.commentaires;
+	maxlength = "4000";
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:300%;height:200px;";
+}
+
+avisPrincipalObserver : AjaxObserveField {
+	observeFieldID = "respPPId";
+	fullSubmit = true;
+	action = submit;
+	onComplete = "submitForm();";
+}
+
+repeatComment : WORepetition {
+	list = mySession.commentDg.displayedObjects;
+	item = mySession.commentRepetition;
+}
+
+CommentEquipe : WOPopUpButton {
+	list = ctrl.ListEquip;
+	item = mySession.newEquipe;
+	selection = mySession.selectedEquipe1;
+	displayString = ctrl.libelleStructure;
+	noSelectionString = " ";
+	title = "Merci de sélectionner votre équipe projet"; 
+}
+
+avisSecondaire : WOText {
+	id = "respEPSId";
+	name = "respEPS";
+	value = commentaireSecondaire.commentaires;
+	maxlength = "4000";
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:300%;height:200px;";
+}
+
+avisSecondaireObserver : AjaxObserveField {
+	observeFieldID = "respEPSId";
+	fullSubmit = true;
+	action = submit;
+	onComplete = "submitForm();";
+}
+
+respSF : WORadioButton {
+	class="texte";
+	name = "avisSP";
+	id = "avisSFId";
+	value = "FA";
+	selection = commentaireSecondaire.typrefnat;
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+ppASF : AjaxObserveField {
+	observeFieldID = "avisSFId";
+	//elementName = "span";
+	//updateContainerID = saveContainerId;
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+respSD : WORadioButton {
+	class="texte";
+	name = "avisSP";
+	id = "avisSDId";
+	value = "DF";
+	selection = commentaireSecondaire.typrefnat;
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+ppASD : AjaxObserveField {
+	observeFieldID = "avisSDId";
+	//elementName = "span";
+	//updateContainerID = saveContainerId;
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+repeatCommen : WORepetition {
+	list = mySession.commentPoleDg.displayedObjects;
+	item = mySession.comentRepetition;
+}
+
+structure : WOString {
+	value = mySession.comentRepetition.commentaireStructure.lcStructure;
+	escapeHTML = false;
+}
+
+CommentPole : WOPopUpButton {
+	list = ctrl.listPole;
+	item = mySession.itemPole;
+	selection = mySession.selectedPole1;
+	displayString = mySession.itemPole.lcStructure;
+	noSelectionString = " ";
+	title = "Merci de sélectionner votre pôle projet"; 
+}
+
+avisDirecteur : WOText {
+	id = "DirPId";
+	name="DirP";
+	value = commentaireDrt.commentaires;
+	maxlength = "4000";
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:300%;height:200px;";
+}
+
+avisDirecteurObserver : AjaxObserveField {
+	//observeFieldID = "DirPId";
+	id = "DirPComm";
+	elementName = "span";
+	fullSubmit = true;
+	action = submit;
+	onComplete = "submitForm();";
+}
+
+DrtF : WORadioButton {
+	class="texte";
+	name = "avisDrt";
+	id = "avisDrtFId";
+	value = "FA";
+	selection = commentaireDrt.typrefnat;
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+ppDPF : AjaxObserveField {
+	observeFieldID = "avisDrtFId";
+	//elementName = "span";
+	//updateContainerID = saveContainerId;
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+DrtD : WORadioButton {
+	class="texte";
+	name = "avisDrt";
+	id = "avisDrtDId";
+	value = "DF";
+	selection = commentaireDrt.typrefnat;
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+ppDPD : AjaxObserveField {
+	observeFieldID = "avisDrtDId";
+	//elementName = "span";
+	//updateContainerID = "saveContainer";
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+DateInputWithFormatter: AjaxDatePicker {
+	value = mySession.dateIcd;
+	formatter = ctrl.formatter;
+	monthNames = ctrl.frenchMonths;
+	dayNames = ctrl.frenchDays;
+	name = "dateIcd";
+}
+
+etatList : WOPopUpButton {
+	id = "stateID";
+	list = mySession.listIcd;
+	item = mySession.listIcdItem;
+	selection = mySession.listIcdSelect;
+	displayString = mySession.listIcdItem.typreflib;
+	noSelectionString = " ";
+	//onClick = "submit();";
+    onClick = "submitForm();";
+}
+
+etatAOF : AjaxObserveField {
+	observeFieldID = "stateID";
+	//elementName = "span";
+	//updateContainerID = saveContainerId;
+	onComplete = "function() {saveContainerUpdate();}";
+	fullSubmit = true;
+	action = ctrl.updateSave;
+}
+
+//<wo:submitButton value = "Precedent" action = "$ctrl.precedent" /> 
+previous : CktlButton {
+	action = ctrl.precedent;
+	name = "precedentVisa";
+	id = "BtnPrecedentVisa";
+	text = "Précédent";
+	type = "previous";
+    title = "Passer à la page précédente";
+}
+
+saveContainer : AjaxUpdateContainer {
+	id = saveContainerId;
+}
+
+saveIcd : CktlAjaxSubmitButton {
+    formName = "avisName";
+	name = "saveIcd";
+	action = ctrl.terminer;
+	text = "Enregistrer";
+	type = "validate";
+	title = "Valider et Enregistrer";
+    showBusyImage = true;
+	evalScripts = true;
+    //disabled = ctrl.isButtonSavedDisabled;
+}
+//CktlAjaxSubmitButton {
+//	action = ctrl.enregistrer;
+//	text = "Enregistrer";
+//	type = "validate";
+//	disabled = ctrl.buttonSave;
+//	showBusyImage = true;
+//    onClick = "submit();";
+//	formName = "avisID";
+//    title = "Enregistrer";
+//}

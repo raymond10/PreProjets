@@ -1,0 +1,57 @@
+{
+    attributes = (
+        {
+            columnName = "MOTCLEF_ID"; 
+            externalType = NUMBER; 
+            name = motclefId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "REFIDX_ID"; 
+            externalType = NUMBER; 
+            name = refidxId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = CHAR; 
+            name = temvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    attributesUsedForLocking = (motclefId, projetId, refidxId, temvalide); 
+    className = "utt.rec.projet.server.metier.admrec.EOMotclefs"; 
+    classProperties = (motclefId, projetId, refidxId, temvalide, toProjet, toRefidx); 
+    externalName = "ADMREC.REPART_REFIDX"; 
+    name = EOMotclefs; 
+    primaryKeyAttributes = (motclefId); 
+    relationships = (
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }, 
+        {
+            destination = EORefidx; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = refidxId; sourceAttribute = refidxId; }); 
+            name = toRefidx; 
+        }
+    ); 
+}

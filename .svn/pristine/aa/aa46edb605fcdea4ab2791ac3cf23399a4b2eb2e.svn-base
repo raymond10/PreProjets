@@ -1,0 +1,57 @@
+{
+    equipe = {
+        class = EOFetchSpecification; 
+        entityName = EOAxerec; 
+        prefetchingRelationshipKeyPaths = (); 
+    }; 
+    equipeAxes = {
+        class = EOFetchSpecification; 
+        entityName = EOAxerec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = cStructure; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = equipe; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temAxe; 
+                    selectorName = "isEqualTo:"; 
+                    value = A; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = axereclib; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+    equipePst = {
+        class = EOFetchSpecification; 
+        entityName = EOAxerec; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = cStructure; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = equipe; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temAxe; 
+                    selectorName = "isEqualTo:"; 
+                    value = P; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = axereclib; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+}

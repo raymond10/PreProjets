@@ -1,0 +1,32 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_a_refidxid"; 
+            externalType = NUMBER; 
+            name = "010_a_refidxid"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_a_refidxsup"; 
+            externalType = NUMBER; 
+            name = "020_a_refidxsup"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_a_refidxval"; 
+            externalType = VARCHAR2; 
+            name = "030_a_refidxval"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.INS_REFIDX"; 
+    name = insRefidx; 
+}

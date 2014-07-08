@@ -1,0 +1,27 @@
+#Thu Jul 07 10:40:05 CEST 2011
+cktltemplate.version=0.9.0.0
+classes.dir=bin
+component.inlineBindingPrefix=[
+component.inlineBindingSuffix=]
+component.wellFormedTemplateRequired=true
+customInfoPListContent=
+embed.Local=true
+embed.Network=true
+embed.Project=true
+embed.System=true
+embed.User=true
+eoAdaptorClassName=
+javaVersion=1.5+
+principalClass=utt.rec.projet.server.Application
+project.name=PreProjets
+project.name.lowercase=preprojets
+project.type=application
+webXML=false
+webXML_CustomContent=
+#Alias du projet
+project.name.alias=pprec
+#Indique la sphere de laquelle l'application depend
+org.cedre.sphere=rec
+#nom complet de la classe contenant une mÈthode main affichant le n∞ de version de l'application dans la sortie standard.
+#org.utt.versionClass=utt.rec.projet.server.VersionMe
+version.file=gradle.properties

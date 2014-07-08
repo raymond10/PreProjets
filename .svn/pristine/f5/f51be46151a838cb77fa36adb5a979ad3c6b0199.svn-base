@@ -1,0 +1,69 @@
+{
+    attributes = (
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            columnName = "TGRP_CODE"; 
+            externalType = VARCHAR2; 
+            name = tgrpCode; 
+            valueClassName = NSString; 
+            width = 2; 
+        }, 
+        {
+            columnName = "TGRP_LIBELLE"; 
+            externalType = VARCHAR2; 
+            name = tgrpLibelle; 
+            valueClassName = NSString; 
+            width = 40; 
+        }, 
+        {
+            columnName = "TGRP_TEM_UTIL"; 
+            externalType = CHAR; 
+            name = tgrpTemUtil; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TGRP_TEM_WEB"; 
+            externalType = VARCHAR2; 
+            name = tgrpTemWeb; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    attributesUsedForLocking = (dCreation, dModification, tgrpCode, tgrpLibelle, tgrpTemUtil, tgrpTemWeb); 
+    className = "utt.rec.projet.server.metier.grhum.EOtypeGroupe"; 
+    classProperties = (
+        dCreation, 
+        dModification, 
+        tgrpLibelle, 
+        tgrpTemUtil, 
+        tgrpTemWeb, 
+        toRepartTypeGroupes
+    ); 
+    externalName = "GRHUM.TYPE_GROUPE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOtypeGroupe; 
+    primaryKeyAttributes = (tgrpCode); 
+    relationships = (
+        {
+            destination = EORepartTypeGroupe; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = tgrpCode; sourceAttribute = tgrpCode; }); 
+            name = toRepartTypeGroupes; 
+        }
+    ); 
+}

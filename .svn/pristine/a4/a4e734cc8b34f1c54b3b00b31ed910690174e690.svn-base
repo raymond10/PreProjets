@@ -1,0 +1,105 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "NO_INDIVIDU"; 
+            externalType = NUMBER; 
+            name = noIndividu; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NOM_USUEL"; 
+            externalType = VARCHAR2; 
+            name = nomUsuel; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = POLE; 
+            externalType = VARCHAR2; 
+            name = pole; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 30; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PRENOM; 
+            externalType = VARCHAR2; 
+            name = prenom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "RHCMVAL_VAL"; 
+            externalType = NUMBER; 
+            name = rhcmvalVal; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPRHCM_COD"; 
+            externalType = VARCHAR2; 
+            name = typrhcmCod; 
+            valueClassName = NSString; 
+            width = 20; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cStructure, 
+        noIndividu, 
+        nomUsuel, 
+        persId, 
+        pole, 
+        prenom, 
+        rhcmvalVal, 
+        typrhcmCod
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOVrhcmval"; 
+    classProperties = (
+        cStructure, 
+        noIndividu, 
+        nomUsuel, 
+        persId, 
+        pole, 
+        prenom, 
+        rhcmvalVal, 
+        toPersonnels, 
+        typrhcmCod
+    ); 
+    externalName = "ADMREC.RHCMVAL"; 
+    name = EOVrhcmval; 
+    primaryKeyAttributes = (noIndividu); 
+    relationships = (
+        {
+            destination = EOPersonnel; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noIndividu; sourceAttribute = noIndividu; }); 
+            name = toPersonnels; 
+        }
+    ); 
+}

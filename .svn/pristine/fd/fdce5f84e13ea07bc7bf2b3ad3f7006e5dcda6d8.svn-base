@@ -1,0 +1,75 @@
+{
+    attributes = (
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = "LC_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = lcStructure; 
+            valueClassName = NSString; 
+        }, 
+        {
+            columnName = "NO_INDIVIDU"; 
+            externalType = NUMBER; 
+            name = noIndividu; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = NOM; 
+            externalType = VARCHAR2; 
+            name = nom; 
+            valueClassName = NSString; 
+        }, 
+        {
+            columnName = PRENOM; 
+            externalType = VARCHAR2; 
+            name = prenom; 
+            valueClassName = NSString; 
+        }, 
+        {
+            columnName = "RESPONSABLE_PERS_ID"; 
+            externalType = NUMBER; 
+            name = responsablePersId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (cStructure, lcStructure, noIndividu, nom, prenom, responsablePersId); 
+    className = "utt.rec.projet.server.metier.grhum.EOVresponsableEquipeRecherche"; 
+    classProperties = (
+        cStructure, 
+        lcStructure, 
+        noIndividu, 
+        nom, 
+        prenom, 
+        responsablePersId, 
+        toIndividus, 
+        toStructures
+    ); 
+    externalName = "GRHUM.V_RESPONSABLE_EQUIPE_RECHERCHE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOVresponsableEquipeRecherche; 
+    primaryKeyAttributes = (cStructure, noIndividu); 
+    relationships = (
+        {
+            destination = EOIndividuUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noIndividu; sourceAttribute = noIndividu; }); 
+            name = toIndividus; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toStructures; 
+        }
+    ); 
+}

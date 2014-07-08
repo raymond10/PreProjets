@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailMethodologie" pageWidth="793" pageHeight="535" orientation="Landscape" columnWidth="793" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0ac784d6-0a91-4278-918d-dceba65ebb97">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="105"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="methodoProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[methodoProjet]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d82c5f3a-760e-4ee7-bab6-a11f131886f7" x="0" y="2" width="73" height="18">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Méthodologie]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-4" positionType="Float" x="60" y="17" width="507" height="1">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="9fb1d25a-8b73-48d9-8e1b-e995ebe5e593" mode="Opaque" x="0" y="0" width="567" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" backcolor="#F0F0F0"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{methodoProjet}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement uuid="8460c871-fbad-4f26-bc3c-145347f9ad7d" x="0" y="27" width="793" height="1"/>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

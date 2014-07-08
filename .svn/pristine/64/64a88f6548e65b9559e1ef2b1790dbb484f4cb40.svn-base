@@ -1,0 +1,156 @@
+{
+    attributes = (
+        {
+            columnName = COUTESTIME; 
+            externalType = FLOAT; 
+            name = coutestime; 
+            precision = 2; 
+            scale = 2; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = CREADATE; 
+            externalType = DATE; 
+            name = creadate; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "DUREE_RECRUE"; 
+            externalType = VARCHAR2; 
+            name = dureeRecrue; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            columnName = "ID_POSTE"; 
+            externalType = NUMBER; 
+            name = idPoste; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJAUTEUR; 
+            externalType = VARCHAR2; 
+            name = majauteur; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJDATE; 
+            externalType = DATE; 
+            name = majdate; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            columnName = "NOM_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = nomStructure; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = POSTELIB; 
+            externalType = VARCHAR2; 
+            name = postelib; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = CHAR; 
+            name = temvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TXFINANCEMENT; 
+            externalType = VARCHAR2; 
+            name = txfinancement; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            columnName = "TYPRHCM_ID"; 
+            externalType = NUMBER; 
+            name = typrhcmId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        coutestime, 
+        cStructure, 
+        dureeRecrue, 
+        idPoste, 
+        majauteur, 
+        nomStructure, 
+        postelib, 
+        projetId, 
+        temvalide, 
+        txfinancement, 
+        typrhcmId
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOPosterh"; 
+    classProperties = (
+        coutestime, 
+        creadate, 
+        cStructure, 
+        dureeRecrue, 
+        majauteur, 
+        majdate, 
+        nomStructure, 
+        postelib, 
+        projetId, 
+        temvalide, 
+        toCategorieRh, 
+        toProjet, 
+        txfinancement, 
+        typrhcmId
+    ); 
+    externalName = "ADMREC.POSTERH"; 
+    name = EOPosterh; 
+    primaryKeyAttributes = (idPoste); 
+    relationships = (
+        {
+            destination = EOVtyprhcm; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typrhcmId; sourceAttribute = typrhcmId; }); 
+            name = toCategorieRh; 
+        }, 
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }
+    ); 
+}

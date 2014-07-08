@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailProjetsEditionsSubReport" pageWidth="535" pageHeight="710" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="ca6b6463-a7cc-45db-b431-5e5672e72d10">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="SubSubReportFilePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProjetsEditionsSubSubReport.jasper"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/Projet/Resources]]>
+	</queryString>
+	<field name="poleTabrh" class="java.lang.String">
+		<fieldDescription><![CDATA[poleTabrh]]></fieldDescription>
+	</field>
+	<field name="nomPrenom" class="java.lang.String">
+		<fieldDescription><![CDATA[nomPrenom]]></fieldDescription>
+	</field>
+	<field name="txImpl" class="java.lang.String">
+		<fieldDescription><![CDATA[txImpl]]></fieldDescription>
+	</field>
+	<field name="coutEstime" class="java.lang.String">
+		<fieldDescription><![CDATA[coutEstime]]></fieldDescription>
+	</field>
+	<field name="poleRecru" class="java.lang.String">
+		<fieldDescription><![CDATA[poleRecru]]></fieldDescription>
+	</field>
+	<field name="profilRecru" class="java.lang.String">
+		<fieldDescription><![CDATA[profilRecru]]></fieldDescription>
+	</field>
+	<field name="txRecru" class="java.lang.String">
+		<fieldDescription><![CDATA[txRecru]]></fieldDescription>
+	</field>
+	<field name="cmRecru" class="java.lang.String">
+		<fieldDescription><![CDATA[cmRecru]]></fieldDescription>
+	</field>
+	<field name="dureeRecru" class="java.lang.String">
+		<fieldDescription><![CDATA[dureeRecru]]></fieldDescription>
+	</field>
+	<field name="poleMat" class="java.lang.String">
+		<fieldDescription><![CDATA[poleMat]]></fieldDescription>
+	</field>
+	<field name="ptMat" class="java.lang.String">
+		<fieldDescription><![CDATA[ptMat]]></fieldDescription>
+	</field>
+	<field name="geMat" class="java.lang.String">
+		<fieldDescription><![CDATA[geMat]]></fieldDescription>
+	</field>
+	<field name="txUtil" class="java.lang.String">
+		<fieldDescription><![CDATA[txUtil]]></fieldDescription>
+	</field>
+	<field name="poleNmat" class="java.lang.String">
+		<fieldDescription><![CDATA[poleNmat]]></fieldDescription>
+	</field>
+	<field name="ptNmat" class="java.lang.String">
+		<fieldDescription><![CDATA[ptNmat]]></fieldDescription>
+	</field>
+	<field name="txNfin" class="java.lang.String">
+		<fieldDescription><![CDATA[txNfin]]></fieldDescription>
+	</field>
+	<field name="geNmat" class="java.lang.String">
+		<fieldDescription><![CDATA[geNmat]]></fieldDescription>
+	</field>
+	<field name="cmNmat" class="java.lang.String">
+		<fieldDescription><![CDATA[cmNmat]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="628" splitType="Stretch">
+			<frame>
+				<reportElement uuid="2c79334d-c742-43e9-9b55-e460ce151472" stretchType="RelativeToTallestObject" x="0" y="0" width="535" height="154" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{poleTabrh}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="2591d20e-a04c-4629-a940-b495da88dd44" x="9" y="8" width="198" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Estimation des ressources humaines]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0e0b82b4-8490-4acd-9c07-61b73838ad46" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="64" width="64" height="20" backcolor="#CCFFCC"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pôle]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="12747103-399f-4542-aa2a-97d6c5f5adc0" key="textField-1" x="0" y="84" width="64" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{poleTabrh}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="9ae105c5-e63c-4627-931d-89bd9f17d6eb" stretchType="RelativeToTallestObject" mode="Transparent" x="64" y="64" width="224" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nom - Prénom]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="522b26be-91fc-48d0-96b6-992d36060717" key="textField-2" x="64" y="84" width="224" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nomPrenom}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4715fbdd-2760-49bc-afaf-b3556ad1b8f8" stretchType="RelativeToTallestObject" mode="Transparent" x="288" y="64" width="122" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Taux d'implication]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="f75653f4-11cf-4798-a7ce-7f97a302e421" key="textField-3" x="288" y="84" width="122" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{txImpl}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e1bd3b0a-5396-47f6-81d0-e8b421951ff1" stretchType="RelativeToTallestObject" mode="Transparent" x="410" y="64" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Coût estimé]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="aee79db8-dafe-4e8a-8472-3f33085e36a9" key="textField-4" x="410" y="84" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{coutEstime}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement uuid="21ef3bd0-4a76-45a8-bb46-951f8a173684" stretchType="RelativeToTallestObject" x="0" y="154" width="535" height="154" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{poleRecru}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="fb13bfc6-11fd-4086-ba4b-7339c0e76f3b" x="7" y="6" width="202" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Estimation des personnes à recruter]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0e0b82b4-8490-4acd-9c07-61b73838ad46" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="59" width="64" height="20" backcolor="#CCFFCC"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pôle]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="32d6cb54-059b-4aa0-9ad9-0f9e780eb1e6" key="textField-5" x="0" y="79" width="64" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{poleRecru}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="9ae105c5-e63c-4627-931d-89bd9f17d6eb" stretchType="RelativeToTallestObject" mode="Transparent" x="64" y="59" width="145" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Profil]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="2832d0de-88f6-460a-8cf2-7cebc81d6a1b" key="textField-6" x="64" y="79" width="145" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{profilRecru}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4715fbdd-2760-49bc-afaf-b3556ad1b8f8" stretchType="RelativeToTallestObject" mode="Transparent" x="209" y="59" width="128" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Taux de financement]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="8062def3-7607-40b4-981d-6fe7e5878b3c" key="textField-7" x="209" y="79" width="128" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{txRecru}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e1bd3b0a-5396-47f6-81d0-e8b421951ff1" stretchType="RelativeToTallestObject" mode="Transparent" x="431" y="59" width="104" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Coût estimé]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="37390d01-e43d-42a5-8ae1-3f3fc04740cb" key="textField-9" x="431" y="79" width="104" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{cmRecru}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="206beab0-90c5-4849-9a1a-fa60123df269" x="337" y="59" width="94" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Durée(mois)]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="1d2206aa-dd1a-4c0a-bd71-0cde5fde0093" key="textField-8" x="337" y="79" width="94" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{dureeRecru}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement uuid="a3399978-13e7-42d7-9b1c-9c70f7814b0e" stretchType="RelativeToTallestObject" x="0" y="308" width="535" height="154" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{poleMat}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="44ee4d2f-8936-4d81-a5fa-17b361e0eb2a" x="9" y="11" width="148" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Estimation des ressources matériels]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0e0b82b4-8490-4acd-9c07-61b73838ad46" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="68" width="64" height="20" backcolor="#CCFFCC"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pôle]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="fa668ff3-a749-4344-be81-3eaaefbf9534" key="textField-10" x="0" y="88" width="64" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{poleMat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="9ae105c5-e63c-4627-931d-89bd9f17d6eb" stretchType="RelativeToTallestObject" mode="Transparent" x="64" y="68" width="176" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Plateau technique]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="ece33877-c015-403b-a607-6c67015b0b8a" key="textField-11" x="64" y="88" width="176" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ptMat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4715fbdd-2760-49bc-afaf-b3556ad1b8f8" stretchType="RelativeToTallestObject" mode="Transparent" x="240" y="68" width="195" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grand équipement]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="7d294193-bced-4ddd-a642-c16b1e6a54d8" key="textField-12" x="240" y="88" width="195" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{geMat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e1bd3b0a-5396-47f6-81d0-e8b421951ff1" stretchType="RelativeToTallestObject" mode="Transparent" x="435" y="68" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Taux d'utilisation]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="c8447b42-7438-4d22-a588-55f1ce5a2a5c" key="textField-12" x="435" y="88" width="100" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{txUtil}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement uuid="1200ebed-e1de-4a66-b491-7189e9f1f90d" stretchType="RelativeToTallestObject" x="0" y="472" width="535" height="154" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{poleNmat}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement uuid="8822bac4-d89e-4a8c-86ea-7fd7511f41c0" x="9" y="7" width="250" height="20"/>
+					<textElement>
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Estimation des principaux matériels à acquerir]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0e0b82b4-8490-4acd-9c07-61b73838ad46" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="56" width="64" height="20" backcolor="#CCFFCC"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pôle]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="2f452ad4-294b-4903-8188-e57a4ff1dd09" key="textField-13" x="0" y="76" width="64" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{poleNmat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="9ae105c5-e63c-4627-931d-89bd9f17d6eb" stretchType="RelativeToTallestObject" mode="Transparent" x="64" y="56" width="137" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Plateau technique]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="9a82d50f-d9e2-4969-95ae-8baa2f011739" key="textField-14" x="64" y="76" width="137" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ptNmat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="4715fbdd-2760-49bc-afaf-b3556ad1b8f8" stretchType="RelativeToTallestObject" mode="Transparent" x="201" y="56" width="147" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grand équipement]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="f220e233-3ff1-4509-a0f8-cfbb2a8f588f" key="textField-15" x="201" y="76" width="147" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{geNmat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e1bd3b0a-5396-47f6-81d0-e8b421951ff1" stretchType="RelativeToTallestObject" mode="Transparent" x="348" y="56" width="114" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Taux de financement]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="ac5cb30b-167e-4d2d-9c26-7ded9d150b03" key="textField-16" x="348" y="76" width="114" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{txNfin}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e1bd3b0a-5396-47f6-81d0-e8b421951ff1" stretchType="RelativeToTallestObject" mode="Transparent" x="462" y="56" width="73" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Coût estimé]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="4bade668-5e95-4632-8310-14722aafbb23" key="textField-17" x="462" y="76" width="73" height="20"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#009900"/>
+						<topPen lineWidth="1.25" lineColor="#009900"/>
+						<leftPen lineWidth="1.25" lineColor="#009900"/>
+						<bottomPen lineWidth="1.25" lineColor="#009900"/>
+						<rightPen lineWidth="1.25" lineColor="#009900"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{cmNmat}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,451 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "AXEREC_ID"; 
+            externalType = NUMBER; 
+            name = axerecId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "BLOC_COM"; 
+            externalType = VARCHAR2; 
+            name = blocCom; 
+            valueClassName = NSString; 
+            width = 500; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = CREADATE; 
+            externalType = DATE; 
+            name = creadate; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = CREATEUR; 
+            externalType = NUMBER; 
+            name = creAuteur; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NO_DOSSIER_PERS"; 
+            externalType = NUMBER; 
+            name = DirecteurPole; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = equipePrincipale; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ETAB_PORTEUR"; 
+            externalType = CHAR; 
+            name = etabPorteur; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJAUTEUR; 
+            externalType = VARCHAR2; 
+            name = majauteur; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJDATE; 
+            externalType = DATE; 
+            name = majdate; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "POLE_COMPETENCE"; 
+            externalType = VARCHAR2; 
+            name = poleCompetence; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NO_INDIVIDU"; 
+            externalType = NUMBER; 
+            name = porteur; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJCTX; 
+            externalType = VARCHAR2; 
+            name = projctx; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJDATDEBUT; 
+            externalType = DATE; 
+            name = projdatdebut; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJDUREE; 
+            externalType = VARCHAR2; 
+            name = projduree; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 7; 
+        }, 
+        {
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJMTDG; 
+            externalType = VARCHAR2; 
+            name = projmtdg; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJNOMCOURT; 
+            externalType = VARCHAR2; 
+            name = projnomcourt; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJNOMLONG; 
+            externalType = VARCHAR2; 
+            name = projnomlong; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 256; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJOBF; 
+            externalType = VARCHAR2; 
+            name = projobf; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJPBLM; 
+            externalType = VARCHAR2; 
+            name = projpblm; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJTHETV; 
+            externalType = CHAR; 
+            name = projthetv; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJVALIDE; 
+            externalType = CHAR; 
+            name = projvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REF_REFTHE_ID"; 
+            externalType = NUMBER; 
+            name = refReftheId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REFTHE_ID"; 
+            externalType = NUMBER; 
+            name = reftheId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = SRCEFINANCE; 
+            externalType = VARCHAR2; 
+            name = srcefinance; 
+            valueClassName = NSString; 
+            width = 100; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPCONT_ID"; 
+            externalType = NUMBER; 
+            name = typcontId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPREFDOM; 
+            externalType = VARCHAR2; 
+            name = typrefdom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPREFNAT; 
+            externalType = VARCHAR2; 
+            name = typrefnat; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPTHE_ID"; 
+            externalType = NUMBER; 
+            name = typtheId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        axerecId, 
+        blocCom, 
+        creAuteur, 
+        DirecteurPole, 
+        equipePrincipale, 
+        etabPorteur, 
+        majauteur, 
+        poleCompetence, 
+        porteur, 
+        projctx, 
+        projduree, 
+        projetId, 
+        projmtdg, 
+        projnomcourt, 
+        projnomlong, 
+        projobf, 
+        projpblm, 
+        projthetv, 
+        projvalide, 
+        refReftheId, 
+        reftheId, 
+        srcefinance, 
+        typcontId, 
+        typrefdom, 
+        typrefnat, 
+        typtheId
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOPprec"; 
+    classProperties = (
+        blocCom, 
+        creadate, 
+        creAuteur, 
+        DirecteurPole, 
+        equipePrincipale, 
+        etabPorteur, 
+        majauteur, 
+        majdate, 
+        poleCompetence, 
+        porteur, 
+        projctx, 
+        projdatdebut, 
+        projduree, 
+        projmtdg, 
+        projnomcourt, 
+        projnomlong, 
+        projobf, 
+        projpblm, 
+        projthetv, 
+        projvalide, 
+        srcefinance, 
+        toAlertes, 
+        toAxe, 
+        toCommentaires, 
+        toContrat, 
+        toEquipeSecondaires, 
+        toEtat, 
+        toHistoriques, 
+        toMateriels, 
+        toMotCles, 
+        toPersonnelExistants, 
+        toPosteRhs, 
+        toPrincipal, 
+        toProjetPartenaires, 
+        toProjetRepartaxes, 
+        toSousThemes, 
+        toStructure, 
+        toThematique, 
+        toTheme
+    ); 
+    externalName = "ADMREC.PPREC"; 
+    name = EOPprec; 
+    primaryKeyAttributes = (projetId); 
+    relationships = (
+        {
+            destination = EOAlerte; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = idProjet; sourceAttribute = projetId; }); 
+            name = toAlertes; 
+        }, 
+        {
+            destination = EOAxerec; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = axerecId; sourceAttribute = axerecId; }); 
+            name = toAxe; 
+        }, 
+        {
+            destination = EOCommentaires; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projet; sourceAttribute = projetId; }); 
+            name = toCommentaires; 
+        }, 
+        {
+            destination = EOTypcontrat; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typcontId; sourceAttribute = typcontId; }); 
+            name = toContrat; 
+        }, 
+        {
+            destination = EOEquipes; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toEquipeSecondaires; 
+        }, 
+        {
+            destination = EOTypref; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = typrefdom; sourceAttribute = typrefdom; }, 
+                {destinationAttribute = typrefnat; sourceAttribute = typrefnat; }
+            ); 
+            name = toEtat; 
+        }, 
+        {
+            destination = EOHistorique; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toHistoriques; 
+        }, 
+        {
+            destination = EOResmat; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toMateriels; 
+        }, 
+        {
+            destination = EOMotclefs; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toMotCles; 
+        }, 
+        {
+            destination = EOPersonnel; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toPersonnelExistants; 
+        }, 
+        {
+            destination = EOPosterh; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toPosteRhs; 
+        }, 
+        {
+            destination = EOStructure; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = equipePrincipale; }); 
+            name = toPrincipal; 
+        }, 
+        {
+            destination = EOPartenaireProjet; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjetPartenaires; 
+        }, 
+        {
+            destination = EORepartaxe; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjetRepartaxes; 
+        }, 
+        {
+            destination = EORefthe; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = reftheId; sourceAttribute = reftheId; }); 
+            name = toSousThemes; 
+        }, 
+        {
+            destination = EOStructure; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = poleCompetence; }); 
+            name = toStructure; 
+        }, 
+        {
+            destination = EOTypthe; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typtheId; sourceAttribute = typtheId; }); 
+            name = toThematique; 
+        }, 
+        {
+            destination = EORefthe; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = reftheId; sourceAttribute = refReftheId; }); 
+            name = toTheme; 
+        }
+    ); 
+}

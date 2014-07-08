@@ -1,0 +1,73 @@
+{
+    attributes = (
+        {
+            columnName = "AXEREC_ID"; 
+            externalType = NUMBER; 
+            name = axerecId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = AXERECLIB; 
+            externalType = VARCHAR2; 
+            name = axereclib; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = AXERECNUM; 
+            externalType = NUMBER; 
+            name = axerecnum; 
+            valueType = d; 
+        }, 
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "TEM_AXE"; 
+            externalType = CHAR; 
+            name = temAxe; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    attributesUsedForLocking = (axerecId, axereclib, axerecnum, cStructure, temAxe); 
+    className = "utt.rec.projet.server.metier.admrec.EOAxerec"; 
+    classProperties = (axereclib, axerecnum, temAxe, toAxeRepartaxes, toEquipe, toProjets); 
+    externalName = "ADMREC.AXEREC"; 
+    name = EOAxerec; 
+    primaryKeyAttributes = (axerecId); 
+    relationships = (
+        {
+            destination = EORepartaxe; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = axeId; sourceAttribute = axerecId; }); 
+            name = toAxeRepartaxes; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toEquipe; 
+        }, 
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = axerecId; sourceAttribute = axerecId; }); 
+            name = toProjets; 
+        }
+    ); 
+}

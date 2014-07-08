@@ -1,0 +1,50 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {URL = ""; driver = ""; password = ""; username = ""; }; 
+    entities = (
+        {className = "utt.rec.projet.server.metier.grhum.EOCompte"; name = EOCompte; }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EOIndividuUlr"; 
+            name = EOIndividuUlr; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EOPersonne"; 
+            name = EOPersonne; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EOPersonnelUlr"; 
+            name = EOPersonnelUlr; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EORepartAssociation"; 
+            name = EORepartAssociation; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EORepartCompte"; 
+            name = EORepartCompte; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EORepartStructure"; 
+            name = EORepartStructure; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EORepartTypeGroupe"; 
+            name = EORepartTypeGroupe; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EOStructureUlr"; 
+            name = EOStructureUlr; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EOtypeGroupe"; 
+            name = EOtypeGroupe; 
+        }, 
+        {
+            className = "utt.rec.projet.server.metier.grhum.EOVresponsableEquipeRecherche"; 
+            name = EOVresponsableEquipeRecherche; 
+        }
+    ); 
+    storedProcedures = (creerUtilisateur, creerUtilisateurFonctEx, creerUtilisateurFonction); 
+    userInfo = {modelId = GRHUM; }; 
+}

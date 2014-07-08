@@ -1,0 +1,161 @@
+/* Actions */
+
+.cktl_action_new {
+	background: transparent url(../images/16x16/001_01_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_add {
+	background: transparent url(../images/16x16/001_01_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_new_document {
+	background: transparent url(../images/16x16/001_03_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_delete {
+	background: transparent url(../images/16x16/001_02_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_delete_document {
+	background: transparent url(../images/16x16/001_04_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_view_document {
+	background: transparent url(../images/16x16/001_07_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_update {
+	background: transparent url(../images/16x16/001_39_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_find {
+	background: transparent url(../images/16x16/001_38_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_print {
+	background: transparent url(../images/16x16/printer_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_print2 {
+	background: transparent url(../images/16x16/printer2_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_edit {
+	background: transparent url(../images/16x16/001_45_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_previous {
+	background: transparent url(../images/16x16/001_23_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_next {
+	background: transparent url(../images/16x16/001_21_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_cancel {
+	background: transparent url(../images/16x16/001_05_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_etoile {
+	background: transparent url(../images/16x16/001_15_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_etoileGrise {
+	background: transparent url(../images/16x16/001_17_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_validate {
+	background: transparent url(../images/16x16/001_06_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_ok {
+	background: transparent url(../images/16x16/001_06_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_accueil {
+	background: transparent url(../images/16x16/001_20_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_busy {
+	background: transparent url(../images/16x16/busy_16x16.gif) no-repeat scroll 0px 0px;
+}
+.cktl_action_sendMail {
+	background: transparent url(../images/16x16/sendmail_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_reset {
+	background: transparent url(../images/16x16/001_39_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_process {
+	background: transparent url(../images/16x16/process_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_warning {
+	background: transparent url(../images/16x16/001_30_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_process {
+	background: transparent url(../images/16x16/process_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_down {
+    background: transparent url(../images/ico_node_expanded_gris_16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_dossier {
+    background: transparent url(../images/16x16/001_43_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_history {
+    background: transparent url(../images/16x16/history_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_schedule {
+    background: transparent url(../images/16x16/001_44_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_lock {
+    background: transparent url(../images/16x16/001_42_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_right_arrow {
+    background: transparent url(../images/16x16/001_21_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_down_arrow {
+    background: transparent url(../images/16x16/001_22_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_left_arrow {
+    background: transparent url(../images/16x16/001_23_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_up_Arrow {
+    background: transparent url(../images/16x16/001_24_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_info {
+    background: transparent url(../images/16x16/info_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_upload_file {
+	background: transparent url(../images/16x16/upload_file_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_download_file {
+	background: transparent url(../images/16x16/001_52_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_save_file {
+	background: transparent url(../images/16x16/save_file_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_first {
+	background: transparent url(../images/16x16/button_black_first_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_last {
+	background: transparent url(../images/16x16/button_black_last_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_forward {
+	background: transparent url(../images/16x16/button_black_ffw_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_rewind {
+	background: transparent url(../images/16x16/button_black_rew_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_infojaune {
+    background: transparent url(../images/16x16/bt_info_jaune_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_plus {
+    background: transparent url(../images/16x16/bt_plus_16x16.png) no-repeat scroll 0px 0px;
+}
+
+.cktl_action_up_triangle {
+    background: transparent url(../images/16x16/001_28_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_right_triangle {
+    background: transparent url(../images/16x16/001_25_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_down_triangle {
+    background: transparent url(../images/16x16/001_26_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_left_triangle {
+    background: transparent url(../images/16x16/001_27_16x16.png) no-repeat scroll 0px 0px;
+}
+
+.cktl_action_ok {
+    background: transparent url(../images/16x16/001_18_16x16.png) no-repeat scroll 0px 0px;
+}
+
+.cktl_action_ko {
+    background: transparent url(../images/16x16/001_19_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_partial {
+    background: transparent url(../images/16x16/001_09_16x16.png) no-repeat scroll 0px 0px;
+}
+.cktl_action_full {
+    background: transparent url(../images/16x16/001_10_16x16.png) no-repeat scroll 0px 0px;
+}

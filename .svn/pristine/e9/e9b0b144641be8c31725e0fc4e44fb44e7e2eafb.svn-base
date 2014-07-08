@@ -1,0 +1,42 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_a_pfmat_id"; 
+            externalType = VARCHAR2; 
+            name = "010_a_pfmat_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_a_pfmat_lib"; 
+            externalType = VARCHAR2; 
+            name = "020_a_pfmat_lib"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_a_pole"; 
+            externalType = VARCHAR2; 
+            name = "030_a_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_a_auteur"; 
+            externalType = NUMBER; 
+            name = "040_a_auteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.ADD_PLATEAU"; 
+    name = addPlateau; 
+}

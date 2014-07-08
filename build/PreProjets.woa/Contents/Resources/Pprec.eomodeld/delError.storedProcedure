@@ -1,0 +1,15 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_a_projet_id"; 
+            externalType = NUMBER; 
+            name = "010_a_projet_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.DEL_ERROR"; 
+    name = delError; 
+}

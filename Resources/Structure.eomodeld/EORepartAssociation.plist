@@ -1,0 +1,180 @@
+{
+    attributes = (
+        {
+            columnName = "ASS_ID"; 
+            externalType = NUMBER; 
+            name = assId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_CREATION"; 
+            externalType = NUMBER; 
+            name = persIdCreation; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_MODIFICATION"; 
+            externalType = NUMBER; 
+            name = persIdModification; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "RAS_COMMENTAIRE"; 
+            externalType = VARCHAR2; 
+            name = rasCommentaire; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "RAS_D_FERMETURE"; 
+            externalType = DATE; 
+            name = rasDFermeture; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "RAS_D_OUVERTURE"; 
+            externalType = DATE; 
+            name = rasDOuverture; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "RAS_ID"; 
+            externalType = NUMBER; 
+            name = rasId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "RAS_QUOTITE"; 
+            externalType = NUMBER; 
+            name = rasQuotite; 
+            precision = 5; 
+            scale = 2; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            columnName = "RAS_RANG"; 
+            externalType = NUMBER; 
+            name = rasRang; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (assId, cStructure, persId, rasId); 
+    className = "utt.rec.projet.server.metier.grhum.EORepartAssociation"; 
+    classProperties = (
+        dCreation, 
+        dModification, 
+        persId, 
+        persIdCreation, 
+        persIdModification, 
+        rasCommentaire, 
+        rasDFermeture, 
+        rasDOuverture, 
+        rasQuotite, 
+        rasRang, 
+        toAssociation, 
+        toPersonne, 
+        toStructure
+    ); 
+    externalName = "GRHUM.REPART_ASSOCIATION"; 
+    internalInfo = {
+        "_clientClassPropertyNames" = (
+            dCreation, 
+            dModification, 
+            persId, 
+            persIdCreation, 
+            persIdModification, 
+            rasCommentaire, 
+            rasDFermeture, 
+            rasDOuverture, 
+            rasQuotite, 
+            rasRang, 
+            toAssociation
+        ); 
+        "_javaClientClassName" = "org.cocktail.fwkcktlpersonne.common.metier.EORepartAssociation"; 
+    }; 
+    name = EORepartAssociation; 
+    primaryKeyAttributes = (rasId); 
+    relationships = (
+        {
+            destination = "Fwkpers_Association"; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = assId; sourceAttribute = assId; }); 
+            name = toAssociation; 
+        }, 
+        {
+            destination = EOPersonne; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toPersonne; 
+        }, 
+        {
+            destination = EORepartStructure; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = cStructure; sourceAttribute = cStructure; }, 
+                {destinationAttribute = persId; sourceAttribute = persId; }
+            ); 
+            name = toRepartStructure; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toStructure; 
+        }
+    ); 
+}

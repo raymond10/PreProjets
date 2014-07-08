@@ -1,0 +1,52 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "030_oe_cstrure"; 
+            externalType = VARCHAR2; 
+            name = "030_oe_cstrure"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_oe_projetid"; 
+            externalType = NUMBER; 
+            name = "020_oe_projetid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_oe_ekipprin"; 
+            externalType = CHAR; 
+            name = "040_oe_ekipprin"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 2; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "010_oe_equipesid"; 
+            externalType = NUMBER; 
+            name = "010_oe_equipesid"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_oe_tem_valide"; 
+            externalType = CHAR; 
+            name = "050_oe_tem_valide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.INS_OTHEREQUIPE"; 
+    name = insOtherEquipe; 
+}

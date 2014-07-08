@@ -1,0 +1,49 @@
+<webobject name = "IsBatchedDisplay">
+  <webobject name = "NavigationTable">
+    <tr>
+      <td>
+        <table border = "0" width = "100%">
+          <tr>
+            <webobject name = "EntityNameConditional">
+              <td align = "left" valign = "baseline">
+                <center>
+                  <webobject name = "FontContainer">
+                    <strong> <webobject name = "Count" /> </strong>
+                    &nbsp;
+                    <webobject name = "EntityName" />(s)&nbsp;
+				</webobject>
+				trouv&eacute;(s).
+                </center>
+              </td>
+            </webobject>
+            <td align = "right" valign = "middle">
+                <font size = "-1">
+                  <webobject name = "FontContainer3">
+                    &nbsp;<webobject name = "PreviousBatchLink"><webobject name = "LeftArrow" /></webobject>&nbsp; R&eacute;sultats</webobject>
+                </font>
+                <webobject name = "BatchNumber" />
+                <webobject name = "FontContainer4">
+                  <font size = "-1">sur 
+                   <webobject name = "TotalBatches" />&nbsp;pages &nbsp
+					<webobject name = "NextBatchLink"><webobject name = "RightArrow" /></webobject>
+                  </font>
+                </webobject>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </webobject>
+</webobject>
+<webobject name = "IsNotBatchedDisplay">
+  <webobject name = "NavigationTable2">
+    <tr>
+      <td align = "left">
+        <strong>
+          <webobject name = "Count2" />
+          </strong>
+          &nbsp;<webobject name = "EntityName2" />(s)&nbsp;trouv&eacute;(s).
+      </td>
+    </tr>
+  </webobject>
+</webobject>

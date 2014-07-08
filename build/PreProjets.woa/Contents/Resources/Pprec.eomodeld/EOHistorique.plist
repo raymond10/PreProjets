@@ -1,0 +1,78 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = HTQDATE; 
+            externalType = DATE; 
+            name = htqdate; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            columnName = "HTQ_ID"; 
+            externalType = NUMBER; 
+            name = htqId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJAUTEUR; 
+            externalType = VARCHAR2; 
+            name = majauteur; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = TYPREFDOM; 
+            externalType = VARCHAR2; 
+            name = typrefdom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }, 
+        {
+            columnName = TYPREFNAT; 
+            externalType = VARCHAR2; 
+            name = typrefnat; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }
+    ); 
+    attributesUsedForLocking = (htqdate, htqId, majauteur, projetId, typrefdom, typrefnat); 
+    className = "utt.rec.projet.server.metier.admrec.EOHistorique"; 
+    classProperties = (htqdate, majauteur, toEtats, toProjet, typrefdom, typrefnat); 
+    externalName = "ADMREC.HISTORIQUE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOHistorique; 
+    primaryKeyAttributes = (htqId); 
+    relationships = (
+        {
+            destination = EOTypref; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = typrefdom; sourceAttribute = typrefdom; }, 
+                {destinationAttribute = typrefnat; sourceAttribute = typrefnat; }
+            ); 
+            name = toEtats; 
+        }, 
+        {
+            destination = EOPprec; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }
+    ); 
+}

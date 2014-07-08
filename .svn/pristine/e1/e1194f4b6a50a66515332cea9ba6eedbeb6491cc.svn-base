@@ -1,0 +1,123 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = COMMENTAIRES; 
+            externalType = VARCHAR2; 
+            name = commentaires; 
+            valueClassName = NSString; 
+            width = 4000; 
+        }, 
+        {
+            columnName = "COMMENT_ID"; 
+            externalType = NUMBER; 
+            name = commentId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = CREATEDATE; 
+            externalType = DATE; 
+            name = createDate; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJAUTEUR; 
+            externalType = VARCHAR2; 
+            name = majAuteur; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = MAJDATE; 
+            externalType = DATE; 
+            name = majDate; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = PROJET; 
+            externalType = NUMBER; 
+            name = projet; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPREFDOM; 
+            externalType = VARCHAR2; 
+            name = typrefdom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TYPREFNAT; 
+            externalType = VARCHAR2; 
+            name = typrefnat; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }
+    ); 
+    attributesUsedForLocking = (commentaires, commentId, cStructure, majAuteur, projet, typrefdom, typrefnat); 
+    className = "utt.rec.projet.server.metier.admrec.EOCommentaires"; 
+    classProperties = (
+        commentaires, 
+        createDate, 
+        cStructure, 
+        majAuteur, 
+        majDate, 
+        projet, 
+        toAlertes, 
+        toAvis, 
+        toProjet, 
+        typrefdom, 
+        typrefnat
+    ); 
+    externalName = "ADMREC.COMMENTAIRES"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOCommentaires; 
+    primaryKeyAttributes = (commentId); 
+    relationships = (
+        {
+            destination = EOAlerte; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = idCommentaire; sourceAttribute = commentId; }); 
+            name = toAlertes; 
+        }, 
+        {
+            destination = EOTypref; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = (
+                {destinationAttribute = typrefdom; sourceAttribute = typrefdom; }, 
+                {destinationAttribute = typrefnat; sourceAttribute = typrefnat; }
+            ); 
+            name = toAvis; 
+        }, 
+        {
+            destination = EOPprec; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projet; }); 
+            name = toProjet; 
+        }
+    ); 
+}

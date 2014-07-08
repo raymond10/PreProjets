@@ -1,0 +1,248 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_a_proj_Id"; 
+            externalType = NUMBER; 
+            name = "010_a_proj_Id"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_a_no_doss"; 
+            externalType = NUMBER; 
+            name = "020_a_no_doss"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_a_refthe"; 
+            externalType = NUMBER; 
+            name = "030_a_refthe"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_a_ref_refthe"; 
+            externalType = NUMBER; 
+            name = "040_a_ref_refthe"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_a_creadate"; 
+            externalType = DATE; 
+            name = "050_a_creadate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "060_a_majdate"; 
+            externalType = DATE; 
+            name = "060_a_majdate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "070_a_majauteur"; 
+            externalType = VARCHAR2; 
+            name = "070_a_majauteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "071_a_projnomcourt"; 
+            externalType = VARCHAR2; 
+            name = "071_a_projnomcourt"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "072_a_projnomlong"; 
+            externalType = VARCHAR2; 
+            name = "072_a_projnomlong"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "073_a_projduree"; 
+            externalType = VARCHAR2; 
+            name = "073_a_projduree"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "074_a_projdatedebut"; 
+            externalType = DATE; 
+            name = "074_a_projdatedebut"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "075_a_context "; 
+            externalType = VARCHAR2; 
+            name = "075_a_context "; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "076_a_probleme"; 
+            externalType = VARCHAR2; 
+            name = "076_a_probleme"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "077_a_objectif"; 
+            externalType = VARCHAR2; 
+            name = "077_a_objectif"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "078_a_metho"; 
+            externalType = VARCHAR2; 
+            name = "078_a_metho"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "079_a_havetemathik"; 
+            externalType = CHAR; 
+            name = "079_a_havetemathik"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "080_a_contrat"; 
+            externalType = NUMBER; 
+            name = "080_a_contrat"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "081_a_etat0"; 
+            externalType = VARCHAR2; 
+            name = "081_a_etat0"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "082_a_etat1"; 
+            externalType = VARCHAR2; 
+            name = "082_a_etat1"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "083_a_axe"; 
+            externalType = NUMBER; 
+            name = "083_a_axe"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "084_a_programpp"; 
+            externalType = VARCHAR2; 
+            name = "084_a_programpp"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "085_a_porteur"; 
+            externalType = NUMBER; 
+            name = "085_a_porteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "086_a_temathik"; 
+            externalType = NUMBER; 
+            name = "086_a_temathik"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "087_a_pvalide"; 
+            externalType = CHAR; 
+            name = "087_a_pvalide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "088_a_srcefinance"; 
+            externalType = VARCHAR2; 
+            name = "088_a_srcefinance"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 100; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "089_a_polecompetence"; 
+            externalType = VARCHAR2; 
+            name = "089_a_polecompetence"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "090_a_etabPorteur"; 
+            externalType = CHAR; 
+            name = "090_a_tabPorteur"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "091_a_bloc_com"; 
+            externalType = VARCHAR2; 
+            name = "091_a_bloc_com"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.INS_PROJET"; 
+    name = insProjet; 
+}

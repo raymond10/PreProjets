@@ -1,0 +1,9 @@
+cfBundleID=
+cfBundleShortVersion=
+cfBundleVersion=
+customInfoPListContent=
+eoAdaptorClassName=
+javaClient=false
+principalClass=utt.rec.projet.server.Application
+version=1.0.5.6
+project.ext.fwkVersion = '1.0.25+'

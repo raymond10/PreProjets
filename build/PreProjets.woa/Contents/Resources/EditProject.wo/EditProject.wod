@@ -1,0 +1,56 @@
+wrap : Wrappers {
+	bodyId = "acceuil";
+	onloadJS = onloadJS;
+}
+
+stCont : WOConditional {
+	condition = ctrl.projet.toContrat.typcontIdSup;
+}
+
+stContrats : WOString {
+	value = ctrl.projet.toContrat.typcontNomAbr.toUpperCase;
+	escapeHTML = false;
+}
+
+partenaires : WORepetition {
+	list = ctrl.partenaires;
+	item = ctrl.lePartenaire;
+}
+
+partenaire : WOString {
+	value = ctrl.lePartenaire.denomUsuelle;
+	escapeHTML = false;
+}
+
+selectedOther : WORepetition {
+	list = ctrl.otherList;
+	item = ctrl.otherEkip;
+}
+
+newEquipes : WOString {
+	value = ctrl.libelleStructure;
+	escapeHTML = false;
+}
+
+haveKeyword : WOConditional {
+	condition = myKeywordList.count;
+}
+
+keywordList : WORepetition {
+	list = myKeywordList;
+	item = mySession.motClef;
+}
+
+keyword : WOString {
+	value = mySession.motClef.refidxval;
+	escapeHTML = false;
+}
+
+suivant : CktlButton {
+	action = ctrl.pageSuivante;
+	name = "suivant";
+	id = "BtnSuivant";
+    title = "Passer à la page suivante";
+	text = "Suivant";
+	type = "next";
+}

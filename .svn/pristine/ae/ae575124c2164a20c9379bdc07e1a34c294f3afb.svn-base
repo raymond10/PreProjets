@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+<html lang = "fr">
+  <head>
+    <!-- xmlns = "http://www.w3.org/1999/xhtml"  <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" /> -->
+    <meta charset = "utf-8" />
+    <meta name = "robots" content = "noindex" />
+    <!-- disable iPhone inital scale -->
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+    <title>Pr&eacute;-Projet de RechErChe - PPREC</title>
+    <!-- TinyMCE -->
+    <!-- /TinyMCE -->
+    <webobject name = "shortcut_icon" />
+    <webobject name = "icon" />
+    <script type = "text/javascript">
+      if(window.history.forward(1) != null) {
+        window.history.forward(1);
+      }
+            function openAlertWin() { 
+        Dialog.info(document.getElementById('alertWin').innerHTML, {windowParameters: {className:"mac_os_x", title: "Une erreur s'est produite", width:200, height:100, resizable:true}});  
+      } 
+      function openConfirmWin(message) { 
+        Dialog.confirm(message, {windowParameters: {className:"mac_os_x", title: "Une erreur s'est produite", width:200, height:100, resizable:true}, okLabel:"Fermer"});  
+      } 
+       	function openListeSelectionWin(id,url,title,updateContainerId,autoresizeElement,modal) { 
+       		var winid = 'WinSelectList'; 
+       		if (id == null) { 
+       			winid = 'WinSelectListUrl'; 
+       		} 
+       		if (modal == null) { 
+       			modal = false; 
+       		} 
+        	var win = Windows.getWindow(winid); 
+        	if (win != null) { 
+        		win.destroy(); 
+        	} 
+        	var d = null; 
+        	if (title == null) { 
+        		title = "Selectionner les élements dans la liste"; 
+        	} 
+        	if (url != null){ 
+        		// win = new Window('WinSelectListUrl', {className: "mac_os_x", title: title, top:70, left:100, width:300, height:200, resizable: true, closable: true, minimizable: false, maximizable: false, showEffectOptions: {duration:0.5}}); 
+      		// win.setAjaxContent(url,null,true,true); 
+        		win = new Window(winid, {className: "mac_os_x", title: title, top:70, left:100, width:300, height:200, resizable: true, closable: false, minimizable: false, maximizable: false, url: url, showEffectOptions: {duration:0.5}}); 
+        		if (autoresizeElement != null) { 
+        			d = Element.getDimensions($(autoresizeElement)); 
+        		} 
+        	} else if (id != null) { 
+        		win = new Window('WinSelectList', {className: "mac_os_x", title: title, top:70, left:100, width:300, height:200, resizable: true, closable: false, minimizable: false, maximizable: false, showEffectOptions: {duration:0.5}}); 
+      		win.setContent(id,true,true); 
+        	} 
+      	// var editorOnClose = { onClose: function(eventName, win) {if (id != null) document.getElementById(id).style.display='none'; } }; 
+      	// Windows.addObserver(editorOnClose);		 
+      	win.setDestroyOnClose(); 
+      	win.toFront(); 
+      	if (d != null) { 
+      		win.setSize(d.width, d.height); 
+      	}				  	 
+      	win.showCenter(true); 
+       	} 
+       	function openConfirmPanel(message) { 
+       		// Dialog.confirm(message, {windowParameters: {width:300}, okLabel: "OUI", cancelLabel: "NON", id: "myDialogId", cancel:function(win) {alert("cancel confirm panel")}, ok:function(win) {alert("validate confirm panel"); return true;} }); 
+       		return confirm(message);  
+       	} 
+       	function openAlertPanel(message) { 
+       		// Dialog.confirm(message, {windowParameters: {width:300}, okLabel: "OUI", cancelLabel: "NON", id: "myDialogId", cancel:function(win) {alert("cancel confirm panel")}, ok:function(win) {alert("validate confirm panel"); return true;} }); 
+       		alert(message);  
+       		return false; 
+       	} 
+    </script>
+    <script src="https://cas.utt.fr/iframe/postMessage-resize-iframe-in-parent.js"></script>
+  </head>
+  <webobject name = "Body">
+    <webobject name = "TestNavigateur">
+      <center>
+        <h1 style = "color: red;">Attention - Vous utilisez Internet Explorer. Ce navigateur n'est pas support&eacute; par PPREC</h1>
+      </center>
+    </webobject>
+    <webobject name = "Elses">
+    <webobject name = "ErreursNotify" />
+    <webobject name = "CanUseApp">
+      <div id = "pagewrap">
+        <div id = "header" class = "header_entete_wrapper_horizontal">
+          <div style = "float:left;padding-top:-15em;">
+            <div class = "logo">
+              <h1>
+                <span class = "gloss"></span>
+                <span class = "white">P</span>
+                <span class = "red">P</span>Rec&nbsp;<span class = "signature">Intention de projet &reg;</span>
+              </h1>
+            </div>
+          </div>
+          <webobject name = "ContainerPrincipal">
+            <div style = "float:right;padding-top:0.5em;">
+              <span class = "signature">&nbsp;<wo:str name = "UserName" value = "$nomPrenoms" valueWhenEmpty = "Aucun nom d'utilisateur" />&nbsp;&nbsp;</span>
+              &nbsp;&nbsp;<wo:hyperlink name = "linkQuitter" directActionName = "quitter" onClick = "if (confirm('Voulez-vous vraiment quitter cette application ?')) {return true;} else {return false;}"><wo:image filename = "image/icon_logout.gif" border = "border-style:none" title = "Quitter l'application" /></wo:hyperlink>&nbsp;<br style = "clear:both;" />
+            </div>
+          </webobject>
+        </div>
+        <aside id = "sidebar">
+          <div class = "res-menu">
+            <dl>
+              <dt class = "acceuil">
+                <wo name = "listPprec">
+                  <b>Liste des projets</b>
+                </wo>
+              </dt>
+              <wo name = "disableCreate">
+                <dt class = "nouveau">
+                  <wo:link name = "creerProj" action = "$creerProjet">
+                    <b>Nouveau Projet</b>
+                  </wo:link>
+                </dt>
+              </wo>
+            </dl>
+          </div>
+        </aside>
+        <section id = "content"> <webobject name = "content" /></section>
+        <div class = "br"></div>
+        <footer id = "footer" class ="footer_copyright_wrapper_horizontal">
+          <center>
+            <!-- bas de page -->
+            <span style = "float:left;">&nbsp;<a href = "#"><wo:str name = "Copyright" value = "$cprgt" escapeHTML = "false" />&nbsp;</a>
+            </span>
+            <span style = "float:left;">&nbsp;&nbsp;</span>
+            <span style = "float:right;">&nbsp;<wo:str name = "Version" value = "$version" />
+              - 
+              <wo:str name = "ServerId" value = "$servId" />&nbsp;</span>
+          </center>
+        </footer>
+      </div>
+      <!-- /#pagewrap -->
+    </webobject>
+    <webobject name = "Else">
+      <div id = "pagewrap">
+        <div id = "header" class = "header_entete_wrapper_horizontal">
+          <div style = "float:left;padding-top:-15em;">
+            <div id = "logo">
+              <h1>
+                <span class = "gloss"></span>
+                <span class = "white">P</span>
+                <span class = "red">P</span>Rec&nbsp;<span class = "signature">Intention de projet &reg;</span>
+              </h1>
+            </div>
+          </div>
+          <div style = "float:right;">
+            <span class = "signature">&nbsp;<wo:str name = "UserName" value = "$nomPrenoms" valueWhenEmpty = "Aucun nom d'utilisateur" />&nbsp;&nbsp;</span>
+            &nbsp;&nbsp;<wo:hyperlink name = "linkQuitter" action = "$ctrl.quitter" onClick = "if (confirm('Voulez-vous vraiment quitter cette application ?')) {return true;} else {return false;}"><wo:image filename = "image/icon_logout.gif" border = "border-style:none" /></wo:hyperlink>&nbsp;<br style = "clear:both;" />
+          </div>
+        </div>
+        <div class = "br"></div>
+        <section id = "content">
+          <pre class = "droit">
+              <span class = "warning">Vous ne pouvez pas acceder &agrave; PPREC.</span>
+              </pre>
+        </section>
+        <div class = "br"></div>
+        <div id = "footer" class ="footer_copyright_wrapper_horizontal">
+          <center>
+            <!-- bas de page -->
+            <span style = "float:left;">&nbsp;<a href = "#"><wo:str name = "Copyright" value = "$cprgt" escapeHTML = "false" />&nbsp;</a>
+            </span>
+            <span style = "float:left;">&nbsp;&nbsp;</span>
+            <span style = "float:right;">&nbsp;<wo:str name = "Version" value = "$version" />
+              - 
+              <wo:str name = "ServerId" value = "$servId" />&nbsp;</span>
+          </center>
+        </div>
+      </div>
+      <!-- /#pagewrap -->
+      <!-- fin page -->
+      <div id = "alertWin" style = "display: none; position: absolute; top: 50%; left: 50%; z-index: 999;">
+        <div style = "text-align=center; color: red; background-color: white;"> <webobject name = "Message" /> </div>
+        <div style = "text-align=center; color: red; background-color: white;">
+          <webobject name = "FermerMessage">Fermer</webobject>
+        </div>
+      </div>
+    </webobject>
+    <webobject name = "Busy" />
+    <div id = "busydiv" style = "display: none; position: absolute; top: 50%; left: 50%; z-index: 9999;">
+      <webobject name = "BusyImage" />
+      <br />Chargement en cours... 
+    </div>
+    <webobject name = "AjaxIndicator" />
+    <script type = "text/javascript">Pprec_MessageContainerUpdate();</script>
+    </webobject>
+  </webobject>
+</html>

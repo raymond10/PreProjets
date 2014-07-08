@@ -1,0 +1,88 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_ personnelid"; 
+            externalType = NUMBER; 
+            name = "010_ personnelid"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_per_projid"; 
+            externalType = NUMBER; 
+            name = "020_per_projid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_per_tempsutil"; 
+            externalType = VARCHAR2; 
+            name = "050_per_tempsutil"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_per_pole"; 
+            externalType = VARCHAR2; 
+            name = "040_per_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_per_noindividu"; 
+            externalType = NUMBER; 
+            name = "030_per_noindividu"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "060_per_cout"; 
+            externalType = FLOAT; 
+            name = "060_per_cout"; 
+            parameterDirection = 1; 
+            precision = 2; 
+            scale = 10; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "070_per_nom_pole"; 
+            externalType = VARCHAR2; 
+            name = "070_per_nom_pole"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "080_per_nom"; 
+            externalType = VARCHAR2; 
+            name = "080_per_nom"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "090_per_tem_valide"; 
+            externalType = CHAR; 
+            name = "090_per_tem_valide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.INS_PERSONNEL"; 
+    name = insPersonnel; 
+}

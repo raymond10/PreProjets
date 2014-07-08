@@ -1,0 +1,63 @@
+{
+    attributes = (
+        {
+            columnName = "AXE_ID"; 
+            externalType = NUMBER; 
+            name = axeId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = MAJCREATE; 
+            externalType = DATE; 
+            name = majcreate; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "REPART_ID"; 
+            externalType = NUMBER; 
+            name = repartId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = CHAR; 
+            name = temvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    attributesUsedForLocking = (axeId, majcreate, projetId, repartId, temvalide); 
+    className = "utt.rec.projet.server.metier.admrec.EORepartaxe"; 
+    classProperties = (axeId, majcreate, projetId, temvalide, toAxe, toProjet); 
+    externalName = "ADMREC.REPART_PST"; 
+    name = EORepartaxe; 
+    primaryKeyAttributes = (repartId); 
+    relationships = (
+        {
+            destination = EOAxerec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = axerecId; sourceAttribute = axeId; }); 
+            name = toAxe; 
+        }, 
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }
+    ); 
+}

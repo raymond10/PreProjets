@@ -1,0 +1,83 @@
+<br />
+<div id = "tableMain">
+  <div id = "col_left" class = "texte" style = "width:auto;">Mots clefs&nbsp;:&nbsp;&nbsp;</div>
+  <div id = "col_mid" class = "texte">
+    <webobject name = "mOF1"> <webobject name = "motclef1"/></webobject>
+  </div>
+  <webobject name = "mo2UC">
+    <div id = "col_mid" class = "texte">
+      <webobject name="moc1Cond">
+        <webobject name = "mOF2"><webobject name = "motclef2"/></webobject>
+      </webobject>
+    </div>
+  </webobject>
+  <webobject name = "mo3UC">
+    <div id = "col_mid" class = "texte">
+      <webobject name="moc2Cond">
+        <webobject name = "mOF3"><webobject name = "motclef3"/></webobject>
+      </webobject>
+    </div>
+  </webobject>
+  <div id = "col_mid" class = "texte">
+    <webobject name = "mo4UC">
+      <webobject name="moc3Cond">
+        <webobject name = "mOF4"><webobject name = "motclef4"/></webobject>
+      </webobject>
+    </webobject>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <webobject name = "mo5UC">
+      <webobject name="moc4Cond">
+        <webobject name = "mOF5"><webobject name = "motclef5"/></webobject>
+      </webobject>
+    </webobject>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <webobject name = "mo6UC">
+      <webobject name="moc5Cond">
+        <webobject name = "mOF6"><webobject name = "motclef6"/></webobject>
+      </webobject>
+    </webobject>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <wo name = "mo7UC">
+      <wo:if condition = "$mySession.motClef5">
+        <wo name = "mOF7"><wo:textField name = "motclef7" value = "$mySession.motClef6.refidxval" disabled = "$disabled6"/></wo>
+      </wo:if>
+    </wo>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <wo name = "mo8UC">
+      <wo:if condition = "$mySession.motClef6">
+        <wo name = "mOF8"><wo:textField name = "motclef8" value = "$mySession.motClef7.refidxval" disabled = "$disabled7"/></wo>
+      </wo:if>
+    </wo>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <wo name = "mo9UC">
+      <wo:if condition = "$mySession.motClef7">
+        <wo name = "mOF9"><wo:textField name = "motclef9" value = "$mySession.motClef8.refidxval" disabled = "$disabled8"/></wo>
+      </wo:if>
+    </wo>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <wo name = "mo10UC">
+      <wo:if condition = "$mySession.motClef8">
+        <wo name = "mOF10"><wo:textField name = "motclef10" value = "$mySession.motClef9.refidxval" disabled = "$disabled9"/></wo>
+      </wo:if>
+    </wo>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <wo name = "mo11UC">
+      <wo:if condition = "$mySession.motClef9">
+        <wo name = "mOF11"><wo:textField name = "motclef11" value = "$mySession.motClef10.refidxval" disabled = "$disabled10"/></wo>
+      </wo:if>
+    </wo>
+  </div>
+  <div id = "col_mid" class = "texte">
+    <wo name = "mo12UC">
+      <wo:if condition = "$mySession.motClef10"><wo:textField name = "motclef12" value = "$mySession.motClef11.refidxval" disabled = "$disabled11"/></wo:if>
+    </wo>
+  </div>
+  <div style = "clear: both"></div>
+</div>

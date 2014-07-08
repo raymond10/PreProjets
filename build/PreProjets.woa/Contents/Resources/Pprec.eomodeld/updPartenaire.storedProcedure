@@ -1,0 +1,59 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_typartId"; 
+            externalType = NUMBER; 
+            name = "010_typartId"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "020_partCleUnik"; 
+            externalType = CHAR; 
+            name = "020_partCleUnik"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "030_nom_partenaire"; 
+            externalType = VARCHAR2; 
+            name = "030_nom_partenaire"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 255; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "040_c_t_partenaire"; 
+            name = "040_c_t_partenaire"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "050_c_st_partenaire"; 
+            name = "050_c_st_partenaire"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "060_denomUsuelle"; 
+            name = "060_denomUsuelle"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 100; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.UPD_PARTENAIRE"; 
+    name = updPartenaire; 
+}

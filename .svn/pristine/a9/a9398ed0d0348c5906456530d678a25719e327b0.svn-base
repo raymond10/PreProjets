@@ -1,0 +1,118 @@
+{
+    attributes = (
+        {
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_LC"; 
+            externalType = VARCHAR2; 
+            name = persLc; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 40; 
+        }, 
+        {
+            columnName = "PERS_LIBELLE"; 
+            externalType = VARCHAR2; 
+            name = persLibelle; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 120; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_NOMPTR"; 
+            externalType = VARCHAR2; 
+            name = persNomptr; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = "PERS_ORDRE"; 
+            externalType = NUMBER; 
+            name = persOrdre; 
+            scale = "-127"; 
+            valueType = B; 
+        }, 
+        {
+            columnName = "PERS_TYPE"; 
+            externalType = VARCHAR2; 
+            name = persType; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 5; 
+        }
+    ); 
+    attributesUsedForLocking = (persId, persLc, persLibelle, persNomptr, persOrdre, persType); 
+    className = "utt.rec.projet.server.metier.grhum.EOPersonne"; 
+    classProperties = (
+        persId, 
+        persLc, 
+        persLibelle, 
+        persNomptr, 
+        persOrdre, 
+        persType, 
+        toComptes, 
+        toIndividus, 
+        toRepartAssociations, 
+        toRepartCompte, 
+        toRepartStructures, 
+        toStructures
+    ); 
+    externalName = "GRHUM.PERSONNE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOPersonne; 
+    primaryKeyAttributes = (persId); 
+    relationships = (
+        {
+            destination = EOCompte; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toComptes; 
+        }, 
+        {
+            destination = EOIndividuUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toIndividus; 
+        }, 
+        {
+            destination = EORepartAssociation; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toRepartAssociations; 
+        }, 
+        {
+            destination = EORepartCompte; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toRepartCompte; 
+        }, 
+        {
+            destination = EORepartStructure; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toRepartStructures; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toStructures; 
+        }
+    ); 
+}

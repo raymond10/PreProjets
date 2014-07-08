@@ -1,0 +1,102 @@
+Wrapper : WrapperModal {
+	bodyId = "NouveauPartenaire";
+	onloadJS = onloadJS;
+	id = "WrapperModal";
+}
+
+nouveauPartenaireContainer : AjaxUpdateContainer {
+	id = nouveauPartenairefUpdateContainerId;
+}
+
+Form : ERXWOForm {
+	embedded = true;
+    name = "partner";
+}
+
+partCleunik : WOString {
+	value = partenaire.partCleunik;
+	escapeHTML = false;
+	style = "font-style:bold";
+}
+
+nomPartenaire : WOTextField {
+    id = "nomPartenaireId";
+	size = "60";
+	value = partenaire.nomPartenaire;
+	maxlength = "255";
+	placeholder = "nom court du partenaire ici";
+	otherTagString = "required";
+}
+
+nomPartenaireObserve : AjaxObserveField {
+	observeFieldID = "nomPartenaireId";
+	action = submit;
+}
+
+ctPartenaire : WOPopUpButton {
+	id = "ctPartenaireId";
+	list = ctPartenaireList;
+	item = ctPartenaire;
+	selection = ctPartenaireSelected;
+	displayString = ctPartenaire.libTypePartenaire;
+}
+
+ctPartenaireObserve : AjaxObserveField {
+	observeFieldID = "ctPartenaireId";
+	fullSubmit = true;
+	action = submit;
+}
+
+cStPartenaire : WOPopUpButton {
+	id = "cStPartenaireId";
+	list = cstPartenaireList;
+	item = itemCstPartenaire;
+	selection = selectedCstPartenaire;
+	displayString = itemCstPartenaire.libStatutPartenaire;
+	noSelectionString = " ";
+}
+
+cStPartenaireObserve : AjaxObserveField {
+	observeFieldID = "cStPartenaireId";
+	fullSubmit = true;
+	action = submit;
+}
+
+denomUsuelle : WOTextField {
+	id = "denomUsuelleId";
+	size = "50";
+	value = partenaire.denomUsuelle;
+	maxlength = "100";
+	placeholder = "nom usuel du partenaire ici";
+	otherTagString = "required";
+}
+
+denomUsuelleObserve : AjaxObserveField {
+	observeFieldID = "denomUsuelleId";
+	action = submit;
+}
+
+Annuler : CktlAjaxButton {
+    //name = "cancel";
+    action = annulerAjout;
+    text = "Annuler";
+    type = "cancel";
+    title = "Annuler tout";
+    updateContainerID = nouveauPartenairefUpdateContainerId;
+}
+
+AjouterPartner : CktlAjaxSubmitButton {
+    name = "addPartenaire";
+    action = Enregistrer;
+    text = "Enregistrer";
+    type = "validate";
+    title = "Créer et enregistrer le partenaire dans le référentiel";
+    formName = "partner";
+    //onFailure = myApp.messageContainerID;
+}
+
+infos : WOString {
+	value = "* - les champs sont obligatoires";
+	class = "aide";
+	escapeHTML = false;
+}

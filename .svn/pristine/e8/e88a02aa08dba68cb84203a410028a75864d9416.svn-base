@@ -1,0 +1,79 @@
+partenaireFetch : AjaxUpdateContainer {
+	id = partenaireFetchId;
+}
+
+partenaireObserve : AjaxObserveField {
+    fullSubmit = true;
+    elementName = "span";
+    action = ctrl.onPart;
+    observeDelay = "0.3";
+    updateContainerID = selectedPartenaireId;
+	onFailure = myApp.onFailureMessage;
+	//onComplete = "function() {partenaireFetchIdUpdate();}";
+}
+
+partenaireView : CktlAjaxAutoComplete {
+    id = "partenaireViewId";
+    list = currentsPartenaires;
+    value = motPartenaire;
+    item = partenaireItem;
+    displayString = partenaireItem.denomUsuelle;
+    selection = partenaireSelected;
+    class = "autocompletefield";
+    minChars = 3;
+    style = "width:200px";
+	placeholder = "3 caractères minimum pour déclencher la recherche";
+	title = "3 caractères minimum pour déclencher la recherche";
+}
+
+NouveauPartenaire : CktlAjaxButton {
+	dialogIDForOpen = partenaireDialogId;
+    text = "Créer partenaire";
+    title = "Nouveau partenaire";
+    type = "new";
+    enabled = ctrl.peutNouveauPartenaire;
+}
+
+DialogNouveauPartenaire : CktlAjaxWindow {
+	id = partenaireDialogId;
+    action = ctrl.openAjouterPartenaire;
+    width = 650;
+    height = 300;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    onClose = ctrl.refreshPartenaireList;
+    resizable = false;
+    closable = false;
+    closeUpdateContainerID = selectedPartenaireId;
+}
+
+selectedPartenaireAUC : AjaxUpdateContainer {
+	id = selectedPartenaireId;
+	elementName = "div";
+	class = "tableBody";
+}
+
+selectedPart : WORepetition {
+	list = ctrl.partenaireDg.allObjects;
+	item = ctrl.partenaireItem;
+}
+
+newPart : WOString {
+	value = ctrl.partenaireItem.denomUsuelle;
+}
+
+linkPartAction : AjaxUpdateLink {
+	action = ctrl.removeSelectedPartenaire;
+	onFailure = myApp.onFailureMessage;
+	//onComplete = "function() {selectedPartenaireIdUpdate();}";
+    updateContainerID = selectedPartenaireId;
+	evalScripts = true;
+}
+
+imgAction : WOImage {
+	filename = "newImages/table_row_delete.png";
+	width="14";
+	height="14";
+	title = "Supprimer un partenaire associé";
+	border = "0";
+}

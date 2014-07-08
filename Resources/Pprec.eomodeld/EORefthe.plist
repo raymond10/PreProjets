@@ -1,0 +1,79 @@
+{
+    attributes = (
+        {
+            columnName = "REFTHE_ID"; 
+            externalType = NUMBER; 
+            name = reftheId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = REFTHELIB; 
+            externalType = VARCHAR2; 
+            name = refthelib; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REFTHE_SUP"; 
+            externalType = NUMBER; 
+            name = reftheSup; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TYPTHE_ID"; 
+            externalType = NUMBER; 
+            name = typtheId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (reftheId, refthelib, reftheSup, typtheId); 
+    className = "utt.rec.projet.server.metier.admrec.EORefthe"; 
+    classProperties = (refthelib, toProjets, toProjets1, toRefthePere, toRefthes, toTypthe); 
+    externalName = "ADMREC.REFTHE"; 
+    name = EORefthe; 
+    primaryKeyAttributes = (reftheId); 
+    relationships = (
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = reftheId; sourceAttribute = reftheId; }); 
+            name = toProjets; 
+        }, 
+        {
+            destination = EOPprec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = reftheId; sourceAttribute = reftheId; }); 
+            name = toProjets1; 
+        }, 
+        {
+            destination = EORefthe; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = reftheId; sourceAttribute = reftheSup; }); 
+            name = toRefthePere; 
+        }, 
+        {
+            destination = EORefthe; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = reftheSup; sourceAttribute = reftheId; }); 
+            name = toRefthes; 
+        }, 
+        {
+            destination = EOTypthe; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typtheId; sourceAttribute = typtheId; }); 
+            name = toTypthe; 
+        }
+    ); 
+}

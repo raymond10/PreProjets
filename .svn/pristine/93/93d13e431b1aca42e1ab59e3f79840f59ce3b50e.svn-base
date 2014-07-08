@@ -1,0 +1,40 @@
+body : WOBody {
+	onLoad = "tinyMCE.execCommand('mceAddControl', false, 'Comment');";
+}
+
+commentaireContainer : AjaxUpdateContainer {
+	id = commentaireContainerId;
+}
+
+Form : ERXWOForm {
+	embedded = true;
+    name = "commentForm";
+}
+
+comm : WOText {
+	value = mySession.blocCom;
+	id = "Comment";
+	name = "Comment";
+	maxlength = "400";
+	class = "texto";
+	style = "width:100%;height:200px; border:1px solid #00790E;";
+}
+
+Annuler : CktlAjaxButton {
+    //name = "cancel";
+    action = annulerAjout;
+    text = "Annuler";
+    type = "cancel";
+    title = "Annuler tout";
+    updateContainerID = commentaireContainerId;
+}
+
+AjouterCom : CktlAjaxSubmitButton {
+    //name = "add";
+    action = ajouterCom;
+    text = "Enregistrer";
+    type = "validate";
+    title = "Commentaire sur le projet";
+    formName = "commentForm";
+    updateContainerID = commentaireContainerId;
+}

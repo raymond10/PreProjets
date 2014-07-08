@@ -1,0 +1,15 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_a_proj_Id"; 
+            externalType = NUMBER; 
+            name = "010_a_proj_Id"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.DEL_PROJET"; 
+    name = delProjet; 
+}

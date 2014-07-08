@@ -1,0 +1,832 @@
+package utt.rec.projet.server.components;
+
+import java.text.Format;
+
+import org.apache.log4j.Logger;
+import org.cocktail.fwkcktlajaxwebext.serveur.component.CktlAjaxUserQuestionDelegate;
+import org.cocktail.fwkcktlpersonne.common.exception.FactoryException;
+import org.cocktail.fwkcktlpersonne.common.metier.EOStructure;
+
+import utt.rec.projet.server.PprecHelpers;
+import utt.rec.projet.server.components.assistant.MAssistant;
+import utt.rec.projet.server.components.controler.ProjectCtrl;
+import utt.rec.projet.server.metier.admrec.EOAxerec;
+import utt.rec.projet.server.metier.admrec.EOEquipes;
+import utt.rec.projet.server.metier.admrec.EOPprec;
+import utt.rec.projet.server.metier.admrec.EORefidx;
+import utt.rec.projet.server.metier.admrec.EORefthe;
+import utt.rec.projet.server.metier.admrec.EORepartaxe;
+import utt.rec.projet.server.metier.admrec.EOTypcontrat;
+import utt.rec.projet.server.metier.admrec.EOTyppartenaire;
+import utt.rec.projet.server.metier.admrec.EOTypref;
+import utt.rec.projet.server.metier.admrec.EOTypthe;
+import utt.rec.projet.server.metier.admrec.EOVrhcmval;
+import utt.rec.projet.server.metier.grhum.EOIndividuUlr;
+import utt.rec.projet.server.metier.grhum.EOStructureUlr;
+import utt.rec.projet.server.utils.manufactory.ManufactoryEquipe;
+import utt.rec.projet.server.utils.manufactory.ManufactoryMotClefs;
+import utt.rec.projet.server.utils.manufactory.ManufactoryPartenaire;
+import utt.rec.projet.server.utils.manufactory.ManufactoryStmr;
+
+import com.webobjects.appserver.WOActionResults;
+import com.webobjects.appserver.WOComponent;
+import com.webobjects.appserver.WOContext;
+import com.webobjects.appserver.WODisplayGroup;
+import com.webobjects.appserver.WORequest;
+import com.webobjects.appserver.WOResponse;
+import com.webobjects.eoaccess.EOGeneralAdaptorException;
+import com.webobjects.eocontrol.EOEditingContext;
+import com.webobjects.foundation.NSArray;
+import com.webobjects.foundation.NSForwardException;
+import com.webobjects.foundation.NSLog;
+import com.webobjects.foundation.NSMutableArray;
+import com.webobjects.foundation.NSTimestamp;
+import com.webobjects.foundation.NSTimestampFormatter;
+import com.webobjects.foundation.NSValidation.ValidationException;
+
+import er.ajax.AjaxUpdateContainer;
+import er.extensions.appserver.ERXDisplayGroup;
+import er.extensions.appserver.ERXRedirect;
+import er.extensions.eof.ERXEC;
+
+/**
+ * @author Raymond NANEON <raymond.naneon at utt.fr>
+ * 
+ */
+@SuppressWarnings("all")
+public class Projects extends MAssistant {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 973233447964906597L;
+	private static final Logger LOG = Logger.getLogger(Projects.class);
+	public Format formatter = new NSTimestampFormatter("%d/%m/%Y");
+	public NSArray<String> frenchMonths = new NSArray<String>(new String[] {
+			"janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+			"août", "septembre", "octobre", "novembre", "décembre" });
+
+	public NSArray<String> frenchDays = new NSArray<String>(new String[] {
+			"dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi",
+			"samedi" });
+	private static final String PROJET_CONTAINER_ID = "projetContainer";
+	private static final String KEYWORD_CONTAINER_ID = "keywordContainer";
+	private EOPprec projet;
+	private NSMutableArray<EOStructureUlr> equipeOther;
+	private NSMutableArray<EOTyppartenaire> newPartListe;
+	private EOTyppartenaire nouvoPart;
+	private String partAdd;
+	private ProjectCtrl ctrl;
+	private EORefidx autoComValue;
+	private resumeProjet resumer;
+	WOContext contexts;
+	public boolean isEnregistrerUnProjetDisabled = true;
+	private String dureeProjet;
+	protected EOStructureUlr oldSelectEquipe;
+	private CktlAjaxUserQuestionDelegate userQuestionDelegate;
+
+	public Projects(WOContext context) {
+		super(context);
+		NSLog.out.appendln("Projects");
+		mySession().setNoIndividu(noIndividu());
+		userQuestionDelegate = new CktlAjaxUserQuestionDelegate(this);
+		oldSelectEquipe = new EOStructureUlr();
+		resumer = new resumeProjet(context);
+		resumer().setContexteTabSelected(true);
+		mySession().setListEtat1(EOTypref.fetchEtatsFetchSpec(edcProjet()));
+		EtatNouvoProjet();
+		// intinialisation du porteur du projet
+		// NSMutableArray tmp = ctrl.IntegerEquipe();
+		/**
+		 * On croise les persId des personnes faisant partie d'une équipe avec
+		 * ceux qui sont dans un pole au même instant "t"
+		 **/
+		mySession().setPorteurList(EOVrhcmval.fetchAllEOVrhcmvals(edcProjet()));
+		// mySession().setPorteurList(EOIndividuUlr.fetchPorteurs(edc()));
+		// intinialisation de l'equipe principale du projet
+		mySession().setEquipeList(EOStructureUlr.fetchEquipes(edcProjet()));
+		// Initialisation des contrats du projet
+		mySession().setContratList(EOTypcontrat.fetchContrats(edcProjet()));
+		// Initialisation du partenaire du projet;
+		mySession().setPartenaireList(
+				EOTyppartenaire.fetchAllEOTyppartenaires(edcProjet(),
+						new NSArray(EOTyppartenaire.DENOM_USUELLE.asc())));
+		// Initialisation des axes du projet;
+		mySession().setAxeList(EOAxerec.fetchAllEOAxerecs(edcProjet()));
+		// Initialisation des thematiques du projet;
+		mySession().setThematikList(EOTypthe.fetchThemqatiqueList(edcProjet()));
+		// Initialisation des Themes du projet;
+		mySession().setThemeList(EORefthe.fetchThemeList(edcProjet()));
+		// Initialisation des sous-themes du projet;
+		mySession().setSouThemeList(EORefthe.fetchSousThemeList(edcProjet()));
+		// Iinitialisation des mots clefs
+		if (mySession().update()) {
+			refreshPole();
+			upDateStContrat();
+			refreshEquipes();
+			ctrl().refdix();
+		} else {
+			refreshPole();
+		}
+		// Purge mémoire
+		// System.gc();
+	}
+
+	public String projetContainerId() {
+		return PROJET_CONTAINER_ID;
+	}
+
+	public String keywordContainerId() {
+		return KEYWORD_CONTAINER_ID;
+	}
+
+	public boolean synchronizesVariablesWithBindings() {
+		return false;
+	}
+
+	@Override
+	public void appendToResponse(WOResponse response, WOContext context) {
+		super.appendToResponse(response, context);
+		PprecHelpers.insertStylesSheet(context, response);
+		String message = mySession().getAlertMessage();
+		if (message != null && message.equals("") == false) {
+			String str = "<script language=\"javascript\" type=\"text/javascript\">\n";
+			str += "alert(\"" + message + "\");\n";
+			str += "</script>";
+			response.appendContentString(str);
+			mySession().setAlertMessage(null);
+		}
+		if (onloadJS() != null)
+			setOnloadJS(null);
+	}
+
+	@Override
+	public void takeValuesFromRequest(WORequest aRequest, WOContext aContext) {
+		super.takeValuesFromRequest(aRequest, aContext);
+	}
+
+	public String partenaireDialogId() {
+		return "partenaire_" + uniqueDomId();
+	}
+
+	public void EtatNouvoProjet() {
+		for (int i = 0; i < mySession().getListEtat1().count(); i++) {
+			if (mySession().getListEtat1().objectAtIndex(i).typrefnat()
+					.equals("RE")) {
+				mySession().setEtatRepetition1(
+						mySession().getListEtat1().objectAtIndex(i));
+			}
+		}
+	}
+
+	/**
+	 * @return the ctrl
+	 */
+	public ProjectCtrl ctrl() {
+		if (ctrl == null)
+			ctrl = new ProjectCtrl(this);
+		return ctrl;
+	}
+
+	/**
+	 * @param ctrl
+	 *            the ctrl to set
+	 */
+	public void setCtrl(ProjectCtrl ctrl) {
+		this.ctrl = ctrl;
+	}
+
+	/**
+	 * @return the userQuestionDelegate
+	 */
+	public CktlAjaxUserQuestionDelegate getUserQuestionDelegate() {
+		return userQuestionDelegate;
+	}
+
+	/**
+	 * @param userQuestionDelegate
+	 *            the userQuestionDelegate to set
+	 */
+	public void setUserQuestionDelegate(
+			CktlAjaxUserQuestionDelegate userQuestionDelegate) {
+		this.userQuestionDelegate = userQuestionDelegate;
+	}
+
+	/**
+	 * @return the equipeOther
+	 */
+	public NSMutableArray<EOStructureUlr> equipeOther() {
+		if (equipeOther == null)
+			equipeOther = new NSMutableArray<EOStructureUlr>();
+		return equipeOther;
+	}
+
+	/**
+	 * @param equipeOther
+	 *            the equipeOther to set
+	 */
+	public void setEquipeOther(NSMutableArray<EOStructureUlr> equipeOther) {
+		this.equipeOther = equipeOther;
+	}
+
+	/**
+	 * @return the newPartListe
+	 */
+	public NSMutableArray<EOTyppartenaire> newPartListe() {
+		if (newPartListe == null)
+			newPartListe = new NSMutableArray<EOTyppartenaire>();
+		return newPartListe;
+	}
+
+	/**
+	 * @param newPartListe
+	 *            the newPartListe to set
+	 */
+	public void setNewPartListe(NSMutableArray<EOTyppartenaire> newPartListe) {
+		this.newPartListe = newPartListe;
+	}
+
+	/**
+	 * @return the nouvoPart
+	 */
+	public EOTyppartenaire getNouvoPart() {
+		return nouvoPart;
+	}
+
+	/**
+	 * @param nouvoPart
+	 *            the nouvoPart to set
+	 */
+	public void setNouvoPart(EOTyppartenaire nouvoPart) {
+		this.nouvoPart = nouvoPart;
+	}
+
+	public void newPartnaire() {
+		EOTyppartenaire partenaire = new EOTyppartenaire();
+		partenaire = EOTyppartenaire.createEOTyppartenaire(edc());
+		if (partAdd == null) {
+			throw new FactoryException(
+					"Le libelle du partenaire est obligatoire");
+		}
+		partenaire.setNomPartenaire(partAdd);
+		partenaire.setPartCleunik("N/A");
+		partenaire.validateForSave();
+		try {
+			edc().saveChanges();
+			mySession().setPartenaireList(
+					EOTyppartenaire.fetchAllEOTyppartenaires(edc()));
+		} catch (EOGeneralAdaptorException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			edc().invalidateAllObjects();
+		}
+		partAdd = null;
+	}
+
+	/**
+	 * @param partAdd
+	 *            the partAdd to set
+	 */
+	public void setPartAdd(String partAdd) {
+		this.partAdd = partAdd;
+	}
+
+	/**
+	 * @return the partAdd
+	 */
+	public String getPartAdd() {
+		return partAdd;
+	}
+
+	/**
+	 * @return the autoComValue
+	 */
+	public EORefidx getAutoComValue() {
+		return autoComValue;
+	}
+
+	/**
+	 * @param autoComValue
+	 *            the autoComValue to set
+	 */
+	public void setAutoComValue(EORefidx autoComValue) {
+		this.autoComValue = autoComValue;
+	}
+
+	/**
+	 * @return the resumer
+	 */
+	public resumeProjet resumer() {
+		return resumer;
+	}
+
+	/**
+	 * @param resumer
+	 *            the resumer to set
+	 */
+	public void setResumer(resumeProjet resumer) {
+		this.resumer = resumer;
+	}
+
+	/**
+	 * @return the log
+	 */
+	public static Logger getLog() {
+		return LOG;
+	}
+
+	// Nouvelles Action suite à modification des droits
+	// 03/06/2013
+	/**
+	 * @return the dureeProjet
+	 */
+	public String dureeProjet() {
+		EOPprec projet = myProjet();
+		if (dureeProjet == null)
+			dureeProjet = projet.projduree();
+		return dureeProjet;
+	}
+
+	/**
+	 * @param dureeProjet
+	 *            the dureeProjet to set
+	 */
+	public void setDureeProjet(String dureeProjet) {
+		EOPprec projet = myProjet();
+		if (dureeProjet != null && isNumeric(dureeProjet))
+			projet.setProjduree(dureeProjet);
+		this.dureeProjet = dureeProjet;
+	}
+
+	/**
+	 * @return the resumer
+	 */
+	public resumeProjet getResumer() {
+		return resumer;
+	}
+
+	// Action DataArray
+	// Rafraichement de la liste des pôles
+	public WOActionResults refreshPole() {
+		try {
+			if (mySession().porteur() != null) {
+				if (mySession().porteur().nomUsuel() != null) {
+					NSMutableArray tmp = new NSMutableArray();
+					tmp.addObject(mySession().porteur());
+					mySession().setListInfoPole(tmp.immutableClone());
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			mySession().addSimpleErrorMessage("Sélection porteur",
+					e.getLocalizedMessage());
+			context().response().setStatus(500);
+			AjaxUpdateContainer.updateContainerWithID(myApp()
+					.messageContainerID(), context());
+		}
+		return doNothing();
+	}
+
+	// Rafraichissement de la liste des contrats
+	public WOActionResults upDateStContrat() {
+		EOTypcontrat contrat = mySession().contrat();
+		if (contrat != null) {
+			Integer pk = Integer.valueOf(contrat.primaryKey());
+			mySession().setStContratList(
+					EOTypcontrat.fetchLesStContrats(edcProjet(), pk));
+		} else {
+			mySession().setStContratList(null);
+		}
+		ctrl().isEnregistrerUnProjetEnabled();
+		return doNothing();
+	}
+
+	// Sélection d'un partenaire
+	public WOActionResults onPart() {
+		if (mySession().partenaire() != null) {
+			if (!mySession().selectedPartenaires().contains(
+					mySession().partenaire())) {
+				mySession().selectedPartenaires().addObject(
+						mySession().partenaire());
+				ctrl().setPartenaireDg(null);
+			}
+			mySession().removedPartenaires().removeObject(
+					mySession().partenaire());
+		}
+		return doNothing();
+	}
+
+	// RefreshGolbal de l'equipe principale
+	public WOActionResults refreshEquipes() {
+		try {
+			upDateAutreEquipes();
+			upDateAxes();
+			upDatePst();
+			upDateTrans();
+		} catch (Exception e) {
+			// TODO: handle exception
+			mySession().addSimpleErrorMessage("Sélection équipe principale",
+					e.getLocalizedMessage());
+			context().response().setStatus(500);
+			AjaxUpdateContainer.updateContainerWithID(myApp()
+					.messageContainerID(), context());
+		}
+		return null;
+	}
+
+	// Màj de la liste des autres équipes recherche
+	public void upDateAutreEquipes() {
+		if (mySession().equipePrincipale() != null) {
+			if (oldSelectEquipe.cStructure() != null
+					&& !oldSelectEquipe.cStructure().equals(
+							mySession().equipePrincipale().cStructure())) {
+				mySession().removedEquipes().addObject(oldSelectEquipe);
+			}
+			oldSelectEquipe = mySession().equipePrincipale();
+			NSArray<EOStructureUlr> listEqp = mySession().getEquipeList();
+			NSMutableArray<EOStructureUlr> eqpList = new NSMutableArray<EOStructureUlr>();
+			for (int i = 0; i < listEqp.count(); i++) {
+				if (mySession().equipePrincipale() != null
+						&& listEqp.objectAtIndex(i) != mySession()
+								.equipePrincipale()) {
+					eqpList.add(listEqp.objectAtIndex(i));
+				}
+			}
+			mySession().setEquipeSecondaireList(eqpList);
+		} else {
+			mySession().setLesAxesStmr(null);
+			mySession().setEquipeSecondaireList(null);
+		}
+	}
+
+	// Rafraichissement de la liste des Axes
+	public void upDateAxes() {
+		if (mySession().equipePrincipale() != null) {
+			if (mySession().equipePrincipale().cStructure()
+					.equals(umrStmr().cStructure())) {
+				mySession().setAxeStmrList(
+						EOAxerec.fetchEquipeAxes(edcProjet(), umrStmr()
+								.cStructure()));
+			} else {
+				mySession().setAxeList(
+						EOAxerec.fetchEquipeAxes(edcProjet(), mySession()
+								.equipePrincipale().primaryKey()));
+			}
+		} else {
+			mySession().setAxe(null);
+			mySession().setAxeList(EOAxerec.fetchAllEOAxerecs(edcProjet()));
+			mySession().setAxeStmrList(null);
+		}
+	}
+
+	// Rafraichissement de la liste des PST
+	public void upDatePst() {
+		if (mySession().equipePrincipale() != null) {
+			mySession().setPstList(
+					EOAxerec.fetchEquipePst(edcProjet(), mySession()
+							.equipePrincipale().primaryKey()));
+		} else {
+			mySession().setPst(null);
+			mySession().setPstList(EOAxerec.fetchAllEOAxerecs(edcProjet()));
+		}
+	}
+
+	// Rafraichissement de l'information si le projet est tranverse ou pas
+	public void upDateTrans() {
+		EOPprec projet = myProjet();
+		if (mySession().equipePrincipale() != null
+				&& mySession().equipePrincipale().lcStructure()
+						.equals(umrStmr().lcStructure())) {
+			mySession().setHaveSTMR(true);
+			mySession().setHaveNotSTMR(false);
+			if (projet != null)
+				projet.setProjthetv("N");
+		} else {
+			mySession().setHaveSTMR(false);
+			mySession().setHaveNotSTMR(true);
+		}
+	}
+
+	// Sélection d'une autre équipe de recherche
+	public WOActionResults onChange() {
+		try {
+			if (mySession().selectedEquipeSecondaire() != null) {
+				if (!mySession().selectedEquipes().contains(
+						mySession().selectedEquipeSecondaire())) {
+					mySession().selectedEquipes().addObject(
+							mySession().selectedEquipeSecondaire());
+					ctrl().setAutreEquipeDg(null);
+				}
+				mySession().removedEquipes().removeObject(
+						mySession().selectedEquipeSecondaire());
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			mySession().addSimpleErrorMessage("Sélection équipe sécondaire",
+					e.getLocalizedMessage());
+			context().response().setStatus(500);
+			AjaxUpdateContainer.updateContainerWithID(myApp()
+					.messageContainerID(), context());
+		}
+		return doNothing();
+	}
+
+	// Traitement d'informations liées aux tableaux de données
+	// lors de la création et de la modification d'un projet
+	public WOActionResults hasThematique() {
+		try {
+			EOPprec projet = myProjet();
+			if (projet.projthetv().equals("N")) {
+				mySession().setHaveThmtk(false);
+				// mySession().setHasYesChecked(false);
+			} else {
+				mySession().setHaveThmtk(true);
+				// mySession().setHasYesChecked(true);
+				mySession().setAxeStmrList(
+						EOAxerec.fetchEquipeAxes(edcProjet(), umrStmr()
+								.primaryKey()));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			mySession().addSimpleErrorMessage("Sélection thématique",
+					e.getLocalizedMessage());
+			context().response().setStatus(500);
+			AjaxUpdateContainer.updateContainerWithID(myApp()
+					.messageContainerID(), context());
+		}
+		return doNothing();
+	}
+
+	// ActionBeforClick
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see utt.rec.projet.server.components.assistant.MAssistant#valider()
+	 */
+	@Override
+	public boolean valider() {
+		// TODO Auto-generated method stub
+		boolean validate = false;
+		EOPprec projet = myProjet();
+		NSArray<String> failureMessages = new NSArray<String>();
+		if (projet != null) {
+			if (projet.projnomcourt() == null
+					|| projet.projnomcourt().equals(""))
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le nom court du projet");
+			if (projet.projnomlong() == null || projet.projnomlong().equals(""))
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le nom long du projet");
+			if (projet.porteur() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le porteur du projet");
+			if (projet.projduree() == null || projet.projduree().equals(""))
+				failureMessages = failureMessages
+						.arrayByAddingObject("La durée du projet");
+			if (projet.projdatdebut() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("La date de début du projet");
+			if (projet.equipePrincipale() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("Le programme Principal d'accueil du projet");
+			if (projet.toAxe() == null)
+				failureMessages = failureMessages
+						.arrayByAddingObject("L'axe de l'équipe projet ou programme scientifique et technologie");
+			if (failureMessages.count() == 0) {
+				validate = true;
+				setFailureMessage(null);
+			} else {
+				setFailureMessage("Veuillez renseigner "
+						+ failureMessages.componentsJoinedByString(", ") + ".");
+			}
+		} else {
+			setFailureMessage("Veuillez renseigner les champs obligatoires (en rouge).");
+		}
+		if (validate)
+			mySession().getUiMessages().removeAllObjects();
+		return validate;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see utt.rec.projet.server.components.assistant.MAssistant#onSuivant()
+	 */
+	@Override
+	public void onSuivant() {
+		// TODO Auto-generated method stub
+		EOPprec projet = myProjet();
+		String vide = "<p><br data-mce-bogus=\"1\"></p>";
+		WORequest request = context().request();
+		String contexte = (String) request.formValueForKey("contexte");
+		String problematik = (String) request.formValueForKey("problematique");
+		String objectifs = (String) request.formValueForKey("objectifs");
+		String methodo = (String) request.formValueForKey("methodologie");
+		if (contexte != null && !contexte.equals(vide) && !contexte.equals("")
+				&& (projet.projctx() != null && !projet.projctx().equals(""))) {
+			projet.setProjctx(contexte);
+		}
+		if (problematik != null && !problematik.equals(vide)
+				&& !problematik.equals("")
+				&& (projet.projpblm() != null && !projet.projpblm().equals(""))) {
+			projet.setProjpblm(problematik);
+		}
+		if (objectifs != null && !objectifs.equals(vide)
+				&& !objectifs.equals("")
+				&& (projet.projobf() != null && !projet.projobf().equals(""))) {
+			projet.setProjobf(objectifs);
+		}
+		if (methodo != null && !methodo.equals(vide) && !methodo.equals("")
+				&& (projet.projmtdg() != null && !projet.projmtdg().equals(""))) {
+			projet.setProjmtdg(methodo);
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * utt.rec.projet.server.components.assistant.MAssistant#isSuivantDisabled()
+	 */
+	@Override
+	public boolean isSuivantDisabled() {
+		// TODO Auto-generated method stub
+		return super.isSuivantDisabled();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * utt.rec.projet.server.components.assistant.MAssistant#isTerminerDisabled
+	 * ()
+	 */
+	@Override
+	public boolean isTerminerDisabled() {
+		// TODO Auto-generated method stub
+		EOPprec projet = myProjet();
+		Boolean terminer = false;
+		if ((projet.projnomcourt() != null) && (projet.projnomlong() != null)
+				&& projet.porteur() != null && (projet.projduree() != null)
+				&& projet.projdatdebut() != null
+				&& projet.equipePrincipale() != null
+				&& (projet.toAxe() != null || mySession().pst() != null))
+			terminer = true;
+		return !terminer;
+	}
+
+	// Footer Action
+
+	public WOActionResults suivant() {
+		ERXRedirect redirect = null;
+		onSuivant();
+		if (valider()) {
+			NextProject nextPage = (NextProject) pageWithName(NextProject.class
+					.getName());
+			// nextPage.ctrl().isTerminerUnProjetDisabled();
+			redirect = (ERXRedirect) pageWithName(ERXRedirect.class.getName());
+			redirect.setComponent(nextPage);
+		}
+		context().response().setStatus(500);
+		AjaxUpdateContainer.updateContainerWithID(myApp()
+				.messageContainerID(), context());
+		return redirect;
+	}
+
+	public WOActionResults fermer() {
+		EOPprec projet = myProjet();
+		EOEditingContext ec = null;
+		if(projet != null)
+			ec = projet.editingContext();
+		if (ec != null && ec.hasChanges()) {
+			/*
+			 * Boolean answer = getUserQuestionDelegate() .askUserAsBoolean(
+			 * "confirm",
+			 * "Des changements n'ont pas été enregistrés, voulez-vous vraiment fermer le projet?"
+			 * , "ContainerPrincipal"); if (answer == null) return null; if
+			 * (answer) { getUserQuestionDelegate().clearAnswers(); return
+			 * annuler(); } else { getUserQuestionDelegate().clearAnswers();
+			 * return annuler(); }
+			 */
+			mySession()
+					.addSimpleErrorMessage(
+							"Fermerture impossible",
+							"Des changements n'ont pas été enregistrés, voulez-vous vraiment fermer le projet ?\n Cliquer sur tout annuler");
+			return null;
+		} else {
+			mySession().myEnv().setObjectForKey(true, "Refresh");
+			return annuler();
+		}
+	}
+
+	public WOActionResults annuler() {
+		ERXRedirect redirect = (ERXRedirect) pageWithName(ERXRedirect.class
+				.getName());
+		ctrl().setOtherRepetition(null);
+		redirect.setComponent(home());
+		return redirect;
+	}
+
+	public WOActionResults sauvegarder() {
+		EOPprec projet = myProjet();
+		if (projet != null) {
+			EOEditingContext ec = projet.editingContext();
+			onSuivant();
+			if (mySession().update()) {
+				projet.setMajdate(new NSTimestamp());
+				projet.setMajauteur(ctrl().auteur());
+			}
+			try {
+				if (valider()) {
+					if (ec.hasChanges()) {
+						ec.updatedObjects();
+						ec.saveChanges();
+						// Traitement partenaire
+						ManufactoryPartenaire mfp = new ManufactoryPartenaire(
+								edc(), true);
+						mfp.insPartenaire(projet, mySession()
+								.selectedPartenaires());
+						// suppression partenaire si existe
+						if (mySession().removedPartenaires().count() > 0)
+							mfp.delPartenaire(projet, mySession()
+									.removedPartenaires());
+						// Traitement equipe
+						ManufactoryEquipe mfe = new ManufactoryEquipe(edc(),
+								true);
+						if (!mySession().selectedEquipes().contains(
+								mySession().equipePrincipale()))
+							mySession().selectedEquipes().addObject(
+									mySession().equipePrincipale());
+						mfe.insEquipe(projet, mySession().selectedEquipes());
+						if (mySession().removedEquipes().count() > 0)
+							mfe.delEquipe(projet, mySession().removedEquipes());
+						// Traitement smtr axe
+						if (mySession().equipePrincipale().cStructure()
+								.equals(umrStmr().cStructure())
+								|| projet.projthetv().equals("O")) {
+							ManufactoryStmr mfs = new ManufactoryStmr(edc(),
+									true);
+							mfs.insAxeStmr(projet, mySession().lesAxesStmr());
+						}
+						// Traitement motClef
+						ManufactoryMotClefs mfc = new ManufactoryMotClefs(
+								edc(), true);
+						mfc.insKeyword(projet, myKeywordList());
+						if (myKeywordDel().count() > 0)
+							mfc.delKeyword(projet, myKeywordDel());
+						mySession().addSimpleInfoMessage("PPREC",
+								"Le projet a bien été créé");
+						if (mySession().update()) {
+							// mySession().getUiMessages().removeAllObjects();
+							mySession().addSimpleInfoMessage("PPREC",
+									"Le projet a bien été modifié");
+						}
+						context().response().setStatus(500);
+						AjaxUpdateContainer.updateContainerWithID(myApp()
+								.messageContainerID(), context());
+					}
+				} else {
+					context().response().setStatus(500);
+					AjaxUpdateContainer.updateContainerWithID(myApp()
+							.messageContainerID(), context());
+				}
+				mySession().setFiltreProjetFacade(null);
+			} catch (ValidationException e2) {
+				mySession()
+						.addSimpleErrorMessage(
+								"Une erreur est survenue lors de l'enregistrement en base",
+								e2);
+				context().response().setStatus(500);
+				AjaxUpdateContainer.updateContainerWithID(myApp()
+						.messageContainerID(), context());
+				e2.printStackTrace();
+			} catch (Exception e) {
+				mySession()
+						.addSimpleErrorMessage(
+								"Une erreur est survenue lors de l'enregistrement en base",
+								e);
+				context().response().setStatus(500);
+				AjaxUpdateContainer.updateContainerWithID(myApp()
+						.messageContainerID(), context());
+				// ec.deleteObject(projet);
+				// ec.revert();
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	// Sous-methodes
+	protected boolean isNumeric(String input) {
+		try {
+			Integer.parseInt(input);
+			return true;
+		} catch (NumberFormatException e) {
+			mySession().addSimpleErrorMessage("Durée du projet",
+					"Veuillez indiquer un numéro valide.");
+			context().response().setStatus(500);
+			AjaxUpdateContainer.updateContainerWithID(myApp()
+					.messageContainerID(), context());
+			return false;
+		}
+	}
+}

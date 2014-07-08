@@ -1,0 +1,14 @@
+{
+    typPart = {
+        class = EOFetchSpecification; 
+        entityName = EOTyppartenaire; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typpartId; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = typpartId; class = EOQualifierVariable; }; 
+        }; 
+    }; 
+}

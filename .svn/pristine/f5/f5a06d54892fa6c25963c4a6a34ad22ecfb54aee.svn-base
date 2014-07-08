@@ -1,0 +1,237 @@
+<wo name = "wrap">
+  <webobject name = "avis">
+    <center>
+      <table cellpadding = "0" cellspacing = "0" background = "#CEFEC9" width = "100%">
+        <tr background = "#CEFEC9">
+          <td>&nbsp;&nbsp;</td>
+          <td class = "soustitre">&nbsp;&nbsp;Recueil des avis&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <br />
+    </center>
+    <wo:if condition = "$ctrl.affichePP">
+      <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#3D4B5F" id = "PP">
+        <tr>
+          <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class = "exampleAjaxGridTitle">&nbsp;Commentaire du responsable d'&eacute;quipe projet d'accueil principal</td>
+        </tr>
+        <tr>
+          <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class = "textes" style = "border:1px solid lightGray"><wo:string value = "$ctrl.comPP.commentaires" escapeHTML = "$false" /></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class = "exampleAjaxGridTitle">&nbsp;Avis :&nbsp;</td>
+          <td class = "textes"><wo:string value = "$ctrl.comPP.toAvis.typreflib" escapeHTML = "$false" /> </td>
+        </tr>
+      </table>
+    </wo:if>
+    <wo:else>
+      <wo:if condition = "$ctrl.commentaireResponsableEquipePrincipale">
+        <table cellpadding = "0" cellspacing = "0">
+          <tr>
+            <td class = "exampleAjaxGridTitle">&nbsp;Avis et commentaire du responsable d'&eacute;quipe projet d'accueil principal&nbsp;<font color = "red">*</font>
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <webobject name = "avisPrincipal" />
+              <webobject name = "avisPrincipalObserver" />
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class = "texte" title = "Votre avis est obligatoire">Favorable&nbsp;<wo name = "respPF" />
+              <webobject name = "ppAPF" />
+              &nbsp;&nbsp;&nbsp;&nbsp;D&eacute;favorable&nbsp;<wo name = "respPD" />
+              <webobject name = "ppAPD" />
+              &nbsp;&nbsp; 
+              <font color = "red">*</font>
+            </td>
+          </tr>
+        </table>
+        <br />
+      </wo:if>
+    </wo:else>
+    <br />
+    <wo:conditional condition = "$ctrl.affichePS">
+      <wo:if condition = "$ctrl.affichePS">
+        <table>
+          <tr>
+            <td class = "exampleAjaxGridTitle">&nbsp;Avis et commentaires du responsable d'&eacute;quipe projet s&eacute;condaire</td>
+          </tr>
+        </table>
+        <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#3D4B5F" id = "PS">
+          <tr>
+            <th class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th class = "exampleAjaxGridTitle" style = "border:1px solid lightGray">&nbsp;Equipe projet s&eacute;condaire</th>
+            <th class = "exampleAjaxGridTitle" style = "border:1px solid lightGray">&nbsp;Commentaire</th>
+            <th class = "exampleAjaxGridTitle" style = "border:1px solid lightGray">&nbsp;Avis</th>
+          </tr>
+          <wo name = "repeatComment">
+            <tr>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class = "textes" style = "border:1px solid lightGray">&nbsp;<wo:string value = "$comSecondaire.lcStructure" escapeHTML = "$false" /></td>
+              <td class = "textes" style = "border:1px solid lightGray">&nbsp;<wo:string value = "$mySession.commentRepetition.commentaires" escapeHTML = "$false" /></td>
+              <td class = "textes" style = "border:1px solid lightGray">&nbsp;<wo:string value = "$mySession.commentRepetition.toAvis.typreflib" escapeHTML = "$false" /></td>
+            </tr>
+          </wo>
+        </table>
+      </wo:if>
+      <wo:if condition = "$ctrl.overEquipes">
+        <wo:if condition = "$ctrl.commentaireSecondaire">
+          <table>
+            <tr>
+              <td class = "exampleAjaxGridTitle">&nbsp;Avis et commentaires du responsable d'&eacute;quipe projet s&eacute;condaire&nbsp;<font color = "red">*</font>
+              </td>
+            </tr>
+          </table>
+          <table cellpadding = "0" cellspacing = "0">
+            <tr>
+              <td class = "texte">&nbsp;Autres &eacute;quipes projets : &nbsp;</td>
+              <td>
+                <div class = "exampleAjaxGridTitle"><wo name = "CommentEquipe" /></div>
+              </td>
+              <td>&nbsp;<font color = "red">*</font>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>
+                <webobject name = "avisSecondaire" />
+                <webobject name = "avisSecondaireObserver" />
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class = "texte" title = "Votre avis est obligatoire">Favorable&nbsp;<wo name = "respSF" />
+                <webobject name = "ppASF" />
+                &nbsp;&nbsp;&nbsp;D&eacute;favorable&nbsp;<wo name = "respSD" />
+                <webobject name = "ppASD" />
+                &nbsp;&nbsp; 
+                <font color = "red">*</font>
+              </td>
+            </tr>
+          </table>
+        </wo:if>
+      </wo:if>
+    </wo:conditional>
+    <br />
+    <wo:condition condition = "$mySession.myPoles">
+      <wo:if condition = "$ctrl.afficheDrt">
+        <table>
+          <tr>
+            <td class = "exampleAjaxGridTitle">&nbsp;Avis et commentaires du Directeur de p&ocirc;le de comp&eacute;tences</td>
+          </tr>
+        </table>
+        <table width = "66%" border = "0" style = "border-collapse: collapse" bordercolor = "#3D4B5F" id = "PS">
+          <tr>
+            <th class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th class = "exampleAjaxGridTitle" style = "border:1px solid lightGray">&nbsp;P&ocirc;le de comp&eacute;tences</th>
+            <th class = "exampleAjaxGridTitle" style = "border:1px solid lightGray">&nbsp;Commentaire</th>
+            <th class = "exampleAjaxGridTitle" style = "border:1px solid lightGray">&nbsp;Avis</th>
+          </tr>
+          <wo name = "repeatCommen">
+            <tr>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class = "textes" style = "border:1px solid lightGray">&nbsp;<webobject name = "structure" /></td>
+              <td class = "textes" style = "border:1px solid lightGray">&nbsp;<wo:string value = "$mySession.comentRepetition.commentaires" escapeHTML = "$false" /></td>
+              <td class = "textes" style = "border:1px solid lightGray">&nbsp;<wo:string value = "$mySession.comentRepetition.toAvis.typreflib" escapeHTML = "$false" /></td>
+            </tr>
+          </wo>
+        </table>
+      </wo:if>
+      <wo:if condition = "$ctrl.overPoles">
+        <wo:if condition = "$ctrl.commentaireDirecteurPole">
+          <table>
+            <tr>
+              <td class = "exampleAjaxGridTitle">&nbsp;Avis et commentaire du Directeur de p&ocirc;le de comp&eacute;tences&nbsp;<font color = "red">*</font>
+              </td>
+            </tr>
+          </table>
+          <table cellpadding = "0" cellspacing = "0">
+            <tr>
+              <td class = "texte">&nbsp;P&ocirc;le&nbsp;:&nbsp;</td>
+              <td>
+                <div class = "exampleAjaxGridTitle"><wo name = "CommentPole" /></div>
+              </td>
+              <td>&nbsp;<font color = "red">*</font>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>
+                <webobject name = "avisDirecteurObserver"><webobject name = "avisDirecteur" /></webobject>
+              </td>
+            </tr>
+            <tr>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+              <td class = "texte">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class = "texte" title = "Votre avis est obligatoire">Favorable&nbsp;<webobject name = "DrtF" />
+                <webobject name = "ppDPF" />
+                &nbsp;&nbsp;&nbsp;D&eacute;favorable&nbsp;<webobject name = "DrtD" />
+                <webobject name = "ppDPD" />
+                &nbsp;&nbsp;<font color = "red">*</font>
+              </td>
+            </tr>
+          </table>
+        </wo:if>
+      </wo:if>
+    </wo:condition>
+    <br />
+    <wo:if condition = "$ctrl.afficheICD">
+      <table cellpadding = "0" cellspacing = "0">
+        <tr class = "texte">
+          <td>Validation par le comit&eacute; de direction de l'ICD le : </td>
+          <td>&nbsp;&nbsp;</td>
+          <td class = "texte"><webobject name = "DateInputWithFormatter" /></td>
+          <td>&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+          <td>Avis : </td>
+          <td>&nbsp;&nbsp;</td>
+          <td class = "texte">
+            <webobject name = "etatList" />
+            <webobject name = "etatAOF" />
+          </td>
+        </tr>
+      </table>
+      <br />
+    </wo:if>
+    <center>
+      <webobject name = "saveContainer">
+        <table cellpadding = "0" cellspacing = "1">
+          <tr>
+            <td class = "texte"><webobject name = "previous" /></td>
+            <wo:if condition = "$ctrl.saveDisabled">
+              <td class = "texte"><webobject name = "saveIcd" /></td>
+            </wo:if>
+          </tr>
+        </table>
+      </webobject>
+    </center>
+    <br />
+    <br />
+  </webobject>
+</wo>

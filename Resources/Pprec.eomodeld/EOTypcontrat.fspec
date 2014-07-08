@@ -1,0 +1,84 @@
+{
+    ContratPere = {
+        class = EOFetchSpecification; 
+        entityName = EOTypcontrat; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toContratFils); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typcontId; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = typcontIdSup; class = EOQualifierVariable; }; 
+        }; 
+        sortOrderings = (
+            {
+                class = EOSortOrdering; 
+                key = typcontNomAbr; 
+                selectorName = compareAscending; 
+            }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    Contrats = {
+        class = EOFetchSpecification; 
+        entityName = EOTypcontrat; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toProjets); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typcontIdSup; 
+            selectorName = "isEqualTo:"; 
+            value = {class = EONull; }; 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = (
+            {
+                class = EOSortOrdering; 
+                key = typcontNomAbr; 
+                selectorName = compareAscending; 
+            }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    LesStContrats = {
+        class = EOFetchSpecification; 
+        entityName = EOTypcontrat; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toProjets); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typcontIdSup; 
+            selectorName = "isEqualTo:"; 
+            value = {"_key" = typcontId; class = EOQualifierVariable; }; 
+        }; 
+        sortOrderings = (
+            {
+                class = EOSortOrdering; 
+                key = typcontNomAbr; 
+                selectorName = compareAscending; 
+            }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    lesContrats = {
+        class = EOFetchSpecification; 
+        entityName = EOTypcontrat; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toProjets); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typcontIdSup; 
+            selectorName = "isEqualTo:"; 
+            value = {class = EONull; }; 
+        }; 
+        refreshesRefetchedObjects = YES; 
+        sortOrderings = (
+            {
+                class = EOSortOrdering; 
+                key = typcontNomAbr; 
+                selectorName = compareAscending; 
+            }
+        ); 
+        usesDistinct = YES; 
+    }; 
+}

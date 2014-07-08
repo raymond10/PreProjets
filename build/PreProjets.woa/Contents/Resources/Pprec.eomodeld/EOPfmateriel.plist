@@ -1,0 +1,79 @@
+{
+    attributes = (
+        {
+            columnName = CREATEDATE; 
+            externalType = DATE; 
+            name = createDare; 
+            valueClassName = NSCalendarDate; 
+            valueType = D; 
+        }, 
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStrcuture; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = MAJAUTEUR; 
+            externalType = NUMBER; 
+            name = majAuteur; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "PFMAT_ID"; 
+            externalType = VARCHAR2; 
+            name = pfmatId; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            columnName = "PFMAT_LIB"; 
+            externalType = VARCHAR2; 
+            name = pfmatLib; 
+            valueClassName = NSString; 
+            width = 50; 
+        }
+    ); 
+    attributesUsedForLocking = (createDare, cStrcuture, majAuteur, pfmatId, pfmatLib); 
+    className = "utt.rec.projet.server.metier.admrec.EOPfmateriel"; 
+    classProperties = (
+        createDare, 
+        cStrcuture, 
+        majAuteur, 
+        pfmatId, 
+        pfmatLib, 
+        toGemateriels, 
+        toMateriels, 
+        toStructure
+    ); 
+    externalName = "ADMREC.PFMATERIEL"; 
+    name = EOPfmateriel; 
+    primaryKeyAttributes = (pfmatId); 
+    relationships = (
+        {
+            destination = EOGemateriel; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = pfmatId; sourceAttribute = pfmatId; }); 
+            name = toGemateriels; 
+        }, 
+        {
+            destination = EOResmat; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = pfmatId; sourceAttribute = pfmatId; }); 
+            name = toMateriels; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStrcuture; }); 
+            name = toStructure; 
+        }
+    ); 
+}

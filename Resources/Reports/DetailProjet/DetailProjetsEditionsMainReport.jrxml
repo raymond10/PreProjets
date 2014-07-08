@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailProjetsEditionsMainReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="20" whenResourceMissingType="Empty" uuid="a5a24652-d604-40f3-a843-dfb1ccf6e625">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="xmlSource" uuid="4e96a7b0-3ffb-4c5b-ac43-57f47d0fc7c2"/>
+	<parameter name="SubReportFilePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProjetsEditionsSubReport.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubSubReportFilePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProjetsEditionsSubSubReport.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportPartenairePath" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["DetailReportPartenaire.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportPgmAssosPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailPrgmAssocie.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportKeywordPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailKeyword.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportContextePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailContexte.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportProblematiquePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailProblematique.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportObjectifPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailObjectifs.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SubReportMethodologiePath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DetailMethodologie.jasper"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/Detail/Projet]]>
+	</queryString>
+	<field name="Titre" class="java.lang.String">
+		<fieldDescription><![CDATA[Titre]]></fieldDescription>
+	</field>
+	<field name="Porteur" class="java.lang.String">
+		<fieldDescription><![CDATA[Porteur]]></fieldDescription>
+	</field>
+	<field name="Pole" class="java.lang.String">
+		<fieldDescription><![CDATA[Pole]]></fieldDescription>
+	</field>
+	<field name="Duree" class="java.lang.String">
+		<fieldDescription><![CDATA[Duree]]></fieldDescription>
+	</field>
+	<field name="DateProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[DateProjet]]></fieldDescription>
+	</field>
+	<field name="Contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[Contrat]]></fieldDescription>
+	</field>
+	<field name="SousContrat" class="java.lang.String">
+		<fieldDescription><![CDATA[SousContrat]]></fieldDescription>
+	</field>
+	<field name="Partenaires" class="java.lang.String">
+		<fieldDescription><![CDATA[Partenaires]]></fieldDescription>
+	</field>
+	<field name="prgmPrincipal" class="java.lang.String">
+		<fieldDescription><![CDATA[prgmPrincipal]]></fieldDescription>
+	</field>
+	<field name="prgmAssocie" class="java.lang.String">
+		<fieldDescription><![CDATA[prgmAssocie]]></fieldDescription>
+	</field>
+	<field name="Pst" class="java.lang.String">
+		<fieldDescription><![CDATA[Pst]]></fieldDescription>
+	</field>
+	<field name="Axe" class="java.lang.String">
+		<fieldDescription><![CDATA[Axe]]></fieldDescription>
+	</field>
+	<field name="Thmk" class="java.lang.String">
+		<fieldDescription><![CDATA[Thmk]]></fieldDescription>
+	</field>
+	<field name="AxeStmr" class="java.lang.String">
+		<fieldDescription><![CDATA[AxeStmr]]></fieldDescription>
+	</field>
+	<field name="Keyword" class="java.lang.String">
+		<fieldDescription><![CDATA[Keyword]]></fieldDescription>
+	</field>
+	<field name="ContexteProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ContexteProjet]]></fieldDescription>
+	</field>
+	<field name="ProblmProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ProblmProjet]]></fieldDescription>
+	</field>
+	<field name="objectifProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[objectifProjet]]></fieldDescription>
+	</field>
+	<field name="methodoProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[methodoProjet]]></fieldDescription>
+	</field>
+	<field name="etatProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[etatProjet]]></fieldDescription>
+	</field>
+	<field name="Id" class="java.lang.String">
+		<fieldDescription><![CDATA[Id]]></fieldDescription>
+	</field>
+	<group name="ProjectDetail" isStartNewPage="true" isResetPageNumber="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{Titre}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="390126c5-1a47-427e-b2e9-8fb3ef5261c2" key="textField-20" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="1" width="555" height="20" backcolor="#CCCCFF"/>
+					<box>
+						<topPen lineWidth="1.5"/>
+						<bottomPen lineWidth="1.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Titre}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="802ed000-5053-4641-9b2b-d79c34d23ae7" x="455" y="6" width="100" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f63d0129-54ac-4643-8550-55145abec4f1" stretchType="RelativeToTallestObject" x="0" y="0" width="35" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="538" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e4d910bf-e36a-43ec-a910-e8b8e0b30c1f" x="0" y="1" width="48" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Porteur :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a6492b99-9251-4205-8007-0493440efdc6" key="textField-1" x="48" y="1" width="163" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Porteur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1b33750e-e22d-4079-b84e-ae09c272079e" x="211" y="1" width="30" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pôle :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="be84244c-8b41-4081-ae18-3e76f582a2ea" key="textField-2" isPrintRepeatedValues="false" x="241" y="1" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Pole}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0cca2b3c-018f-468e-98aa-b19fc43f7b27" x="0" y="25" width="43" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Durée :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7ef80927-2be8-4dc8-a38c-4e689729cacd" key="textField-3" isPrintRepeatedValues="false" x="43" y="25" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Duree}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="78d1e831-b4e0-4e76-bf27-40aa40e367ef" x="143" y="25" width="84" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date de début :]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="bc542bed-ad0b-42c5-b9fc-8e9b0295d894" key="textField-4" isPrintRepeatedValues="false" x="227" y="25" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DateProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4d0c7626-9984-4795-a8fa-eb4b793678db" x="0" y="50" width="72" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{Contrat}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contrat visé :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="af187b53-79ca-414d-83ad-1e1bad619433" key="textField-5" x="72" y="50" width="235" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Contrat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="507f4680-dd8a-47c3-89e3-01b3de3b60ea" x="307" y="50" width="120" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{SousContrat}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sous-type de contrat :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="deb522b5-1c64-4cdd-b8c7-a781267bbaff" key="textField-6" x="427" y="50" width="128" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SousContrat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c09a5ef5-54af-406a-9f9c-c52c818818d8" stretchType="RelativeToTallestObject" x="0" y="74" width="115" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{Partenaires}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Partenaires du projet]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-1" positionType="Float" x="115" y="91" width="440" height="1">
+					<printWhenExpression><![CDATA[!$F{Partenaires}.equals( null )]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<subreport>
+				<reportElement uuid="6380d436-f32d-427e-965a-8bdf9fa1efbe" key="subreport-1" positionType="Float" mode="Opaque" x="0" y="94" width="555" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportPartenairePath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="ac48ad68-63a3-4298-8c08-1b49b680e56a" positionType="Float" x="0" y="117" width="218" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programme Principal d'accueil du projet :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b4d744d6-131f-495f-ac1e-89511fef257f" key="textField-8" positionType="Float" x="218" y="117" width="337" height="18"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{prgmPrincipal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c8bdcc1a-292e-46e1-ba53-31573cce5f4d" stretchType="RelativeToTallestObject" x="0" y="139" width="190" height="18" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{prgmAssocie}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programmes de recherche associés]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-2" positionType="Float" x="190" y="156" width="365" height="1">
+					<printWhenExpression><![CDATA[!$F{prgmAssocie}.equals( null )]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<subreport>
+				<reportElement uuid="667d68b7-aa21-4ddb-ac01-65cfca3b6646" key="subreport-4" mode="Opaque" x="0" y="158" width="555" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportPgmAssosPath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="53277681-d1de-4549-a62c-7dc0cf9010d2" stretchType="RelativeToTallestObject" x="0" y="180" width="258" height="18" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{Pst}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programme Scientifique et Technologique (PST) :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f06795a4-a8a5-4e75-a7f9-874183a8373c" key="textField-10" x="258" y="180" width="297" height="18" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Pst}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9885c2c0-3996-4182-8750-5d2d3b91629d" stretchType="RelativeToTallestObject" x="0" y="201" width="127" height="18" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{Axe}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Axe de l'équipe projet :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c8042029-ca13-41a9-bda8-757dd36a3a62" key="textField-11" x="127" y="201" width="428" height="18" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Axe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f492a539-3804-4efd-9cf6-0db247eac1f3" stretchType="RelativeToTallestObject" x="0" y="222" width="135" height="18" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{Thmk}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thématique transverse :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="0ca9fbad-4900-4464-abc4-649305f31afd" key="textField-12" x="135" y="222" width="420" height="18" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Thmk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f4b694d0-6ab5-45c1-b88f-053ddfcfcd06" stretchType="RelativeToTallestObject" x="0" y="243" width="100" height="18" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{AxeStmr}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Axe thématique :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6023085d-aebd-4e09-8416-f07ff2ecd54b" key="textField-13" x="100" y="243" width="455" height="18" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AxeStmr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2b480935-232a-4fde-9665-36c90872a603" stretchType="RelativeToTallestObject" x="0" y="263" width="60" height="18" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{Keyword}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mots clefs :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-3" positionType="Float" x="60" y="279" width="495" height="1">
+					<printWhenExpression><![CDATA[!$F{Keyword}.equals( null )]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<subreport>
+				<reportElement uuid="de2f7c08-c4b3-4901-a05d-ec247ff97f73" key="subreport-5" mode="Opaque" x="0" y="281" width="555" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportKeywordPath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="04e6805a-2d56-44a1-8a11-777249a1d0ff" x="0" y="304" width="48" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contexte]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-4" positionType="Float" x="48" y="320" width="507" height="1"/>
+			</line>
+			<subreport>
+				<reportElement uuid="16bbf9b8-9a28-47ae-b6a3-1c3fa749f7cb" key="subreport-6" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="322" width="555" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportContextePath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="a581d64a-1edf-49e5-9c03-8f94e4a44e86" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="342" width="78" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Problématique]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-5" positionType="Float" x="79" y="357" width="476" height="1"/>
+			</line>
+			<subreport>
+				<reportElement uuid="82154cb3-4a6f-48bc-9c02-c5a93dc90ecf" key="subreport-7" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="360" width="555" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportProblematiquePath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="749105a8-1b83-4418-9343-70cb32a5ccd3" positionType="Float" isPrintRepeatedValues="false" x="0" y="380" width="50" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Objectifs]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-4" positionType="Float" x="50" y="396" width="505" height="1"/>
+			</line>
+			<subreport>
+				<reportElement uuid="208b3788-a58a-49f7-9d6d-e1dc69344b7d" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="398" width="555" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportObjectifPath}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="d82c5f3a-760e-4ee7-bab6-a11f131886f7" positionType="Float" x="2" y="418" width="73" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Méthodologie]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-4" positionType="Float" x="75" y="433" width="478" height="1"/>
+			</line>
+			<subreport>
+				<reportElement uuid="6275f0e6-d509-40e8-a721-c840efd5db08" positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="436" width="555" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportMethodologiePath}]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="ba862569-e5af-4ab4-9664-eab6b0d5da33" key="subreport-2" positionType="Float" mode="Opaque" x="0" y="470" width="555" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet/Resources")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportFilePath}]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="225e1bc1-5084-4932-864e-84b7e98d0ad9" key="subreport-3" positionType="Float" mode="Opaque" x="0" y="490" width="555" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/Projet/Visa")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubSubReportFilePath}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement uuid="7bd5fae7-460a-4f52-8337-bb6c083cba52" x="480" y="0" width="18" height="13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0ef946b2-dfd7-4c15-8084-d468ad64ae1c" x="508" y="0" width="18" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c3b13167-4882-4230-9590-d47e1b161b6e" x="0" y="0" width="27" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Etat :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a411b28a-5a17-4379-a90f-955bd88cfba7" key="textField-19" x="27" y="0" width="73" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{etatProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ff88ac7d-8241-43d6-899f-cc3abb464e0e" x="498" y="0" width="10" height="13"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

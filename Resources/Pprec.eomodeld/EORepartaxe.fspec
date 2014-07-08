@@ -1,0 +1,24 @@
+{
+    axeThematique = {
+        class = EOFetchSpecification; 
+        entityName = EORepartaxe; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = projetId; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toAxe.cStructure"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = cStructure; class = EOQualifierVariable; }; 
+                }
+            ); 
+        }; 
+    }; 
+}

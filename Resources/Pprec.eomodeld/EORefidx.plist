@@ -1,0 +1,57 @@
+{
+    attributes = (
+        {
+            columnName = "REFIDX_ID"; 
+            externalType = NUMBER; 
+            name = refidxId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REFIDX_SUP"; 
+            externalType = NUMBER; 
+            name = refidxSup; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = REFIDXVAL; 
+            externalType = VARCHAR2; 
+            name = refidxval; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 30; 
+        }
+    ); 
+    attributesUsedForLocking = (refidxId, refidxSup, refidxval); 
+    className = "utt.rec.projet.server.metier.admrec.EORefidx"; 
+    classProperties = (refidxSup, refidxval, toMotclefs, toRefidxPere, toRefidxs); 
+    externalName = "ADMREC.REFIDX"; 
+    name = EORefidx; 
+    primaryKeyAttributes = (refidxId); 
+    relationships = (
+        {
+            destination = EOMotclefs; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = refidxId; sourceAttribute = refidxId; }); 
+            name = toMotclefs; 
+        }, 
+        {
+            destination = EORefidx; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = refidxId; sourceAttribute = refidxSup; }); 
+            name = toRefidxPere; 
+        }, 
+        {
+            destination = EORefidx; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = refidxSup; sourceAttribute = refidxId; }); 
+            name = toRefidxs; 
+        }
+    ); 
+}

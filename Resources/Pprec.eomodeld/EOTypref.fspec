@@ -1,0 +1,158 @@
+{
+    CategorieRMSpec = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typrefdom; 
+            selectorName = "isEqualTo:"; 
+            value = "CAT_RM"; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = typreflib; selectorName = compareAscending; }); 
+    }; 
+    EtatsFetchSpec = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOKeyValueQualifier; 
+            key = typrefdom; 
+            selectorName = "isEqualTo:"; 
+            value = PPRECETAT; 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = typreflib; selectorName = compareAscending; }); 
+    }; 
+    icd = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOOrQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = RF; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = VA; 
+                }
+            ); 
+        }; 
+    }; 
+    pleiade = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefdom; 
+                    selectorName = "isEqualTo:"; 
+                    value = PPRECETAT; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = PE; 
+                }
+            ); 
+        }; 
+    }; 
+    projetPleiade = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefdom; 
+                    selectorName = "isEqualTo:"; 
+                    value = PPRECETAT; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = PL; 
+                }
+            ); 
+        }; 
+    }; 
+    traiter = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefdom; 
+                    selectorName = "isEqualTo:"; 
+                    value = PPRECETAT; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = TT; 
+                }
+            ); 
+        }; 
+    }; 
+    valider = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefdom; 
+                    selectorName = "isEqualTo:"; 
+                    value = PPRECETAT; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = VA; 
+                }
+            ); 
+        }; 
+    }; 
+    visa = {
+        class = EOFetchSpecification; 
+        entityName = EOTypref; 
+        prefetchingRelationshipKeyPaths = (); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefdom; 
+                    selectorName = "isEqualTo:"; 
+                    value = PPRECETAT; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = typrefnat; 
+                    selectorName = "isEqualTo:"; 
+                    value = VI; 
+                }
+            ); 
+        }; 
+    }; 
+}

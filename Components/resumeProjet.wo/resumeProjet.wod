@@ -1,0 +1,98 @@
+Tabs : AjaxTabbedPanel {
+    id = tabsId;
+}
+
+ContexteTab : AjaxTabbedPanelTab {
+	id = tabContexteId;
+    name = "Contexte";
+    isSelected = contexteTabSelected;
+    //onLoad = "tinyMCE.execCommand('mceAddControl', true, 'tabContexteId');";
+    onLoad = "submitForm();";
+}
+
+contexte : WOText {
+	value = myProjet.projctx;
+	id = "contexteId";
+	name = "contexte";
+	maxlength = "2000";
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:730px;height:400px;";
+}
+
+contexteObserve : AjaxObserveField {
+	observeFieldID = "contexteId";
+	fullSubmit = true;
+	action = submit;
+	onCreate = "submitForm();";
+	evalScripts = true;
+}
+
+ProblematiqueTab : AjaxTabbedPanelTab {
+    name = "Problématique";
+    id = tabProblematiqueId;
+    isSelected = problematiqueTabSelected;
+    //onLoad = "tinyMCE.execCommand('mceAddControl', true, 'problematiqueId');";
+    onLoad = "submitForm();";
+}
+
+problematik : WOText {
+	value = myProjet.projpblm;
+	name = "problematique";
+	maxlength = "2000";
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:730px;height:400px;";
+}
+
+problematikObserve : AjaxObserveField {
+	observeFieldID = "problematiqueId";
+	fullSubmit = true;
+	action = submit;
+	onCreate = "submitForm();";
+	evalScripts = true;
+}
+
+ObjectifsTab : AjaxTabbedPanelTab {
+	name = "Objectifs";
+    id = tabObjectifId;
+    isSelected = objectifsTabSelected;
+    //onLoad = "tinyMCE.execCommand('mceAddControl', true, 'objectifsId');";
+    onLoad = "submitForm();";
+}
+
+objectifs : WOText {
+	value = myProjet.projobf;
+	name = "objectifs";
+	id = "objectifsId";
+	maxlength = "2000"; 
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:730px;height:400px;";
+}
+
+objectifsObserve : AjaxObserveField {
+	observeFieldID = "objectifsId";
+	fullSubmit = true;
+	action = submit;
+	onCreate = "submitForm();";
+	evalScripts = true;
+}
+
+MethodologieTab : AjaxTabbedPanelTab {
+	name = "Méthodologie";
+	id = tabMethodologieId;
+	isSelected = methodologieTabSelected;
+	//onLoad = "tinyMCE.execCommand('mceAddControl', true, 'methodologieId');";
+    onLoad = "submitForm();";
+}
+
+metho : WOText {
+	value = myProjet.projmtdg;
+	id = "methodologieId";
+	name = "methodologie";
+	maxlength = "3000";
+	style="font-size:inherit;border:1px solid #3D4B5F;align:left;width:730px;height:400px;";
+}
+
+methoObserve : AjaxObserveField {
+	observeFieldID = "methodologieId";
+	fullSubmit = true;
+	action = submit;
+	onCreate = "submitForm();";
+	evalScripts = true;
+}

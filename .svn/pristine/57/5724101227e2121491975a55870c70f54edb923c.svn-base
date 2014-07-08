@@ -1,0 +1,51 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "10_a_pstid"; 
+            externalType = NUMBER; 
+            name = "10_a_pstid"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "20_a_axeid"; 
+            externalType = NUMBER; 
+            name = "20_a_axeid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "30_a_projetid"; 
+            externalType = NUMBER; 
+            name = "30_a_projetid"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "40_a_temvalide"; 
+            externalType = CHAR; 
+            name = "40_a_temvalide"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "50_a_majcreate"; 
+            externalType = DATE; 
+            name = "50_a_majcreate"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.UPD_PST"; 
+    name = updRepartPst; 
+}

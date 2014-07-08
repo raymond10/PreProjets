@@ -1,0 +1,88 @@
+{
+    attributes = (
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_CREATION"; 
+            externalType = NUMBER; 
+            name = persIdCreation; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_MODIFICATION"; 
+            externalType = NUMBER; 
+            name = persIdModification; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TGRP_CODE"; 
+            externalType = VARCHAR2; 
+            name = tgrpCode; 
+            valueClassName = NSString; 
+            width = 2; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cStructure, 
+        dCreation, 
+        dModification, 
+        persIdCreation, 
+        persIdModification, 
+        tgrpCode
+    ); 
+    className = "utt.rec.projet.server.metier.grhum.EORepartTypeGroupe"; 
+    classProperties = (
+        cStructure, 
+        dCreation, 
+        dModification, 
+        persIdCreation, 
+        persIdModification, 
+        tgrpCode, 
+        toStructure, 
+        toTypeGroupe
+    ); 
+    externalName = "GRHUM.REPART_TYPE_GROUPE"; 
+    fetchSpecificationDictionary = {}; 
+    name = EORepartTypeGroupe; 
+    primaryKeyAttributes = (cStructure, tgrpCode); 
+    relationships = (
+        {
+            destination = EOStructureUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toStructure; 
+        }, 
+        {
+            destination = EOtypeGroupe; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = tgrpCode; sourceAttribute = tgrpCode; }); 
+            name = toTypeGroupe; 
+        }
+    ); 
+}

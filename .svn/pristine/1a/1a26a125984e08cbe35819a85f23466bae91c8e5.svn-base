@@ -1,0 +1,40 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "01_persId"; 
+            externalType = NUMBER; 
+            name = "01_persId"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "02_dateDebut"; 
+            externalType = DATE; 
+            name = "02_dateDebut"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "03_dateFin"; 
+            externalType = DATE; 
+            name = "03_dateFin"; 
+            parameterDirection = 1; 
+            valueClassName = NSCalendarDate; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "04_utlOrdre"; 
+            externalType = NUMBER; 
+            name = "04_utlOrdre"; 
+            parameterDirection = 2; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "JEFY_ADMIN.API_UTILISATEUR.PRC_CREERUTILISATEUR"; 
+    name = creerUtilisateur; 
+}

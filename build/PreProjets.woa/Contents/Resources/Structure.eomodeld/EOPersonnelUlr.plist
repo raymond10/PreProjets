@@ -1,0 +1,234 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "AFFECTE_DEFENSE"; 
+            externalType = VARCHAR2; 
+            name = affecteDefense; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_LIMITE_AGE"; 
+            externalType = VARCHAR2; 
+            name = cLimiteAge; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_LOGE"; 
+            externalType = VARCHAR2; 
+            name = cLoge; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_FIN_AUTO_PROV"; 
+            externalType = DATE; 
+            name = dFinAutoProv; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_SITUATION_FAMILLE"; 
+            externalType = DATE; 
+            name = dSituationFamille; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NB_ENFANTS"; 
+            externalType = NUMBER; 
+            name = nbEnfants; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NB_ENFANTS_A_CHARGE"; 
+            externalType = NUMBER; 
+            name = nbEnfantsACharge; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "NO_DOSSIER_PERS"; 
+            externalType = NUMBER; 
+            name = noDossierPers; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NO_INDIVIDU_URGENCE"; 
+            externalType = NUMBER; 
+            name = noIndividuUrgence; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NO_MATRICULE"; 
+            externalType = VARCHAR2; 
+            name = noMatricule; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = NPC; 
+            externalType = VARCHAR2; 
+            name = npc; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = NUMEN; 
+            externalType = VARCHAR2; 
+            name = numen; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            columnName = "TEM_BUDGET_ETAT"; 
+            externalType = VARCHAR2; 
+            name = temBudgetEtat; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_IMPOSABLE"; 
+            externalType = VARCHAR2; 
+            name = temImposable; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_PAIE_SECU"; 
+            externalType = VARCHAR2; 
+            name = temPaieSecu; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_TITULAIRE"; 
+            externalType = VARCHAR2; 
+            name = temTitulaire; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TXT_LIBRE"; 
+            externalType = VARCHAR2; 
+            name = txtLibre; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 100; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        affecteDefense, 
+        cLimiteAge, 
+        cLoge, 
+        cStructure, 
+        dCreation, 
+        dFinAutoProv, 
+        dModification, 
+        dSituationFamille, 
+        nbEnfants, 
+        nbEnfantsACharge, 
+        noDossierPers, 
+        noIndividuUrgence, 
+        noMatricule, 
+        npc, 
+        numen, 
+        temBudgetEtat, 
+        temImposable, 
+        temPaieSecu, 
+        temTitulaire, 
+        txtLibre
+    ); 
+    className = "utt.rec.projet.server.metier.grhum.EOPersonnelUlr"; 
+    classProperties = (
+        affecteDefense, 
+        cLimiteAge, 
+        cLoge, 
+        dCreation, 
+        dFinAutoProv, 
+        dModification, 
+        dSituationFamille, 
+        nbEnfants, 
+        nbEnfantsACharge, 
+        noMatricule, 
+        npc, 
+        numen, 
+        temBudgetEtat, 
+        temImposable, 
+        temPaieSecu, 
+        temTitulaire, 
+        toIndividu, 
+        toStructure, 
+        txtLibre
+    ); 
+    externalName = "GRHUM.PERSONNEL_ULR"; 
+    fetchSpecificationDictionary = {}; 
+    name = EOPersonnelUlr; 
+    primaryKeyAttributes = (noDossierPers); 
+    relationships = (
+        {
+            destination = EOIndividuUlr; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noIndividu; sourceAttribute = noDossierPers; }); 
+            name = toIndividu; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toStructure; 
+        }
+    ); 
+}

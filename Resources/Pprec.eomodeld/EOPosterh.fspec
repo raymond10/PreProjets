@@ -1,0 +1,27 @@
+{
+    posteProjet = {
+        class = EOFetchSpecification; 
+        entityName = EOPosterh; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (toCategorieRh, toProjet); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toProjet.projetId"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = projetId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temvalide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = ({class = EOSortOrdering; key = idPoste; selectorName = compareAscending; }); 
+        usesDistinct = YES; 
+    }; 
+}

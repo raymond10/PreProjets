@@ -1,0 +1,116 @@
+{
+    attributes = (
+        {
+            columnName = COUTESTIME; 
+            externalType = FLOAT; 
+            name = coutestime; 
+            precision = 2; 
+            scale = 2; 
+            valueClassName = NSDecimalNumber; 
+            valueType = B; 
+        }, 
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            columnName = "NO_INDIVIDU"; 
+            externalType = NUMBER; 
+            name = noIndividu; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "NOM_PERSONNEL"; 
+            externalType = VARCHAR2; 
+            name = nomPersonnel; 
+            valueClassName = NSString; 
+            width = 80; 
+        }, 
+        {
+            columnName = "NOM_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = nomStructure; 
+            valueClassName = NSString; 
+            width = 50; 
+        }, 
+        {
+            columnName = "PERSONNEL_ID"; 
+            externalType = NUMBER; 
+            name = personnelId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = TEMPSUITL; 
+            externalType = VARCHAR2; 
+            name = tempsuitl; 
+            valueClassName = NSString; 
+            width = 20; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = CHAR; 
+            name = temvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        coutestime, 
+        cStructure, 
+        noIndividu, 
+        nomPersonnel, 
+        nomStructure, 
+        personnelId, 
+        projetId, 
+        tempsuitl, 
+        temvalide
+    ); 
+    className = "utt.rec.projet.server.metier.admrec.EOPersonnel"; 
+    classProperties = (
+        coutestime, 
+        cStructure, 
+        noIndividu, 
+        nomPersonnel, 
+        nomStructure, 
+        tempsuitl, 
+        temvalide, 
+        toProjet, 
+        toVrhcmval
+    ); 
+    externalName = "ADMREC.PERSONNEL"; 
+    name = EOPersonnel; 
+    primaryKeyAttributes = (personnelId); 
+    relationships = (
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }, 
+        {
+            destination = EOVrhcmval; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noIndividu; sourceAttribute = noIndividu; }); 
+            name = toVrhcmval; 
+        }
+    ); 
+}

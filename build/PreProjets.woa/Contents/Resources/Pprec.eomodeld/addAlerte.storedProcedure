@@ -1,0 +1,67 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "10_a_alerte_id"; 
+            externalType = NUMBER; 
+            name = "10_a_alerte_id"; 
+            parameterDirection = 3; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "20_a_projet_id"; 
+            externalType = NUMBER; 
+            name = "20_a_projet_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "30_a_pole_id"; 
+            externalType = VARCHAR2; 
+            name = "30_a_pole_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "40_a_comment_id"; 
+            externalType = NUMBER; 
+            name = "40_a_comment_id"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "50_a_lebelle"; 
+            externalType = VARCHAR2; 
+            name = "50_a_lebelle"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 200; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "60_a_vis_hash"; 
+            name = "60_a_vis_hash"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 32; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "70_a_val_hash"; 
+            name = "70_a_val_hash"; 
+            parameterDirection = 1; 
+            valueClassName = NSString; 
+            width = 32; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.ADD_ALERTE"; 
+    name = addAlerte; 
+}

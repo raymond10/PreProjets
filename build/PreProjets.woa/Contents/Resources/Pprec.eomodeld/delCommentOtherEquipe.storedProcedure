@@ -1,0 +1,15 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "010_commentId"; 
+            externalType = NUMBER; 
+            name = "010_commentId"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "ADMREC.PKG_PPRECH.DEL_COMMENTOTHEREQUIPE"; 
+    name = delCommentOtherEquipe; 
+}

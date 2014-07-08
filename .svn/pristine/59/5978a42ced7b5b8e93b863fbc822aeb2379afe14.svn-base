@@ -1,0 +1,5 @@
+// Example of action in a cell that updates the container
+Delete: AjaxUpdateLink {
+	action = deleteRow;
+	updateContainerID = grid.configurationData.updateContainerID;  // VALID
+}

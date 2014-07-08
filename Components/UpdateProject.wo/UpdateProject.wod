@@ -1,0 +1,495 @@
+wrap : Wrappers {
+	bodyId = "acceuil";
+	onloadJS = onloadJS;
+	id = "projectContainer";
+}
+
+declaration : ERXWOForm {
+	name = "declaration";
+	id = "declaration";
+	embedded = true;
+	multipleSubmit = true;
+	onsubmit = "return formValidator(this);";
+}
+
+etat : WOString {
+	value = ctrl.projet.toEtat.typreflib;
+	class ="aide";
+}
+
+Porteurs : WOPopUpButton {
+	id = "porteurID";
+	list = mySession.porteurList;
+	item = mySession.porteurRepetition;
+	displayString = mySession.porteurRepetition.nomPrenom;
+	selection = mySession.porteur;
+	noSelectionString = " ";
+}
+
+porteurAOF : AjaxObserveField {
+	updateContainerID = "infoID";
+	observeFieldFrequency = "0.3";
+	observeDelay = "0.3";
+	elementName = "span";
+	action = ctrl.dataArray.refreshPole;
+	fullSubmit = false;
+}
+
+infoAUC : AjaxUpdateContainer {
+	id = "infoID";
+}
+
+infoPorteur : WOPopUpButton {
+	 name = "infoPorteur";
+	 list = mySession.listInfoPole;
+	 item = mySession.infoPorteurRepetition;
+	 selection = mySession.selectedInfoPorteur;
+	 displayString = mySession.infoPorteurRepetition.pole;
+	 //noSelectionString = " ";
+	 //class = "texte";
+}
+
+etabPorteurY : WORadioButton {
+	id = "yesEtabID";
+	name = "checkEtab";
+	selection = mySession.etabPorteur;
+	value = "O";
+}
+
+etabPorteurN : WORadioButton {
+	id = "noEtabID";
+	name = "checkEtab";
+	selection = mySession.etabPorteur;
+	value = "N";
+}
+
+DateInputWithFormatter: AjaxDatePicker {
+	value = mySession.dateDebut;
+	formatter = formatter;
+	monthNames = frenchMonths;
+	dayNames = frenchDays;
+	name = "DateInputWithFormatterField";
+}
+
+Contrats : WOPopUpButton {
+	id="contratSpan";
+    name ="contratSpan";
+	list = mySession.contratList;
+	item = mySession.contratRepetition;
+	displayString = mySession.contratRepetition.typcontNom;
+	selection = mySession.contrat;
+	noSelectionString = " ";
+}
+
+contratObserve1 : AjaxObserveField {
+	observeFieldID="contratSpan";
+	updateContainerID = "contID";
+	action = ctrl.dataArray.upDateStContrat;
+	fullSubmit = true;
+}
+
+contAUC : AjaxUpdateContainer {
+	id = "contID";
+}
+
+infoContrat : WOPopUpButton {
+	id = "sContratSpan";
+	name = "sContratSpan";
+	list = mySession.stContratList;
+	item = mySession.stContratItem;
+	displayString = mySession.stContratItem.typcontNom;
+	selection = mySession.stContratSelected;
+	noSelectionString = " ";
+}
+
+Partenaires : WOPopUpButton {
+	id = "partdDI";
+	list = mySession.partenaireList;
+	item = mySession.partenaireRepetition;
+	displayString = mySession.partenaireRepetition.denomUsuelle;
+	selection = mySession.partenaire;
+	noSelectionString = " ";
+}
+
+PartAOF : AjaxObserveField {
+	observeFieldID = "partdDI";
+	updateContainerID = partenaireId;
+	action = ctrl.dataArray.onPart;
+	fullSubmit = true;
+}
+
+NouveauPartenaire : CktlAjaxButton {
+	dialogIDForOpen = partenaireDialogId;
+    text = "...";
+    title = "Nouveau partenaire";
+    type = "new";
+    enabled = ctrl.peutNouveauPartenaire;
+    //showBusyImage = true;
+}
+
+DialogNouveauPartenaire : CktlAjaxWindow {
+	id = partenaireDialogId;
+    action = openAjouterPartenaire;
+    width = 800;
+    height = 300;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    onClose = refreshPartenaire;
+    resizable = false;
+    closable = false;
+    closeUpdateContainerID = "partenaireFetchId";
+}
+
+selectedPartAUC : AjaxUpdateContainer {
+	id = partenaireId;
+	elementName = "div";
+	class = "tableBody";
+}
+
+selectedPart : WORepetition {
+	list = mySession.partenaireDg.allObjects;
+	item = mySession.partenaireItem;
+}
+
+newPart : WOString {
+	value = mySession.partenaireItem.denomUsuelle;
+}
+
+linkPartAction : AjaxUpdateLink {
+	action = ctrl.removePartner;
+	updateContainerID = partenaireId;
+	evalScripts = true;
+}
+
+Equipes : WOPopUpButton {
+	id = "equipesID";
+	list = mySession.equipeList;
+	item = mySession.equipeRepetition;
+	displayString = mySession.equipeRepetition.lcStructure;
+	selection = mySession.equipePrincipale;
+	noSelectionString = " ";
+}
+
+equipesAOF : AjaxObserveField {
+	observeFieldID = "equipesID";
+	//updateContainerID = "otherID";
+	onComplete = "function (oC) {otherIDUpdate();saveContaineUpdate();}";
+	fullSubmit = false;
+	action = ctrl.dataArray.upDateOtherEqp;
+}
+
+axesAOF : AjaxObserveField {
+	observeFieldID = "equipesID";
+	updateContainerID = "axesID";
+	fullSubmit = false;
+	action = ctrl.dataArray.upDateAxes;
+}
+
+psfAOF : AjaxObserveField {
+	observeFieldID = "equipesID";
+	updateContainerID = "pstID";
+	fullSubmit = true;
+	action = ctrl.dataArray.upDatePst;
+}
+
+axesStmrAOF : AjaxObserveField {
+	observeFieldID = "equipesID";
+	updateContainerID = "axesStmrID";
+	fullSubmit = true;
+	action = ctrl.dataArray.upDateAxes;
+}
+
+tHtVAOF : AjaxObserveField {
+	observeFieldID = "equipesID";
+	updateContainerID = "transID";
+	fullSubmit = false;
+	action = ctrl.dataArray.upDateTrans;
+}
+
+equipeAUC : AjaxUpdateContainer {
+	id = "otherID";
+}
+
+axesAUC : AjaxUpdateContainer {
+	id = "axesID";
+}
+
+pstAUC : AjaxUpdateContainer {
+	id = "pstID";
+}
+
+tHtVAUC : AjaxUpdateContainer {
+	id = "transID";
+} 
+
+Autres : WOPopUpButton {
+	id = "otherEqp";
+	list = mySession.equipeSecondaireList;
+	item = mySession.equipeSecondaireRepeat;
+	displayString = mySession.equipeSecondaireRepeat.lcStructure;
+	selection = mySession.selectedEquipeSecondaire;
+	noSelectionString = " ";
+}
+
+selectedOther : WORepetition {
+	list = mySession.autreEquipeDg.displayedObjects;
+	item = mySession.otherRepetition;
+}
+
+autresAOF : AjaxObserveField {
+	observeFieldID = "otherEqp";
+	updateContainerID = selectedOtherId;
+	fullSubmit = false;
+	action = ctrl.dataArray.onChange;
+}
+
+selectedAUC : AjaxUpdateContainer {
+	id = selectedOtherId;
+	elementName = "div";
+	class = "tableBody";
+}
+
+newEquipes : WOString {
+	value = mySession.otherRepetition.lcStructure;
+}
+
+linkAction : AjaxUpdateLink {
+	action = ctrl.removeAtrePRGAssocie;
+	updateContainerID = selectedOtherId;
+	onComplete = "function (oC) {selectedOtherIDUpdate();}";
+	//evalScripts = true;
+}
+
+imgAction : WOImage {
+	filename = "newImages/table_row_delete.png";
+	width="14";
+	height="14";
+	title = "Supprimer un programme associé";
+	border = "0";
+}
+
+Axes : WOPopUpButton {
+	id="axeSpan";
+    name = "axeProj";
+	list = mySession.axeList;
+	item = mySession.axeRepetition;
+	displayString = mySession.axeRepetition.axereclib;
+	selection = mySession.axe;
+	noSelectionString = " ";
+}
+
+Pst : WOPopUpButton {
+	id="pstSpan";
+    name = "pstProj";
+	list = mySession.pstList;
+	item = mySession.pstRepetition;
+	displayString = mySession.pstRepetition.axereclib;
+	selection = mySession.pst;
+	noSelectionString = " ";
+}
+
+pstObserve : AjaxObserveField {
+	observeFieldID="pstSpan";
+	action = ctrl.isEnregistrerUnProjetEnabled;
+	fullSubmit = true;
+	//updateContainerID = "saveContainer";
+}
+
+axesObserve : AjaxObserveField {
+	observeFieldID="axeSpan";
+	action = ctrl.isEnregistrerUnProjetEnabled;
+	fullSubmit = true;
+	//updateContainerID = "saveContainer";
+}
+
+selectSTMR : WOConditional {
+	condition = mySession.isHaveSTMR;
+}
+
+selectSTM : WOConditional {
+	condition = mySession.isHaveNotSTMR;
+}
+
+thematiqueSTMR : WOString {
+	value = mySession.equipePrincipale.lcStructure;
+}
+
+YesNo : WOConditional {
+	condition = mySession.isHaveNotSTMR;
+}
+
+thematiqueY : WORadioButton {
+	id = "yesCheckID";
+	name = "checkThe";
+	selection = mySession.selectThematique;
+	value = "O";
+}
+
+thematiqueYAOF : AjaxObserveField {
+	observeFieldID = "yesCheckID";
+	updateContainerID = "theContID";
+	fullSubmit = true;
+	action = ctrl.dataArray.hasThematique;
+}
+
+thematiqueN : WORadioButton {
+	id = "noCheckID";
+	name = "checkThe";
+	selection = mySession.selectThematique;
+	value = "N";
+	//onClick = "if(this.form.thematikCheck[1].checked){this.form.elements['change'].click();}"
+	//"if(this.form.thematikCheck[1].checked){thematiqueContainerUpdate();}"
+	//checked = true;
+}
+
+thematiqueNAOF : AjaxObserveField {
+	observeFieldID = "noCheckID";
+	updateContainerID = "theContID";
+	fullSubmit = true;
+	action = ctrl.dataArray.hasThematique;
+}
+
+pstAxeStmrAUC : AjaxUpdateContainer {
+	id = "axesStmrID";
+}
+
+AxesStmr : WOPopUpButton {
+	id="axeStmrProj";
+    name = "axeStmrProj";
+	list = mySession.axeStmrList;
+	item = mySession.axeStmrRepetition;
+	displayString = mySession.axeStmrRepetition.axereclib;
+	selection = mySession.selectedStmrAxe;
+	noSelectionString = " ";
+}
+
+axesStmrObserve : AjaxObserveField {
+	observeFieldID="axeStmrProj";
+	action = ctrl.isEnregistrerUnProjetEnabled;
+	fullSubmit = true;
+	//updateContainerID = "saveContainer";
+}
+
+//             <div id = "col_left" class = "texte" style = "border-spacing: 2em;">
+//                <table cellpadding = "0" cellspacing = "0" width = "100%">
+//                  <tr>
+//                    <td>
+//                      <wo name = "laquelleTHE">Laquelle?</wo>
+//                    </td>
+//                    <td>
+//                      <wo name = "laquelleTHE"><wo name = "Thematiks" /></wo>
+//                      <wo name = "ThematikObserve" />
+//                      <wo name = "ThematiObserve" />
+//                    </td>
+//                  </tr>
+//                  <tr>
+//                    <td>&nbsp;Th&egrave;me&nbsp;</td>
+//                    <td>
+//                      <wo name = "ThemeUpdate">
+//                        <wo name = "Themes" />
+//                        <wo name = "ThemeObServe" />
+//                      </wo>
+//                    </td>
+//                  </tr>
+//                  <tr>
+//                    <td>&nbsp;sous th&egrave;me&nbsp;</td>
+//                    <td>
+//                      <wo name = "souThemeUpdate">
+//                        <wo name = "SouThemes" />
+//                        <wo name = "SouThemeObserve" />
+//                      </wo>
+//                   </td>
+//                  </tr>
+//                </table>
+//              </div>
+
+//laquelleTHE : WOConditional {
+//	condition = hasYesChecked;
+//}
+
+//Thematiks : WOPopUpButton {
+//	id = "ThematiksID";
+//	list = mySession.thematikList;
+//	item = mySession.thematikRepetition;
+//	displayString = mySession.thematikRepetition.typthelib;
+//	selection = mySession.selectedThematik;
+//	noSelectionString = " ";
+//}
+
+//ThematikObserve : AjaxObserveField {
+//	observeFieldID = "ThematiksID";
+//	updateContainerID = "ThemeDiv";
+//	action = ctrl.dataArray.upDateTheme;
+//	fullSubmit = false;
+//}
+
+//ThematiObserve : AjaxObserveField {
+//	observeFieldID = "ThematiksID";
+//	updateContainerID = "SouThemeDiv";
+//	action = ctrl.dataArray.upDateSouTheme;
+//	fullSubmit = false;
+//}
+
+//ThemeUpdate : AjaxUpdateContainer {
+//	id = "ThemeDiv";
+//}
+
+//Themes : WOPopUpButton {
+//   id = "ThemeID";
+//	list = mySession.themeList;
+//	item = mySession.themeRepetition;
+//	displayString = mySession.themeRepetition.refthelib;
+//	selection = mySession.selectedTheme;
+//	noSelectionString = " ";
+//}
+
+//ThemeObServe : AjaxObserveField {
+//	observeFieldID = "ThemeID";
+//	updateContainerID = "SouThemeDiv";
+//	action = ctrl.dataArray.upDateSouTheme;
+//	fullSubmit = false;
+//}
+
+//souThemeUpdate : AjaxUpdateContainer {
+//	id = "SouThemeDiv";
+//}
+
+//SouThemes : WOPopUpButton {
+//	id = "SouThemeID";
+//	list = mySession.souThemeList;
+//	item = mySession.souThemeRepetition;
+//	displayString = mySession.souThemeRepetition.refthelib;
+//	selection = mySession.selectedSouTheme;
+//	noSelectionString = " ";
+//}
+
+//SouThemeObserve : AjaxObserveField {
+//	observeFieldID = "SouThemeID";
+//	updateContainerID = "SouThemeDiv";
+//	fullSubmit = false;
+//}
+
+motcle : KeywordsCompletion {
+	Projet = ctrl.projet;
+}
+
+
+next : CktlAjaxSubmitButton {
+	onClickBefore = "formValidator(declaration)";
+	name = "Suivant";
+	action = ctrl.nextPage;
+	text = "Suivant";
+	type = "next";
+	formName = "declaration";
+    title = "Passer à la page suivante";
+    evalScripts = true;
+    onClick = "submit();";
+}
+
+Annuler : CktlAjaxActionButton {
+    onClickBefore = "confirm('Les données modifiées seront définitivement perdues ?')";
+    action = ctrl.annuler;
+    title = "Tout annuler";
+    text = "Annuler";
+    type = "cancel";
+}

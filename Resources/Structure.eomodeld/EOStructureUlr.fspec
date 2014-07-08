@@ -1,0 +1,112 @@
+{
+    Equipes = {
+        class = EOFetchSpecification; 
+        entityName = EOStructureUlr; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = ("toRepartTypeGroupes.toTypeGroupe"); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toRepartTypeGroupes.tgrpCode"; 
+                    selectorName = "isEqualTo:"; 
+                    value = ER; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = cStructure; 
+                    selectorName = "isNotEqualTo:"; 
+                    value = 1323; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = cStructure; 
+                    selectorName = "isNotEqualTo:"; 
+                    value = 85; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temValide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = (
+            {class = EOSortOrdering; key = lcStructure; selectorName = compareAscending; }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    Poles = {
+        class = EOFetchSpecification; 
+        entityName = EOStructureUlr; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = (
+            "toRepartStructures.toPersonne.toIndividus", 
+            "toRepartTypeGroupes.toTypeGroupe"
+        ); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toRepartTypeGroupes.tgrpCode"; 
+                    selectorName = "isLike:"; 
+                    value = SR; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temValide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+        sortOrderings = (
+            {class = EOSortOrdering; key = lcStructure; selectorName = compareAscending; }
+        ); 
+        usesDistinct = YES; 
+    }; 
+    poleCompetence = {
+        class = EOFetchSpecification; 
+        entityName = EOStructureUlr; 
+        isDeep = YES; 
+        prefetchingRelationshipKeyPaths = ("toRepartTypeGroupes.toTypeGroupe"); 
+        qualifier = {
+            class = EOAndQualifier; 
+            qualifiers = (
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toRepartTypeGroupes.tgrpCode"; 
+                    selectorName = "isLike:"; 
+                    value = SR; 
+                }, 
+                {
+                    class = EOKeyComparisonQualifier; 
+                    leftKey = "toRepartStructures.cStructure"; 
+                    rightKey = cStructure; 
+                    selectorName = "isEqualTo:"; 
+                }, 
+                {
+                    class = EOKeyComparisonQualifier; 
+                    leftKey = "toRepartStructures.toIndividu.persId"; 
+                    rightKey = "toRepartStructures.persId"; 
+                    selectorName = "isEqualTo:"; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = "toRepartStructures.toIndividu.persId"; 
+                    selectorName = "isEqualTo:"; 
+                    value = {"_key" = persId; class = EOQualifierVariable; }; 
+                }, 
+                {
+                    class = EOKeyValueQualifier; 
+                    key = temValide; 
+                    selectorName = "isEqualTo:"; 
+                    value = O; 
+                }
+            ); 
+        }; 
+    }; 
+}

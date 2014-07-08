@@ -1,0 +1,12 @@
+{
+    Equipes = {
+        class = EOFetchSpecification; 
+        entityName = EOVEquipes; 
+        prefetchingRelationshipKeyPaths = (); 
+        rawRowKeyPaths = (codeEquipes, equipes); 
+        sortOrderings = (
+            {class = EOSortOrdering; key = codeEquipes; selectorName = compareAscending; }
+        ); 
+        usesDistinct = YES; 
+    }; 
+}

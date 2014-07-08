@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReportPartenaire" pageWidth="793" pageHeight="535" orientation="Landscape" columnWidth="793" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fdd1af2e-e7dd-4192-a86d-d041bf871773">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="1054"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="XPath">
+		<![CDATA[/Detail/Projet]]>
+	</queryString>
+	<field name="Partenaires" class="java.lang.String">
+		<fieldDescription><![CDATA[Partenaires]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement uuid="c09a5ef5-54af-406a-9f9c-c52c818818d8" x="0" y="0" width="105" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Partenaires du projet]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-1" positionType="Float" x="88" y="19" width="482" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="b704655a-73f8-4ee9-8f9b-8da0ec0e1dec" key="textField-2" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="570" height="20" backcolor="#F0F0F0"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Partenaires}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

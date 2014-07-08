@@ -1,0 +1,891 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = "C_ACADEMIE"; 
+            externalType = VARCHAR2; 
+            name = cAcademie; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_NAF"; 
+            externalType = VARCHAR2; 
+            name = cNaf; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 5; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_NIC"; 
+            externalType = VARCHAR2; 
+            name = cNic; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_RNE"; 
+            externalType = VARCHAR2; 
+            name = cRne; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_STATUT_JURIDIQUE"; 
+            externalType = VARCHAR2; 
+            name = cStatutJuridique; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2; 
+        }, 
+        {
+            columnName = "C_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_STRUCTURE_PERE"; 
+            externalType = VARCHAR2; 
+            name = cStructurePere; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_TYPE_DECISION_STR"; 
+            externalType = VARCHAR2; 
+            name = cTypeDecisionStr; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "C_TYPE_ETABLISSEMEN"; 
+            externalType = VARCHAR2; 
+            name = cTypeEtablissemen; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 5; 
+        }, 
+        {
+            columnName = "C_TYPE_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = cTypeStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "DATE_DECISION"; 
+            externalType = DATE; 
+            name = dateDecision; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "DATE_FERMETURE"; 
+            externalType = DATE; 
+            name = dateFermeture; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "DATE_OUVERTURE"; 
+            externalType = DATE; 
+            name = dateOuverture; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_CREATION"; 
+            externalType = DATE; 
+            name = dCreation; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "D_MODIFICATION"; 
+            externalType = DATE; 
+            name = dModification; 
+            valueClassName = NSCalendarDate; 
+            valueType = T; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ETAB_CODURSSAF"; 
+            externalType = VARCHAR2; 
+            name = etabCodurssaf; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ETAB_NUMURSSAF"; 
+            externalType = VARCHAR2; 
+            name = etabNumurssaf; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 18; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = EXPORT; 
+            externalType = NUMBER; 
+            name = export; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = GENCOD; 
+            externalType = VARCHAR2; 
+            name = gencod; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_ACCES"; 
+            externalType = VARCHAR2; 
+            name = grpAcces; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_ALIAS"; 
+            externalType = VARCHAR2; 
+            name = grpAlias; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 200; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_APE_CODE"; 
+            externalType = VARCHAR2; 
+            name = grpApeCode; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_APE_CODE_BIS"; 
+            externalType = VARCHAR2; 
+            name = grpApeCodeBis; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_APE_CODE_COMP"; 
+            externalType = VARCHAR2; 
+            name = grpApeCodeComp; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_CA"; 
+            externalType = NUMBER; 
+            name = grpCa; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_CAPITAL"; 
+            externalType = NUMBER; 
+            name = grpCapital; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_CENTRE_DECISION"; 
+            externalType = VARCHAR2; 
+            name = grpCentreDecision; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 60; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_EFFECTIFS"; 
+            externalType = NUMBER; 
+            name = grpEffectifs; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_FONCTION1"; 
+            externalType = VARCHAR2; 
+            name = grpFonction1; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_FONCTION2"; 
+            externalType = VARCHAR2; 
+            name = grpFonction2; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_FORME_JURIDIQUE"; 
+            externalType = VARCHAR2; 
+            name = grpFormeJuridique; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 4; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_MOTS_CLEFS"; 
+            externalType = VARCHAR2; 
+            name = grpMotsClefs; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 255; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_OWNER"; 
+            externalType = NUMBER; 
+            name = grpOwner; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_RESPONSABILITE"; 
+            externalType = VARCHAR2; 
+            name = grpResponsabilite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 120; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_RESPONSABLE"; 
+            externalType = NUMBER; 
+            name = grpResponsable; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_TRADEMARQUE"; 
+            externalType = VARCHAR2; 
+            name = grpTrademarque; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 50; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "GRP_WEBMESTRE"; 
+            externalType = VARCHAR2; 
+            name = grpWebmestre; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 60; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "LC_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = lcStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 30; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "LL_STRUCTURE"; 
+            externalType = VARCHAR2; 
+            name = llStructure; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 200; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "MOYENNE_AGE"; 
+            externalType = NUMBER; 
+            name = moyenneAge; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NUM_ASSEDIC"; 
+            externalType = VARCHAR2; 
+            name = numAssedic; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NUM_CNRACL"; 
+            externalType = VARCHAR2; 
+            name = numCnracl; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NUM_IRCANTEC"; 
+            externalType = VARCHAR2; 
+            name = numIrcantec; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "NUM_RAFP"; 
+            externalType = VARCHAR2; 
+            name = numRafp; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "ORG_ORDRE"; 
+            externalType = NUMBER; 
+            name = orgOrdre; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "PERS_ID"; 
+            externalType = NUMBER; 
+            name = persId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_CREATION"; 
+            externalType = NUMBER; 
+            name = persIdCreation; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PERS_ID_MODIFICATION"; 
+            externalType = NUMBER; 
+            name = persIdModification; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "PSEC_ORDRE"; 
+            externalType = NUMBER; 
+            name = psecOrdre; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REF_DECISION"; 
+            externalType = VARCHAR2; 
+            name = refDecision; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 20; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REF_EXT_COMP"; 
+            externalType = VARCHAR2; 
+            name = refExtComp; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REF_EXT_CR"; 
+            externalType = VARCHAR2; 
+            name = refExtCr; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 10; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "REF_EXT_ETAB"; 
+            externalType = VARCHAR2; 
+            name = refExtEtab; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 3; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "RISQUE_ACC_TRAV"; 
+            externalType = VARCHAR2; 
+            name = risqueAccTrav; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = SIREN; 
+            externalType = VARCHAR2; 
+            name = siren; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 9; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = SIRET; 
+            externalType = VARCHAR2; 
+            name = siret; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 14; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "STR_ACCUEIL"; 
+            externalType = VARCHAR2; 
+            name = strAccueil; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "STR_ACTIVITE"; 
+            externalType = VARCHAR2; 
+            name = strActivite; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "STR_AFFICHAGE"; 
+            externalType = VARCHAR2; 
+            name = strAffichage; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 120; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "STR_ORIGINE"; 
+            externalType = VARCHAR2; 
+            name = strOrigine; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 80; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "STR_PHOTO"; 
+            externalType = VARCHAR2; 
+            name = strPhoto; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "STR_RECHERCHE"; 
+            externalType = VARCHAR2; 
+            name = strRecherche; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 2000; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TAUX_ACC_TRAV"; 
+            externalType = VARCHAR2; 
+            name = tauxAccTrav; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TAUX_EXONERATION_TVA"; 
+            externalType = VARCHAR2; 
+            name = tauxExonerationTva; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TAUX_IR"; 
+            externalType = VARCHAR2; 
+            name = tauxIr; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TAUX_TRANSPORT"; 
+            externalType = VARCHAR2; 
+            name = tauxTransport; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 8; 
+        }, 
+        {
+            columnName = "TEM_COTIS_ASSEDIC"; 
+            externalType = VARCHAR2; 
+            name = temCotisAssedic; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_DADS"; 
+            externalType = VARCHAR2; 
+            name = temDads; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TEM_ETABLISSEMENT_PAYE"; 
+            externalType = VARCHAR2; 
+            name = temEtablissementPaye; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TEM_PLAFOND_REDUIT"; 
+            externalType = VARCHAR2; 
+            name = temPlafondReduit; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_SECTORISE"; 
+            externalType = VARCHAR2; 
+            name = temSectorise; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_SOUMIS_TVA"; 
+            externalType = VARCHAR2; 
+            name = temSoumisTva; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = VARCHAR2; 
+            name = temValide; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "TVA_INTRACOM"; 
+            externalType = VARCHAR2; 
+            name = tvaIntracom; 
+            valueClassName = NSString; 
+            valueType = S; 
+            width = 13; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cAcademie, 
+        cNaf, 
+        cNic, 
+        cRne, 
+        cStatutJuridique, 
+        cStructure, 
+        cStructurePere, 
+        cTypeDecisionStr, 
+        cTypeEtablissemen, 
+        cTypeStructure, 
+        dateDecision, 
+        dateFermeture, 
+        dateOuverture, 
+        dCreation, 
+        dModification, 
+        etabCodurssaf, 
+        etabNumurssaf, 
+        export, 
+        gencod, 
+        grpAcces, 
+        grpAlias, 
+        grpApeCode, 
+        grpApeCodeBis, 
+        grpApeCodeComp, 
+        grpCa, 
+        grpCapital, 
+        grpCentreDecision, 
+        grpEffectifs, 
+        grpFonction1, 
+        grpFonction2, 
+        grpFormeJuridique, 
+        grpMotsClefs, 
+        grpOwner, 
+        grpResponsabilite, 
+        grpResponsable, 
+        grpTrademarque, 
+        grpWebmestre, 
+        lcStructure, 
+        llStructure, 
+        moyenneAge, 
+        numAssedic, 
+        numCnracl, 
+        numIrcantec, 
+        numRafp, 
+        orgOrdre, 
+        persId, 
+        persIdCreation, 
+        persIdModification, 
+        psecOrdre, 
+        refDecision, 
+        refExtComp, 
+        refExtCr, 
+        refExtEtab, 
+        risqueAccTrav, 
+        siren, 
+        siret, 
+        strAccueil, 
+        strActivite, 
+        strAffichage, 
+        strOrigine, 
+        strPhoto, 
+        strRecherche, 
+        tauxAccTrav, 
+        tauxExonerationTva, 
+        tauxIr, 
+        tauxTransport, 
+        temCotisAssedic, 
+        temDads, 
+        temEtablissementPaye, 
+        temPlafondReduit, 
+        temSectorise, 
+        temSoumisTva, 
+        temValide, 
+        tvaIntracom
+    ); 
+    className = "utt.rec.projet.server.metier.grhum.EOStructureUlr"; 
+    classProperties = (
+        cAcademie, 
+        cNaf, 
+        cNic, 
+        cRne, 
+        cStatutJuridique, 
+        cStructure, 
+        cTypeDecisionStr, 
+        cTypeEtablissemen, 
+        cTypeStructure, 
+        dateDecision, 
+        dateFermeture, 
+        dateOuverture, 
+        dCreation, 
+        dModification, 
+        etabCodurssaf, 
+        etabNumurssaf, 
+        export, 
+        gencod, 
+        grpAcces, 
+        grpAlias, 
+        grpApeCode, 
+        grpApeCodeBis, 
+        grpApeCodeComp, 
+        grpCa, 
+        grpCapital, 
+        grpCentreDecision, 
+        grpEffectifs, 
+        grpFonction1, 
+        grpFonction2, 
+        grpFormeJuridique, 
+        grpMotsClefs, 
+        grpResponsabilite, 
+        grpResponsable, 
+        grpTrademarque, 
+        grpWebmestre, 
+        lcStructure, 
+        llStructure, 
+        moyenneAge, 
+        numAssedic, 
+        numCnracl, 
+        numIrcantec, 
+        numRafp, 
+        orgOrdre, 
+        persId, 
+        persIdCreation, 
+        persIdModification, 
+        psecOrdre, 
+        refDecision, 
+        refExtComp, 
+        refExtCr, 
+        refExtEtab, 
+        risqueAccTrav, 
+        siren, 
+        siret, 
+        strAccueil, 
+        strActivite, 
+        strAffichage, 
+        strOrigine, 
+        strPhoto, 
+        strRecherche, 
+        tauxAccTrav, 
+        tauxExonerationTva, 
+        tauxIr, 
+        tauxTransport, 
+        temCotisAssedic, 
+        temDads, 
+        temEtablissementPaye, 
+        temPlafondReduit, 
+        temSectorise, 
+        temSoumisTva, 
+        temValide, 
+        toAxes, 
+        toPersonne, 
+        toPersonnels, 
+        toPfmateriels, 
+        toRepartAssociations, 
+        toRepartStructures, 
+        toRepartTypeGroupes, 
+        toResponsable, 
+        toStructurePere, 
+        toStructures, 
+        toVresponsableEquipeRecherche, 
+        tvaIntracom
+    ); 
+    externalName = "GRHUM.STRUCTURE_ULR"; 
+    name = EOStructureUlr; 
+    primaryKeyAttributes = (cStructure); 
+    relationships = (
+        {
+            destination = EOAxerec; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toAxes; 
+        }, 
+        {
+            destination = EOPersonne; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = persId; sourceAttribute = persId; }); 
+            name = toPersonne; 
+        }, 
+        {
+            destination = EOPersonnelUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toPersonnels; 
+        }, 
+        {
+            destination = EOPfmateriel; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStrcuture; sourceAttribute = cStructure; }); 
+            name = toPfmateriels; 
+        }, 
+        {
+            destination = EORepartAssociation; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toRepartAssociations; 
+        }, 
+        {
+            destination = EORepartStructure; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toRepartStructures; 
+        }, 
+        {
+            destination = EORepartTypeGroupe; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toRepartTypeGroupes; 
+        }, 
+        {
+            destination = EOIndividuUlr; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = noIndividu; sourceAttribute = grpResponsable; }); 
+            name = toResponsable; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructurePere; }); 
+            name = toStructurePere; 
+        }, 
+        {
+            destination = EOStructureUlr; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructurePere; sourceAttribute = cStructure; }); 
+            name = toStructures; 
+        }, 
+        {
+            destination = EOVresponsableEquipeRecherche; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = cStructure; sourceAttribute = cStructure; }); 
+            name = toVresponsableEquipeRecherche; 
+        }
+    ); 
+}

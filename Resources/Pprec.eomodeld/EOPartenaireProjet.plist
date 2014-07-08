@@ -1,0 +1,59 @@
+{
+    attributes = (
+        {
+            columnName = "PARTPROJ_ID"; 
+            externalType = NUMBER; 
+            name = partprojid; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = "PROJET_ID"; 
+            externalType = NUMBER; 
+            name = projetId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = "TEM_VALIDE"; 
+            externalType = CHAR; 
+            name = temvalide; 
+            valueClassName = NSString; 
+            valueType = c; 
+            width = 1; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = "TYPPART_ID"; 
+            externalType = NUMBER; 
+            name = typpartId; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    attributesUsedForLocking = (partprojid, projetId, temvalide, typpartId); 
+    className = "utt.rec.projet.server.metier.admrec.EOPartenaireProjet"; 
+    classProperties = (projetId, temvalide, toPartenaire, toProjet, typpartId); 
+    externalName = "ADMREC.REPART_PARTENAIRE"; 
+    name = EOPartenaireProjet; 
+    primaryKeyAttributes = (partprojid); 
+    relationships = (
+        {
+            destination = EOTyppartenaire; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = typpartId; sourceAttribute = typpartId; }); 
+            name = toPartenaire; 
+        }, 
+        {
+            destination = EOPprec; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = projetId; sourceAttribute = projetId; }); 
+            name = toProjet; 
+        }
+    ); 
+}

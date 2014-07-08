@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailProblematique" pageWidth="793" pageHeight="535" orientation="Landscape" columnWidth="793" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bc572456-0103-4a47-b5c7-5600d0b8c450">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="69"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="ProblmProjet" class="java.lang.String">
+		<fieldDescription><![CDATA[ProblmProjet]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a581d64a-1edf-49e5-9c03-8f94e4a44e86" x="0" y="2" width="78" height="18">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Problématique]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8bdcd175-b4e8-472b-a5f3-8f53e75c7aa6" key="bar-5" positionType="Float" x="65" y="17" width="504" height="1">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="181864b9-cdcd-4292-8ccc-fe906ea41ead" mode="Opaque" x="0" y="0" width="569" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" backcolor="#F0F0F0"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ProblmProjet}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

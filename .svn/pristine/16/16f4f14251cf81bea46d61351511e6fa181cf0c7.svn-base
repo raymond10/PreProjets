@@ -1,0 +1,106 @@
+completionObserve : AjaxObserveField {
+    //observeFieldID = "completionOneId";
+    fullSubmit = true;
+    elementName = "span";
+    action = submitted;
+    observeDelay = "0.3";
+    updateContainerID = ^updateContainerID;
+	onFailure = myApp.onFailureMessage;
+	//onComplete = "function() {keywordUpdate();}";
+}
+
+completion : CktlAjaxAutoComplete {
+    id = "completionOneId";
+    list = currentsKeywords;
+    value = wordValue;
+    item = currentKeyword;
+    displayString = currentKeyword.refidxval;
+    selection = selectKeyword;
+	//autoSelect = true;
+    class = "autocompletefield";
+    minChars = 2;
+    //onComplete = "function (oC) {Element.hide('busy')}";
+}
+
+completionObserve1 : AjaxObserveField {    
+    //observeFieldID = "completionTwoId";
+    fullSubmit = true;
+    elementName = "span";
+    action = submitted1;
+    observeDelay = "0.3";
+    updateContainerID = ^updateContainerID;
+	onFailure = myApp.onFailureMessage;
+	//onComplete = "function() {keywordUpdate();}";
+}
+
+completion1 : CktlAjaxAutoComplete {
+    id = "completionTwoId";
+    list = currentsKeywords1;
+    value = wordValue1;
+    item = currentKeyword1;
+    displayString = currentKeyword1.refidxval;
+    selection = selectKeyword1;
+    class = "autocompletefield";
+	//autoSelect = true;
+    minChars = 2;
+    //onComplete = "function (oC) {Element.hide('busy')}";
+}
+
+completionObserve2 : AjaxObserveField {    
+    //observeFieldID = "completionThreeId";
+    fullSubmit = true;
+    elementName = "span";
+    action = submitted2;
+    observeDelay = "0.3";
+    updateContainerID = ^updateContainerID;
+	onFailure = myApp.onFailureMessage;
+	//onComplete = "function() {keywordUpdate();}";
+}
+
+completion2 : CktlAjaxAutoComplete {
+    id = "completionThreeId";
+    list = currentsKeywords2;
+    value = wordValue2;
+    item = currentKeyword2;
+    displayString = currentKeyword2.refidxval;
+    selection = selectKeyword2;
+    class = "autocompletefield";
+    minChars = 2;
+    //onComplete = "function (oC) {Element.hide('busy')}";
+}
+
+addKeyword : CktlAjaxSubmitButton {
+	name = "keywordUpdate";
+	text = "Ajouter mot clef";
+	action = keywordUpdate;
+	type = "etoile";
+	title = "Ajouter le mot clef à la liste";
+    updateContainerID = ^updateContainerID;
+    //formName = ^formID;
+	//onComplete = "function() {keywordUpdate();}";
+}
+
+NouveauMotClef : CktlAjaxButton {
+	dialogIDForOpen = motclefDialogId;
+    text = "Créer un mot clef";
+    title = "Nouveau mot clef";
+    type = "new";
+    enabled = peutNouveauMotClef;
+    //showBusyImage = true;
+}
+
+DialogNouveauMotClef : CktlAjaxWindow {
+	id = motclefDialogId;
+    action = openAjouterMotClef;
+    width = 400;
+    height = 300;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    onClose = refreshKeywords;
+    resizable = false;
+    closable = false;
+    closeUpdateContainerID = ^updateContainerID;
+}
+
+//<wo:AjaxUpdateContainer id = "keyword">
+//</wo:AjaxUpdateContainer>

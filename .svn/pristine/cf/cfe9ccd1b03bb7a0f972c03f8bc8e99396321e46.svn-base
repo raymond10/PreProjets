@@ -1,0 +1,819 @@
+/**
+ * 
+ */
+package utt.rec.projet.server.components.controler;
+
+import org.cocktail.fwkcktljefyadmin.common.metier.EOUtilisateur;
+
+import utt.rec.projet.server.EnseignantApplicationUser;
+import utt.rec.projet.server.PPrecApplicationUser;
+import utt.rec.projet.server.Session;
+import utt.rec.projet.server.components.Accueil;
+import utt.rec.projet.server.components.Commentaire;
+import utt.rec.projet.server.components.EditNextProject;
+import utt.rec.projet.server.components.EditProject;
+import utt.rec.projet.server.components.Teams;
+import utt.rec.projet.server.components.ViserProject;
+import utt.rec.projet.server.exception.FactoryException;
+import utt.rec.projet.server.metier.admrec.EOCommentaires;
+import utt.rec.projet.server.metier.admrec.EOEquipes;
+import utt.rec.projet.server.metier.admrec.EOPersonnel;
+import utt.rec.projet.server.metier.admrec.EOPosterh;
+import utt.rec.projet.server.metier.admrec.EOPprec;
+import utt.rec.projet.server.metier.admrec.EOResmat;
+import utt.rec.projet.server.metier.admrec.EOTypref;
+import utt.rec.projet.server.metier.grhum.EOIndividuUlr;
+import utt.rec.projet.server.metier.grhum.EOStructureUlr;
+import utt.rec.projet.server.process.ProcessProjet;
+import utt.rec.projet.server.utils.manufactory.ManufactoryCommentaire;
+
+import com.webobjects.appserver.WOActionResults;
+import com.webobjects.appserver.WODisplayGroup;
+import com.webobjects.eocontrol.EOEditingContext;
+import com.webobjects.eocontrol.EOSortOrdering;
+import com.webobjects.foundation.NSArray;
+import com.webobjects.foundation.NSMutableArray;
+import com.webobjects.foundation.NSMutableDictionary;
+import com.webobjects.foundation.NSTimestamp;
+
+import er.extensions.appserver.ERXDisplayGroup;
+import er.extensions.appserver.ERXRedirect;
+import er.extensions.eof.ERXEC;
+
+/**
+ * @author Raymond NANEON
+ * 
+ */
+@SuppressWarnings("all")
+public class EditNextProjectCtrl extends ModuleCtrl<EditNextProject> {
+
+	private EOEditingContext edc;
+	private Session sess;
+	private WODisplayGroup personnelDg;
+	private WODisplayGroup postesDg;
+	private WODisplayGroup materielsDg;
+	private WODisplayGroup nouveauMaterielDg;
+	private EOPersonnel personnel;
+	private EOPosterh poste;
+	private EOResmat materiel;
+	private EOResmat nouveauMateriel;
+	private NSArray<EOEquipes> otherList;
+	private NSMutableArray poles;
+	//
+	private EOPprec projet;
+
+	/**
+	 * @param component
+	 */
+	public EditNextProjectCtrl(EditNextProject component) {
+		super(component);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @return the projet
+	 */
+	public EOPprec projet() {
+		if (projet == null)
+			projet = wocomponent().myProjet();
+		return projet;
+	}
+
+	/**
+	 * @param projet
+	 *            the projet to set
+	 */
+	public void setProjet(EOPprec projet) {
+		this.projet = projet;
+	}
+
+	/**
+	 * @return the edc
+	 */
+	public EOEditingContext edc() {
+		if (edc == null)
+			edc = wocomponent().edc();
+		return edc;
+	}
+
+	/**
+	 * @param edc
+	 *            the edc to set
+	 */
+	public void setEdc(EOEditingContext edc) {
+		this.edc = edc;
+	}
+
+	/**
+	 * @return the sess
+	 */
+	public Session sess() {
+		if (sess == null)
+			sess = wocomponent().mySession();
+		return sess;
+	}
+
+	/**
+	 * @param sess
+	 *            the sess to set
+	 */
+	public void setSess(Session sess) {
+		this.sess = sess;
+	}
+
+	/**
+	 * @return the poles
+	 */
+	public NSMutableArray poles() {
+		if (poles == null)
+			poles = new NSMutableArray();
+		return poles;
+	}
+
+	/**
+	 * @param poles
+	 *            the poles to set
+	 */
+	public void setPoles(NSMutableArray poles) {
+		this.poles = poles;
+	}
+
+	/**
+	 * @return the otherList
+	 */
+	public NSArray<EOEquipes> otherList() {
+		if (otherList == null)
+			otherList = new NSArray<EOEquipes>();
+		return otherList;
+	}
+
+	/**
+	 * @param otherList
+	 *            the otherList to set
+	 */
+	public void setOtherList(NSArray<EOEquipes> otherList) {
+		this.otherList = otherList;
+	}
+
+	// Action
+	public void personnelProjet() {
+		personnelDg().setNumberOfObjectsPerBatch(5);
+		personnelDg().setObjectArray(sess().selectedrhs().immutableClone());
+	}
+
+	public void posteProjet() {
+		postesDg().setNumberOfObjectsPerBatch(5);
+		postesDg().setObjectArray(sess().selectedRecrue().immutableClone());
+	}
+
+	public void materielProjet() {
+		materielsDg().setNumberOfObjectsPerBatch(5);
+		materielsDg().setObjectArray(
+				sess().selectedMaterielExistant().immutableClone());
+	}
+
+	public void nouveauMaterielProjet() {
+		nouveauMaterielDg().setNumberOfObjectsPerBatch(5);
+		nouveauMaterielDg().setObjectArray(
+				sess().selectedMaterielAcquis().immutableClone());
+	}
+
+	public WOActionResults previousProject() {
+		EditProject previousPage = (EditProject) wocomponent().pageWithName(
+				EditProject.class.getName());
+		ERXRedirect redirect = (ERXRedirect) wocomponent().pageWithName(
+				ERXRedirect.class.getName());
+		redirect.setComponent(previousPage);
+		return redirect;
+	}
+
+	public WOActionResults openCommentaire() {
+		if (sess().getBlocCom() == null)
+			sess().setBlocCom("Aucun commentaire");
+		Teams page = (Teams) wocomponent().pageWithName(Teams.class.getName());
+		return page;
+	}
+
+	// End Action
+
+	// ---> Management of dynamic table page <--- //
+
+	/** Sort on dynamic table **/
+	@SuppressWarnings("unused")
+	private void setTriPers(String name) {
+		NSArray<EOSortOrdering> oldArray = personnelDg().sortOrderings();
+		EOSortOrdering oldOrdering = null;
+		EOSortOrdering newOrdering = null;
+		if (oldArray != null) {
+			oldOrdering = oldArray.lastObject();
+		}
+		if (oldOrdering != null && oldOrdering.key().equals(name)) {
+			newOrdering = EOSortOrdering
+					.sortOrderingWithKey(
+							name,
+							oldOrdering.selector() == EOSortOrdering.CompareDescending ? EOSortOrdering.CompareAscending
+									: EOSortOrdering.CompareDescending);
+		} else {
+			newOrdering = EOSortOrdering.sortOrderingWithKey(name,
+					EOSortOrdering.CompareAscending);
+		}
+		personnelDg()
+				.setSortOrderings(new NSArray<EOSortOrdering>(newOrdering));
+		personnelDg().qualifyDisplayGroup();
+	}
+
+	private void setSorOrdPers(String name) {
+		NSArray<EOSortOrdering> oldArray = personnelDg().sortOrderings();
+		EOSortOrdering oldOrdering = null;
+		EOSortOrdering newOrdering = null;
+		if (oldArray != null) {
+			oldOrdering = oldArray.lastObject();
+		}
+		if (oldOrdering != null && oldOrdering.key().equals(name)) {
+			newOrdering = EOSortOrdering
+					.sortOrderingWithKey(
+							name,
+							oldOrdering.selector() == EOSortOrdering.CompareDescending ? EOSortOrdering.CompareAscending
+									: EOSortOrdering.CompareDescending);
+		} else {
+			newOrdering = EOSortOrdering.sortOrderingWithKey(name,
+					EOSortOrdering.CompareAscending);
+		}
+		personnelDg()
+				.setSortOrderings(new NSArray<EOSortOrdering>(newOrdering));
+		personnelDg().qualifyDisplayGroup();
+	}
+
+	private void setSorOrdProfil(String name) {
+		NSArray<EOSortOrdering> oldArray = postesDg().sortOrderings();
+		EOSortOrdering oldOrdering = null;
+		EOSortOrdering newOrdering = null;
+		if (oldArray != null) {
+			oldOrdering = oldArray.lastObject();
+		}
+		if (oldOrdering != null && oldOrdering.key().equals(name)) {
+			newOrdering = EOSortOrdering
+					.sortOrderingWithKey(
+							name,
+							oldOrdering.selector() == EOSortOrdering.CompareDescending ? EOSortOrdering.CompareAscending
+									: EOSortOrdering.CompareDescending);
+		} else {
+			newOrdering = EOSortOrdering.sortOrderingWithKey(name,
+					EOSortOrdering.CompareAscending);
+		}
+		postesDg().setSortOrderings(new NSArray<EOSortOrdering>(newOrdering));
+		postesDg().qualifyDisplayGroup();
+	}
+
+	private void sorOrdMatPoles(String name) {
+		NSArray<EOSortOrdering> oldArray = materielsDg().sortOrderings();
+		EOSortOrdering oldOrdering = null;
+		EOSortOrdering newOrdering = null;
+		if (oldArray != null) {
+			oldOrdering = oldArray.lastObject();
+		}
+		if (oldOrdering != null && oldOrdering.key().equals(name)) {
+			newOrdering = EOSortOrdering
+					.sortOrderingWithKey(
+							name,
+							oldOrdering.selector() == EOSortOrdering.CompareDescending ? EOSortOrdering.CompareAscending
+									: EOSortOrdering.CompareDescending);
+		} else {
+			newOrdering = EOSortOrdering.sortOrderingWithKey(name,
+					EOSortOrdering.CompareAscending);
+		}
+		materielsDg()
+				.setSortOrderings(new NSArray<EOSortOrdering>(newOrdering));
+		materielsDg().qualifyDisplayGroup();
+	}
+
+	private void sorOrdNewMatPoles(String name) {
+		NSArray<EOSortOrdering> oldArray = nouveauMaterielDg().sortOrderings();
+		EOSortOrdering oldOrdering = null;
+		EOSortOrdering newOrdering = null;
+		if (oldArray != null) {
+			oldOrdering = oldArray.lastObject();
+		}
+		if (oldOrdering != null && oldOrdering.key().equals(name)) {
+			newOrdering = EOSortOrdering
+					.sortOrderingWithKey(
+							name,
+							oldOrdering.selector() == EOSortOrdering.CompareDescending ? EOSortOrdering.CompareAscending
+									: EOSortOrdering.CompareDescending);
+		} else {
+			newOrdering = EOSortOrdering.sortOrderingWithKey(name,
+					EOSortOrdering.CompareAscending);
+		}
+		nouveauMaterielDg().setSortOrderings(
+				new NSArray<EOSortOrdering>(newOrdering));
+		nouveauMaterielDg().qualifyDisplayGroup();
+	}
+
+	public void sortByPole() {
+		setSorOrdPers("poleRhLib");
+	}
+
+	public void sortByNom() {
+		setSorOrdPers("personRhLib");
+	}
+
+	public void sortByRecruePole() {
+		setSorOrdProfil("poleRecrueLib");
+	}
+
+	public void sortByProfil() {
+		setSorOrdProfil("poste");
+	}
+
+	public void sortByMatPole() {
+		sorOrdMatPoles("libPole");
+	}
+
+	public void sortByMatLib() {
+		sorOrdMatPoles("libMat");
+	}
+
+	public void sortByNewMatPole() {
+		sorOrdNewMatPoles("poleLib");
+	}
+
+	public void sortByNewMatLib() {
+		sorOrdNewMatPoles("matLib");
+	}
+
+	/** Next and previous on the dynamic table **/
+	public boolean batchView() {
+		return personnelDg().allObjects().count() > 5;
+	}
+
+	public void nextBatch() {
+		personnelDg().displayNextBatch();
+		personnelDg().setSelectedObject(null);
+	}
+
+	public void previousBatch() {
+		personnelDg().displayPreviousBatch();
+		personnelDg().setSelectedObject(null);
+	}
+
+	public void nextBatch1() {
+		postesDg().displayNextBatch();
+		postesDg().setSelectedObject(null);
+	}
+
+	public void previousBatch1() {
+		postesDg().displayPreviousBatch();
+		postesDg().setSelectedObject(null);
+	}
+	
+	public boolean batchView1() {
+		return postesDg().allObjects().count() > 5;
+	}
+
+	public void nextBatch2() {
+		materielsDg().displayNextBatch();
+		materielsDg().setSelectedObject(null);
+	}
+
+	public void previousBatch2() {
+		materielsDg().displayPreviousBatch();
+		materielsDg().setSelectedObject(null);
+	}
+	
+	public boolean batchView2() {
+		return materielsDg().allObjects().count() > 5;
+	}
+
+	public void nextBatch3() {
+		nouveauMaterielDg().displayNextBatch();
+		nouveauMaterielDg().setSelectedObject(null);
+	}
+
+	public void previousBatch3() {
+		nouveauMaterielDg().displayPreviousBatch();
+		nouveauMaterielDg().setSelectedObject(null);
+	}
+	
+	public boolean batchView3() {
+		return nouveauMaterielDg().allObjects().count() > 5;
+	}
+
+	// End management of dynamic tables
+
+	// Display Groups
+	/**
+	 * @return the personnelDg
+	 */
+	public WODisplayGroup personnelDg() {
+		if (personnelDg == null)
+			personnelDg = new WODisplayGroup();
+		return personnelDg;
+	}
+
+	/**
+	 * @param personnelDg
+	 *            the personnelDg to set
+	 */
+	public void setPersonnelDg(WODisplayGroup personnelDg) {
+		this.personnelDg = personnelDg;
+	}
+
+	/**
+	 * @return the postesDg
+	 */
+	public WODisplayGroup postesDg() {
+		if (postesDg == null)
+			postesDg = new WODisplayGroup();
+		return postesDg;
+	}
+
+	/**
+	 * @param postesDg
+	 *            the postesDg to set
+	 */
+	public void setPostesDg(WODisplayGroup postesDg) {
+		this.postesDg = postesDg;
+	}
+
+	/**
+	 * @return the materielsDg
+	 */
+	public WODisplayGroup materielsDg() {
+		if (materielsDg == null)
+			materielsDg = new WODisplayGroup();
+		return materielsDg;
+	}
+
+	/**
+	 * @param materielsDg
+	 *            the materielsDg to set
+	 */
+	public void setMaterielsDg(WODisplayGroup materielsDg) {
+		this.materielsDg = materielsDg;
+	}
+
+	/**
+	 * @return the nouveauMaterielDg
+	 */
+	public WODisplayGroup nouveauMaterielDg() {
+		if (nouveauMaterielDg == null)
+			nouveauMaterielDg = new WODisplayGroup();
+		return nouveauMaterielDg;
+	}
+
+	/**
+	 * @param nouveauMaterielDg
+	 *            the nouveauMaterielDg to set
+	 */
+	public void setNouveauMaterielDg(WODisplayGroup nouveauMaterielDg) {
+		this.nouveauMaterielDg = nouveauMaterielDg;
+	}
+
+	// End Display Groups
+
+	// Item
+
+	/**
+	 * @return the personnel
+	 */
+	public EOPersonnel getPersonnel() {
+		return personnel;
+	}
+
+	/**
+	 * @param personnel
+	 *            the personnel to set
+	 */
+	public void setPersonnel(EOPersonnel personnel) {
+		this.personnel = personnel;
+	}
+
+	/**
+	 * @return the poste
+	 */
+	public EOPosterh getPoste() {
+		return poste;
+	}
+
+	/**
+	 * @param poste
+	 *            the poste to set
+	 */
+	public void setPoste(EOPosterh poste) {
+		this.poste = poste;
+	}
+
+	/**
+	 * @return the materiel
+	 */
+	public EOResmat getMateriel() {
+		return materiel;
+	}
+
+	/**
+	 * @param materiel
+	 *            the materiel to set
+	 */
+	public void setMateriel(EOResmat materiel) {
+		this.materiel = materiel;
+	}
+
+	/**
+	 * @return the nouveauMateriel
+	 */
+	public EOResmat getNouveauMateriel() {
+		return nouveauMateriel;
+	}
+
+	/**
+	 * @param nouveauMateriel
+	 *            the nouveauMateriel to set
+	 */
+	public void setNouveauMateriel(EOResmat nouveauMateriel) {
+		this.nouveauMateriel = nouveauMateriel;
+	}
+
+	// End Item
+
+	/**
+	 * Droit bouton viser, valider, traiter, voir visa
+	 * 
+	 */
+
+	// voir le visa des responsables
+	public boolean voirVisaDisabled() {
+		Boolean seeChecked = null;
+		EOPprec projet = projet();
+		NSArray<EOCommentaires> comm = EOCommentaires.commentairesPourProjet(
+				edc(), Integer.valueOf(projet.primaryKey()));
+		seeChecked = (comm.count() > 0 && projet.toEtat().typrefnat()
+				.equals(EOTypref.VAR_ETAT_REFUSER))
+				|| (comm.count() > 0 && projet.toEtat().typrefnat()
+						.equals(EOTypref.VAR_ETAT_VALIDER))
+				|| (comm.count() > 0 && projet.toEtat().typrefnat()
+				        .equals(EOTypref.VAR_ETAT_TRAITER));
+		return seeChecked;
+	}
+
+	// activation/desactivation link viser et valider
+	public boolean viserProjectDisabled() {
+		EOStructureUlr pole = EOStructureUlr.structurePourcStructure(edc(),
+				projet().poleCompetence());
+		EOStructureUlr principal = EOStructureUlr.structurePourcStructure(
+				edc(), projet().equipePrincipale());
+		Boolean responsableEquipe = null;
+		Boolean directeurPole = null;
+		// Programme d'accueil principal
+		responsableEquipe = wocomponent().estRepPrgAc()
+				&& (principal.grpResponsable() != null && principal
+						.grpResponsable().equals(wocomponent().noIndividu()));
+		// Directeur de pole du porteur
+		directeurPole = wocomponent().estDrtPole()
+				&& (pole.grpResponsable() != null && pole.grpResponsable()
+						.equals(wocomponent().noIndividu()));
+		/**
+		 * // Programme d'accueil secondaire Boolean responsable2ndEquipe =
+		 * null; if (otherList().count() != 0) { for (int i = 0; i <
+		 * otherList().count(); i++) { EOEquipes eqp =
+		 * otherList().objectAtIndex(i); EOStructureUlr str =
+		 * EOStructureUlr.structurePourcStructure(ERXEC.newEditingContext(),
+		 * eqp.cStructure()); if (str.grpResponsable() != null &&
+		 * str.grpResponsable().equals(wocomponent().noIndividu())) {
+		 * responsable2ndEquipe = wocomponent().estRepPrgAc() &&
+		 * str.grpResponsable() .equals(wocomponent().noIndividu()); } } }
+		 **/
+		Boolean visa = wocomponent().peutViserProjet()
+				&& projet().toEtat().typrefnat()
+						.equals(EOTypref.VAR_ETAT_SOUMETTRE);
+		Boolean viser = (visa && (responsableEquipe || directeurPole))
+				|| (wocomponent().droitTout() && projet().toEtat().typrefnat()
+						.equals(EOTypref.VAR_ETAT_SOUMETTRE));
+		return viser;
+	}
+
+	// activation/desactivation bouton valider
+	public boolean validerProjectDisabled() {
+		Boolean estVise = projet().toEtat().typrefnat()
+				.equals(EOTypref.VAR_ETAT_VISER);
+		Boolean valider = (estVise && wocomponent().estMembreIcd() && wocomponent()
+				.peutValiderProjet()) || (estVise && wocomponent().droitTout());
+		return valider;
+	}
+
+	// activation/desactivation bouton traiter
+	public boolean traiterProjectDisabled() {
+		boolean estValide = projet().toEtat().typrefnat()
+				.equals(EOTypref.VAR_ETAT_VALIDER);
+		Boolean valider = wocomponent().cCCR() && estValide;
+		return false;
+	}
+
+	/**
+	 * Fin droit bouton
+	 */
+	/*
+	 * bouton viser projet
+	 */
+	public WOActionResults viserProjet() {
+		uPole();
+		sess().setMyPoles(poles());
+		// if (sess().poles().count() == 0 )
+		// sess().setPoles(poles());
+		// sess().getPoles().setArray(poles);
+		ManufactoryCommentaire mfc = new ManufactoryCommentaire(edc(), true);
+		sess().setLeProjetEnCours(projet);
+		ViserProject nextPage = (ViserProject) wocomponent().pageWithName(
+				ViserProject.class.getName());
+		nextPage.setCommentairePrincipal(mfc.creerCommentaireVierge(
+				ERXEC.newEditingContext(), wocomponent().persId()));
+		nextPage.setCommentaireSecondaire(mfc.creerCommentaireVierge(
+				ERXEC.newEditingContext(), wocomponent().persId()));
+		nextPage.setCommentaireDrt(mfc.creerCommentaireVierge(
+				ERXEC.newEditingContext(), wocomponent().persId()));
+		ERXRedirect redirect = (ERXRedirect) wocomponent().pageWithName(
+				ERXRedirect.class.getName());
+		sess().setIndexModuleActifGestionProjet(null);
+		redirect.setComponent(nextPage);
+		return redirect;
+	}
+
+	/*
+	 * bouton valider projet
+	 */
+	public WOActionResults validerProjet() {
+		uPole();
+		sess().setMyPoles(poles());
+		// if (sess().poles().count() == 0)
+		// sess().setPoles(poles());
+		// sess().setLeProjetEnCours(projet);
+		ViserProject nextPage = (ViserProject) wocomponent().pageWithName(
+				ViserProject.class.getName());
+		ERXRedirect redirect = (ERXRedirect) wocomponent().pageWithName(
+				ERXRedirect.class.getName());
+		// ValidProject nextPage = (ValidProject)
+		// wocomponent().pageWithName(ValidProject.class.getName());
+		sess().setIndexModuleActifGestionProjet(null);
+		redirect.setComponent(nextPage);
+		return redirect;
+	}
+
+	/*
+	 * bouton traiter projet
+	 */
+	public WOActionResults traiterProjet() {
+		ERXRedirect redirect = (ERXRedirect) wocomponent().pageWithName(
+				ERXRedirect.class.getName());
+		EOPprec projet = projet();
+		try {
+			EOEditingContext ec = projet.editingContext();
+			EOTypref traiter = EOTypref.fetchTraiter(ec).lastObject();
+			projet.setToEtatRelationship(traiter);
+			projet.setToEtat(traiter);
+			projet.setMajdate(new NSTimestamp());
+			//ProcessProjet.enregistrer(sess().dataBus(), edc(), projet);
+			if (ec.hasChanges())
+				ec.saveChanges();
+			sess().addSimpleInfoMessage(null, "Traitement Enregistré");
+			//Accueil home = (Accueil) wocomponent().pageWithName(
+				//	Accueil.class.getName());
+			redirect.setComponent(wocomponent().home());
+		} catch (FactoryException e) {
+			String alertMessage = e.getMessageFormatte();
+			EditNextProject back = (EditNextProject) wocomponent()
+					.pageWithName(EditNextProject.class.getName());
+			sess().setAlertMessage(alertMessage);
+			redirect.setComponent(back);
+			if (e.isBloquant()) {
+				if (e.isInformatif()) {
+					// Exception contenant un message d'information pour
+					// l'utilisateur
+					sess().setAlertMessage(alertMessage);
+				} else {
+					sess().setAlertMessage(e.getLocalizedMessage());
+					e.printStackTrace();
+					throw e;
+				}
+			} else {
+				sess().setAlertMessage(alertMessage);
+			}
+			sess().setFiltreProjetFacade(null);
+		} catch (RuntimeException e1) {
+			EditNextProject back = (EditNextProject) wocomponent()
+					.pageWithName(EditNextProject.class.getName());
+			redirect.setComponent(back);
+			sess().setAlertMessage(e1.getMessage());
+			e1.printStackTrace();
+			throw e1;
+		}
+		sess().resetAll();
+		return redirect;
+	}
+
+	public String nomPrenom() {
+		String afficher = "NON RENSEIGNE";
+		EOPprec projet = projet();
+		try {
+			afficher = getPersonnel().toVrhcmval().nomPrenom();
+		} catch (Exception e) {
+			EOIndividuUlr Ec = EOIndividuUlr.individuPourNumero(edc, getPersonnel().noIndividu());
+			sess().addSimpleInfoMessage(
+					"Estimation des ressources humaines, Personnels impliqués",
+					Ec.fullname()
+							+ " n'est plus affecté(e) dans le pôle "
+							+ getPersonnel().nomStructure()
+							+ ". NON RENSEIGNE est affiché à la place");
+			e.printStackTrace();
+		}
+		return afficher;
+	}
+
+	public void autres(NSArray<EOEquipes> equipes) {
+		NSMutableArray<EOEquipes> List = new NSMutableArray<EOEquipes>();
+		if (equipes != null && equipes.count() != 0) {
+			for (int j = 0; equipes.count() > j; j++) {
+				List.addObject(equipes.objectAtIndex(j));
+			}
+			otherList = EOStructureUlr.C_STRUCTURE.isNot(
+					projet().equipePrincipale())
+					.filtered(List.immutableClone());
+		}
+	}
+
+	// Poles pour visa
+	protected void uPole() {
+		EOStructureUlr pole = EOStructureUlr.structurePourcStructure(
+				ERXEC.newEditingContext(), projet().poleCompetence());
+		EOStructureUlr principal = EOStructureUlr.structurePourcStructure(
+				ERXEC.newEditingContext(), projet().equipePrincipale());
+		if (pole.grpResponsable() != null && !poles().contains(pole) && !pole.lcStructure().equals("EXTERNES")) {
+			poles().addObject(pole);
+		}
+		
+		/*
+		// Si equipePrincipale est UMR/STMR validation de tous les responsables
+		// de pôle cités
+		if (principal.cStructure().equals(wocomponent().umrStmr().cStructure())) {
+			if (personnelDg().allObjects().count() != 0) {
+				for (int i = 0; i < personnelDg().allObjects().count(); i++) {
+					EOPersonnel pers = (EOPersonnel) personnelDg().allObjects()
+							.objectAtIndex(i);
+					EOStructureUlr polePers = EOStructureUlr
+							.structurePourcStructure(pers.editingContext(),
+									pers.cStructure());
+					if (!pole.cStructure().equals(polePers.cStructure()))
+						if (polePers.grpResponsable() != null
+								&& !poles().contains(polePers)) {
+							poles().addObject(polePers);
+						}
+				}
+			}
+
+			if (postesDg().allObjects().count() != 0) {
+				for (int i = 0; i < postesDg().allObjects().count(); i++) {
+					EOPosterh post = (EOPosterh) postesDg().allObjects()
+							.objectAtIndex(i);
+					EOStructureUlr polePost = EOStructureUlr
+							.structurePourcStructure(post.editingContext(),
+									post.cStructure());
+					if (!pole.cStructure().equals(polePost.cStructure()))
+						if (polePost.grpResponsable() != null
+								&& !poles().contains(polePost)) {
+							poles().addObject(polePost);
+						}
+				}
+			}
+
+			if (materielsDg().allObjects().count() != 0) {
+				for (int i = 0; i < materielsDg().allObjects().count(); i++) {
+					EOResmat matos = (EOResmat) materielsDg().allObjects()
+							.objectAtIndex(i);
+					EOStructureUlr poleMat = EOStructureUlr
+							.structurePourcStructure(matos.editingContext(),
+									matos.cStructure());
+					if (!pole.cStructure().equals(poleMat.cStructure()))
+						if (poleMat.grpResponsable() != null
+								&& !poles().contains(poleMat)) {
+							poles().addObject(poleMat);
+						}
+				}
+			}
+
+			if (nouveauMaterielDg().allObjects().count() != 0) {
+				for (int i = 0; i < nouveauMaterielDg().allObjects().count(); i++) {
+					EOResmat newMatos = (EOResmat) nouveauMaterielDg()
+							.allObjects().objectAtIndex(i);
+					EOStructureUlr poleNewMat = EOStructureUlr
+							.structurePourcStructure(newMatos.editingContext(),
+									newMatos.cStructure());
+					if (!pole.cStructure().equals(poleNewMat.cStructure()))
+						if (poleNewMat.grpResponsable() != null
+								&& !poles().contains(poleNewMat)) {
+							poles().addObject(poleNewMat);
+						}
+				}
+			}
+		}
+		*/
+	}
+
+}

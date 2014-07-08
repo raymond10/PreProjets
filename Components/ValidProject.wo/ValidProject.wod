@@ -1,0 +1,12 @@
+wrap : Wrappers {
+	bodyId = "acceuil";
+	onloadJS = onloadJS;
+}
+
+etatList : WOPopUpButton {
+	list = mySession.filtreEtat.allObjects;
+	item = mySession.etatRepetition;
+	selection = mySession.selectedState;
+	displayString = mySession.etatRepetition.typreflib;
+	noSelectionString = " ";
+}

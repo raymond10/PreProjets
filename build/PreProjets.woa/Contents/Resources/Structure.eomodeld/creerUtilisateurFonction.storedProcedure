@@ -1,0 +1,33 @@
+{
+    arguments = (
+        {
+            allowsNull = Y; 
+            columnName = "01_utlOrdre"; 
+            externalType = NUMBER; 
+            name = "01_utlOrdre"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "02_fonOrdre"; 
+            externalType = NUMBER; 
+            name = "02_fonOrdre"; 
+            parameterDirection = 1; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "03_ufOrdre"; 
+            externalType = NUMBER; 
+            name = "03_ufOrdre"; 
+            parameterDirection = 2; 
+            valueClassName = NSNumber; 
+            valueType = i; 
+        }
+    ); 
+    externalName = "JEFY_ADMIN.API_UTILISATEUR.PRC_CREERUTILISATEURFONCTION"; 
+    name = creerUtilisateurFonction; 
+}
